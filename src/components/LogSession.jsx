@@ -61,7 +61,7 @@ function SetRow({ set, index, onChange, onDelete }) {
   )
 }
 
-function ExerciseCard({ exerciseId, sets, exercises, sessions, onChange, onRemove }) {
+function ExerciseCard({ exerciseId, sets, sessionNote, exercises, sessions, onChange, onNoteChange, onRemove }) {
   const [expanded, setExpanded] = useState(true)
   const exercise = exercises.find(e => e.id === exerciseId)
   const last = getLastSession(sessions, exerciseId)
@@ -97,9 +97,14 @@ function ExerciseCard({ exerciseId, sets, exercises, sessions, onChange, onRemov
             <span className="text-sm font-semibold text-white truncate">{exercise.name}</span>
           </div>
           {last && (
-            <p className="text-[11px] text-gray-500 mt-0.5 pl-4">
-              {formatDate(last.date)}: {last.sets.filter(s => s.weight != null).map(s => `${s.weight}×${s.reps}`).join(', ')}
-            </p>
+            <div className="mt-1.5 pl-4 flex items-center flex-wrap gap-1.5">
+              <span className="text-[10px] text-gray-600">{formatDate(last.date)}</span>
+              {last.sets.filter(s => s.weight != null).map((s, i) => (
+                <span key={i} className="text-[11px] bg-gray-700 text-gray-300 rounded-md px-2 py-0.5 font-mono">
+                  {s.weight}<span className="text-gray-500">×</span>{s.reps}
+                </span>
+              ))}
+            </div>
           )}
         </div>
         <div className="flex items-center gap-2 ml-2">
@@ -130,26 +135,117 @@ function ExerciseCard({ exerciseId, sets, exercises, sessions, onChange, onRemov
               />
             ))}
           </div>
-          <button
-            onClick={addSet}
-            className="mt-2 flex items-center gap-1.5 text-brand text-sm py-1"
-          >
-            <Plus size={15} /> Add Set
-          </button>
+          <div className="flex items-center justify-between mt-2">
+            <button
+              onClick={addSet}
+              className="flex items-center gap-1.5 text-brand text-sm py-1"
+            >
+              <Plus size={15} /> Add Set
+            </button>
+          </div>
+          <input
+            type="text"
+            value={sessionNote}
+            onChange={e => onNoteChange(e.target.value)}
+            placeholder="Note for this exercise…"
+            className="mt-2 w-full bg-gray-900 rounded-lg px-3 py-2 text-xs text-gray-300 placeholder-gray-600 outline-none"
+          />
         </div>
       )}
     </div>
   )
 }
 
-function AddExerciseSheet({ exercises, muscleGroups, existing, onAdd, onClose }) {
+const MUSCLE_ORDER = ['back', 'biceps', 'chest', 'triceps', 'shoulders', 'abs', 'legs']
+
+function CreateExerciseForm({ initialName, onCreated, onCancel, dispatch }) {
+  const [name, setName] = useState(initialName)
+  const [muscleGroup, setMuscleGroup] = useState('')
+  const [notes, setNotes] = useState('')
+
+  const submit = () => {
+    if (!name.trim() || !muscleGroup) return
+    const id = `custom_${name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_')}_${Date.now()}`
+    const exercise = { id, name: name.trim(), muscleGroup, movementGroupId: null, notes: notes.trim() }
+    dispatch({ type: 'ADD_EXERCISE', exercise })
+    onCreated(id)
+  }
+
+  return (
+    <div className="p-4">
+      <div className="flex items-center justify-between mb-4">
+        <span className="font-semibold text-white">New Exercise</span>
+        <button onClick={onCancel} className="text-gray-400"><X size={18} /></button>
+      </div>
+
+      <input
+        autoFocus
+        type="text"
+        value={name}
+        onChange={e => setName(e.target.value)}
+        placeholder="Exercise name"
+        className="w-full bg-gray-800 text-white rounded-xl px-4 py-3 text-sm outline-none mb-3 placeholder-gray-600"
+      />
+
+      <p className="text-xs text-gray-500 mb-2">Muscle group</p>
+      <div className="flex flex-wrap gap-2 mb-3">
+        {MUSCLE_ORDER.map(g => (
+          <button
+            key={g}
+            onClick={() => setMuscleGroup(g)}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+              muscleGroup === g ? 'border-brand text-brand bg-brand/10' : 'border-gray-700 text-gray-400'
+            }`}
+          >
+            {MUSCLE_LABELS[g]}
+          </button>
+        ))}
+      </div>
+
+      <input
+        type="text"
+        value={notes}
+        onChange={e => setNotes(e.target.value)}
+        placeholder="Notes (optional)"
+        className="w-full bg-gray-800 text-white rounded-xl px-4 py-3 text-sm outline-none mb-4 placeholder-gray-600"
+      />
+
+      <button
+        onClick={submit}
+        disabled={!name.trim() || !muscleGroup}
+        className="w-full bg-brand text-black font-semibold py-3.5 rounded-xl text-sm disabled:opacity-40"
+      >
+        Create & Add
+      </button>
+    </div>
+  )
+}
+
+function AddExerciseSheet({ exercises, muscleGroups, existing, onAdd, onClose, dispatch }) {
   const [query, setQuery] = useState('')
+  const [creating, setCreating] = useState(false)
+
   const filtered = exercises.filter(e => {
     const inGroup = muscleGroups.includes(e.muscleGroup)
     const notAdded = !existing.includes(e.id)
     const matchesSearch = e.name.toLowerCase().includes(query.toLowerCase())
     return notAdded && (query ? matchesSearch : inGroup || matchesSearch)
   })
+
+  if (creating) {
+    return (
+      <div className="fixed inset-0 bg-black/60 z-50 flex items-end" onClick={onClose}>
+        <div className="bg-gray-900 w-full rounded-t-3xl" onClick={e => e.stopPropagation()}>
+          <CreateExerciseForm
+            initialName={query}
+            dispatch={dispatch}
+            onCreated={id => { onAdd(id); onClose() }}
+            onCancel={() => setCreating(false)}
+          />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-end" onClick={onClose}>
@@ -185,9 +281,15 @@ function AddExerciseSheet({ exercises, muscleGroups, existing, onAdd, onClose })
               </div>
             </button>
           ))}
-          {filtered.length === 0 && (
-            <p className="text-center text-gray-600 text-sm py-8">No exercises found</p>
-          )}
+          <button
+            onClick={() => setCreating(true)}
+            className="w-full flex items-center gap-3 px-4 py-4 text-left active:bg-gray-800"
+          >
+            <span className="w-2 h-2 rounded-full bg-brand flex-shrink-0" />
+            <p className="text-sm text-brand">
+              {query ? `Create "${query}"` : 'Create new exercise…'}
+            </p>
+          </button>
         </div>
       </div>
     </div>
@@ -219,9 +321,14 @@ export default function LogSession({ splitDay, onDone, onBack }) {
   const [showAddSheet, setShowAddSheet] = useState(false)
   const [saving, setSaving] = useState(false)
   const [bodyWeight, setBodyWeight] = useState('')
+  const [sessionNotes, setSessionNotes] = useState('')
 
   const updateExercise = useCallback((exerciseId, sets) => {
     setDraft(d => d.map(e => e.exerciseId === exerciseId ? { ...e, sets } : e))
+  }, [])
+
+  const updateExerciseNote = useCallback((exerciseId, note) => {
+    setDraft(d => d.map(e => e.exerciseId === exerciseId ? { ...e, note } : e))
   }, [])
 
   const removeExercise = useCallback((exerciseId) => {
@@ -231,7 +338,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
   const addExercise = useCallback((exerciseId) => {
     const last = getLastSession(sessions, exerciseId)
     const sets = last?.sets.map(s => ({ ...s })) || [{ weight: null, reps: null, note: '' }]
-    setDraft(d => [...d, { exerciseId, sets }])
+    setDraft(d => [...d, { exerciseId, sets, note: '' }])
   }, [sessions])
 
   const save = () => {
@@ -245,7 +352,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
       muscleGroups,
       bodyWeight: bodyWeight ? parseFloat(bodyWeight) : null,
       exercises: filledExercises,
-      notes: '',
+      notes: sessionNotes.trim(),
     }
     dispatch({ type: 'ADD_SESSION', session })
     onDone()
@@ -307,9 +414,11 @@ export default function LogSession({ splitDay, onDone, onBack }) {
                   key={e.exerciseId}
                   exerciseId={e.exerciseId}
                   sets={e.sets}
+                  sessionNote={e.note || ''}
                   exercises={exercises}
                   sessions={sessions}
                   onChange={sets => updateExercise(e.exerciseId, sets)}
+                  onNoteChange={note => updateExerciseNote(e.exerciseId, note)}
                   onRemove={() => removeExercise(e.exerciseId)}
                 />
               ))}
@@ -326,9 +435,11 @@ export default function LogSession({ splitDay, onDone, onBack }) {
                 key={e.exerciseId}
                 exerciseId={e.exerciseId}
                 sets={e.sets}
+                sessionNote={e.note || ''}
                 exercises={exercises}
                 sessions={sessions}
                 onChange={sets => updateExercise(e.exerciseId, sets)}
+                onNoteChange={note => updateExerciseNote(e.exerciseId, note)}
                 onRemove={() => removeExercise(e.exerciseId)}
               />
             ))}
@@ -341,6 +452,14 @@ export default function LogSession({ splitDay, onDone, onBack }) {
         >
           <Plus size={18} /> Add Exercise
         </button>
+
+        <textarea
+          value={sessionNotes}
+          onChange={e => setSessionNotes(e.target.value)}
+          placeholder="Session notes (how you felt, anything unusual…)"
+          rows={2}
+          className="w-full bg-gray-800 rounded-2xl px-4 py-3 text-sm text-gray-300 placeholder-gray-600 outline-none resize-none mb-4"
+        />
       </div>
 
       {/* Save button */}
@@ -362,6 +481,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
           existing={draft.map(e => e.exerciseId)}
           onAdd={addExercise}
           onClose={() => setShowAddSheet(false)}
+          dispatch={dispatch}
         />
       )}
     </div>
