@@ -6,6 +6,37 @@ import LogSession from './components/LogSession'
 import Progress from './components/Progress'
 import History from './components/History'
 import Settings from './components/Settings'
+import { MUSCLE_COLORS } from './data/defaultData'
+
+function DayPicker({ onSelect }) {
+  const { state } = useStore()
+  const activeSplit = state.data.splits?.find(s => s.isActive) || state.data.splits?.[0]
+
+  return (
+    <div className="min-h-screen bg-gray-900 pb-24">
+      <div className="px-4 pt-12 pb-4">
+        <h1 className="text-2xl font-bold text-white mb-1">Log Workout</h1>
+        <p className="text-sm text-gray-500 mb-6">Pick today's session</p>
+        <div className="space-y-3">
+          {(activeSplit?.days || []).map(day => (
+            <button
+              key={day.id}
+              onClick={() => onSelect(day)}
+              className="w-full flex items-center gap-4 bg-gray-800 rounded-2xl px-5 py-4 text-left active:scale-95 transition-transform border border-gray-700"
+            >
+              <div className="flex gap-1.5">
+                {day.muscleGroups.map(g => (
+                  <span key={g} className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: MUSCLE_COLORS[g] }} />
+                ))}
+              </div>
+              <span className="text-base font-semibold text-white">{day.name}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function AppInner() {
   const { state } = useStore()
@@ -25,7 +56,7 @@ function AppInner() {
 
   const navigate = (s) => {
     setScreen(s)
-    setActiveSplitDay(null)
+    if (s !== 'log') setActiveSplitDay(null)
   }
 
   const startSession = (splitDay) => {
@@ -35,25 +66,22 @@ function AppInner() {
 
   return (
     <div className="max-w-md mx-auto relative">
-      {screen === 'home' && (
-        <Home onStartSession={startSession} onNavigate={navigate} />
-      )}
+      {screen === 'home' && <Home onStartSession={startSession} onNavigate={navigate} />}
+
+      {screen === 'log' && !activeSplitDay && <DayPicker onSelect={startSession} />}
       {screen === 'log' && activeSplitDay && (
         <LogSession
           splitDay={activeSplitDay}
           onDone={() => navigate('home')}
-          onBack={() => navigate('home')}
+          onBack={() => { setActiveSplitDay(null) }}
         />
       )}
-      {screen === 'log' && !activeSplitDay && (
-        // Landed on log tab without a day selected — show day picker
-        <Home onStartSession={startSession} onNavigate={navigate} />
-      )}
+
       {screen === 'progress' && <Progress />}
       {screen === 'history' && <History />}
       {screen === 'settings' && <Settings onBack={() => navigate('home')} />}
 
-      {screen !== 'log' && (
+      {!(screen === 'log' && activeSplitDay) && (
         <BottomNav screen={screen} onNavigate={navigate} />
       )}
     </div>
