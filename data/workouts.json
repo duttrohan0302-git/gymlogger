@@ -538,6 +538,38 @@
   },
   "sessions": [
     {
+      "id": "1777411153700-ud9ql",
+      "date": "2026-04-28",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "migrated-2026-04-28-zk3y",
       "date": "2026-04-28",
       "muscleGroups": [
