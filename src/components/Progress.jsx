@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { Search, X } from 'lucide-react'
 import {
   ResponsiveContainer, LineChart, Line, XAxis, YAxis,
-  CartesianGrid, Tooltip, Legend,
+  CartesianGrid, Tooltip,
 } from 'recharts'
 import { useStore } from '../lib/store'
 import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
@@ -46,12 +46,103 @@ function CustomTooltip({ active, payload, label, metric }) {
       {payload.map((p, i) => p.value != null && (
         <div key={i} className="flex items-center gap-2 mb-1">
           <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: p.color }} />
-          <span className="text-gray-300 truncate flex-1">{p.name.split(' ').slice(0, 3).join(' ')}</span>
           <span className="text-white font-semibold ml-1">
             {p.value}{metric.id === 'reps' ? 'r' : metric.id === 'volume' ? 'v' : 'kg'}
+            {p.name.endsWith('(reps)') ? 'r' : ''}
           </span>
         </div>
       ))}
+    </div>
+  )
+}
+
+function MiniExerciseChart({ exercise, sessions, metric, color }) {
+  const history = useMemo(() => getHistory(sessions, exercise.id), [sessions, exercise.id])
+
+  const chartData = useMemo(() => history.map(h => {
+    if (metric.id === 'both') return { date: h.date, w: h.weight, r: h.reps }
+    return {
+      date: h.date,
+      v: metric.id === 'weight' ? h.weight : metric.id === 'reps' ? h.reps : h.volume,
+    }
+  }), [history, metric])
+
+  const pr = useMemo(() => history.reduce((best, e) => {
+    const val = metric.id === 'weight' ? e.weight : metric.id === 'reps' ? e.reps : e.volume
+    const bval = best ? (metric.id === 'weight' ? best.weight : metric.id === 'reps' ? best.reps : best.volume) : -1
+    return val > bval ? e : best
+  }, null), [history, metric])
+
+  const latest = history[history.length - 1]
+  const latestVal = latest
+    ? (metric.id === 'weight' ? `${latest.weight}kg` : metric.id === 'reps' ? `${latest.reps}r` : `${latest.volume}`)
+    : null
+
+  if (!history.length) return null
+
+  return (
+    <div className="bg-gray-800 rounded-2xl p-4 mb-3">
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-semibold text-white truncate">{exercise.name}</p>
+          <div className="flex items-center gap-3 mt-0.5">
+            {latestVal && (
+              <span className="text-xs text-gray-400">
+                Last: <span className="text-gray-300 font-medium">{latestVal}</span>
+                <span className="text-gray-600 ml-1">{formatDate(latest.date)}</span>
+              </span>
+            )}
+          </div>
+        </div>
+        {pr && metric.id !== 'both' && (
+          <div className="text-right ml-3 flex-shrink-0">
+            <p className="text-[10px] text-brand uppercase font-semibold tracking-wider">PR</p>
+            <p className="text-base font-bold text-white">
+              {metric.id === 'weight' ? `${pr.weight}kg` : metric.id === 'reps' ? `${pr.reps}r` : pr.volume}
+            </p>
+          </div>
+        )}
+      </div>
+
+      <ResponsiveContainer width="100%" height={140}>
+        <LineChart data={chartData} margin={{ top: 4, right: metric.id === 'both' ? 32 : 8, left: 0, bottom: 4 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+          <XAxis dataKey="date" tickFormatter={formatDate} stroke="#6b7280"
+            tick={{ fontSize: 9, fill: '#6b7280' }} interval="preserveStartEnd" />
+          <YAxis yAxisId="left" stroke="#6b7280" tick={{ fontSize: 9, fill: '#6b7280' }} width={32}
+            tickFormatter={v => metric.id === 'both' ? `${v}k` : v} />
+          {metric.id === 'both' && (
+            <YAxis yAxisId="right" orientation="right" stroke="#6b7280"
+              tick={{ fontSize: 9, fill: '#6b7280' }} width={28} tickFormatter={v => `${v}r`} />
+          )}
+          <Tooltip content={<CustomTooltip metric={metric} />} />
+          {metric.id === 'both' ? (
+            <>
+              <Line yAxisId="left" type="monotone" dataKey="w" name="weight (kg)"
+                stroke={color} strokeWidth={2.5} dot={{ r: 3, strokeWidth: 0 }} activeDot={{ r: 5 }} connectNulls={false} />
+              <Line yAxisId="right" type="monotone" dataKey="r" name="reps (reps)"
+                stroke="#6b7280" strokeWidth={2} strokeDasharray="5 3" dot={{ r: 3, strokeWidth: 0 }} activeDot={{ r: 5 }} connectNulls={false} />
+            </>
+          ) : (
+            <Line yAxisId="left" type="monotone" dataKey="v" name={exercise.name}
+              stroke={color} strokeWidth={2.5}
+              dot={{ r: 3, fill: color, strokeWidth: 0 }} activeDot={{ r: 5 }} connectNulls={false} />
+          )}
+        </LineChart>
+      </ResponsiveContainer>
+
+      {metric.id === 'both' && (
+        <div className="flex gap-4 mt-2 pt-2 border-t border-gray-700">
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-0.5 rounded" style={{ backgroundColor: color }} />
+            <span className="text-[11px] text-gray-400">kg (left axis)</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 border-t-2 border-dashed border-gray-500" />
+            <span className="text-[11px] text-gray-400">reps (right axis)</span>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -123,13 +214,16 @@ export default function Progress() {
   const selectedEx = exercises.find(e => e.id === selectedExId)
   const movGroup = selectedEx ? movementGroups.find(g => g.exerciseIds.includes(selectedEx.id)) : null
 
-  // Which exercises to chart
+  // Exercises with data for selected muscle group
+  const muscleExercises = useMemo(() => {
+    if (!selectedMuscle) return []
+    return exercises
+      .filter(e => e.muscleGroup === selectedMuscle)
+      .filter(e => sessions.some(s => s.exercises?.some(ex => ex.exerciseId === e.id)))
+  }, [selectedMuscle, exercises, sessions])
+
+  // For single exercise mode
   const chartLines = useMemo(() => {
-    if (viewMode === 'muscle' && selectedMuscle) {
-      return exercises
-        .filter(e => e.muscleGroup === selectedMuscle)
-        .filter(e => sessions.some(s => s.exercises?.some(ex => ex.exerciseId === e.id)))
-    }
     if (!selectedEx) return []
     if (groupView && movGroup) {
       return movGroup.exerciseIds
@@ -138,7 +232,7 @@ export default function Progress() {
         .filter(e => sessions.some(s => s.exercises?.some(ex => ex.exerciseId === e.id)))
     }
     return [selectedEx]
-  }, [viewMode, selectedMuscle, selectedEx, groupView, movGroup, exercises, sessions])
+  }, [selectedEx, groupView, movGroup, exercises, sessions])
 
   const allHistory = useMemo(() => {
     const h = {}
@@ -167,7 +261,7 @@ export default function Progress() {
   }, [chartLines, allHistory, metric])
 
   const pr = useMemo(() => {
-    if (!selectedEx || viewMode === 'muscle') return null
+    if (!selectedEx) return null
     const h = getHistory(sessions, selectedEx.id)
     if (!h.length) return null
     return h.reduce((best, e) => {
@@ -175,7 +269,7 @@ export default function Progress() {
       const bval = best ? (metric.id === 'weight' ? best.weight : metric.id === 'reps' ? best.reps : best.volume) : -1
       return val > bval ? e : best
     }, null)
-  }, [selectedEx, sessions, metric, viewMode])
+  }, [selectedEx, sessions, metric])
 
   const hasSelection = viewMode === 'exercise' ? !!selectedEx : !!selectedMuscle
 
@@ -233,23 +327,54 @@ export default function Progress() {
             onClose={() => setShowPicker(false)} />
         )}
 
+        {/* Metric selector — shown whenever something is selected */}
         {hasSelection && (
+          <div className="flex bg-gray-800 rounded-xl p-1 mb-4">
+            {METRICS.map(m => (
+              <button key={m.id} onClick={() => setMetric(m)}
+                className={`flex-1 py-2 rounded-lg text-xs font-semibold transition-colors ${metric.id === m.id ? 'bg-brand text-black' : 'text-gray-500'}`}>
+                {m.label}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* MUSCLE GROUP MODE — stacked individual charts */}
+        {viewMode === 'muscle' && selectedMuscle && (
+          <>
+            {muscleExercises.length === 0 ? (
+              <div className="bg-gray-800 rounded-2xl p-8 text-center">
+                <p className="text-gray-600 text-sm">No data logged yet for {MUSCLE_LABELS[selectedMuscle]}</p>
+              </div>
+            ) : (
+              muscleExercises.map((ex, i) => (
+                <MiniExerciseChart
+                  key={ex.id}
+                  exercise={ex}
+                  sessions={sessions}
+                  metric={metric}
+                  color={LINE_COLORS[i % LINE_COLORS.length]}
+                />
+              ))
+            )}
+          </>
+        )}
+
+        {/* EXERCISE MODE — single exercise chart */}
+        {viewMode === 'exercise' && selectedEx && (
           <>
             {/* Controls row */}
             <div className="bg-gray-800 rounded-2xl p-4 mb-3">
               <div className="flex items-center justify-between">
                 <div className="flex gap-2">
-                  {viewMode === 'exercise' && movGroup && (
+                  {movGroup && (
                     <button onClick={() => setGroupView(v => !v)}
                       className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${groupView ? 'bg-brand/20 border-brand text-brand' : 'border-gray-700 text-gray-500'}`}>
                       {groupView ? '✓ ' : ''}{movGroup.name}
                     </button>
                   )}
-                  {viewMode === 'muscle' && (
-                    <span className="text-xs text-gray-400">{chartLines.length} exercises with data</span>
-                  )}
                 </div>
-                {pr && (
+                {pr && !groupView && (
                   <div className="text-right">
                     <p className="text-[10px] text-brand uppercase font-semibold tracking-wider">PR</p>
                     <p className="text-lg font-bold text-white">
@@ -261,17 +386,6 @@ export default function Progress() {
               </div>
             </div>
 
-            {/* Metric toggle */}
-            <div className="flex bg-gray-800 rounded-xl p-1 mb-3">
-              {METRICS.map(m => (
-                <button key={m.id} onClick={() => setMetric(m)}
-                  className={`flex-1 py-2 rounded-lg text-xs font-semibold transition-colors ${metric.id === m.id ? 'bg-brand text-black' : 'text-gray-500'}`}>
-                  {m.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Chart */}
             {chartData.length > 0 ? (
               <div className="bg-gray-800 rounded-2xl p-4">
                 <ResponsiveContainer width="100%" height={240}>
@@ -306,7 +420,7 @@ export default function Progress() {
                   </LineChart>
                 </ResponsiveContainer>
 
-                {/* Legend */}
+                {/* Legend for grouped view */}
                 {(chartLines.length > 1 || metric.id === 'both') && (
                   <div className="flex flex-wrap gap-x-4 gap-y-1.5 mt-3 pt-3 border-t border-gray-700">
                     {metric.id === 'both' ? chartLines.map((ex, i) => [
