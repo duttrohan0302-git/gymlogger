@@ -280,9 +280,13 @@ async function main() {
 
   base.sessions = sessions
 
+  const json = JSON.stringify(base, null, 2)
   const outPath = join(ROOT, 'data/workouts.json')
-  writeFileSync(outPath, JSON.stringify(base, null, 2))
+  const publicPath = join(ROOT, 'public/data/workouts.json')
+  writeFileSync(outPath, json)
+  writeFileSync(publicPath, json)
   console.log(`\n✓ Written to ${outPath}`)
+  console.log(`✓ Copied to ${publicPath}`)
 }
 
 main().catch(console.error)

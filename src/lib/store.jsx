@@ -66,13 +66,16 @@ function reducer(state, action) {
   }
 }
 
+const SEED_URL = `${import.meta.env.BASE_URL}data/workouts.json`
+
 export function StoreProvider({ children }) {
   const cachedData = parseLS()
+  const hasConfig = !!(getLS(LS_TOKEN) && getLS(LS_REPO))
   const [state, dispatch] = useReducer(reducer, {
     data: cachedData || EMPTY_DATA,
     token: getLS(LS_TOKEN) || '',
     repo: getLS(LS_REPO) || '',
-    loading: !cachedData && !!(getLS(LS_TOKEN) && getLS(LS_REPO)),
+    loading: !cachedData, // always show loader on first visit — seed or GitHub
     syncing: false,
     dirty: false,
     error: null,
@@ -81,25 +84,55 @@ export function StoreProvider({ children }) {
   const shaRef = useRef(getLS(LS_SHA))
   const syncingRef = useRef(false)
 
-  // Fetch from GitHub when config is set
+  // On first load: fetch from GitHub if configured, else load the seed file from the repo
   useEffect(() => {
-    if (!state.token || !state.repo) {
+    if (cachedData) {
+      // Already have cached data — if GitHub configured, still refresh in background
+      if (state.token && state.repo) {
+        readFile(state.token, state.repo, DATA_PATH)
+          .then(result => {
+            if (result) {
+              shaRef.current = result.sha
+              setLS(LS_SHA, result.sha)
+              setLS(LS_DATA, JSON.stringify(result.content))
+              dispatch({ type: 'LOADED', data: result.content })
+            }
+          })
+          .catch(() => {}) // silent — we already have cached data
+      }
       dispatch({ type: 'SET_LOADING', value: false })
       return
     }
-    readFile(state.token, state.repo, DATA_PATH)
-      .then(result => {
-        if (result) {
-          shaRef.current = result.sha
-          setLS(LS_SHA, result.sha)
-          setLS(LS_DATA, JSON.stringify(result.content))
-          dispatch({ type: 'LOADED', data: result.content })
-        } else {
-          dispatch({ type: 'SET_LOADING', value: false })
-        }
-      })
-      .catch(err => dispatch({ type: 'SET_ERROR', message: err.message }))
-  }, [state.token, state.repo])
+
+    if (state.token && state.repo) {
+      // Fetch fresh from GitHub
+      readFile(state.token, state.repo, DATA_PATH)
+        .then(result => {
+          if (result) {
+            shaRef.current = result.sha
+            setLS(LS_SHA, result.sha)
+            setLS(LS_DATA, JSON.stringify(result.content))
+            dispatch({ type: 'LOADED', data: result.content })
+          } else {
+            dispatch({ type: 'SET_LOADING', value: false })
+          }
+        })
+        .catch(err => dispatch({ type: 'SET_ERROR', message: err.message }))
+    } else {
+      // No GitHub config — load the seed file served from the repo
+      fetch(SEED_URL)
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (data) {
+            setLS(LS_DATA, JSON.stringify(data))
+            dispatch({ type: 'LOADED', data })
+          } else {
+            dispatch({ type: 'SET_LOADING', value: false })
+          }
+        })
+        .catch(() => dispatch({ type: 'SET_LOADING', value: false }))
+    }
+  }, []) // run once on mount
 
   // Persist to localStorage on data change
   useEffect(() => {
@@ -135,7 +168,9 @@ export function StoreProvider({ children }) {
   const setConfig = useCallback((token, repo) => {
     setLS(LS_TOKEN, token)
     setLS(LS_REPO, repo)
-    dispatch({ type: 'SET_CONFIG', token, repo })
+    // Clear cache so reload fetches fresh from GitHub
+    localStorage.removeItem(LS_DATA)
+    localStorage.removeItem(LS_SHA)
   }, [])
 
   return (
