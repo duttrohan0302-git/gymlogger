@@ -38,20 +38,59 @@ function getHistory(sessions, exerciseId) {
     .sort((a, b) => a.date.localeCompare(b.date))
 }
 
-function CustomTooltip({ active, payload, label, metric }) {
+// Tooltip always shows weight + reps, regardless of which metric is plotted.
+// Both fields are embedded directly in every chartData point.
+function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
+  const pt = payload[0]?.payload
+  if (!pt) return null
   return (
-    <div className="bg-gray-800 border border-gray-700 rounded-xl p-3 text-xs shadow-xl min-w-36">
+    <div className="bg-gray-800 border border-gray-700 rounded-xl p-3 text-xs shadow-xl min-w-32">
       <p className="text-gray-400 mb-2 font-medium">{formatDate(label)}</p>
-      {payload.map((p, i) => p.value != null && (
+      {pt.weight != null && (
+        <div className="flex justify-between gap-4">
+          <span className="text-gray-400">Weight</span>
+          <span className="text-white font-semibold">{pt.weight}kg</span>
+        </div>
+      )}
+      {pt.reps != null && (
+        <div className="flex justify-between gap-4 mt-1">
+          <span className="text-gray-400">Reps</span>
+          <span className="text-white font-semibold">{pt.reps}</span>
+        </div>
+      )}
+      {pt.weight == null && pt.reps == null && payload.map((p, i) => p.value != null && (
         <div key={i} className="flex items-center gap-2 mb-1">
           <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: p.color }} />
-          <span className="text-white font-semibold ml-1">
-            {p.value}{metric.id === 'reps' ? 'r' : metric.id === 'volume' ? 'v' : 'kg'}
-            {p.name.endsWith('(reps)') ? 'r' : ''}
-          </span>
+          <span className="text-gray-300 flex-1 truncate">{p.name}</span>
+          <span className="text-white font-semibold">{p.value}</span>
         </div>
       ))}
+    </div>
+  )
+}
+
+function MultiExTooltip({ active, payload, label, chartLines }) {
+  if (!active || !payload?.length) return null
+  const pt = payload[0]?.payload
+  if (!pt) return null
+  return (
+    <div className="bg-gray-800 border border-gray-700 rounded-xl p-3 text-xs shadow-xl min-w-40">
+      <p className="text-gray-400 mb-2 font-medium">{formatDate(label)}</p>
+      {chartLines.map((ex, i) => {
+        const w = pt[`${ex.id}_weight`]
+        const r = pt[`${ex.id}_reps`]
+        if (w == null && r == null) return null
+        return (
+          <div key={ex.id} className="mb-1.5">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: LINE_COLORS[i % LINE_COLORS.length] }} />
+              <span className="text-gray-400 truncate">{ex.name}</span>
+            </div>
+            {w != null && <p className="pl-3 text-white font-semibold">{w}kg × {r}r</p>}
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -59,13 +98,14 @@ function CustomTooltip({ active, payload, label, metric }) {
 function MiniExerciseChart({ exercise, sessions, metric, color }) {
   const history = useMemo(() => getHistory(sessions, exercise.id), [sessions, exercise.id])
 
-  const chartData = useMemo(() => history.map(h => {
-    if (metric.id === 'both') return { date: h.date, w: h.weight, r: h.reps }
-    return {
-      date: h.date,
-      v: metric.id === 'weight' ? h.weight : metric.id === 'reps' ? h.reps : h.volume,
-    }
-  }), [history, metric])
+  const chartData = useMemo(() => history.map(h => ({
+    date: h.date,
+    v: metric.id === 'weight' ? h.weight : metric.id === 'reps' ? h.reps : h.volume,
+    w: h.weight,
+    r: h.reps,
+    weight: h.weight,
+    reps: h.reps,
+  })), [history, metric])
 
   const pr = useMemo(() => history.reduce((best, e) => {
     const val = metric.id === 'weight' ? e.weight : metric.id === 'reps' ? e.reps : e.volume
@@ -115,7 +155,7 @@ function MiniExerciseChart({ exercise, sessions, metric, color }) {
             <YAxis yAxisId="right" orientation="right" stroke="#6b7280"
               tick={{ fontSize: 9, fill: '#6b7280' }} width={28} tickFormatter={v => `${v}r`} />
           )}
-          <Tooltip content={<CustomTooltip metric={metric} />} />
+          <Tooltip content={<ChartTooltip />} />
           {metric.id === 'both' ? (
             <>
               <Line yAxisId="left" type="monotone" dataKey="w" name="weight (kg)"
@@ -255,6 +295,15 @@ export default function Progress() {
             ? metric.id === 'weight' ? entry.weight : metric.id === 'reps' ? entry.reps : entry.volume
             : null
         }
+        // Always store weight+reps for tooltip
+        point[`${ex.id}_weight`] = entry?.weight ?? null
+        point[`${ex.id}_reps`] = entry?.reps ?? null
+      }
+      // For single exercise, expose at top level so ChartTooltip can read them
+      if (chartLines.length === 1) {
+        const entry = allHistory[chartLines[0].id]?.find(p => p.date === date)
+        point.weight = entry?.weight ?? null
+        point.reps = entry?.reps ?? null
       }
       return point
     })
@@ -399,7 +448,9 @@ export default function Progress() {
                       <YAxis yAxisId="right" orientation="right" stroke="#6b7280"
                         tick={{ fontSize: 10, fill: '#6b7280' }} width={36} tickFormatter={v => `${v}r`} />
                     )}
-                    <Tooltip content={<CustomTooltip metric={metric} />} />
+                    <Tooltip content={chartLines.length > 1
+                      ? <MultiExTooltip chartLines={chartLines} />
+                      : <ChartTooltip />} />
                     {metric.id === 'both' ? (
                       chartLines.map((ex, i) => [
                         <Line key={`${ex.id}_w`} yAxisId="left" type="monotone" dataKey={`${ex.id}_w`}
