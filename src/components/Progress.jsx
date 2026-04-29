@@ -115,7 +115,7 @@ function StatsBar({ history }) {
   )
 }
 
-function HistoryTable({ history }) {
+function HistoryTable({ history, onRowClick }) {
   const rows = [...history].reverse()
   const prWeightVal = Math.max(...history.map(h => h.weight))
   const prRepsVal   = Math.max(...history.map(h => h.reps))
@@ -131,6 +131,7 @@ function HistoryTable({ history }) {
             <th className="text-right pb-2.5 text-gray-500 font-semibold">Reps</th>
             <th className="text-right pb-2.5 text-gray-500 font-semibold">W×R</th>
             <th className="text-right pb-2.5 text-gray-500 font-semibold">Vol</th>
+            {onRowClick && <th className="w-4" />}
           </tr>
         </thead>
         <tbody>
@@ -139,7 +140,9 @@ function HistoryTable({ history }) {
             const repPR = entry.reps   === prRepsVal
             const volPR = entry.volume === prVolVal
             return (
-              <tr key={entry.date} className="border-b border-gray-800/60">
+              <tr key={entry.date}
+                className={`border-b border-gray-800/60 ${onRowClick ? 'active:bg-gray-700/40 cursor-pointer' : ''}`}
+                onClick={() => onRowClick?.(entry.date)}>
                 <td className="py-2.5 text-gray-400 pr-2">{formatDate(entry.date)}</td>
                 <td className={`py-2.5 text-right font-mono ${wtPR ? 'text-brand font-bold' : 'text-white'}`}>
                   {entry.weight}
@@ -153,6 +156,9 @@ function HistoryTable({ history }) {
                 <td className={`py-2.5 text-right font-mono ${volPR ? 'text-brand font-bold' : 'text-gray-500'}`}>
                   {entry.volume}
                 </td>
+                {onRowClick && (
+                  <td className="py-2.5 pl-2 text-gray-600 text-right">›</td>
+                )}
               </tr>
             )
           })}
@@ -164,8 +170,10 @@ function HistoryTable({ history }) {
 
 // ── Mini card (muscle group mode) ─────────────────────────────────────────────
 
-function MiniExerciseCard({ exercise, sessions, metric, color, viewType }) {
+function MiniExerciseCard({ exercise, sessions, metric, color, viewType, onEditSession }) {
   const history = useMemo(() => getHistory(sessions, exercise.id), [sessions, exercise.id])
+
+  const findSession = date => sessions.find(s => s.date === date)
 
   const chartData = useMemo(() => history.map(h => ({
     date: h.date,
@@ -199,7 +207,16 @@ function MiniExerciseCard({ exercise, sessions, metric, color, viewType }) {
       {viewType === 'graph' ? (
         <>
           <ResponsiveContainer width="100%" height={140}>
-            <LineChart data={chartData} margin={{ top: 4, right: metric.id === 'both' ? 32 : 8, left: 0, bottom: 4 }}>
+            <LineChart
+              data={chartData}
+              margin={{ top: 4, right: metric.id === 'both' ? 32 : 8, left: 0, bottom: 4 }}
+              onClick={d => {
+                if (!onEditSession || !d?.activeLabel) return
+                const s = findSession(d.activeLabel)
+                if (s) onEditSession(s.id)
+              }}
+              style={{ cursor: onEditSession ? 'pointer' : 'default' }}
+            >
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
               <XAxis dataKey="date" tickFormatter={formatDate} stroke="#6b7280"
                 tick={{ fontSize: 9, fill: '#6b7280' }} interval="preserveStartEnd" />
@@ -238,7 +255,10 @@ function MiniExerciseCard({ exercise, sessions, metric, color, viewType }) {
           )}
         </>
       ) : (
-        <HistoryTable history={history} />
+        <HistoryTable
+          history={history}
+          onRowClick={onEditSession ? date => { const s = findSession(date); if (s) onEditSession(s.id) } : null}
+        />
       )}
     </div>
   )
@@ -298,7 +318,7 @@ function ExercisePickerSheet({ exercises, sessions, onSelect, onClose }) {
 
 // ── Main component ────────────────────────────────────────────────────────────
 
-export default function Progress() {
+export default function Progress({ onEditSession }) {
   const { state } = useStore()
   const { data } = state
   const sessions = data.sessions || []
@@ -466,6 +486,7 @@ export default function Progress() {
                 metric={metric}
                 color={LINE_COLORS[i % LINE_COLORS.length]}
                 viewType={viewType}
+                onEditSession={onEditSession}
               />
             ))
           )
@@ -479,7 +500,10 @@ export default function Progress() {
               <div className="bg-gray-800 rounded-2xl p-4">
                 <StatsBar history={singleHistory} />
                 {singleHistory.length > 0 ? (
-                  <HistoryTable history={singleHistory} />
+                  <HistoryTable
+                    history={singleHistory}
+                    onRowClick={onEditSession ? date => { const s = sessions.find(s => s.date === date); if (s) onEditSession(s.id) } : null}
+                  />
                 ) : (
                   <p className="text-gray-600 text-sm text-center py-4">No data yet</p>
                 )}
@@ -521,7 +545,16 @@ export default function Progress() {
                 {chartData.length > 0 ? (
                   <div className="bg-gray-800 rounded-2xl p-4">
                     <ResponsiveContainer width="100%" height={240}>
-                      <LineChart data={chartData} margin={{ top: 5, right: metric.id === 'both' ? 36 : 10, left: 0, bottom: 5 }}>
+                      <LineChart
+                        data={chartData}
+                        margin={{ top: 5, right: metric.id === 'both' ? 36 : 10, left: 0, bottom: 5 }}
+                        onClick={d => {
+                          if (!onEditSession || !d?.activeLabel) return
+                          const s = sessions.find(s => s.date === d.activeLabel)
+                          if (s) onEditSession(s.id)
+                        }}
+                        style={{ cursor: onEditSession ? 'pointer' : 'default' }}
+                      >
                         <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                         <XAxis dataKey="date" tickFormatter={formatDate} stroke="#6b7280"
                           tick={{ fontSize: 10, fill: '#6b7280' }} interval="preserveStartEnd" />

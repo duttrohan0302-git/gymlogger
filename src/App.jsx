@@ -6,6 +6,7 @@ import LogSession from './components/LogSession'
 import Progress from './components/Progress'
 import History from './components/History'
 import Settings from './components/Settings'
+import EditSession from './components/EditSession'
 import { MUSCLE_COLORS } from './data/defaultData'
 
 function DayPicker({ onSelect }) {
@@ -39,9 +40,10 @@ function DayPicker({ onSelect }) {
 }
 
 function AppInner() {
-  const { state } = useStore()
+  const { state, dispatch } = useStore()
   const [screen, setScreen] = useState('home')
   const [activeSplitDay, setActiveSplitDay] = useState(null)
+  const [editSessionId, setEditSessionId] = useState(null)
 
   if (state.loading) {
     return (
@@ -57,11 +59,39 @@ function AppInner() {
   const navigate = (s) => {
     setScreen(s)
     if (s !== 'log') setActiveSplitDay(null)
+    setEditSessionId(null)
   }
 
   const startSession = (splitDay) => {
     setActiveSplitDay(splitDay)
     setScreen('log')
+  }
+
+  const openEditSession = (id) => {
+    setEditSessionId(id)
+    setScreen('editSession')
+  }
+
+  const hideNav = (screen === 'log' && activeSplitDay) || screen === 'editSession'
+
+  if (screen === 'editSession' && editSessionId) {
+    const session = state.data.sessions?.find(s => s.id === editSessionId)
+    if (session) {
+      return (
+        <div className="max-w-md mx-auto relative">
+          <EditSession
+            session={session}
+            exercises={state.data.exercises || []}
+            onBack={() => { setEditSessionId(null); setScreen('progress') }}
+            onSave={updated => {
+              dispatch({ type: 'UPDATE_SESSION', session: updated })
+              setEditSessionId(null)
+              setScreen('progress')
+            }}
+          />
+        </div>
+      )
+    }
   }
 
   return (
@@ -77,13 +107,11 @@ function AppInner() {
         />
       )}
 
-      {screen === 'progress' && <Progress />}
+      {screen === 'progress' && <Progress onEditSession={openEditSession} />}
       {screen === 'history' && <History />}
       {screen === 'settings' && <Settings onBack={() => navigate('home')} />}
 
-      {!(screen === 'log' && activeSplitDay) && (
-        <BottomNav screen={screen} onNavigate={navigate} />
-      )}
+      {!hideNav && <BottomNav screen={screen} onNavigate={navigate} />}
     </div>
   )
 }
