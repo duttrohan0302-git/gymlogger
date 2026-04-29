@@ -390,6 +390,13 @@
       "muscleGroup": "legs",
       "movementGroupId": null,
       "notes": ""
+    },
+    {
+      "id": "custom_military_press_1777469843395",
+      "name": "Military Press",
+      "muscleGroup": "shoulders",
+      "movementGroupId": null,
+      "notes": "Total weight including barbell"
     }
   ],
   "movementGroups": [
