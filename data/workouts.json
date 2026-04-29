@@ -545,6 +545,146 @@
   },
   "sessions": [
     {
+      "id": "1777473045816-shc0p",
+      "date": "2026-04-29",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 9,
+              "note": "and then drop set until failure"
+            }
+          ],
+          "note": "Drop set after 3rd set "
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": "normal way, stop at extending"
+            },
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": "stopping at extending feels really good and tough"
+            },
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 18,
+              "note": "decent form"
+            },
+            {
+              "weight": null,
+              "reps": 18,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 18,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "custom_military_press_1777469843395",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 35,
+              "reps": 6,
+              "note": ""
+            }
+          ],
+          "note": ""
+        },
+        {
+          "exerciseId": "facepulls",
+          "sets": [
+            {
+              "weight": 20.3,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 9,
+              "note": ""
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "1777411153700-ud9ql",
       "date": "2026-04-28",
       "muscleGroups": [
