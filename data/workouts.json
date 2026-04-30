@@ -397,6 +397,13 @@
       "muscleGroup": "shoulders",
       "movementGroupId": null,
       "notes": "Total weight including barbell"
+    },
+    {
+      "id": "custom_rdl_barbell_1777542610999",
+      "name": "RDL Barbell",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": "Total weight including bar"
     }
   ],
   "movementGroups": [
