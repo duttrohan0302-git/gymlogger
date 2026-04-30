@@ -552,6 +552,201 @@
   },
   "sessions": [
     {
+      "id": "1777542640586-4rhpf",
+      "date": "2026-04-30",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "bulgarian_split_squat",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": "better form"
+            },
+            {
+              "weight": null,
+              "reps": 11,
+              "note": "hard"
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "stand_knee_raise",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "barbell_squat",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": "let’s keep doing this for now"
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            }
+          ],
+          "note": "Did one day before so not on leg day "
+        },
+        {
+          "exerciseId": "hip_thrust_single_leg",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 14,
+              "note": "better form"
+            },
+            {
+              "weight": null,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 77.6,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 77.6,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 77.6,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 18,
+              "note": "smith machine"
+            },
+            {
+              "weight": 20,
+              "reps": 18,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 18,
+              "note": ""
+            }
+          ],
+          "note": "Standing machine "
+        },
+        {
+          "exerciseId": "hip_abductor",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 16,
+              "note": "pain"
+            }
+          ],
+          "note": "No pain today "
+        },
+        {
+          "exerciseId": "custom_rdl_barbell_1777542610999",
+          "sets": [
+            {
+              "weight": 60,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 80,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 80,
+              "reps": 8,
+              "note": ""
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "1777473045816-shc0p",
       "date": "2026-04-29",
       "muscleGroups": [
