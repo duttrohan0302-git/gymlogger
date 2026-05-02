@@ -8854,17 +8854,17 @@
           "exerciseId": "tricep_overhead_rope",
           "sets": [
             {
-              "weight": 18,
+              "weight": 9,
               "reps": 9,
               "note": ""
             },
             {
-              "weight": 18,
+              "weight": 9,
               "reps": 6,
               "note": ""
             },
             {
-              "weight": 18,
+              "weight": 9,
               "reps": 6,
               "note": "difficult"
             }
