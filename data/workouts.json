@@ -8971,17 +8971,17 @@
           "exerciseId": "lateral_raise_db",
           "sets": [
             {
-              "weight": 23,
+              "weight": 8,
               "reps": 8,
               "note": "lateral press machine"
             },
             {
-              "weight": 23,
+              "weight": 8,
               "reps": 8,
               "note": ""
             },
             {
-              "weight": 27,
+              "weight": 8,
               "reps": 8,
               "note": ""
             }
