@@ -552,6 +552,162 @@
   },
   "sessions": [
     {
+      "id": "1777906408732-c402t",
+      "date": "2026-05-04",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "dumbbell_press",
+          "sets": [
+            {
+              "weight": 22,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 6,
+              "note": ""
+            }
+          ],
+          "note": "First exercise "
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 13.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "weighted_dips",
+          "sets": [
+            {
+              "weight": 54,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 54,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 54,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_fly",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": "close cable cable"
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": ""
+            }
+          ],
+          "note": ""
+        },
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            }
+          ],
+          "note": ""
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "1777542640586-4rhpf",
       "date": "2026-04-30",
       "muscleGroups": [
