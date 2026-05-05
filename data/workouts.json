@@ -552,6 +552,181 @@
   },
   "sessions": [
     {
+      "id": "1777972520968-317ev",
+      "date": "2026-05-05",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 8,
+              "note": ""
+            }
+          ],
+          "note": "Only 2 sets, calluses hurting "
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 12,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 6,
+              "note": ""
+            }
+          ],
+          "note": ""
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            }
+          ],
+          "note": ""
+        },
+        {
+          "exerciseId": "cross_body_hammer_curl",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            }
+          ],
+          "note": ""
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 56.6,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 56.6,
+              "reps": 8,
+              "note": ""
+            }
+          ],
+          "note": ""
+        },
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 59,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 59,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 59,
+              "reps": 11,
+              "note": ""
+            }
+          ],
+          "note": ""
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 53,
+              "reps": 9,
+              "note": ""
+            }
+          ],
+          "note": ""
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 86,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 86,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 86,
+              "reps": 14,
+              "note": ""
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "notes": "Just had shoulder day 12 hours before this workout"
+    },
+    {
       "id": "1777919653644-git2k",
       "date": "2026-05-04",
       "muscleGroups": [
