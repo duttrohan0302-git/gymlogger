@@ -33,7 +33,7 @@ function migrate(raw) {
     users: [
       {
         id: 'user_default',
-        name: 'Me',
+        name: 'Rohan',
         splits: raw.splits || [],
         muscleGroupNotes: raw.muscleGroupNotes || {},
         sessions: raw.sessions || [],
