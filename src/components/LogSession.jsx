@@ -177,6 +177,13 @@ export default function LogSession({ splitDay, onDone, onBack }) {
         sets: ex.sets.map(s => ({ ...s, note: s.note || '' })),
       }))
     }
+    if (splitDay.defaultExerciseIds?.length) {
+      return splitDay.defaultExerciseIds.map(id => ({
+        exerciseId: id,
+        sets: [{ weight: null, reps: null, note: '' }],
+        note: '',
+      }))
+    }
     return []
   })
 

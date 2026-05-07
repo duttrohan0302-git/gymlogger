@@ -7,6 +7,7 @@ import Progress from './components/Progress'
 import History from './components/History'
 import Settings from './components/Settings'
 import EditSession from './components/EditSession'
+import UserSelect from './components/UserSelect'
 import { MUSCLE_COLORS } from './data/defaultData'
 
 function DayPicker({ onSelect }) {
@@ -53,6 +54,14 @@ function AppInner() {
           <div className="w-8 h-8 border-2 border-brand border-t-transparent rounded-full animate-spin mx-auto mb-3" />
           <p className="text-gray-500 text-sm">Loading…</p>
         </div>
+      </div>
+    )
+  }
+
+  if (!state.activeUserId) {
+    return (
+      <div className="max-w-md mx-auto relative">
+        <UserSelect />
       </div>
     )
   }
@@ -111,7 +120,12 @@ function AppInner() {
 
       {screen === 'progress' && <Progress onEditSession={openEditSession} />}
       {screen === 'history' && <History onEditSession={id => openEditSession(id, 'history')} />}
-      {screen === 'settings' && <Settings onBack={() => navigate('home')} />}
+      {screen === 'settings' && (
+        <Settings
+          onBack={() => navigate('home')}
+          onSwitchUser={() => dispatch({ type: 'SET_ACTIVE_USER', userId: null })}
+        />
+      )}
 
       {!hideNav && <BottomNav screen={screen} onNavigate={navigate} />}
     </div>

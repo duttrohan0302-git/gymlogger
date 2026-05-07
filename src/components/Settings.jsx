@@ -4,7 +4,7 @@ import { useStore } from '../lib/store'
 import { validateToken } from '../lib/github'
 import { EMPTY_DATA } from '../data/defaultData'
 
-export default function Settings({ onBack }) {
+export default function Settings({ onBack, onSwitchUser }) {
   const { state, setConfig, dispatch } = useStore()
   const [token, setToken] = useState(state.token || '')
   const [repo, setRepo] = useState(state.repo || '')
@@ -140,7 +140,7 @@ export default function Settings({ onBack }) {
         </div>
 
         {/* Stats */}
-        <div className="bg-gray-800 rounded-2xl p-4">
+        <div className="bg-gray-800 rounded-2xl p-4 mb-4">
           <h2 className="text-sm font-semibold text-white mb-3">Stats</h2>
           <div className="grid grid-cols-3 gap-3">
             {[
@@ -154,6 +154,17 @@ export default function Settings({ onBack }) {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Users */}
+        <div className="bg-gray-800 rounded-2xl p-4">
+          <h2 className="text-sm font-semibold text-white mb-3">Users</h2>
+          <button
+            onClick={onSwitchUser}
+            className="w-full text-left bg-gray-900 rounded-xl px-4 py-3 text-sm text-white active:bg-gray-700"
+          >
+            Switch / Add User
+          </button>
         </div>
       </div>
     </div>

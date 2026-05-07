@@ -109,11 +109,66 @@ export const MUSCLE_NOTES = {
 }
 
 export const EMPTY_DATA = {
-  version: 1,
-  splits: [DEFAULT_SPLIT],
+  version: 2,
   exercises: EXERCISES,
   movementGroups: MOVEMENT_GROUPS,
-  muscleGroupNotes: MUSCLE_NOTES,
-  sessions: [],
-  bodyWeightLog: [],
+  users: [],
+}
+
+export const SPLIT_TEMPLATES = [
+  {
+    id: 'upper_lower',
+    name: 'Upper / Lower',
+    description: '2 days',
+    days: [
+      { id: 'upper', name: 'Upper Body', muscleGroups: ['chest', 'back', 'shoulders', 'biceps', 'triceps'] },
+      { id: 'lower', name: 'Lower Body', muscleGroups: ['legs', 'abs'] },
+    ],
+  },
+  {
+    id: 'ppl',
+    name: 'Push / Pull / Legs',
+    description: '3 days',
+    days: [
+      { id: 'push', name: 'Push', muscleGroups: ['chest', 'shoulders', 'triceps'] },
+      { id: 'pull', name: 'Pull', muscleGroups: ['back', 'biceps'] },
+      { id: 'legs_abs', name: 'Legs + Abs', muscleGroups: ['legs', 'abs'] },
+    ],
+  },
+  {
+    id: '4day',
+    name: '4-Day Split',
+    description: '4 days',
+    days: [
+      { id: 'back_biceps', name: 'Back + Biceps', muscleGroups: ['back', 'biceps'] },
+      { id: 'chest_triceps', name: 'Chest + Triceps', muscleGroups: ['chest', 'triceps'] },
+      { id: 'shoulders_abs', name: 'Shoulders + Abs', muscleGroups: ['shoulders', 'abs'] },
+      { id: 'legs', name: 'Legs', muscleGroups: ['legs'] },
+    ],
+  },
+  {
+    id: 'full_body',
+    name: 'Full Body',
+    description: '1 day',
+    days: [
+      { id: 'full', name: 'Full Body', muscleGroups: ['back', 'biceps', 'chest', 'triceps', 'shoulders', 'abs', 'legs'] },
+    ],
+  },
+]
+
+export function makeUser(name, templateDays, dayExercisesMap = {}) {
+  const uid = `user_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`
+  const days = templateDays.map(day => ({
+    ...day,
+    id: `${uid}_${day.id}`,
+    defaultExerciseIds: dayExercisesMap[day.id] || [],
+  }))
+  return {
+    id: uid,
+    name,
+    splits: [{ id: `${uid}_split`, name: 'My Split', isActive: true, days }],
+    muscleGroupNotes: { ...MUSCLE_NOTES },
+    sessions: [],
+    bodyWeightLog: [],
+  }
 }
