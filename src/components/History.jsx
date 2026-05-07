@@ -57,10 +57,16 @@ function SessionCard({ session, exercises, onDelete, onEdit }) {
                       </span>
                     ))}
                   </div>
+                  {ex.note ? (
+                    <p className="text-[11px] text-gray-500 italic mt-1">{ex.note}</p>
+                  ) : null}
                 </div>
               )
             })}
           </div>
+          {session.notes ? (
+            <p className="text-xs text-gray-400 italic mt-3 pt-3 border-t border-gray-700/50">{session.notes}</p>
+          ) : null}
           <div className="mt-4 flex items-center gap-4">
             <button
               onClick={() => onEdit(session.id)}
