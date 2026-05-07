@@ -1,16 +1,11 @@
 import { useState } from 'react'
 import { ChevronLeft, Trash2, X, Plus } from 'lucide-react'
+import { useStore } from '../lib/store'
 import { MUSCLE_COLORS } from '../data/defaultData'
-
-function formatLongDate(d) {
-  if (!d) return ''
-  const [y, m, day] = d.split('-').map(Number)
-  return new Date(y, m - 1, day).toLocaleDateString('en-GB', {
-    weekday: 'short', day: 'numeric', month: 'long', year: 'numeric',
-  })
-}
+import AddExerciseSheet from './AddExerciseSheet'
 
 export default function EditSession({ session, exercises, onSave, onBack }) {
+  const { dispatch } = useStore()
   const [draft, setDraft] = useState(() => ({
     ...session,
     exercises: session.exercises.map(e => ({
@@ -18,6 +13,7 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
       sets: e.sets.map(s => ({ ...s })),
     })),
   }))
+  const [showAddSheet, setShowAddSheet] = useState(false)
 
   const exInfo = id => exercises.find(e => e.id === id)
 
@@ -58,6 +54,12 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
   const removeExercise = exIdx =>
     setDraft(d => ({ ...d, exercises: d.exercises.filter((_, ei) => ei !== exIdx) }))
 
+  const addExercise = id =>
+    setDraft(d => ({
+      ...d,
+      exercises: [...d.exercises, { exerciseId: id, sets: [{ weight: null, reps: null, note: '' }] }],
+    }))
+
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Sticky header */}
@@ -68,7 +70,12 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
           </button>
           <div className="flex-1 min-w-0">
             <p className="text-[10px] text-gray-500 uppercase tracking-wider">Editing session</p>
-            <p className="text-sm font-semibold text-white truncate">{formatLongDate(session.date)}</p>
+            <input
+              type="date"
+              value={draft.date}
+              onChange={e => setDraft(d => ({ ...d, date: e.target.value }))}
+              className="bg-transparent text-sm font-semibold text-white outline-none cursor-pointer"
+            />
           </div>
           <button
             onClick={() => onSave(draft)}
@@ -143,11 +150,28 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
         })}
 
         {draft.exercises.length === 0 && (
-          <div className="py-16 text-center">
+          <div className="py-8 text-center">
             <p className="text-gray-600 text-sm">No exercises in this session</p>
           </div>
         )}
+
+        <button
+          onClick={() => setShowAddSheet(true)}
+          className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl border-2 border-dashed border-gray-700 text-gray-500 active:border-brand active:text-brand"
+        >
+          <Plus size={18} /> Add Exercise
+        </button>
       </div>
+
+      {showAddSheet && (
+        <AddExerciseSheet
+          exercises={exercises}
+          existing={draft.exercises.map(e => e.exerciseId)}
+          onAdd={addExercise}
+          onClose={() => setShowAddSheet(false)}
+          dispatch={dispatch}
+        />
+      )}
     </div>
   )
 }

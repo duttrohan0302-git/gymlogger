@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChevronDown, ChevronUp, Trash2 } from 'lucide-react'
+import { ChevronDown, ChevronUp, Trash2, Pencil } from 'lucide-react'
 import { useStore } from '../lib/store'
 import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
 
@@ -9,7 +9,7 @@ function formatDate(d) {
   return new Date(y, m - 1, day).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' })
 }
 
-function SessionCard({ session, exercises, onDelete }) {
+function SessionCard({ session, exercises, onDelete, onEdit }) {
   const [expanded, setExpanded] = useState(false)
 
   const groups = session.muscleGroups || []
@@ -61,19 +61,27 @@ function SessionCard({ session, exercises, onDelete }) {
               )
             })}
           </div>
-          <button
-            onClick={() => onDelete(session.id)}
-            className="mt-4 flex items-center gap-1.5 text-red-500 text-xs active:text-red-400"
-          >
-            <Trash2 size={13} /> Delete session
-          </button>
+          <div className="mt-4 flex items-center gap-4">
+            <button
+              onClick={() => onEdit(session.id)}
+              className="flex items-center gap-1.5 text-brand text-xs active:opacity-70"
+            >
+              <Pencil size={13} /> Edit session
+            </button>
+            <button
+              onClick={() => onDelete(session.id)}
+              className="flex items-center gap-1.5 text-red-500 text-xs active:text-red-400"
+            >
+              <Trash2 size={13} /> Delete session
+            </button>
+          </div>
         </div>
       )}
     </div>
   )
 }
 
-export default function History() {
+export default function History({ onEditSession }) {
   const { state, dispatch } = useStore()
   const { data } = state
   const sessions = data.sessions || []
@@ -103,6 +111,7 @@ export default function History() {
             session={s}
             exercises={exercises}
             onDelete={deleteSession}
+            onEdit={onEditSession}
           />
         ))}
       </div>

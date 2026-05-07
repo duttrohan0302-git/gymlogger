@@ -44,6 +44,7 @@ function AppInner() {
   const [screen, setScreen] = useState('home')
   const [activeSplitDay, setActiveSplitDay] = useState(null)
   const [editSessionId, setEditSessionId] = useState(null)
+  const [editReturnScreen, setEditReturnScreen] = useState('progress')
 
   if (state.loading) {
     return (
@@ -67,8 +68,9 @@ function AppInner() {
     setScreen('log')
   }
 
-  const openEditSession = (id) => {
+  const openEditSession = (id, returnScreen = 'progress') => {
     setEditSessionId(id)
+    setEditReturnScreen(returnScreen)
     setScreen('editSession')
   }
 
@@ -82,11 +84,11 @@ function AppInner() {
           <EditSession
             session={session}
             exercises={state.data.exercises || []}
-            onBack={() => { setEditSessionId(null); setScreen('progress') }}
+            onBack={() => { setEditSessionId(null); setScreen(editReturnScreen) }}
             onSave={updated => {
               dispatch({ type: 'UPDATE_SESSION', session: updated })
               setEditSessionId(null)
-              setScreen('progress')
+              setScreen(editReturnScreen)
             }}
           />
         </div>
@@ -108,7 +110,7 @@ function AppInner() {
       )}
 
       {screen === 'progress' && <Progress onEditSession={openEditSession} />}
-      {screen === 'history' && <History />}
+      {screen === 'history' && <History onEditSession={id => openEditSession(id, 'history')} />}
       {screen === 'settings' && <Settings onBack={() => navigate('home')} />}
 
       {!hideNav && <BottomNav screen={screen} onNavigate={navigate} />}

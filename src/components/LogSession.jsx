@@ -1,7 +1,8 @@
 import { useState, useCallback } from 'react'
-import { ChevronDown, ChevronUp, Plus, Trash2, X, Check, Search, Loader } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, Trash2, X, Check, Loader } from 'lucide-react'
 import { useStore, getLastSession, genId } from '../lib/store'
 import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
+import AddExerciseSheet from './AddExerciseSheet'
 
 function today() {
   return new Date().toISOString().slice(0, 10)
@@ -156,145 +157,6 @@ function ExerciseCard({ exerciseId, sets, sessionNote, exercises, sessions, onCh
   )
 }
 
-const MUSCLE_ORDER = ['back', 'biceps', 'chest', 'triceps', 'shoulders', 'abs', 'legs']
-
-function CreateExerciseForm({ initialName, onCreated, onCancel, dispatch }) {
-  const [name, setName] = useState(initialName)
-  const [muscleGroup, setMuscleGroup] = useState('')
-  const [notes, setNotes] = useState('')
-
-  const submit = () => {
-    if (!name.trim() || !muscleGroup) return
-    const id = `custom_${name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_')}_${Date.now()}`
-    const exercise = { id, name: name.trim(), muscleGroup, movementGroupId: null, notes: notes.trim() }
-    dispatch({ type: 'ADD_EXERCISE', exercise })
-    onCreated(id)
-  }
-
-  return (
-    <div className="p-4">
-      <div className="flex items-center justify-between mb-4">
-        <span className="font-semibold text-white">New Exercise</span>
-        <button onClick={onCancel} className="text-gray-400"><X size={18} /></button>
-      </div>
-
-      <input
-        autoFocus
-        type="text"
-        value={name}
-        onChange={e => setName(e.target.value)}
-        placeholder="Exercise name"
-        className="w-full bg-gray-800 text-white rounded-xl px-4 py-3 text-sm outline-none mb-3 placeholder-gray-600"
-      />
-
-      <p className="text-xs text-gray-500 mb-2">Muscle group</p>
-      <div className="flex flex-wrap gap-2 mb-3">
-        {MUSCLE_ORDER.map(g => (
-          <button
-            key={g}
-            onClick={() => setMuscleGroup(g)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
-              muscleGroup === g ? 'border-brand text-brand bg-brand/10' : 'border-gray-700 text-gray-400'
-            }`}
-          >
-            {MUSCLE_LABELS[g]}
-          </button>
-        ))}
-      </div>
-
-      <input
-        type="text"
-        value={notes}
-        onChange={e => setNotes(e.target.value)}
-        placeholder="Notes (optional)"
-        className="w-full bg-gray-800 text-white rounded-xl px-4 py-3 text-sm outline-none mb-4 placeholder-gray-600"
-      />
-
-      <button
-        onClick={submit}
-        disabled={!name.trim() || !muscleGroup}
-        className="w-full bg-brand text-black font-semibold py-3.5 rounded-xl text-sm disabled:opacity-40"
-      >
-        Create & Add
-      </button>
-    </div>
-  )
-}
-
-function AddExerciseSheet({ exercises, muscleGroups, existing, onAdd, onClose, dispatch }) {
-  const [query, setQuery] = useState('')
-  const [creating, setCreating] = useState(false)
-
-  const filtered = exercises.filter(e => {
-    const inGroup = muscleGroups.includes(e.muscleGroup)
-    const notAdded = !existing.includes(e.id)
-    const matchesSearch = e.name.toLowerCase().includes(query.toLowerCase())
-    return notAdded && (query ? matchesSearch : inGroup || matchesSearch)
-  })
-
-  if (creating) {
-    return (
-      <div className="fixed inset-0 bg-black/60 z-50 flex items-end" onClick={onClose}>
-        <div className="bg-gray-900 w-full rounded-t-3xl" onClick={e => e.stopPropagation()}>
-          <CreateExerciseForm
-            initialName={query}
-            dispatch={dispatch}
-            onCreated={id => { onAdd(id); onClose() }}
-            onCancel={() => setCreating(false)}
-          />
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <div className="fixed inset-0 bg-black/60 z-50 flex items-end" onClick={onClose}>
-      <div className="bg-gray-900 w-full rounded-t-3xl max-h-[80vh] flex flex-col" onClick={e => e.stopPropagation()}>
-        <div className="p-4 border-b border-gray-800">
-          <div className="flex items-center justify-between mb-3">
-            <span className="font-semibold text-white">Add Exercise</span>
-            <button onClick={onClose} className="text-gray-400"><X size={20} /></button>
-          </div>
-          <div className="flex items-center bg-gray-800 rounded-xl px-3 gap-2">
-            <Search size={16} className="text-gray-500" />
-            <input
-              autoFocus
-              type="text"
-              placeholder="Search exercises…"
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              className="bg-transparent flex-1 py-2.5 text-sm text-white outline-none placeholder-gray-600"
-            />
-          </div>
-        </div>
-        <div className="overflow-y-auto flex-1">
-          {filtered.map(ex => (
-            <button
-              key={ex.id}
-              onClick={() => { onAdd(ex.id); onClose() }}
-              className="w-full flex items-center gap-3 px-4 py-3.5 border-b border-gray-800/60 text-left active:bg-gray-800"
-            >
-              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: MUSCLE_COLORS[ex.muscleGroup] }} />
-              <div>
-                <p className="text-sm text-white">{ex.name}</p>
-                <p className="text-xs text-gray-500">{MUSCLE_LABELS[ex.muscleGroup]}</p>
-              </div>
-            </button>
-          ))}
-          <button
-            onClick={() => setCreating(true)}
-            className="w-full flex items-center gap-3 px-4 py-4 text-left active:bg-gray-800"
-          >
-            <span className="w-2 h-2 rounded-full bg-brand flex-shrink-0" />
-            <p className="text-sm text-brand">
-              {query ? `Create "${query}"` : 'Create new exercise…'}
-            </p>
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function LogSession({ splitDay, onDone, onBack }) {
   const { state, dispatch } = useStore()
@@ -322,6 +184,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
   const [saving, setSaving] = useState(false)
   const [bodyWeight, setBodyWeight] = useState('')
   const [sessionNotes, setSessionNotes] = useState('')
+  const [sessionDate, setSessionDate] = useState(today)
 
   const updateExercise = useCallback((exerciseId, sets) => {
     setDraft(d => d.map(e => e.exerciseId === exerciseId ? { ...e, sets } : e))
@@ -348,7 +211,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
     setSaving(true)
     const session = {
       id: genId(),
-      date: today(),
+      date: sessionDate,
       muscleGroups,
       bodyWeight: bodyWeight ? parseFloat(bodyWeight) : null,
       exercises: filledExercises,
@@ -380,7 +243,12 @@ export default function LogSession({ splitDay, onDone, onBack }) {
         </button>
         <div className="flex-1">
           <h1 className="text-lg font-bold text-white">{splitDay.name}</h1>
-          <p className="text-xs text-gray-500">{new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short' })}</p>
+          <input
+            type="date"
+            value={sessionDate}
+            onChange={e => setSessionDate(e.target.value)}
+            className="bg-transparent text-xs text-gray-400 outline-none mt-0.5 cursor-pointer"
+          />
         </div>
         <div className="flex items-center bg-gray-800 rounded-xl overflow-hidden">
           <input
@@ -477,7 +345,6 @@ export default function LogSession({ splitDay, onDone, onBack }) {
       {showAddSheet && (
         <AddExerciseSheet
           exercises={exercises}
-          muscleGroups={muscleGroups}
           existing={draft.map(e => e.exerciseId)}
           onAdd={addExercise}
           onClose={() => setShowAddSheet(false)}
