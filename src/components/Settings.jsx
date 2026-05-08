@@ -11,6 +11,15 @@ export default function Settings({ onBack, onSwitchUser }) {
   const [showToken, setShowToken] = useState(false)
   const [status, setStatus] = useState(null) // null | 'checking' | 'ok' | string (error)
   const [importing, setImporting] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  const copySetupLink = () => {
+    const base = window.location.origin + import.meta.env.BASE_URL
+    const url = `${base}?r=${encodeURIComponent(state.repo)}&t=${encodeURIComponent(state.token)}`
+    navigator.clipboard.writeText(url)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   const handleSave = async () => {
     if (!token.trim() || !repo.trim()) {
@@ -117,6 +126,15 @@ export default function Settings({ onBack, onSwitchUser }) {
 
           {status && status !== 'checking' && status !== 'ok' && (
             <p className="text-red-400 text-xs mt-2 text-center">{status}</p>
+          )}
+
+          {state.token && state.repo && (
+            <button
+              onClick={copySetupLink}
+              className="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-gray-700 text-sm text-gray-300 active:bg-gray-700 transition-colors"
+            >
+              {copied ? <><Check size={15} className="text-brand" /> Copied!</> : 'Copy setup link'}
+            </button>
           )}
         </div>
 

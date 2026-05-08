@@ -137,6 +137,18 @@ function reducer(state, action) {
 const SEED_URL = `${import.meta.env.BASE_URL}data/workouts.json`
 
 export function StoreProvider({ children }) {
+  // Auto-configure from setup URL (?r=repo&t=token)
+  const urlParams = new URLSearchParams(window.location.search)
+  const urlRepo = urlParams.get('r')
+  const urlToken = urlParams.get('t')
+  if (urlRepo && urlToken) {
+    setLS(LS_TOKEN, urlToken)
+    setLS(LS_REPO, urlRepo)
+    localStorage.removeItem(LS_DATA)
+    localStorage.removeItem(LS_SHA)
+    window.history.replaceState({}, '', window.location.pathname)
+  }
+
   const cachedRaw = parseLS()
   const cachedData = migrate(cachedRaw)
   const savedUserId = getLS(LS_ACTIVE_USER)
