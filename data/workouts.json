@@ -10059,6 +10059,51 @@
         }
       ],
       "bodyWeightLog": []
+    },
+    {
+      "id": "user_1778257954568_bzsk",
+      "name": "Test user",
+      "splits": [
+        {
+          "id": "user_1778257954568_bzsk_split",
+          "name": "My Split",
+          "isActive": true,
+          "days": [
+            {
+              "id": "user_1778257954568_bzsk_upper",
+              "name": "Upper Body",
+              "muscleGroups": [
+                "chest",
+                "back",
+                "shoulders",
+                "biceps",
+                "triceps"
+              ],
+              "defaultExerciseIds": []
+            },
+            {
+              "id": "user_1778257954568_bzsk_lower",
+              "name": "Lower Body",
+              "muscleGroups": [
+                "legs",
+                "abs"
+              ],
+              "defaultExerciseIds": []
+            }
+          ]
+        }
+      ],
+      "muscleGroupNotes": {
+        "back": "Pull-ups on back day — try extending arms fully",
+        "biceps": "Left bicep is weaker than right",
+        "shoulders": "5 min warmup. Do dumbbell overhead press.",
+        "abs": "Try decline crunches — very low movement",
+        "chest": "Do incline dumbbell first. Use pec fly machine not cables for flys.",
+        "triceps": "Order: dips → both arm pushdown → overhead extension → single arm pushdown",
+        "legs": "1. Use free barbell squat. 2. Hip thrust: one leg straight, no weight, 8 reps each. 3. Bulgarian: box 24cm, don't go too low."
+      },
+      "sessions": [],
+      "bodyWeightLog": []
     }
   ]
 }
