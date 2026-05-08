@@ -146,6 +146,7 @@ export function StoreProvider({ children }) {
     setLS(LS_REPO, urlRepo)
     localStorage.removeItem(LS_DATA)
     localStorage.removeItem(LS_SHA)
+    localStorage.removeItem(LS_ACTIVE_USER)
     window.history.replaceState({}, '', window.location.pathname)
   }
 
