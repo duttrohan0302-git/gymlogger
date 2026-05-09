@@ -68,7 +68,7 @@ function reducer(state, action) {
       if (!fullData.exercises?.length) fullData.exercises = EXERCISES
       if (!fullData.movementGroups?.length) fullData.movementGroups = MOVEMENT_GROUPS
       const userId = action.activeUserId
-      const user = fullData.users?.find(u => u.id === userId) || fullData.users?.[0]
+      const user = userId ? fullData.users?.find(u => u.id === userId) : null
       const data = user ? buildUserView(fullData, user) : null
       return { ...state, fullData, data, activeUserId: user?.id || null, loading: false, error: null }
     }
