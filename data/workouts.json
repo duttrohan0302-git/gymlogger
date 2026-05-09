@@ -556,6 +556,122 @@
       },
       "sessions": [
         {
+          "id": "1778322609405-bsvkr",
+          "date": "2026-05-09",
+          "muscleGroups": [
+            "shoulders",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 33.8,
+                  "reps": 12,
+                  "note": "normal way, stop at extending"
+                },
+                {
+                  "weight": 29.6,
+                  "reps": 16,
+                  "note": "stopping at extending feels really good and tough"
+                },
+                {
+                  "weight": 29.6,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": "Changed form, make sure head tries to touch head, back bent, feel it in the abs "
+            },
+            {
+              "exerciseId": "rotary_torso",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "hanging_leg_raises",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 13,
+                  "note": "decent form"
+                },
+                {
+                  "weight": 10,
+                  "reps": 13,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 13,
+                  "note": ""
+                }
+              ],
+              "note": "Form feels weird "
+            },
+            {
+              "exerciseId": "custom_military_press_1777469843395",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 3,
+                  "note": ""
+                }
+              ],
+              "note": "2nd set almost was 5 reps, next time drop weight to 35 kgs in 2nd set "
+            },
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 4.5,
+                  "reps": 12,
+                  "note": "arms not bent"
+                },
+                {
+                  "weight": 4.5,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": "Always with wrist cuffs from now on"
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1778235942850-2kwe4",
           "date": "2026-05-08",
           "muscleGroups": [
