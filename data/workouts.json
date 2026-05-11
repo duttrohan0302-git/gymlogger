@@ -10471,13 +10471,28 @@
       "name": "Avantika",
       "splits": [
         {
-          "id": "user_1778513815630_2kxb_split",
-          "name": "My Split",
+          "id": "user_1778513815630_2kxb_split_1778514439213",
+          "name": "Lower / Upper / Lower",
           "isActive": true,
           "days": [
             {
+              "id": "user_1778513815630_2kxb_lower_a",
+              "name": "Lower A",
+              "muscleGroups": [
+                "legs",
+                "abs"
+              ],
+              "defaultExerciseIds": [
+                "custom_cable_donkey_kickbacks_1778514123217",
+                "custom_chair_feet_elevated_glute_bridge_1778514048250",
+                "rdl_dumbbell",
+                "leg_curl",
+                "calves"
+              ]
+            },
+            {
               "id": "user_1778513815630_2kxb_upper",
-              "name": "Upper Body",
+              "name": "Upper",
               "muscleGroups": [
                 "chest",
                 "back",
@@ -10485,16 +10500,30 @@
                 "biceps",
                 "triceps"
               ],
-              "defaultExerciseIds": []
+              "defaultExerciseIds": [
+                "lat_pulldown",
+                "lateral_raise_db",
+                "chest_press_machine",
+                "tricep_straight_bar",
+                "inclined_curl_db",
+                "low_rows_v_bar"
+              ]
             },
             {
-              "id": "user_1778513815630_2kxb_lower",
-              "name": "Lower Body",
+              "id": "user_1778513815630_2kxb_lower_b",
+              "name": "Lower B",
               "muscleGroups": [
                 "legs",
                 "abs"
               ],
-              "defaultExerciseIds": []
+              "defaultExerciseIds": [
+                "custom_barbell_hip_thrusts_1778514182199",
+                "custom_dumbbell_squats_1778514207032",
+                "leg_press_lying",
+                "custom_dumbbell_walking_lunges_1778514230448",
+                "leg_extension",
+                "calves"
+              ]
             }
           ]
         }
