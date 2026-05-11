@@ -507,39 +507,96 @@
       "name": "Rohan",
       "splits": [
         {
-          "id": "default",
-          "name": "4-Day Split",
+          "id": "user_default_split_1778505437812",
+          "name": "PPL + Upper / Lower",
           "isActive": true,
           "days": [
             {
-              "id": "back_biceps",
-              "name": "Back + Biceps",
+              "id": "user_default_push",
+              "name": "Push",
+              "muscleGroups": [
+                "chest",
+                "shoulders",
+                "triceps"
+              ],
+              "defaultExerciseIds": [
+                "custom_military_press_1777469843395",
+                "cable_lateral_raise",
+                "dumbbell_press",
+                "pec_fly_machine",
+                "tricep_straight_bar",
+                "tricep_overhead_rope"
+              ]
+            },
+            {
+              "id": "user_default_pull",
+              "name": "Pull",
               "muscleGroups": [
                 "back",
                 "biceps"
+              ],
+              "defaultExerciseIds": [
+                "chest_supported_row",
+                "lat_pulldown",
+                "back_extension",
+                "dumbbell_shrugs",
+                "inclined_curl_db",
+                "cross_body_hammer_curl"
               ]
             },
             {
-              "id": "chest_triceps",
-              "name": "Chest + Triceps",
-              "muscleGroups": [
-                "chest",
-                "triceps"
-              ]
-            },
-            {
-              "id": "shoulders_abs",
-              "name": "Shoulders + Abs",
-              "muscleGroups": [
-                "shoulders",
-                "abs"
-              ]
-            },
-            {
-              "id": "legs",
+              "id": "user_default_legs",
               "name": "Legs",
               "muscleGroups": [
-                "legs"
+                "legs",
+                "abs"
+              ],
+              "defaultExerciseIds": [
+                "barbell_squat",
+                "leg_press_sitting",
+                "leg_curl",
+                "hip_thrust_single_leg",
+                "hip_abductor",
+                "calves",
+                "abs_crunch_rope",
+                "hanging_leg_raises"
+              ]
+            },
+            {
+              "id": "user_default_upper",
+              "name": "Upper",
+              "muscleGroups": [
+                "chest",
+                "back",
+                "shoulders",
+                "biceps",
+                "triceps"
+              ],
+              "defaultExerciseIds": [
+                "lat_pulldown",
+                "low_rows_v_bar",
+                "inclined_db_press",
+                "dumbbell_press",
+                "cable_lateral_raise",
+                "preacher_curl",
+                "weighted_dips"
+              ]
+            },
+            {
+              "id": "user_default_lower",
+              "name": "Lower",
+              "muscleGroups": [
+                "legs",
+                "abs"
+              ],
+              "defaultExerciseIds": [
+                "custom_rdl_barbell_1777542610999",
+                "bulgarian_split_squat",
+                "leg_extension",
+                "stand_knee_raise",
+                "calves",
+                "abs_crunch_rope",
+                "rotary_torso"
               ]
             }
           ]
