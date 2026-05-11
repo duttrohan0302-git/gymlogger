@@ -27,12 +27,12 @@ export const EXERCISES = [
   // SHOULDERS
   { id: 'shoulder_press_db', name: 'Shoulder Press Dumbbell', muscleGroup: 'shoulders', movementGroupId: 'shoulder_press', notes: '' },
   { id: 'cable_lateral_raise', name: 'Cable Lateral Raise', muscleGroup: 'shoulders', movementGroupId: 'lateral_raise', notes: 'High reps, low weight' },
-  { id: 'archer_pull', name: 'Archer Pull Single Arm', muscleGroup: 'shoulders', movementGroupId: 'rear_delt', notes: '' },
-  { id: 'facepulls', name: 'Facepulls', muscleGroup: 'shoulders', movementGroupId: 'rear_delt', notes: '' },
-  { id: 'rear_delt_machine', name: 'Rear Delt Machine', muscleGroup: 'shoulders', movementGroupId: 'rear_delt', notes: 'Hard to maintain form' },
+  { id: 'archer_pull', name: 'Archer Pull Single Arm', muscleGroup: 'shoulders', extraMuscleGroups: ['back'], movementGroupId: 'rear_delt', notes: '' },
+  { id: 'facepulls', name: 'Facepulls', muscleGroup: 'shoulders', extraMuscleGroups: ['back'], movementGroupId: 'rear_delt', notes: '' },
+  { id: 'rear_delt_machine', name: 'Rear Delt Machine', muscleGroup: 'shoulders', extraMuscleGroups: ['back'], movementGroupId: 'rear_delt', notes: 'Hard to maintain form' },
   { id: 'machine_shoulder_press', name: 'Machine Shoulder Press', muscleGroup: 'shoulders', movementGroupId: 'shoulder_press', notes: '' },
   { id: 'lateral_raise_db', name: 'Lateral Raise Dumbbell', muscleGroup: 'shoulders', movementGroupId: 'lateral_raise', notes: '' },
-  { id: 'rear_delt_dual_cable', name: 'Rear Delt Dual Cable', muscleGroup: 'shoulders', movementGroupId: 'rear_delt', notes: '' },
+  { id: 'rear_delt_dual_cable', name: 'Rear Delt Dual Cable', muscleGroup: 'shoulders', extraMuscleGroups: ['back'], movementGroupId: 'rear_delt', notes: '' },
   // ABS
   { id: 'abs_crunch_rope', name: 'Abs Crunch Rope', muscleGroup: 'abs', movementGroupId: 'core', notes: 'Stop at full extension' },
   { id: 'rotary_torso', name: 'Rotary Torso', muscleGroup: 'abs', movementGroupId: 'core', notes: '' },

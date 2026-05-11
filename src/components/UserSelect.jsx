@@ -159,10 +159,9 @@ export default function UserSelect() {
   if (step === 'exercises' && currentDay) {
     const muscleGroups = currentDay.muscleGroups
     const selected = dayExercises[currentDay.id] || new Set()
-    const visibleExercises = exercises.filter(e =>
-      muscleGroups.includes(e.muscleGroup) &&
-      (muscleFilter ? e.muscleGroup === muscleFilter : true)
-    )
+    const inDay = e => muscleGroups.includes(e.muscleGroup) || e.extraMuscleGroups?.some(g => muscleGroups.includes(g))
+    const inFilter = e => !muscleFilter || e.muscleGroup === muscleFilter || e.extraMuscleGroups?.includes(muscleFilter)
+    const visibleExercises = exercises.filter(e => inDay(e) && inFilter(e))
     const isLast = dayIdx === days.length - 1
 
     return (

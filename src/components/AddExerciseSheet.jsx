@@ -72,10 +72,12 @@ export default function AddExerciseSheet({ exercises, existing, onAdd, onClose, 
   const [selectedGroup, setSelectedGroup] = useState(null)
   const [creating, setCreating] = useState(false)
 
+  const inGroup = (e, g) => e.muscleGroup === g || e.extraMuscleGroups?.includes(g)
+
   const filtered = exercises.filter(e => {
     if (existing.includes(e.id)) return false
     if (query) return e.name.toLowerCase().includes(query.toLowerCase())
-    if (selectedGroup) return e.muscleGroup === selectedGroup
+    if (selectedGroup) return inGroup(e, selectedGroup)
     return true
   })
 

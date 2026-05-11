@@ -85,10 +85,9 @@ export default function SplitEditor({ onClose }) {
     const muscleGroups = currentDay.muscleGroups
     const selected = dayExercises[currentDay.id] || new Set()
     const isLast = dayIdx === days.length - 1
-    const visibleExercises = exercises.filter(e =>
-      muscleGroups.includes(e.muscleGroup) &&
-      (muscleFilter ? e.muscleGroup === muscleFilter : true)
-    )
+    const inDay = e => muscleGroups.includes(e.muscleGroup) || e.extraMuscleGroups?.some(g => muscleGroups.includes(g))
+    const inFilter = e => !muscleFilter || e.muscleGroup === muscleFilter || e.extraMuscleGroups?.includes(muscleFilter)
+    const visibleExercises = exercises.filter(e => inDay(e) && inFilter(e))
 
     return (
       <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col max-w-md mx-auto">
