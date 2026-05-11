@@ -10537,7 +10537,120 @@
         "triceps": "Order: dips → both arm pushdown → overhead extension → single arm pushdown",
         "legs": "1. Use free barbell squat. 2. Hip thrust: one leg straight, no weight, 8 reps each. 3. Bulgarian: box 24cm, don't go too low."
       },
-      "sessions": [],
+      "sessions": [
+        {
+          "id": "1778519864000-kfzn4",
+          "date": "2026-05-11",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "custom_cable_donkey_kickbacks_1778514123217",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_chair_feet_elevated_glute_bridge_1778514048250",
+              "sets": [
+                {
+                  "weight": 8,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 8,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 8,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rdl_dumbbell",
+              "sets": [
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 17.5,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 16,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 16,
+                  "reps": 13,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        }
+      ],
       "bodyWeightLog": []
     }
   ]
