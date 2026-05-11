@@ -378,6 +378,13 @@
       "muscleGroup": "legs",
       "movementGroupId": null,
       "notes": ""
+    },
+    {
+      "id": "custom_barbell_hip_thrusts_1778514182199",
+      "name": "Barbell Hip Thrusts",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": ""
     }
   ],
   "movementGroups": [
