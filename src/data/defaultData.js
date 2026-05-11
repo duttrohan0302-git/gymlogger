@@ -159,6 +159,16 @@ export const SPLIT_TEMPLATES = [
     ],
   },
   {
+    id: 'lul',
+    name: 'Lower / Upper / Lower',
+    description: '3 days',
+    days: [
+      { id: 'lower_a', name: 'Lower A', muscleGroups: ['legs', 'abs'] },
+      { id: 'upper', name: 'Upper', muscleGroups: ['chest', 'back', 'shoulders', 'biceps', 'triceps'] },
+      { id: 'lower_b', name: 'Lower B', muscleGroups: ['legs', 'abs'] },
+    ],
+  },
+  {
     id: 'full_body',
     name: 'Full Body',
     description: '1 day',
