@@ -392,6 +392,13 @@
       "muscleGroup": "legs",
       "movementGroupId": null,
       "notes": ""
+    },
+    {
+      "id": "custom_dumbbell_walking_lunges_1778514230448",
+      "name": "Dumbbell Walking Lunges",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": ""
     }
   ],
   "movementGroups": [
