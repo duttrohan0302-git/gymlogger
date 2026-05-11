@@ -371,6 +371,13 @@
       "muscleGroup": "legs",
       "movementGroupId": null,
       "notes": ""
+    },
+    {
+      "id": "custom_cable_donkey_kickbacks_1778514123217",
+      "name": "Cable Donkey Kickbacks",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": ""
     }
   ],
   "movementGroups": [
