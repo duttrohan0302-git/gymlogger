@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { ChevronLeft, Check, Loader, Eye, EyeOff } from 'lucide-react'
 import { useStore } from '../lib/store'
 import { validateToken } from '../lib/github'
-import { EMPTY_DATA } from '../data/defaultData'
+import { EMPTY_DATA, MUSCLE_COLORS } from '../data/defaultData'
+import SplitEditor from './SplitEditor'
 
 export default function Settings({ onBack, onSwitchUser }) {
   const { state, setConfig, dispatch } = useStore()
@@ -12,6 +13,7 @@ export default function Settings({ onBack, onSwitchUser }) {
   const [status, setStatus] = useState(null) // null | 'checking' | 'ok' | string (error)
   const [importing, setImporting] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [showSplitEditor, setShowSplitEditor] = useState(false)
 
   const copySetupLink = () => {
     const base = window.location.origin + import.meta.env.BASE_URL
@@ -66,6 +68,7 @@ export default function Settings({ onBack, onSwitchUser }) {
   }
 
   return (
+    <>
     <div className="min-h-screen bg-gray-900 pb-24">
       <div className="px-4 pt-12 pb-4">
         <div className="flex items-center gap-3 mb-6">
@@ -138,6 +141,37 @@ export default function Settings({ onBack, onSwitchUser }) {
           )}
         </div>
 
+        {/* Workout split */}
+        {(() => {
+          const activeSplit = state.data.splits?.find(s => s.isActive) || state.data.splits?.[0]
+          return (
+            <div className="bg-gray-800 rounded-2xl p-4 mb-4">
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-sm font-semibold text-white">Workout Split</h2>
+                <button onClick={() => setShowSplitEditor(true)} className="text-xs text-brand font-medium">
+                  Change
+                </button>
+              </div>
+              {activeSplit ? (
+                <div className="space-y-2">
+                  {activeSplit.days.map(day => (
+                    <div key={day.id} className="flex items-center gap-2">
+                      <div className="flex gap-1">
+                        {day.muscleGroups.slice(0, 4).map(g => (
+                          <span key={g} className="w-2 h-2 rounded-full" style={{ backgroundColor: MUSCLE_COLORS[g] }} />
+                        ))}
+                      </div>
+                      <span className="text-sm text-gray-300">{day.name}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-xs text-gray-500">No split configured</p>
+              )}
+            </div>
+          )
+        })()}
+
         {/* Data management */}
         <div className="bg-gray-800 rounded-2xl p-4 mb-4">
           <h2 className="text-sm font-semibold text-white mb-3">Data</h2>
@@ -186,5 +220,8 @@ export default function Settings({ onBack, onSwitchUser }) {
         </div>
       </div>
     </div>
+
+    {showSplitEditor && <SplitEditor onClose={() => setShowSplitEditor(false)} />}
+    </>
   )
 }

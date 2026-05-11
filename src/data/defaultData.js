@@ -147,6 +147,18 @@ export const SPLIT_TEMPLATES = [
     ],
   },
   {
+    id: 'pplul',
+    name: 'PPL + Upper / Lower',
+    description: '5 days',
+    days: [
+      { id: 'push', name: 'Push', muscleGroups: ['chest', 'shoulders', 'triceps'] },
+      { id: 'pull', name: 'Pull', muscleGroups: ['back', 'biceps'] },
+      { id: 'legs', name: 'Legs', muscleGroups: ['legs', 'abs'] },
+      { id: 'upper', name: 'Upper', muscleGroups: ['chest', 'back', 'shoulders', 'biceps', 'triceps'] },
+      { id: 'lower', name: 'Lower', muscleGroups: ['legs', 'abs'] },
+    ],
+  },
+  {
     id: 'full_body',
     name: 'Full Body',
     description: '1 day',

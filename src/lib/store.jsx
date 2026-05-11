@@ -106,6 +106,11 @@ function reducer(state, action) {
       const fullData = patchUser(state.fullData, state.activeUserId, { sessions })
       return { ...state, data: { ...state.data, sessions }, fullData, dirty: true }
     }
+    case 'UPDATE_SPLIT': {
+      const splits = [{ ...action.split, isActive: true }]
+      const fullData = patchUser(state.fullData, state.activeUserId, { splits })
+      return { ...state, data: { ...state.data, splits }, fullData, dirty: true }
+    }
     case 'UPDATE_MUSCLE_NOTE': {
       const muscleGroupNotes = { ...state.data.muscleGroupNotes, [action.group]: action.notes }
       const fullData = patchUser(state.fullData, state.activeUserId, { muscleGroupNotes })
