@@ -556,6 +556,159 @@
       },
       "sessions": [
         {
+          "id": "1778491173378-ckywr",
+          "date": "2026-05-11",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 32,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "preacher_curl",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 8,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 8,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "cross_body_hammer_curl",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "chest_supported_row",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "low_rows_v_bar",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 53,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": "Too many rows, tiring "
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1778322609405-bsvkr",
           "date": "2026-05-09",
           "muscleGroups": [
