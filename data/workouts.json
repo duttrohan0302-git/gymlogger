@@ -364,6 +364,13 @@
       "muscleGroup": "legs",
       "movementGroupId": null,
       "notes": "Total weight including bar"
+    },
+    {
+      "id": "custom_chair_feet_elevated_glute_bridge_1778514048250",
+      "name": "Chair Feet Elevated Glute Bridge",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": ""
     }
   ],
   "movementGroups": [
