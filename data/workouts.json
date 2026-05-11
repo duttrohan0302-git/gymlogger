@@ -385,6 +385,13 @@
       "muscleGroup": "legs",
       "movementGroupId": null,
       "notes": ""
+    },
+    {
+      "id": "custom_dumbbell_squats_1778514207032",
+      "name": "Dumbbell Squats",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": ""
     }
   ],
   "movementGroups": [
