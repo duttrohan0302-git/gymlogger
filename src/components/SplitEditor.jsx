@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ChevronLeft, ChevronRight, Check, X } from 'lucide-react'
 import { useStore } from '../lib/store'
 import { MUSCLE_LABELS, MUSCLE_COLORS, SPLIT_TEMPLATES } from '../data/defaultData'
+import { CreateExerciseForm } from './AddExerciseSheet'
 
 export default function SplitEditor({ onClose }) {
   const { state, dispatch } = useStore()
@@ -12,6 +13,7 @@ export default function SplitEditor({ onClose }) {
   const [dayExercises, setDayExercises] = useState({})
   const [dayIdx, setDayIdx] = useState(0)
   const [muscleFilter, setMuscleFilter] = useState(null)
+  const [creating, setCreating] = useState(false)
 
   const days = template?.days || []
   const currentDay = days[dayIdx]
@@ -76,6 +78,27 @@ export default function SplitEditor({ onClose }) {
             </button>
           ))}
         </div>
+      </div>
+    )
+  }
+
+  // ── Create exercise overlay ────────────────────────────────────────────────
+  if (creating && currentDay) {
+    return (
+      <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col max-w-md mx-auto">
+        <CreateExerciseForm
+          initialName=""
+          dispatch={dispatch}
+          onCreated={id => {
+            setDayExercises(prev => {
+              const s = new Set(prev[currentDay.id] || [])
+              s.add(id)
+              return { ...prev, [currentDay.id]: s }
+            })
+            setCreating(false)
+          }}
+          onCancel={() => setCreating(false)}
+        />
       </div>
     )
   }
@@ -152,6 +175,13 @@ export default function SplitEditor({ onClose }) {
               </button>
             )
           })}
+          <button
+            onClick={() => setCreating(true)}
+            className="w-full flex items-center gap-3 px-4 py-4 text-left active:bg-gray-800"
+          >
+            <span className="w-2 h-2 rounded-full bg-brand flex-shrink-0" />
+            <p className="text-sm text-brand">Create new exercise…</p>
+          </button>
         </div>
 
         <div className="fixed bottom-0 left-0 right-0 p-4 bg-gray-900 border-t border-gray-800 max-w-md mx-auto">

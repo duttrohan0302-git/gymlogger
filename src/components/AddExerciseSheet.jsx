@@ -4,7 +4,7 @@ import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
 
 const MUSCLE_ORDER = ['back', 'biceps', 'chest', 'triceps', 'shoulders', 'abs', 'legs']
 
-function CreateExerciseForm({ initialName, onCreated, onCancel, dispatch }) {
+export function CreateExerciseForm({ initialName, onCreated, onCancel, dispatch }) {
   const [name, setName] = useState(initialName)
   const [muscleGroup, setMuscleGroup] = useState('')
   const [notes, setNotes] = useState('')

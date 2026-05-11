@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Plus, Check, ChevronRight, ChevronLeft, X } from 'lucide-react'
 import { useStore } from '../lib/store'
 import { MUSCLE_LABELS, MUSCLE_COLORS, SPLIT_TEMPLATES, makeUser } from '../data/defaultData'
+import { CreateExerciseForm } from './AddExerciseSheet'
 
 function UserAvatar({ name, size = 'lg' }) {
   const s = size === 'lg' ? 'w-12 h-12 text-xl' : 'w-10 h-10 text-base'
@@ -24,6 +25,7 @@ export default function UserSelect() {
   const [dayExercises, setDayExercises] = useState({})
   const [dayIdx, setDayIdx] = useState(0)
   const [muscleFilter, setMuscleFilter] = useState(null)
+  const [creating, setCreating] = useState(false)
 
   const days = template?.days || []
   const currentDay = days[dayIdx]
@@ -155,6 +157,27 @@ export default function UserSelect() {
     )
   }
 
+  // ── Create exercise overlay ────────────────────────────────────────────────
+  if (creating && currentDay) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex flex-col max-w-md mx-auto">
+        <CreateExerciseForm
+          initialName=""
+          dispatch={dispatch}
+          onCreated={id => {
+            setDayExercises(prev => {
+              const s = new Set(prev[currentDay.id] || [])
+              s.add(id)
+              return { ...prev, [currentDay.id]: s }
+            })
+            setCreating(false)
+          }}
+          onCancel={() => setCreating(false)}
+        />
+      </div>
+    )
+  }
+
   // ── Step: exercise selection ───────────────────────────────────────────────
   if (step === 'exercises' && currentDay) {
     const muscleGroups = currentDay.muscleGroups
@@ -227,6 +250,13 @@ export default function UserSelect() {
               </button>
             )
           })}
+          <button
+            onClick={() => setCreating(true)}
+            className="w-full flex items-center gap-3 px-4 py-4 text-left active:bg-gray-800"
+          >
+            <span className="w-2 h-2 rounded-full bg-brand flex-shrink-0" />
+            <p className="text-sm text-brand">Create new exercise…</p>
+          </button>
         </div>
 
         {/* Bottom bar */}
