@@ -648,6 +648,60 @@
       },
       "sessions": [
         {
+          "id": "1778574462556-ubzrj",
+          "date": "2026-05-12",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "barbell_squat",
+              "sets": [
+                {
+                  "weight": 15,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1778491173378-ckywr",
           "date": "2026-05-11",
           "muscleGroups": [
