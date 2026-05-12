@@ -697,6 +697,86 @@
                 }
               ],
               "note": ""
+            },
+            {
+              "exerciseId": "hip_thrust_single_leg",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": null,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": null,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 79,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 79,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 79,
+                  "reps": 11,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "hip_abductor",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 14,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 30,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 18,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
