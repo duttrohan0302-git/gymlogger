@@ -797,6 +797,26 @@
                   "note": ""
                 }
               ]
+            },
+            {
+              "exerciseId": "hanging_leg_raises",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 11,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
