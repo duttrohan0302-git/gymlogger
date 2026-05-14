@@ -648,6 +648,185 @@
       },
       "sessions": [
         {
+          "id": "1778757738240-azag6",
+          "date": "2026-05-14",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 18,
+                  "note": ""
+                }
+              ],
+              "note": "Standing"
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 29.3,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 29.3,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 29.3,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_rdl_barbell_1777542610999",
+              "sets": [
+                {
+                  "weight": 80,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 90,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 80,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": "Bad form, stick at 60 and improve form "
+            },
+            {
+              "exerciseId": "bulgarian_split_squat",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 12,
+                  "note": "better form"
+                },
+                {
+                  "weight": null,
+                  "reps": 12,
+                  "note": "hard"
+                },
+                {
+                  "weight": null,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": "Decent form "
+            },
+            {
+              "exerciseId": "stand_knee_raise",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                }
+              ],
+              "note": "Try going more down "
+            },
+            {
+              "exerciseId": "leg_extension",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 11,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rotary_torso",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1778750568910-3zrt4",
           "date": "2026-05-13",
           "muscleGroups": [
