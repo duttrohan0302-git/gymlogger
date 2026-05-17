@@ -648,6 +648,185 @@
       },
       "sessions": [
         {
+          "id": "1779015191833-yny1j",
+          "date": "2026-05-17",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "cross_body_hammer_curl",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 39,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "facepulls",
+              "sets": [
+                {
+                  "weight": 18,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 18,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 18,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": "Last exercise, an extra"
+            },
+            {
+              "exerciseId": "back_extension",
+              "sets": [
+                {
+                  "weight": 86,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 86,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 86,
+                  "reps": 11,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 32,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 14,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1778921754338-wbeba",
           "date": "2026-05-16",
           "muscleGroups": [
