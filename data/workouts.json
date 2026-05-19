@@ -648,6 +648,185 @@
       },
       "sessions": [
         {
+          "id": "1779184786177-47e9c",
+          "date": "2026-05-19",
+          "muscleGroups": [
+            "chest",
+            "back",
+            "shoulders",
+            "biceps",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "low_rows_v_bar",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 24,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 4.5,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 4.5,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 4.5,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "preacher_curl",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": "Last set brutal "
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 15.8,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 13.5,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 13.5,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": "Set rope low at no. 7 "
+            },
+            {
+              "exerciseId": "bench_press",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 12,
+                  "note": "each side smith machine"
+                },
+                {
+                  "weight": 50,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 50,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 39,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1779103443802-0gan7",
           "date": "2026-05-18",
           "muscleGroups": [
