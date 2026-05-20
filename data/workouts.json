@@ -399,6 +399,13 @@
       "muscleGroup": "legs",
       "movementGroupId": null,
       "notes": ""
+    },
+    {
+      "id": "custom_leg_curl_lying__1779273848725",
+      "name": "Leg curl (lying)",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": "Hits hamstring very well"
     }
   ],
   "movementGroups": [
