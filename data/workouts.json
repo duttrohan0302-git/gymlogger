@@ -655,6 +655,183 @@
       },
       "sessions": [
         {
+          "id": "1779790079161-7w59u",
+          "date": "2026-05-26",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 33.8,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 33.8,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 33.8,
+                  "reps": 20,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_leg_curl_lying__1779273848725",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "rotary_torso",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "bulgarian_split_squat",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": "better form"
+                },
+                {
+                  "weight": 10,
+                  "reps": 10,
+                  "note": "hard"
+                },
+                {
+                  "weight": 10,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_extension",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "stand_knee_raise",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": "Using step stool and strict knee raises and go down"
+            },
+            {
+              "exerciseId": "custom_rdl_barbell_1777542610999",
+              "sets": [
+                {
+                  "weight": 80,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 80,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 80,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1779789814528-117ba",
           "date": "2026-05-25",
           "muscleGroups": [
