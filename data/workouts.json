@@ -655,6 +655,143 @@
       },
       "sessions": [
         {
+          "id": "1779874022983-ly1qp",
+          "date": "2026-05-27",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 5.6,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 5.6,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 5.6,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 15.8,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 13.5,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 13.5,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "dumbbell_press",
+              "sets": [
+                {
+                  "weight": 24,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 12,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 66,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_military_press_1777469843395",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 35,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "tricep_straight_bar",
+              "sets": [
+                {
+                  "weight": 20.3,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": "V bar "
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1779790079161-7w59u",
           "date": "2026-05-26",
           "muscleGroups": [
