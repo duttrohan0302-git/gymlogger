@@ -655,6 +655,164 @@
       },
       "sessions": [
         {
+          "id": "1780045356987-187fa",
+          "date": "2026-05-29",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": 71,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "cross_body_hammer_curl",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "chest_supported_row",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "back_extension",
+              "sets": [
+                {
+                  "weight": 86,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 86,
+                  "reps": 15,
+                  "note": ""
+                },
+                {
+                  "weight": 86,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": "Slow controlled reps"
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1779874022983-ly1qp",
           "date": "2026-05-27",
           "muscleGroups": [
