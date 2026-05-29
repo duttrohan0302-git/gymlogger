@@ -771,13 +771,13 @@
               "exerciseId": "dumbbell_shrugs",
               "sets": [
                 {
-                  "weight": 20,
-                  "reps": 14,
+                  "weight": 32,
+                  "reps": 12,
                   "note": ""
                 },
                 {
                   "weight": 32,
-                  "reps": 11,
+                  "reps": 12,
                   "note": ""
                 },
                 {
