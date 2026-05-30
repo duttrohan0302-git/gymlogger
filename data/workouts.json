@@ -413,6 +413,13 @@
       "muscleGroup": "abs",
       "movementGroupId": null,
       "notes": ""
+    },
+    {
+      "id": "custom_hip_thrust_machine_1780137750758",
+      "name": "Hip thrust machine",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": ""
     }
   ],
   "movementGroups": [
