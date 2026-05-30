@@ -406,6 +406,13 @@
       "muscleGroup": "legs",
       "movementGroupId": null,
       "notes": "Hits hamstring very well"
+    },
+    {
+      "id": "custom_abdominal_1780137674095",
+      "name": "Abdominal",
+      "muscleGroup": "abs",
+      "movementGroupId": null,
+      "notes": ""
     }
   ],
   "movementGroups": [
