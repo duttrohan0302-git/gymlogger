@@ -669,6 +669,185 @@
       },
       "sessions": [
         {
+          "id": "1780137930511-vkdx3",
+          "date": "2026-05-30",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 15,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 18,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "hanging_leg_raises",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_abdominal_1780137674095",
+              "sets": [
+                {
+                  "weight": 36,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": "Hard "
+            },
+            {
+              "exerciseId": "barbell_squat",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 25,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 25,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "hip_abductor",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": "Pain in left abductor "
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 86,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 86,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 79,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_hip_thrust_machine_1780137750758",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 54,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 54,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": "Trying a new exercise "
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1780045356987-187fa",
           "date": "2026-05-29",
           "muscleGroups": [
