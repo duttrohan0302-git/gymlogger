@@ -669,6 +669,186 @@
       },
       "sessions": [
         {
+          "id": "1780422173606-4c0rx",
+          "date": "2026-06-02",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 15,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 18,
+                  "note": ""
+                }
+              ],
+              "note": "Standing "
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 33.8,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 33.8,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 33.8,
+                  "reps": 24,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rotary_torso",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "bulgarian_split_squat",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": "better form"
+                },
+                {
+                  "weight": 12,
+                  "reps": 9,
+                  "note": "hard"
+                },
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": "Killed me "
+            },
+            {
+              "exerciseId": "stand_knee_raise",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_rdl_barbell_1777542610999",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": "Good form "
+            },
+            {
+              "exerciseId": "leg_extension",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 11,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_leg_curl_lying__1779273848725",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 41,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 41,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1780308916419-qimb7",
           "date": "2026-06-01",
           "muscleGroups": [
