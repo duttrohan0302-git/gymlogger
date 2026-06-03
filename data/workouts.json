@@ -669,6 +669,162 @@
       },
       "sessions": [
         {
+          "id": "1780484134076-hlry5",
+          "date": "2026-06-03",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 24,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 5.6,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 5.6,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 5.6,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 15.8,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 5,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 10,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_straight_bar",
+              "sets": [
+                {
+                  "weight": 20.3,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": "V bar"
+            },
+            {
+              "exerciseId": "facepulls",
+              "sets": [
+                {
+                  "weight": 18,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 18,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 18,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_military_press_1777469843395",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 35,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1780422173606-4c0rx",
           "date": "2026-06-02",
           "muscleGroups": [
