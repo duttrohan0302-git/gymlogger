@@ -669,6 +669,183 @@
       },
       "sessions": [
         {
+          "id": "1781085225684-1qq6x",
+          "date": "2026-06-09",
+          "muscleGroups": [
+            "chest",
+            "back",
+            "shoulders",
+            "biceps",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": "Slowed, retracted chest"
+            },
+            {
+              "exerciseId": "low_rows_v_bar",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 22,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": "Spread out arms chest out "
+            },
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 5.6,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 5.6,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 5.6,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "preacher_curl",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 13.5,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 13.5,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 13.5,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "bench_press",
+              "sets": [
+                {
+                  "weight": 55,
+                  "reps": 7,
+                  "note": "each side smith machine"
+                },
+                {
+                  "weight": 55,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 55,
+                  "reps": 5,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 11,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 66,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1780912447357-v9nk4",
           "date": "2026-06-08",
           "muscleGroups": [
