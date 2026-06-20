@@ -669,6 +669,185 @@
       },
       "sessions": [
         {
+          "id": "1781955494283-hne3k",
+          "date": "2026-06-20",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 20,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 21,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 20,
+                  "note": ""
+                }
+              ],
+              "note": "Smith machine "
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 27,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 27,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 27,
+                  "reps": 22,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "hanging_leg_raises",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 13,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "barbell_squat",
+              "sets": [
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 11,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_leg_curl_lying__1779273848725",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "hip_abductor",
+              "sets": [
+                {
+                  "weight": 32,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "hip_thrust_single_leg",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1781862835600-2we6p",
           "date": "2026-06-19",
           "muscleGroups": [
