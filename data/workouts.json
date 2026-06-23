@@ -669,6 +669,144 @@
       },
       "sessions": [
         {
+          "id": "1782235297782-p71st",
+          "date": "2026-06-23",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 14,
+                  "note": ""
+                }
+              ],
+              "note": "Standing"
+            },
+            {
+              "exerciseId": "custom_abdominal_1780137674095",
+              "sets": [
+                {
+                  "weight": 32,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 18,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_rdl_barbell_1777542610999",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 80,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 80,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "bulgarian_split_squat",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 9,
+                  "note": "better form"
+                },
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": "hard"
+                },
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_extension",
+              "sets": [
+                {
+                  "weight": 47.3,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 47.3,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 47.3,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1782125996902-38tcn",
           "date": "2026-06-22",
           "muscleGroups": [
