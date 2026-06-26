@@ -669,6 +669,159 @@
       },
       "sessions": [
         {
+          "id": "1782473888913-gfqyi",
+          "date": "2026-06-26",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "cross_body_hammer_curl",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "back_extension",
+              "sets": [
+                {
+                  "weight": 86,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 86,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": "2 sets only "
+            },
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_abdominal_1780137674095",
+              "sets": [
+                {
+                  "weight": 36,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 36,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1782306096526-7stn2",
           "date": "2026-06-24",
           "muscleGroups": [
