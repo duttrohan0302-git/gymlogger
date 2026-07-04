@@ -703,17 +703,17 @@
               "sets": [
                 {
                   "weight": 32,
-                  "reps": 16,
+                  "reps": 14,
                   "note": ""
                 },
                 {
-                  "weight": 32,
-                  "reps": 18,
+                  "weight": 36,
+                  "reps": 10,
                   "note": ""
                 },
                 {
-                  "weight": 32,
-                  "reps": 18,
+                  "weight": 36,
+                  "reps": 12,
                   "note": ""
                 }
               ]
