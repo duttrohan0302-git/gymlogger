@@ -669,6 +669,143 @@
       },
       "sessions": [
         {
+          "id": "1783168092440-4dm8m",
+          "date": "2026-07-04",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": "Smith machine "
+            },
+            {
+              "exerciseId": "custom_abdominal_1780137674095",
+              "sets": [
+                {
+                  "weight": 32,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 18,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "barbell_squat",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_hip_thrust_machine_1780137750758",
+              "sets": [
+                {
+                  "weight": 63,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 63,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 63,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": "Machine not free weight"
+            },
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 79,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 79,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 79,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_leg_curl_lying__1779273848725",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1782897537163-906zv",
           "date": "2026-07-01",
           "muscleGroups": [
