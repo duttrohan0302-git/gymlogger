@@ -669,6 +669,169 @@
       },
       "sessions": [
         {
+          "id": "1784218727087-qp2m8",
+          "date": "2026-07-16",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 6.8,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 9,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_straight_bar",
+              "sets": [
+                {
+                  "weight": 20.3,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": "V bar "
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 15.8,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 24,
+                  "reps": 3,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_military_press_1777469843395",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 4,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1784122229118-qca7l",
           "date": "2026-07-15",
           "muscleGroups": [
