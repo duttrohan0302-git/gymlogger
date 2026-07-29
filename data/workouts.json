@@ -669,6 +669,141 @@
       },
       "sessions": [
         {
+          "id": "1785333363495-kl3sd",
+          "date": "2026-07-29",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 6.8,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 22,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 9,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "weighted_dips",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_single_arm_ext",
+              "sets": [
+                {
+                  "weight": 4.5,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "machine_shoulder_press",
+              "sets": [
+                {
+                  "weight": 35,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 35,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 35,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1785232137645-f639q",
           "date": "2026-07-28",
           "muscleGroups": [
