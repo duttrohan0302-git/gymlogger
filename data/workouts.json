@@ -669,6 +669,142 @@
       },
       "sessions": [
         {
+          "id": "1785575303773-7ri31",
+          "date": "2026-08-01",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 6.8,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 24,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "machine_shoulder_press",
+              "sets": [
+                {
+                  "weight": 35,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 35,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 35,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 15.8,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "tricep_straight_bar",
+              "sets": [
+                {
+                  "weight": 20.3,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "cable_fly",
+              "sets": [
+                {
+                  "weight": 8,
+                  "reps": 8,
+                  "note": "close cable cable"
+                },
+                {
+                  "weight": 8,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 8,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1785508728979-o26zh",
           "date": "2026-07-31",
           "muscleGroups": [
