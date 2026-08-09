@@ -681,13 +681,13 @@
               "exerciseId": "lat_pulldown",
               "sets": [
                 {
-                  "weight": 59,
-                  "reps": 8,
+                  "weight": 52,
+                  "reps": 12,
                   "note": ""
                 },
                 {
                   "weight": 59,
-                  "reps": 8,
+                  "reps": 7,
                   "note": ""
                 },
                 {
@@ -750,12 +750,12 @@
                 },
                 {
                   "weight": 12,
-                  "reps": 8,
+                  "reps": 7,
                   "note": ""
                 },
                 {
                   "weight": 12,
-                  "reps": 8,
+                  "reps": 7,
                   "note": ""
                 }
               ],
@@ -766,12 +766,12 @@
               "sets": [
                 {
                   "weight": 52,
-                  "reps": 9,
+                  "reps": 11,
                   "note": ""
                 },
                 {
                   "weight": 52,
-                  "reps": 8,
+                  "reps": 11,
                   "note": ""
                 },
                 {
