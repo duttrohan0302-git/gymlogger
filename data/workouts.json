@@ -420,6 +420,13 @@
       "muscleGroup": "legs",
       "movementGroupId": null,
       "notes": ""
+    },
+    {
+      "id": "custom_t_bar_row_1786528893508",
+      "name": "T bar row",
+      "muscleGroup": "back",
+      "movementGroupId": null,
+      "notes": "Starting weight 20.4 kgs already included"
     }
   ],
   "movementGroups": [
