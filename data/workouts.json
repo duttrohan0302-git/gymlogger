@@ -676,6 +676,162 @@
       },
       "sessions": [
         {
+          "id": "1786799520419-zgxw8",
+          "date": "2026-08-15",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 6.8,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 9,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 15.8,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_military_press_1777469843395",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 5,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 31.5,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 31.5,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 31.5,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "tricep_straight_bar",
+              "sets": [
+                {
+                  "weight": 20.3,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": "V bar"
+            },
+            {
+              "exerciseId": "bench_press",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 4,
+                  "note": "each side smith machine"
+                },
+                {
+                  "weight": 60,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1786528976273-m6yf4",
           "date": "2026-08-12",
           "muscleGroups": [
