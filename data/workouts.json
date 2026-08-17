@@ -803,6 +803,26 @@
                 }
               ],
               "note": ""
+            },
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 32,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
