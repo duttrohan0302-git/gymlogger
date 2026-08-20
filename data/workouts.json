@@ -676,6 +676,159 @@
       },
       "sessions": [
         {
+          "id": "1787217440909-9y8m9",
+          "date": "2026-08-20",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 31.5,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 31.5,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 31.5,
+                  "reps": 18,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "barbell_squat",
+              "sets": [
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 11,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_leg_curl_lying__1779273848725",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "hip_abductor",
+              "sets": [
+                {
+                  "weight": 39,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_hip_thrust_machine_1780137750758",
+              "sets": [
+                {
+                  "weight": 54,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 63,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 63,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1786956861595-bwd3n",
           "date": "2026-08-17",
           "muscleGroups": [
