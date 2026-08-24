@@ -676,6 +676,142 @@
       },
       "sessions": [
         {
+          "id": "1787570581723-5t2e0",
+          "date": "2026-08-24",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 15.8,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 5,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 24,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_single_arm_ext",
+              "sets": [
+                {
+                  "weight": 6.8,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "bench_press",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 5,
+                  "note": "each side smith machine"
+                },
+                {
+                  "weight": 60,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "machine_shoulder_press",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1787487138780-pye1l",
           "date": "2026-08-23",
           "muscleGroups": [
