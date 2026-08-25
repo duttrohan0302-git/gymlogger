@@ -676,6 +676,122 @@
       },
       "sessions": [
         {
+          "id": "1787677663121-60qtd",
+          "date": "2026-08-25",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 73,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": "Left thigh muscle pulled a little in first set "
+            },
+            {
+              "exerciseId": "custom_rdl_barbell_1777542610999",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_extension",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1787570581723-5t2e0",
           "date": "2026-08-24",
           "muscleGroups": [
