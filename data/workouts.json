@@ -807,6 +807,26 @@
                 }
               ],
               "note": ""
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 33.5,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 33.5,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 33.5,
+                  "reps": 14,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
