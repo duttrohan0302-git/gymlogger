@@ -676,6 +676,163 @@
       },
       "sessions": [
         {
+          "id": "1788256317516-ea0lk",
+          "date": "2026-09-01",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 33.5,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 33.5,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 33.5,
+                  "reps": 14,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "bench_press",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 6,
+                  "note": "each side smith machine"
+                },
+                {
+                  "weight": 60,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 4,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 24,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "facepulls",
+              "sets": [
+                {
+                  "weight": 20.3,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 20.3,
+                  "reps": 11,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "tricep_straight_bar",
+              "sets": [
+                {
+                  "weight": 22.5,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 22.5,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 22.5,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1788170716731-zdr9w",
           "date": "2026-08-31",
           "muscleGroups": [
