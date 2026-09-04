@@ -676,6 +676,121 @@
       },
       "sessions": [
         {
+          "id": "1788513762628-beo1r",
+          "date": "2026-09-04",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 73,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 11,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "barbell_squat",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "hip_thrust_single_leg",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "hip_abductor",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1788256317516-ea0lk",
           "date": "2026-09-01",
           "muscleGroups": [
