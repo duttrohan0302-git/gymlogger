@@ -676,6 +676,141 @@
       },
       "sessions": [
         {
+          "id": "1788609490071-fw410",
+          "date": "2026-09-05",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 34,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 34,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 34,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "cable_unilateral_curl",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "preacher_curl",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "chest_supported_row",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1788513762628-beo1r",
           "date": "2026-09-04",
           "muscleGroups": [
