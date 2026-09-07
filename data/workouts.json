@@ -676,6 +676,123 @@
       },
       "sessions": [
         {
+          "id": "1788773654305-jfu2y",
+          "date": "2026-09-07",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "bulgarian_split_squat",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 12,
+                  "note": "better form"
+                },
+                {
+                  "weight": 10,
+                  "reps": 12,
+                  "note": "hard"
+                },
+                {
+                  "weight": 10,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_extension",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": "Smooth machine"
+            },
+            {
+              "exerciseId": "custom_rdl_barbell_1777542610999",
+              "sets": [
+                {
+                  "weight": 80,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 80,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 80,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_leg_curl_lying__1779273848725",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1788609490071-fw410",
           "date": "2026-09-05",
           "muscleGroups": [
