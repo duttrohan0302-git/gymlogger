@@ -1,0 +1,8841 @@
+{
+  "version": 1,
+  "splits": [
+    {
+      "id": "default",
+      "name": "4-Day Split",
+      "isActive": true,
+      "days": [
+        {
+          "id": "back_biceps",
+          "name": "Back + Biceps",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ]
+        },
+        {
+          "id": "chest_triceps",
+          "name": "Chest + Triceps",
+          "muscleGroups": [
+            "chest",
+            "triceps"
+          ]
+        },
+        {
+          "id": "shoulders_abs",
+          "name": "Shoulders + Abs",
+          "muscleGroups": [
+            "shoulders",
+            "abs"
+          ]
+        },
+        {
+          "id": "legs",
+          "name": "Legs",
+          "muscleGroups": [
+            "legs"
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "chest_supported_row",
+      "name": "Chest Supported Row",
+      "muscleGroup": "back",
+      "movementGroupId": "row",
+      "notes": ""
+    },
+    {
+      "id": "lat_pulldown",
+      "name": "Lat Pull Down",
+      "muscleGroup": "back",
+      "movementGroupId": "lat_pull",
+      "notes": ""
+    },
+    {
+      "id": "back_extension",
+      "name": "Back Extension",
+      "muscleGroup": "back",
+      "movementGroupId": null,
+      "notes": ""
+    },
+    {
+      "id": "diverging_lat_pulldown",
+      "name": "Diverging Lat Pulldown",
+      "muscleGroup": "back",
+      "movementGroupId": "lat_pull",
+      "notes": ""
+    },
+    {
+      "id": "diverging_seated_row",
+      "name": "Diverging Seated Row",
+      "muscleGroup": "back",
+      "movementGroupId": "row",
+      "notes": ""
+    },
+    {
+      "id": "low_rows_v_bar",
+      "name": "Low Rows V Bar",
+      "muscleGroup": "back",
+      "movementGroupId": "row",
+      "notes": ""
+    },
+    {
+      "id": "dumbbell_shrugs",
+      "name": "Dumbbell Shrugs",
+      "muscleGroup": "back",
+      "movementGroupId": null,
+      "notes": ""
+    },
+    {
+      "id": "cable_unilateral_curl",
+      "name": "Cable Unilateral Curl",
+      "muscleGroup": "biceps",
+      "movementGroupId": "bicep_curl",
+      "notes": "Weaker left arm"
+    },
+    {
+      "id": "inclined_curl_db",
+      "name": "Inclined Sitting Curl",
+      "muscleGroup": "biceps",
+      "movementGroupId": "bicep_curl",
+      "notes": "Bench position 3"
+    },
+    {
+      "id": "preacher_curl",
+      "name": "Preacher Curl Single Arm",
+      "muscleGroup": "biceps",
+      "movementGroupId": "bicep_curl",
+      "notes": ""
+    },
+    {
+      "id": "rope_hammer_curl",
+      "name": "Rope Hammer Curl",
+      "muscleGroup": "biceps",
+      "movementGroupId": "hammer_curl",
+      "notes": ""
+    },
+    {
+      "id": "cross_body_hammer_curl",
+      "name": "Cross Body Hammer Curl",
+      "muscleGroup": "biceps",
+      "movementGroupId": "hammer_curl",
+      "notes": ""
+    },
+    {
+      "id": "sitting_hammer_curl",
+      "name": "Sitting Hammer Curl",
+      "muscleGroup": "biceps",
+      "movementGroupId": "hammer_curl",
+      "notes": ""
+    },
+    {
+      "id": "shoulder_press_db",
+      "name": "Shoulder Press Dumbbell",
+      "muscleGroup": "shoulders",
+      "movementGroupId": "shoulder_press",
+      "notes": ""
+    },
+    {
+      "id": "cable_lateral_raise",
+      "name": "Cable Lateral Raise",
+      "muscleGroup": "shoulders",
+      "movementGroupId": "lateral_raise",
+      "notes": "High reps, low weight"
+    },
+    {
+      "id": "archer_pull",
+      "name": "Archer Pull Single Arm",
+      "muscleGroup": "shoulders",
+      "movementGroupId": "rear_delt",
+      "notes": ""
+    },
+    {
+      "id": "facepulls",
+      "name": "Facepulls",
+      "muscleGroup": "shoulders",
+      "movementGroupId": "rear_delt",
+      "notes": ""
+    },
+    {
+      "id": "rear_delt_machine",
+      "name": "Rear Delt Machine",
+      "muscleGroup": "shoulders",
+      "movementGroupId": "rear_delt",
+      "notes": "Hard to maintain form"
+    },
+    {
+      "id": "machine_shoulder_press",
+      "name": "Machine Shoulder Press",
+      "muscleGroup": "shoulders",
+      "movementGroupId": "shoulder_press",
+      "notes": ""
+    },
+    {
+      "id": "lateral_raise_db",
+      "name": "Lateral Raise Dumbbell",
+      "muscleGroup": "shoulders",
+      "movementGroupId": "lateral_raise",
+      "notes": ""
+    },
+    {
+      "id": "rear_delt_dual_cable",
+      "name": "Rear Delt Dual Cable",
+      "muscleGroup": "shoulders",
+      "movementGroupId": "rear_delt",
+      "notes": ""
+    },
+    {
+      "id": "abs_crunch_rope",
+      "name": "Abs Crunch Rope",
+      "muscleGroup": "abs",
+      "movementGroupId": "core",
+      "notes": "Stop at full extension"
+    },
+    {
+      "id": "rotary_torso",
+      "name": "Rotary Torso",
+      "muscleGroup": "abs",
+      "movementGroupId": "core",
+      "notes": ""
+    },
+    {
+      "id": "hanging_leg_raises",
+      "name": "Hanging Leg Raises",
+      "muscleGroup": "abs",
+      "movementGroupId": "core",
+      "notes": ""
+    },
+    {
+      "id": "inclined_db_press",
+      "name": "Inclined Dumbbell Press",
+      "muscleGroup": "chest",
+      "movementGroupId": "press",
+      "notes": "Do this first"
+    },
+    {
+      "id": "chest_press_machine",
+      "name": "Chest Press Machine",
+      "muscleGroup": "chest",
+      "movementGroupId": "press",
+      "notes": ""
+    },
+    {
+      "id": "pec_fly_machine",
+      "name": "Pec Fly Machine",
+      "muscleGroup": "chest",
+      "movementGroupId": "fly",
+      "notes": ""
+    },
+    {
+      "id": "bench_press",
+      "name": "Bench Press",
+      "muscleGroup": "chest",
+      "movementGroupId": "press",
+      "notes": ""
+    },
+    {
+      "id": "dumbbell_press",
+      "name": "Dumbbell Press",
+      "muscleGroup": "chest",
+      "movementGroupId": "press",
+      "notes": ""
+    },
+    {
+      "id": "supine_press",
+      "name": "Supine Press",
+      "muscleGroup": "chest",
+      "movementGroupId": "press",
+      "notes": ""
+    },
+    {
+      "id": "cable_fly",
+      "name": "Cable Fly High to Low",
+      "muscleGroup": "chest",
+      "movementGroupId": "fly",
+      "notes": ""
+    },
+    {
+      "id": "smith_machine_chest",
+      "name": "Smith Machine",
+      "muscleGroup": "chest",
+      "movementGroupId": "press",
+      "notes": ""
+    },
+    {
+      "id": "tricep_overhead_single",
+      "name": "Triceps Overhead Single Arm",
+      "muscleGroup": "triceps",
+      "movementGroupId": "tricep_overhead",
+      "notes": ""
+    },
+    {
+      "id": "tricep_overhead_rope",
+      "name": "Tricep Overhead Rope Extension",
+      "muscleGroup": "triceps",
+      "movementGroupId": "tricep_overhead",
+      "notes": ""
+    },
+    {
+      "id": "tricep_straight_bar",
+      "name": "Tricep Straight Bar Pushdown",
+      "muscleGroup": "triceps",
+      "movementGroupId": "tricep_pushdown",
+      "notes": ""
+    },
+    {
+      "id": "tricep_single_arm_ext",
+      "name": "Tricep Single Arm Extension",
+      "muscleGroup": "triceps",
+      "movementGroupId": "tricep_pushdown",
+      "notes": "Handle normally, not sideways"
+    },
+    {
+      "id": "weighted_dips",
+      "name": "Weighted Dips",
+      "muscleGroup": "triceps",
+      "movementGroupId": null,
+      "notes": "Do first"
+    },
+    {
+      "id": "tricep_triangle_overhead",
+      "name": "Tricep Triangle Bar Overhead",
+      "muscleGroup": "triceps",
+      "movementGroupId": "tricep_overhead",
+      "notes": ""
+    },
+    {
+      "id": "bulgarian_split_squat",
+      "name": "Bulgarian Split Squat",
+      "muscleGroup": "legs",
+      "movementGroupId": "squat",
+      "notes": "Box at 24cm height, don't go too low"
+    },
+    {
+      "id": "stand_knee_raise",
+      "name": "Stand Knee Raise",
+      "muscleGroup": "legs",
+      "movementGroupId": "squat",
+      "notes": ""
+    },
+    {
+      "id": "barbell_squat",
+      "name": "Barbell Squat",
+      "muscleGroup": "legs",
+      "movementGroupId": "squat",
+      "notes": ""
+    },
+    {
+      "id": "hip_thrust_single_leg",
+      "name": "Hip Thrust Single Leg",
+      "muscleGroup": "legs",
+      "movementGroupId": "hip_hinge",
+      "notes": "One leg straight, 8 reps each leg"
+    },
+    {
+      "id": "hack_squat",
+      "name": "Hack Squat Machine",
+      "muscleGroup": "legs",
+      "movementGroupId": "squat",
+      "notes": "Start 47.6kg, legs lower for quads"
+    },
+    {
+      "id": "rdl_dumbbell",
+      "name": "RDL Dumbbell",
+      "muscleGroup": "legs",
+      "movementGroupId": "hip_hinge",
+      "notes": ""
+    },
+    {
+      "id": "leg_press_sitting",
+      "name": "Leg Press (Sitting)",
+      "muscleGroup": "legs",
+      "movementGroupId": "leg_press",
+      "notes": "Pin in 6th hole"
+    },
+    {
+      "id": "leg_press_lying",
+      "name": "Leg Press (Lying)",
+      "muscleGroup": "legs",
+      "movementGroupId": "leg_press",
+      "notes": "Start 75.7kg"
+    },
+    {
+      "id": "leg_curl",
+      "name": "Leg Curl",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": ""
+    },
+    {
+      "id": "leg_extension",
+      "name": "Leg Extension",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": ""
+    },
+    {
+      "id": "calves",
+      "name": "Calves",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": "Sitting start 11.3kg, standing 27.3kg"
+    },
+    {
+      "id": "hip_abductor",
+      "name": "Hip Abductor",
+      "muscleGroup": "legs",
+      "movementGroupId": null,
+      "notes": ""
+    }
+  ],
+  "movementGroups": [
+    {
+      "id": "row",
+      "name": "Row",
+      "exerciseIds": [
+        "chest_supported_row",
+        "diverging_seated_row",
+        "low_rows_v_bar"
+      ]
+    },
+    {
+      "id": "lat_pull",
+      "name": "Lat Pull",
+      "exerciseIds": [
+        "lat_pulldown",
+        "diverging_lat_pulldown"
+      ]
+    },
+    {
+      "id": "rear_delt",
+      "name": "Rear Delt",
+      "exerciseIds": [
+        "facepulls",
+        "rear_delt_machine",
+        "archer_pull",
+        "rear_delt_dual_cable"
+      ]
+    },
+    {
+      "id": "bicep_curl",
+      "name": "Bicep Curl",
+      "exerciseIds": [
+        "cable_unilateral_curl",
+        "inclined_curl_db",
+        "preacher_curl"
+      ]
+    },
+    {
+      "id": "hammer_curl",
+      "name": "Hammer Curl",
+      "exerciseIds": [
+        "rope_hammer_curl",
+        "cross_body_hammer_curl",
+        "sitting_hammer_curl"
+      ]
+    },
+    {
+      "id": "shoulder_press",
+      "name": "Shoulder Press",
+      "exerciseIds": [
+        "shoulder_press_db",
+        "machine_shoulder_press"
+      ]
+    },
+    {
+      "id": "lateral_raise",
+      "name": "Lateral Raise",
+      "exerciseIds": [
+        "cable_lateral_raise",
+        "lateral_raise_db"
+      ]
+    },
+    {
+      "id": "core",
+      "name": "Core",
+      "exerciseIds": [
+        "abs_crunch_rope",
+        "rotary_torso",
+        "hanging_leg_raises"
+      ]
+    },
+    {
+      "id": "press",
+      "name": "Chest Press",
+      "exerciseIds": [
+        "inclined_db_press",
+        "chest_press_machine",
+        "bench_press",
+        "dumbbell_press",
+        "supine_press",
+        "smith_machine_chest"
+      ]
+    },
+    {
+      "id": "fly",
+      "name": "Chest Fly",
+      "exerciseIds": [
+        "pec_fly_machine",
+        "cable_fly"
+      ]
+    },
+    {
+      "id": "tricep_overhead",
+      "name": "Tricep Overhead",
+      "exerciseIds": [
+        "tricep_overhead_single",
+        "tricep_overhead_rope",
+        "tricep_triangle_overhead"
+      ]
+    },
+    {
+      "id": "tricep_pushdown",
+      "name": "Tricep Pushdown",
+      "exerciseIds": [
+        "tricep_straight_bar",
+        "tricep_single_arm_ext"
+      ]
+    },
+    {
+      "id": "squat",
+      "name": "Squat",
+      "exerciseIds": [
+        "bulgarian_split_squat",
+        "stand_knee_raise",
+        "barbell_squat",
+        "hack_squat"
+      ]
+    },
+    {
+      "id": "hip_hinge",
+      "name": "Hip Hinge",
+      "exerciseIds": [
+        "hip_thrust_single_leg",
+        "rdl_dumbbell"
+      ]
+    },
+    {
+      "id": "leg_press",
+      "name": "Leg Press",
+      "exerciseIds": [
+        "leg_press_sitting",
+        "leg_press_lying"
+      ]
+    }
+  ],
+  "muscleGroupNotes": {
+    "back": "Pull-ups on back day — try extending arms fully",
+    "biceps": "Left bicep is weaker than right",
+    "shoulders": "5 min warmup. Do dumbbell overhead press.",
+    "abs": "Try decline crunches — very low movement",
+    "chest": "Do incline dumbbell first. Use pec fly machine not cables for flys.",
+    "triceps": "Order: dips → both arm pushdown → overhead extension → single arm pushdown",
+    "legs": "1. Use free barbell squat. 2. Hip thrust: one leg straight, no weight, 8 reps each. 3. Bulgarian: box 24cm, don't go too low."
+  },
+  "sessions": [
+    {
+      "id": "migrated-2026-04-28-zk3y",
+      "date": "2026-04-28",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 79,
+              "reps": 20,
+              "note": ""
+            },
+            {
+              "weight": 79,
+              "reps": 20,
+              "note": ""
+            },
+            {
+              "weight": 79,
+              "reps": 18,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": null,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cross_body_hammer_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-26-jys9",
+      "date": "2026-04-26",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 27,
+              "reps": 10,
+              "note": "slow - other pec fly machine"
+            },
+            {
+              "weight": 27,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_single",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 11.3,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 20.3,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "weighted_dips",
+          "sets": [
+            {
+              "weight": 54,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 54,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 54,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-25-39dj",
+      "date": "2026-04-25",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "bulgarian_split_squat",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 10,
+              "note": "better form"
+            },
+            {
+              "weight": null,
+              "reps": 10,
+              "note": "hard"
+            },
+            {
+              "weight": null,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "stand_knee_raise",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "barbell_squat",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 14,
+              "note": "let’s keep doing this for now"
+            },
+            {
+              "weight": 10,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_thrust_single_leg",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": "better form"
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 30,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": null,
+              "note": "reps"
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 73,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 30,
+              "reps": 18,
+              "note": "smith machine"
+            },
+            {
+              "weight": 30,
+              "reps": 18,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 18,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-24-yzfz",
+      "date": "2026-04-24",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 4,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": "arms not bent"
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "archer_pull",
+          "sets": [
+            {
+              "weight": 6.8,
+              "reps": null,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": null,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": "and then drop set until failure"
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": "normal way, stop at extending"
+            },
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": "stopping at extending feels really good and tough"
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 15,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 15,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 16,
+              "note": "decent form"
+            },
+            {
+              "weight": null,
+              "reps": 18,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 17,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-23-jpdo",
+      "date": "2026-04-23",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 79,
+              "reps": 18,
+              "note": ""
+            },
+            {
+              "weight": 79,
+              "reps": 18,
+              "note": ""
+            },
+            {
+              "weight": 79,
+              "reps": 18,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_unilateral_curl",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 12,
+              "note": "2nd bicep exercise"
+            },
+            {
+              "weight": 6.8,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cross_body_hammer_curl",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-22-bpnk",
+      "date": "2026-04-22",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "chest_press_machine",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 59,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 59,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "smith_machine_chest",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": "inclined"
+            },
+            {
+              "weight": 30,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 13.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 20.3,
+              "reps": 9,
+              "note": "bar"
+            },
+            {
+              "weight": 20.3,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "weighted_dips",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 4,
+              "note": "Body weight"
+            },
+            {
+              "weight": null,
+              "reps": 3,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 4,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-20-80b6",
+      "date": "2026-04-20",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "bulgarian_split_squat",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "stand_knee_raise",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "barbell_squat",
+          "sets": [
+            {
+              "weight": 15,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_thrust_single_leg",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 28,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 73,
+              "reps": 12,
+              "note": "6th exercise"
+            },
+            {
+              "weight": 73,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 18,
+              "note": "standing only going from neutral to bottom"
+            },
+            {
+              "weight": 20,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 15,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_abductor",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 14,
+              "note": "pain"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-19-d7g7",
+      "date": "2026-04-19",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": "slippery bar"
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 79,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 79,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 79,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cross_body_hammer_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-18-ke4u",
+      "date": "2026-04-18",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "archer_pull",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 10,
+              "note": "keep it at 6.8"
+            }
+          ]
+        },
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 9,
+              "note": "and then drop set till failure"
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 24.8,
+              "reps": 14,
+              "note": "feel it on quads too"
+            },
+            {
+              "weight": 24.8,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 24.8,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": "on ground"
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 18,
+              "note": "decent form"
+            },
+            {
+              "weight": null,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-17-997g",
+      "date": "2026-04-17",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_single",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 13.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": "bar"
+            },
+            {
+              "weight": 20.3,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": null,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-15-s8mm",
+      "date": "2026-04-15",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "bulgarian_split_squat",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "stand_knee_raise",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": "each hand"
+            }
+          ]
+        },
+        {
+          "exerciseId": "barbell_squat",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_thrust_single_leg",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": "feel hamstring"
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 28,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 28,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 28,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 66,
+              "reps": 12,
+              "note": "fifth exercise"
+            },
+            {
+              "weight": 66,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 14,
+              "note": "smith machine"
+            },
+            {
+              "weight": 20,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_abductor",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": "sitting back is better than leaning forward"
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-14-0tu1",
+      "date": "2026-04-14",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": null,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rear_delt_machine",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 20.3,
+              "reps": 16,
+              "note": "back facing cable"
+            },
+            {
+              "weight": 24.8,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 24.8,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 16,
+              "note": "decent form"
+            },
+            {
+              "weight": null,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-13-6izx",
+      "date": "2026-04-13",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 24,
+              "reps": 4,
+              "note": "3-"
+            },
+            {
+              "weight": 22,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 4,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "bench_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": "each side smith machine"
+            },
+            {
+              "weight": 20,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_fly",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 12,
+              "note": "close cable cable"
+            },
+            {
+              "weight": 9,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 13.5,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 20.3,
+              "reps": null,
+              "note": "bar"
+            },
+            {
+              "weight": 20.3,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "weighted_dips",
+          "sets": [
+            {
+              "weight": 50,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 50,
+              "reps": 13,
+              "note": ""
+            },
+            {
+              "weight": 50,
+              "reps": 13,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-12-emf9",
+      "date": "2026-04-12",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": null,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 79,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 79,
+              "reps": 18,
+              "note": ""
+            },
+            {
+              "weight": 79,
+              "reps": 20,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cross_body_hammer_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-11-7xwz",
+      "date": "2026-04-11",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "hack_squat",
+          "sets": [
+            {
+              "weight": 40,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 60,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 60,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 28,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 28,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 28,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 73,
+              "reps": 8,
+              "note": "cramp left quads"
+            },
+            {
+              "weight": 73,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_curl",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 17,
+              "note": "standing"
+            },
+            {
+              "weight": 10,
+              "reps": 17,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-10-m9ho",
+      "date": "2026-04-10",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "facepulls",
+          "sets": [
+            {
+              "weight": 20.3,
+              "reps": null,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20.3,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-09-q706",
+      "date": "2026-04-09",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 22,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "chest_press_machine",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 13.5,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 4,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 11,
+              "note": "bar"
+            },
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "weighted_dips",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 50,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 50,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-08-zo1d",
+      "date": "2026-04-08",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 45,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 73,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 30,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 5,
+              "note": "arm curl machine"
+            },
+            {
+              "weight": 9,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cross_body_hammer_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-02-o4je",
+      "date": "2026-04-02",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "facepulls",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 29.3,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 33.8,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 15,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": "+ no weight"
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": "+ no weight"
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": "+ no weight"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-04-01-4p7w",
+      "date": "2026-04-01",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 22,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": "4th exercise of the day"
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "supine_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 11,
+              "note": "each side"
+            },
+            {
+              "weight": 25,
+              "reps": 6,
+              "note": "each side"
+            },
+            {
+              "weight": 25,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_fly",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 3,
+              "note": "should have kept it at"
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 13.5,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 11,
+              "note": "bar"
+            },
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "weighted_dips",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-31-s32x",
+      "date": "2026-03-31",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "hack_squat",
+          "sets": [
+            {
+              "weight": 40,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 60,
+              "reps": 3,
+              "note": ""
+            },
+            {
+              "weight": 60,
+              "reps": 4,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 28,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 28,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 28,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 73,
+              "reps": 8,
+              "note": "done after leg curl"
+            },
+            {
+              "weight": 73,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_curl",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 17,
+              "note": "standing"
+            },
+            {
+              "weight": 10,
+              "reps": 17,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 17,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_abductor",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 11,
+              "note": "words feeling left abductor"
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-30-12ak",
+      "date": "2026-03-30",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 43.4,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 0,
+              "reps": 9,
+              "note": "pull ups"
+            },
+            {
+              "weight": null,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 73,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 13,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 30,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": null,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rope_hammer_curl",
+          "sets": [
+            {
+              "weight": 11.3,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-29-cjlf",
+      "date": "2026-03-29",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 2.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": "x 2"
+            },
+            {
+              "weight": 4.5,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "facepulls",
+          "sets": [
+            {
+              "weight": 15.8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 31.5,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 31.5,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 31.5,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 15,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-27-wggg",
+      "date": "2026-03-27",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 22,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 4,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "bench_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 7,
+              "note": "prolly can do more"
+            },
+            {
+              "weight": 30,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 4,
+              "note": "scared of failing and grip issues"
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 11.3,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 13.5,
+              "reps": 12,
+              "note": "rope"
+            },
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": "straight bar"
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "weighted_dips",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-26-hlfo",
+      "date": "2026-03-26",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "hack_squat",
+          "sets": [
+            {
+              "weight": 40,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 40,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 40,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 26,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 26,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 26,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_lying",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 40,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 60,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_curl",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 15,
+              "note": "standing"
+            },
+            {
+              "weight": 10,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 15,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_abductor",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 11,
+              "note": "pain left abductor"
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 11,
+              "note": "pain"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-25-fr13",
+      "date": "2026-03-25",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": "hard"
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 0,
+              "reps": 10,
+              "note": "pull-ups"
+            },
+            {
+              "weight": null,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 4,
+              "note": "arm wide & fully extended"
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 73,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 26,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 26,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 26,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": "arm curl machine"
+            },
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rope_hammer_curl",
+          "sets": [
+            {
+              "weight": 11.3,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-24-ylhw",
+      "date": "2026-03-24",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 2.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "facepulls",
+          "sets": [
+            {
+              "weight": 15.8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 29.3,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 29.3,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 29.3,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 15,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": "bad form"
+            },
+            {
+              "weight": 10,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-23-qer6",
+      "date": "2026-03-23",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 3,
+              "note": "rethink doing 4 sets"
+            }
+          ]
+        },
+        {
+          "exerciseId": "chest_press_machine",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": "converging"
+            },
+            {
+              "weight": 45,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_single",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 13.5,
+              "reps": 10,
+              "note": "rope"
+            },
+            {
+              "weight": 13.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "weighted_dips",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": "x 2"
+            },
+            {
+              "weight": 41,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-22-xt13",
+      "date": "2026-03-22",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "hack_squat",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": null,
+              "note": "x 2"
+            },
+            {
+              "weight": 40,
+              "reps": 8,
+              "note": "x 3"
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 24,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 24,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 26,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 66,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_curl",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 34.3,
+              "reps": null,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 15,
+              "note": "smith machine"
+            },
+            {
+              "weight": 20,
+              "reps": 18,
+              "note": "x 2"
+            },
+            {
+              "weight": 20,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_abductor",
+          "sets": [
+            {
+              "weight": 25,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 25,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-21-69zm",
+      "date": "2026-03-21",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": "x 2"
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 66,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 73,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 24,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 24,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 26,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 7,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "sitting_hammer_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-20-fpw8",
+      "date": "2026-03-20",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 2.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "facepulls",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 7,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 41,
+              "reps": 14,
+              "note": "Abdominal crunch machine"
+            },
+            {
+              "weight": 41,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-19-utbq",
+      "date": "2026-03-19",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 9,
+              "note": "done after chest fly"
+            },
+            {
+              "weight": 22,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 4,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 4,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "chest_press_machine",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 9,
+              "note": "converging"
+            },
+            {
+              "weight": 39,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_single",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": "V bar"
+            },
+            {
+              "weight": 18,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-18-4j7t",
+      "date": "2026-03-18",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "hack_squat",
+          "sets": [
+            {
+              "weight": 30,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 40,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 24,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 24,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 24,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 59,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": "66"
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_curl",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 34.3,
+              "reps": null,
+              "note": ""
+            },
+            {
+              "weight": 34.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 34.3,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 18,
+              "note": "Smith machine"
+            },
+            {
+              "weight": 20,
+              "reps": 18,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 18,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_abductor",
+          "sets": [
+            {
+              "weight": 25,
+              "reps": 10,
+              "note": "pain left abductor"
+            },
+            {
+              "weight": 25,
+              "reps": 10,
+              "note": "discomfort, only 2 sets"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-16-vgih",
+      "date": "2026-03-16",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 36.6,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 66,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 22,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "sitting_hammer_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-15-l41l",
+      "date": "2026-03-15",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 16,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 2.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 2.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 2.3,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-14-gnqa",
+      "date": "2026-03-14",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 11.3,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 2.3,
+              "reps": 8,
+              "note": "4.5 +"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-13-57fz",
+      "date": "2026-03-13",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "hack_squat",
+          "sets": [
+            {
+              "weight": 30,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 40,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 40,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 22,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 24,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 24,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 59,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 59,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 59,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_curl",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": "sitting"
+            },
+            {
+              "weight": 43.6,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 34.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 34.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 34.3,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": "sitting"
+            },
+            {
+              "weight": 10,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 10,
+              "note": "standing"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-12-z50x",
+      "date": "2026-03-12",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 47.4,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 47.4,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rear_delt_machine",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 66,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_unilateral_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": "5/"
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "sitting_hammer_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-11-j557",
+      "date": "2026-03-11",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 16,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 16,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 16,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-10-2x8t",
+      "date": "2026-03-10",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "chest_press_machine",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 43.4,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 43.4,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_single",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-09-izfp",
+      "date": "2026-03-09",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "hack_squat",
+          "sets": [
+            {
+              "weight": 30,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 22,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_curl",
+          "sets": [
+            {
+              "weight": 34.3,
+              "reps": 12,
+              "note": "sitting"
+            },
+            {
+              "weight": 34.3,
+              "reps": 13,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 11,
+              "note": "super slow"
+            },
+            {
+              "weight": 20,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_abductor",
+          "sets": [
+            {
+              "weight": 25,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 25,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 25,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-07-tcsj",
+      "date": "2026-03-07",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "facepulls",
+          "sets": [
+            {
+              "weight": 15.8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 59,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 66,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "low_rows_v_bar",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 12,
+              "note": "first bicep exercise"
+            },
+            {
+              "weight": 8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cross_body_hammer_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": "barely"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-06-hp5w",
+      "date": "2026-03-06",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 16,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 16,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 16,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 2.3,
+              "reps": 9,
+              "note": "+"
+            },
+            {
+              "weight": 16,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 16,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 2.3,
+              "reps": 8,
+              "note": "+"
+            },
+            {
+              "weight": null,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rear_delt_machine",
+          "sets": [
+            {
+              "weight": 25,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": "with good form for all sets"
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 17,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-05-v35a",
+      "date": "2026-03-05",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": null,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_press",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_single",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 11.3,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": "straight down not sideways"
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-04-g457",
+      "date": "2026-03-04",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "hack_squat",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 22,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_curl",
+          "sets": [
+            {
+              "weight": 27,
+              "reps": 12,
+              "note": "lying"
+            },
+            {
+              "weight": 27,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_extension",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 30,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hip_abductor",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 13,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-03-er3c",
+      "date": "2026-03-03",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 59,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 59,
+              "reps": 15,
+              "note": ""
+            },
+            {
+              "weight": 59,
+              "reps": 13,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "diverging_lat_pulldown",
+          "sets": [
+            {
+              "weight": 36,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 41,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "diverging_seated_row",
+          "sets": [
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 36,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 36,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_shrugs",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 7,
+              "note": "barely"
+            },
+            {
+              "weight": 9,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 15,
+              "reps": 5,
+              "note": "both hands"
+            }
+          ]
+        },
+        {
+          "exerciseId": "cross_body_hammer_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-02-o0lp",
+      "date": "2026-03-02",
+      "muscleGroups": [
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 27,
+              "reps": 14,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 15,
+              "reps": 8,
+              "note": "3 sets"
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": "x 3"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-03-01-bos4",
+      "date": "2026-03-01",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "dumbbell_press",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 15.8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 15.8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 4.5,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 6.8,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-02-28-33z6",
+      "date": "2026-02-28",
+      "muscleGroups": [
+        "legs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "hack_squat",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": "Null"
+            },
+            {
+              "weight": 10,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rdl_dumbbell",
+          "sets": [
+            {
+              "weight": 16,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 22,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_press_sitting",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 18,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "leg_curl",
+          "sets": [
+            {
+              "weight": 27,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "calves",
+          "sets": [
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": "on squat machine"
+            },
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 20,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-02-27-rwz8",
+      "date": "2026-02-27",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 47.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 47.3,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 47.3,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "facepulls",
+          "sets": [
+            {
+              "weight": 11.3,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 13.5,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 15.8,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "inclined_curl_db",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cross_body_hammer_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 10,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-02-25-vkjg",
+      "date": "2026-02-25",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "shoulder_press_db",
+          "sets": [
+            {
+              "weight": 14,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 16,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 16,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 2.3,
+              "reps": 7,
+              "note": "2.3 + gym change"
+            },
+            {
+              "weight": 2.3,
+              "reps": 6,
+              "note": "2.3 +"
+            },
+            {
+              "weight": 2.3,
+              "reps": 7,
+              "note": "2.3 +"
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 24.8,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 24.8,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 24.8,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 10,
+              "reps": 8,
+              "note": "3 sets decline bench"
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 14,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-02-23-oai7",
+      "date": "2026-02-23",
+      "muscleGroups": [
+        "chest"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 14,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "chest_press_machine",
+          "sets": [
+            {
+              "weight": 25,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 39,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "bench_press",
+          "sets": [
+            {
+              "weight": 40,
+              "reps": 8,
+              "note": "could have done more"
+            },
+            {
+              "weight": 50,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 50,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-02-22-suzs",
+      "date": "2026-02-22",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": "42.4"
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 47.3,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 47.3,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rear_delt_machine",
+          "sets": [
+            {
+              "weight": 25,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 52,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_unilateral_curl",
+          "sets": [
+            {
+              "weight": 6.8,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 8,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "sitting_hammer_curl",
+          "sets": [
+            {
+              "weight": 6.8,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-02-21-nis7",
+      "date": "2026-02-21",
+      "muscleGroups": [
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 13.5,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 15.8,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 15.8,
+              "reps": 9,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 2.3,
+              "reps": 11,
+              "note": "+"
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_triangle_overhead",
+          "sets": [
+            {
+              "weight": 6.8,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 11.3,
+              "reps": 7,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-02-20-uiw6",
+      "date": "2026-02-20",
+      "muscleGroups": [
+        "chest",
+        "triceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "inclined_db_press",
+          "sets": [
+            {
+              "weight": 14,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 16,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 16,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "chest_press_machine",
+          "sets": [
+            {
+              "weight": 23,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "pec_fly_machine",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 7,
+              "note": "arms gave up"
+            },
+            {
+              "weight": 45,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_overhead_rope",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 9,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 18,
+              "reps": 6,
+              "note": "difficult"
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_straight_bar",
+          "sets": [
+            {
+              "weight": 27,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 11,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "tricep_single_arm_ext",
+          "sets": [
+            {
+              "weight": 2.3,
+              "reps": 7,
+              "note": "4.5 +"
+            },
+            {
+              "weight": 4.5,
+              "reps": 8,
+              "note": "+"
+            },
+            {
+              "weight": 4.5,
+              "reps": 9,
+              "note": "+"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-02-19-l22o",
+      "date": "2026-02-19",
+      "muscleGroups": [
+        "shoulders",
+        "abs"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "cable_lateral_raise",
+          "sets": [
+            {
+              "weight": 2.3,
+              "reps": 6,
+              "note": "4.5 + super difficult"
+            },
+            {
+              "weight": 2.3,
+              "reps": 6,
+              "note": "4.5 +"
+            },
+            {
+              "weight": 2.3,
+              "reps": 5,
+              "note": "4.5 +"
+            }
+          ]
+        },
+        {
+          "exerciseId": "machine_shoulder_press",
+          "sets": [
+            {
+              "weight": 23,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 32,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 41,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 36,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lateral_raise_db",
+          "sets": [
+            {
+              "weight": 23,
+              "reps": 8,
+              "note": "lateral press machine"
+            },
+            {
+              "weight": 23,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rear_delt_dual_cable",
+          "sets": [
+            {
+              "weight": 3.7,
+              "reps": 12,
+              "note": "each side"
+            },
+            {
+              "weight": 5.7,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 5.7,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "abs_crunch_rope",
+          "sets": [
+            {
+              "weight": 45,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 50,
+              "reps": 16,
+              "note": ""
+            },
+            {
+              "weight": 50,
+              "reps": 16,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rotary_torso",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 23,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 27,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "hanging_leg_raises",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 10,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "migrated-2026-02-18-ztfk",
+      "date": "2026-02-18",
+      "muscleGroups": [
+        "back",
+        "biceps"
+      ],
+      "bodyWeight": null,
+      "exercises": [
+        {
+          "exerciseId": "chest_supported_row",
+          "sets": [
+            {
+              "weight": 39,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            },
+            {
+              "weight": 45,
+              "reps": 8,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "lat_pulldown",
+          "sets": [
+            {
+              "weight": 52,
+              "reps": 8,
+              "note": "difficult"
+            },
+            {
+              "weight": 52,
+              "reps": 7,
+              "note": "difficult"
+            },
+            {
+              "weight": 52,
+              "reps": 5,
+              "note": "difficult"
+            }
+          ]
+        },
+        {
+          "exerciseId": "facepulls",
+          "sets": [
+            {
+              "weight": 18,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 23,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": 27,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "back_extension",
+          "sets": [
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            },
+            {
+              "weight": null,
+              "reps": 12,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "cable_unilateral_curl",
+          "sets": [
+            {
+              "weight": 14,
+              "reps": 11,
+              "note": ""
+            },
+            {
+              "weight": 2.3,
+              "reps": 7,
+              "note": "14+"
+            },
+            {
+              "weight": 2.3,
+              "reps": 5,
+              "note": "14+"
+            }
+          ]
+        },
+        {
+          "exerciseId": "preacher_curl",
+          "sets": [
+            {
+              "weight": 9,
+              "reps": 6,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 5,
+              "note": ""
+            },
+            {
+              "weight": 9,
+              "reps": 5,
+              "note": ""
+            }
+          ]
+        },
+        {
+          "exerciseId": "rope_hammer_curl",
+          "sets": [
+            {
+              "weight": 23,
+              "reps": 10,
+              "note": ""
+            },
+            {
+              "weight": 23,
+              "reps": 7,
+              "note": ""
+            },
+            {
+              "weight": 23,
+              "reps": 6,
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    }
+  ],
+  "bodyWeightLog": []
+}
