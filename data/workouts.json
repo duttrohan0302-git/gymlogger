@@ -676,6 +676,138 @@
       },
       "sessions": [
         {
+          "id": "1789121436222-xi76z",
+          "date": "2026-09-11",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": "Wide handle bar "
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "cross_body_hammer_curl",
+              "sets": [
+                {
+                  "weight": 12,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 41,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 41,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 41,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": "Vertical and single arm "
+            },
+            {
+              "exerciseId": "back_extension",
+              "sets": [
+                {
+                  "weight": 86,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 86,
+                  "reps": 18,
+                  "note": ""
+                }
+              ],
+              "note": "2 sets "
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1788860627750-7aghh",
           "date": "2026-09-08",
           "muscleGroups": [
