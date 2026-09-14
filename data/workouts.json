@@ -676,6 +676,144 @@
       },
       "sessions": [
         {
+          "id": "1789380830476-ftpjl",
+          "date": "2026-09-14",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 18,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 18,
+                  "note": ""
+                }
+              ],
+              "note": "Smith machine "
+            },
+            {
+              "exerciseId": "barbell_squat",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 13,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "hip_abductor",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rotary_torso",
+              "sets": [
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1789297397745-9c3gi",
           "date": "2026-09-13",
           "muscleGroups": [
