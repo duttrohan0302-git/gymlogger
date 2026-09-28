@@ -676,6 +676,141 @@
       },
       "sessions": [
         {
+          "id": "1790586958252-09drc",
+          "date": "2026-09-28",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 18,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 18,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "weighted_dips",
+              "sets": [
+                {
+                  "weight": 0,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 0,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 0,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 73,
+                  "reps": 8,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 73,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 26,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 26,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_military_press_1777469843395",
+              "sets": [
+                {
+                  "weight": 50,
+                  "reps": 3,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "lateral_raise_db",
+              "sets": [
+                {
+                  "weight": 8,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 9,
+                  "note": "and then drop set until failure"
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1790158546450-zasl0",
           "date": "2026-09-23",
           "muscleGroups": [
