@@ -676,6 +676,164 @@
       },
       "sessions": [
         {
+          "id": "1790760354804-hccnj",
+          "date": "2026-09-30",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 50,
+                  "reps": 15,
+                  "note": ""
+                },
+                {
+                  "weight": 50,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 50,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 38.3,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 33.8,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "hanging_leg_raises",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "barbell_squat",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 25,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 73,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 13,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "hip_abductor",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": "Pain on left side"
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1790673981208-xirrg",
           "date": "2026-09-29",
           "muscleGroups": [
