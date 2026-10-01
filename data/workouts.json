@@ -683,6 +683,155 @@
       },
       "sessions": [
         {
+          "id": "1790848198578-hj8nl",
+          "date": "2026-10-01",
+          "muscleGroups": [
+            "chest",
+            "back",
+            "shoulders",
+            "biceps",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "bench_press",
+              "sets": [
+                {
+                  "weight": 65,
+                  "reps": 4,
+                  "note": "each side smith machine"
+                },
+                {
+                  "weight": 65,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 55,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 79,
+                  "reps": 7,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 79,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_preacher_curl_machine_1790848059087",
+              "sets": [
+                {
+                  "weight": 32,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "tricep_single_arm_ext",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1790760354804-hccnj",
           "date": "2026-09-30",
           "muscleGroups": [
