@@ -427,6 +427,13 @@
       "muscleGroup": "back",
       "movementGroupId": null,
       "notes": "Starting weight 20.4 kgs already included"
+    },
+    {
+      "id": "custom_preacher_curl_machine_1790848059087",
+      "name": "Preacher curl machine",
+      "muscleGroup": "biceps",
+      "movementGroupId": null,
+      "notes": "Both arms"
     }
   ],
   "movementGroups": [
