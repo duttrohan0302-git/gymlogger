@@ -683,6 +683,148 @@
       },
       "sessions": [
         {
+          "id": "1791194507265-bq17u",
+          "date": "2026-10-05",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": "Vertical single arm "
+            },
+            {
+              "exerciseId": "back_extension",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": null,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": "First 2 sets sideways each side "
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 11,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 14,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "cross_body_hammer_curl",
+              "sets": [
+                {
+                  "weight": 14,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 13,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1791114583444-4yoqe",
           "date": "2026-10-04",
           "muscleGroups": [
