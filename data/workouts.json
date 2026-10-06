@@ -683,6 +683,121 @@
       },
       "sessions": [
         {
+          "id": "1791273825399-2j0w4",
+          "date": "2026-10-06",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 50,
+                  "reps": 15,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_leg_curl_lying__1779273848725",
+              "sets": [
+                {
+                  "weight": 50,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 50,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "hanging_leg_raises",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": "First set high raise to knee"
+            },
+            {
+              "exerciseId": "barbell_squat",
+              "sets": [
+                {
+                  "weight": 30,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 25,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 25,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_press_sitting",
+              "sets": [
+                {
+                  "weight": 73,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1791194507265-bq17u",
           "date": "2026-10-05",
           "muscleGroups": [
