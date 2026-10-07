@@ -683,6 +683,129 @@
       },
       "sessions": [
         {
+          "id": "1791360544878-kozhg",
+          "date": "2026-10-07",
+          "muscleGroups": [
+            "chest",
+            "back",
+            "shoulders",
+            "biceps",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "bench_press",
+              "sets": [
+                {
+                  "weight": 65,
+                  "reps": 4,
+                  "note": "each side smith machine"
+                },
+                {
+                  "weight": 55,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": "Wide handle bar "
+            },
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 79,
+                  "reps": 7,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_single_arm_ext",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 11,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_military_press_1777469843395",
+              "sets": [
+                {
+                  "weight": 50,
+                  "reps": 3,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "preacher_curl",
+              "sets": [
+                {
+                  "weight": 14,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1791273825399-2j0w4",
           "date": "2026-10-06",
           "muscleGroups": [
