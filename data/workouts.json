@@ -764,11 +764,6 @@
               "sets": [
                 {
                   "weight": 45,
-                  "reps": 4,
-                  "note": ""
-                },
-                {
-                  "weight": 45,
                   "reps": 5,
                   "note": ""
                 },
