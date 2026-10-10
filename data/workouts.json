@@ -683,6 +683,169 @@
       },
       "sessions": [
         {
+          "id": "1791627559733-lpwoe",
+          "date": "2026-10-10",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 11,
+                  "note": ""
+                }
+              ],
+              "note": "Single arm vertical "
+            },
+            {
+              "exerciseId": "back_extension",
+              "sets": [
+                {
+                  "weight": null,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": null,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": "Alternating between sideways and normal with 15 kgs "
+            },
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 36,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 28,
+                  "reps": 18,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 14,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "cross_body_hammer_curl",
+              "sets": [
+                {
+                  "weight": 16,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 11,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1791556048468-ouj6h",
           "date": "2026-10-09",
           "muscleGroups": [
