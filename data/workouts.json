@@ -757,17 +757,17 @@
               "sets": [
                 {
                   "weight": 9,
-                  "reps": 7,
-                  "note": ""
-                },
-                {
-                  "weight": 9,
                   "reps": 8,
                   "note": ""
                 },
                 {
                   "weight": 9,
                   "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 12,
                   "note": ""
                 }
               ]
