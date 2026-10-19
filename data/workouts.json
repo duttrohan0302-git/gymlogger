@@ -683,6 +683,140 @@
       },
       "sessions": [
         {
+          "id": "1792404564462-47mlp",
+          "date": "2026-10-19",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 73,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 36,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 36,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 14,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "cross_body_hammer_curl",
+              "sets": [
+                {
+                  "weight": 16,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 16,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1792250501775-jhieh",
           "date": "2026-10-17",
           "muscleGroups": [
