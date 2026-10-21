@@ -814,6 +814,26 @@
                 }
               ],
               "note": ""
+            },
+            {
+              "exerciseId": "custom_abdominal_1780137674095",
+              "sets": [
+                {
+                  "weight": 41,
+                  "reps": 13,
+                  "note": ""
+                },
+                {
+                  "weight": 41,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 41,
+                  "reps": 14,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
