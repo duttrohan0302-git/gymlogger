@@ -434,6 +434,13 @@
       "muscleGroup": "biceps",
       "movementGroupId": null,
       "notes": "Both arms"
+    },
+    {
+      "id": "custom_abdominal_crunch_machine_1793121736286",
+      "name": "Abdominal crunch machine",
+      "muscleGroup": "abs",
+      "movementGroupId": null,
+      "notes": "Supports triceps and then crunch"
     }
   ],
   "movementGroups": [
