@@ -690,6 +690,141 @@
       },
       "sessions": [
         {
+          "id": "1793121827236-nlggy",
+          "date": "2026-10-27",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 14,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "hack_squat",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 60,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_abdominal_crunch_machine_1793121736286",
+              "sets": [
+                {
+                  "weight": 54,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 54,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 54,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_extension",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_rdl_barbell_1777542610999",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": "Form changed"
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1793010470111-26hr3",
           "date": "2026-10-26",
           "muscleGroups": [
