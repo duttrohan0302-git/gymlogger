@@ -690,6 +690,125 @@
       },
       "sessions": [
         {
+          "id": "1793266341666-sunow",
+          "date": "2026-10-29",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 73,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 38,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 32,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 16,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "cross_body_hammer_curl",
+              "sets": [
+                {
+                  "weight": 16,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 16,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rear_delt_dual_cable",
+              "sets": [
+                {
+                  "weight": 5.7,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 7.9,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 7.9,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1793121827236-nlggy",
           "date": "2026-10-27",
           "muscleGroups": [
