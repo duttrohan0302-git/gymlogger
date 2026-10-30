@@ -441,6 +441,13 @@
       "muscleGroup": "abs",
       "movementGroupId": null,
       "notes": "Supports triceps and then crunch"
+    },
+    {
+      "id": "custom_skullcrushers_1793351880053",
+      "name": "Skullcrushers",
+      "muscleGroup": "triceps",
+      "movementGroupId": null,
+      "notes": ""
     }
   ],
   "movementGroups": [
