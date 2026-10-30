@@ -697,6 +697,143 @@
       },
       "sessions": [
         {
+          "id": "1793351973176-bh1cu",
+          "date": "2026-10-30",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "pec_fly_machine",
+              "sets": [
+                {
+                  "weight": 79,
+                  "reps": 7,
+                  "note": "slow - other pec fly machine"
+                },
+                {
+                  "weight": 79,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 6.8,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "bench_press",
+              "sets": [
+                {
+                  "weight": 70,
+                  "reps": 4,
+                  "note": "each side smith machine"
+                },
+                {
+                  "weight": 65,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 65,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "shoulder_press_db",
+              "sets": [
+                {
+                  "weight": 22,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_skullcrushers_1793351880053",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "tricep_straight_bar",
+              "sets": [
+                {
+                  "weight": 22.5,
+                  "reps": 3,
+                  "note": ""
+                },
+                {
+                  "weight": 18,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1793266341666-sunow",
           "date": "2026-10-29",
           "muscleGroups": [
