@@ -697,6 +697,96 @@
       },
       "sessions": [
         {
+          "id": "1794066664912-jwgxu",
+          "date": "2026-11-07",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 50,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 55,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 55,
+                  "reps": 18,
+                  "note": ""
+                }
+              ],
+              "note": "Coolest handle "
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 50,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 50,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 50,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": "Single arm 25 each "
+            },
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 30,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1793879223724-07ma6",
           "date": "2026-11-05",
           "muscleGroups": [
