@@ -448,6 +448,13 @@
       "muscleGroup": "triceps",
       "movementGroupId": null,
       "notes": ""
+    },
+    {
+      "id": "custom_triceps_single_arm_kickback_1794215950332",
+      "name": "Triceps single arm kickback",
+      "muscleGroup": "triceps",
+      "movementGroupId": null,
+      "notes": ""
     }
   ],
   "movementGroups": [
