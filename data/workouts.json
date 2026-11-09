@@ -704,6 +704,144 @@
       },
       "sessions": [
         {
+          "id": "1794216093232-0efx4",
+          "date": "2026-11-09",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 14,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 14,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "preacher_curl",
+              "sets": [
+                {
+                  "weight": 14,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_skullcrushers_1793351880053",
+              "sets": [
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "custom_triceps_single_arm_kickback_1794215950332",
+              "sets": [
+                {
+                  "weight": 8.5,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 8.5,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 8.5,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "shoulder_press_db",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "lateral_raise_db",
+              "sets": [
+                {
+                  "weight": 8.7,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 8.7,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 8.7,
+                  "reps": 12,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1794066664912-jwgxu",
           "date": "2026-11-07",
           "muscleGroups": [
