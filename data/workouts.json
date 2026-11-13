@@ -704,6 +704,142 @@
       },
       "sessions": [
         {
+          "id": "1794574047279-bcnpm",
+          "date": "2026-11-13",
+          "muscleGroups": [
+            "back",
+            "biceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "inclined_curl_db",
+              "sets": [
+                {
+                  "weight": 17.5,
+                  "reps": 2,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 12.5,
+                  "reps": 5,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "preacher_curl",
+              "sets": [
+                {
+                  "weight": 15,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 12.5,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "low_rows_v_bar",
+              "sets": [
+                {
+                  "weight": 60,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 75,
+                  "reps": 11,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 55,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 55,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 55,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "dumbbell_shrugs",
+              "sets": [
+                {
+                  "weight": 30,
+                  "reps": 15,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 16,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1794487614398-owhok",
           "date": "2026-11-12",
           "muscleGroups": [
