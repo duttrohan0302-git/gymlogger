@@ -704,6 +704,143 @@
       },
       "sessions": [
         {
+          "id": "1794919209512-jja98",
+          "date": "2026-11-16",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 30,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": "Rod"
+            },
+            {
+              "exerciseId": "lateral_raise_db",
+              "sets": [
+                {
+                  "weight": 10,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 10,
+                  "note": "and then drop set until failure"
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_single_arm_ext",
+              "sets": [
+                {
+                  "weight": 20,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_military_press_1777469843395",
+              "sets": [
+                {
+                  "weight": 50,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 25,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 25,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 22.5,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "cable_fly",
+              "sets": [
+                {
+                  "weight": 25,
+                  "reps": 7,
+                  "note": "close cable cable"
+                },
+                {
+                  "weight": 25,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1794919062129-v5u26",
           "date": "2026-11-17",
           "muscleGroups": [
