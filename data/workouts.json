@@ -704,6 +704,140 @@
       },
       "sessions": [
         {
+          "id": "1794919062129-v5u26",
+          "date": "2026-11-17",
+          "muscleGroups": [
+            "legs",
+            "abs"
+          ],
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 70,
+                  "reps": 13,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 14,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 65,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 65,
+                  "reps": 16,
+                  "note": ""
+                },
+                {
+                  "weight": 65,
+                  "reps": 16,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "leg_press_lying",
+              "sets": [
+                {
+                  "weight": 100,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 100,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 100,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "leg_extension",
+              "sets": [
+                {
+                  "weight": 70,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "hack_squat",
+              "sets": [
+                {
+                  "weight": 110,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 110,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 110,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 80,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 80,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 80,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": ""
+        },
+        {
           "id": "1794670255483-hgfqd",
           "date": "2026-11-14",
           "muscleGroups": [
