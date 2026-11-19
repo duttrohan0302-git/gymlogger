@@ -737,8 +737,8 @@
               "exerciseId": "lateral_raise_db",
               "sets": [
                 {
-                  "weight": 10,
-                  "reps": 11,
+                  "weight": 12.5,
+                  "reps": 7,
                   "note": ""
                 },
                 {
