@@ -456,16 +456,24 @@ export function genId() {
 
 // ── In-progress workout drafts (survive app reloads / phone locking) ─────────
 const draftKey = (userId, dayId) => `gymlogger_draft_${userId}_${dayId}`
-const DRAFT_MAX_AGE = 48 * 60 * 60 * 1000 // an unfinished workout older than this is abandoned
+// Drafts never expire: they stay until the workout is finished or discarded,
+// and Home reminds you about them every time the app opens.
 export function loadDraft(userId, dayId) {
+  try { return JSON.parse(getLS(draftKey(userId, dayId))) } catch { return null }
+}
+/** All unfinished workouts for a user: [{ dayId, splitDay, sessionDate, savedAt, ... }] */
+export function listDrafts(userId) {
+  const prefix = `gymlogger_draft_${userId}_`
+  const out = []
   try {
-    const d = JSON.parse(getLS(draftKey(userId, dayId)))
-    if (d && (!d.savedAt || Date.now() - d.savedAt > DRAFT_MAX_AGE)) {
-      removeLS(draftKey(userId, dayId))
-      return null
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i)
+      if (!key?.startsWith(prefix)) continue
+      const d = loadDraft(userId, key.slice(prefix.length))
+      if (d) out.push({ ...d, dayId: key.slice(prefix.length) })
     }
-    return d
-  } catch { return null }
+  } catch { /* storage blocked */ }
+  return out.sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0))
 }
 export function saveDraft(userId, dayId, draft) {
   setLS(draftKey(userId, dayId), JSON.stringify({ ...draft, savedAt: Date.now() }))

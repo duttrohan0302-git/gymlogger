@@ -199,8 +199,8 @@ export default function LogSession({ splitDay, onDone, onBack }) {
 
   useEffect(() => {
     if (!touched.current) return
-    saveDraft(userId, splitDay.id, { draft, bodyWeight, sessionNotes, sessionDate })
-  }, [draft, bodyWeight, sessionNotes, sessionDate, userId, splitDay.id])
+    saveDraft(userId, splitDay.id, { draft, bodyWeight, sessionNotes, sessionDate, splitDay })
+  }, [draft, bodyWeight, sessionNotes, sessionDate, userId, splitDay])
 
   // Mark as touched on any user edit so the draft gets persisted
   const edit = fn => (...args) => { touched.current = true; return fn(...args) }

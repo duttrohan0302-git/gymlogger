@@ -1,6 +1,6 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { Settings, CloudOff, Cloud, Loader, AlertCircle, ChevronRight } from 'lucide-react'
-import { useStore, loadDraft } from '../lib/store'
+import { useStore, loadDraft, listDrafts, clearDraft } from '../lib/store'
 import { matchDay, sessionLabel, sessionGroups, exerciseMap } from '../lib/sessions'
 import { MUSCLE_COLORS } from '../data/defaultData'
 
@@ -53,6 +53,17 @@ export default function Home({ onStartSession, onNavigate, onEditSession }) {
 
   const isConfigured = !!(token && repo)
 
+  // Unfinished workouts (autosaved drafts) — shown until finished or discarded
+  const [draftsVersion, setDraftsVersion] = useState(0)
+  const drafts = useMemo(() => listDrafts(state.activeUserId), [state.activeUserId, draftsVersion])
+  const draftDay = d => days.find(x => x.id === d.dayId) || d.splitDay
+  const discardDraft = d => {
+    const name = draftDay(d)?.name || 'workout'
+    if (!confirm(`Discard your unfinished ${name}? It will be lost.`)) return
+    clearDraft(state.activeUserId, d.dayId)
+    setDraftsVersion(v => v + 1)
+  }
+
   return (
     <div className="min-h-screen bg-gray-900 pb-24">
       {/* Header */}
@@ -91,6 +102,34 @@ export default function Home({ onStartSession, onNavigate, onEditSession }) {
           </div>
         </div>
       )}
+
+      {drafts.map(d => {
+        const day = draftDay(d)
+        const sets = (d.draft || []).reduce((n, e) => n + e.sets.filter(s => s.weight != null || s.reps != null).length, 0)
+        return (
+          <div key={d.dayId} className="mx-4 mb-4 p-4 rounded-2xl bg-brand/10 border border-brand/40">
+            <p className="text-sm font-semibold text-white">Unfinished {day?.name || 'workout'}</p>
+            <p className="text-xs text-gray-400 mt-0.5">
+              {d.sessionDate ? formatDate(d.sessionDate) : ''}{d.sessionDate ? ' · ' : ''}{(d.draft || []).length} exercises · {sets} sets — not saved yet
+            </p>
+            <div className="flex gap-2 mt-3">
+              <button
+                onClick={() => day && onStartSession(day)}
+                disabled={!day}
+                className="flex-1 bg-brand text-black text-sm font-bold py-2.5 rounded-xl active:scale-95 transition-transform disabled:opacity-40"
+              >
+                Resume &amp; finish
+              </button>
+              <button
+                onClick={() => discardDraft(d)}
+                className="px-4 text-sm text-gray-400 border border-gray-700 rounded-xl active:bg-gray-800"
+              >
+                Discard
+              </button>
+            </div>
+          </div>
+        )
+      })}
 
       {!isConfigured && (
         <div className="mx-4 mb-4 p-4 rounded-xl bg-yellow-900/30 border border-yellow-800">
