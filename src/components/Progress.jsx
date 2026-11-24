@@ -520,6 +520,17 @@ function Overview({ sessions, exercises, onPickExercise }) {
   )
 }
 
+// Remember Progress selections while the app is open (e.g. after editing a session)
+function useSessionState(key, initial) {
+  const [value, setValue] = useState(() => {
+    try { const v = sessionStorage.getItem(`gymlogger_progress_${key}`); return v != null ? JSON.parse(v) : initial } catch { return initial }
+  })
+  useEffect(() => {
+    try { sessionStorage.setItem(`gymlogger_progress_${key}`, JSON.stringify(value)) } catch { /* ignore */ }
+  }, [key, value])
+  return [value, setValue]
+}
+
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function Progress({ onEditSession }) {
@@ -529,15 +540,17 @@ export default function Progress({ onEditSession }) {
   const exercises = data.exercises || []
   const movementGroups = data.movementGroups || []
 
-  const [viewMode, setViewMode] = useState('exercise') // 'exercise' | 'muscle'
-  const [viewType, setViewType] = useState('graph')    // 'graph' | 'table'
-  const [selectedExId, setSelectedExId] = useState(null)
-  const [selectedMuscle, setSelectedMuscle] = useState(null)
-  const [groupView, setGroupView] = useState(false)
-  const [metric, setMetric] = useState(METRICS[0])
+  const [viewMode, setViewMode] = useSessionState('viewMode', 'exercise') // 'exercise' | 'muscle'
+  const [viewType, setViewType] = useSessionState('viewType', 'graph')    // 'graph' | 'table'
+  const [selectedExId, setSelectedExId] = useSessionState('exercise', null)
+  const [selectedMuscle, setSelectedMuscle] = useSessionState('muscle', null)
+  const [groupView, setGroupView] = useSessionState('groupView', false)
+  const [metricId, setMetricId] = useSessionState('metric', METRICS[0].id)
+  const metric = METRICS.find(m => m.id === metricId) || METRICS[0]
+  const setMetric = m => setMetricId(m.id)
   const [showPicker, setShowPicker] = useState(false)
   // Variants: 'all' = combined line, 'split' = one line per variant, or a single variant
-  const [variantView, setVariantView] = useState('all')
+  const [variantView, setVariantView] = useSessionState('variantView', 'all')
 
   const selectedEx = exercises.find(e => e.id === selectedExId)
   const movGroup = selectedEx ? movementGroups.find(g => g.exerciseIds.includes(selectedEx.id)) : null
@@ -634,6 +647,18 @@ export default function Progress({ onEditSession }) {
     window.addEventListener('popstate', clearSelection)
     return () => window.removeEventListener('popstate', clearSelection)
   }, [clearSelection])
+
+  // Restored a selection (e.g. back from editing a session): re-arm the phone's back gesture.
+  // Leaving Progress: remove our history entry so the next back press isn't swallowed.
+  useEffect(() => {
+    if (hasSelection) markSelected()
+    return () => {
+      try {
+        if (window.history.state?.gymProgressSel) window.history.back()
+      } catch { /* ignore */ }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-900 pb-24">

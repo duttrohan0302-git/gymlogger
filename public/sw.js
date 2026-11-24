@@ -2,7 +2,7 @@
 // - Page loads: network first (so new deploys show up), cached copy when offline
 // - Built assets (hashed filenames): cache first
 // - GitHub API (sync) is never touched: it's cross-origin and handled by the app
-const CACHE = 'gymlogger-v1'
+const CACHE = 'gymlogger-v2'
 const SCOPE = self.registration.scope
 
 self.addEventListener('install', e => {
@@ -22,9 +22,15 @@ self.addEventListener('fetch', e => {
   if (req.method !== 'GET' || !req.url.startsWith(SCOPE)) return
 
   if (req.mode === 'navigate') {
+    // Weak gym signal: don't wait forever, fall back to the cached app after 3s
+    const network = fetch(req).then(res => {
+      if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(SCOPE, copy)) }
+      return res
+    })
+    const timeout = new Promise(resolve => setTimeout(resolve, 3000)).then(() => caches.match(SCOPE))
     e.respondWith(
-      fetch(req)
-        .then(res => { const copy = res.clone(); caches.open(CACHE).then(c => c.put(SCOPE, copy)); return res })
+      Promise.race([network, timeout])
+        .then(res => res || network)
         .catch(() => caches.match(SCOPE))
     )
     return

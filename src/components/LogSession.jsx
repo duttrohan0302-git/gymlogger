@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useMemo, useRef } from 'react'
-import { Plus, Trash2, X, Check, Loader, ArrowUp, ArrowDown, Link2, Trophy, History } from 'lucide-react'
+import { Plus, Trash2, X, Check, Loader, ArrowUp, ArrowDown, Link2, Trophy, History, ChevronLeft } from 'lucide-react'
 import { useStore, getLastSession, genId, localDate, loadDraft, saveDraft, clearDraft } from '../lib/store'
 import { matchDay, sessionGroups, exerciseMap } from '../lib/sessions'
 import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
@@ -293,9 +293,10 @@ export default function LogSession({ splitDay, onDone, onBack }) {
       const j = index + dir
       if (j < 0 || j >= d.length) return d
       const next = [...d]
+      const sameGroup = next[index].superset && next[index].superset === next[j].superset
       ;[next[index], next[j]] = [next[j], next[index]]
-      // A moved exercise leaves its superset
-      next[j] = { ...next[j], superset: undefined }
+      // Reordering inside a superset keeps it; moving out of one leaves it
+      if (!sameGroup) next[j] = { ...next[j], superset: undefined }
       return cleanSupersets(next)
     })
   }, [])
@@ -304,13 +305,19 @@ export default function LogSession({ splitDay, onDone, onBack }) {
     setDraft(d => {
       const a = d[index], b = d[index + 1]
       if (!b) return d
-      const next = [...d]
+      let next = [...d]
       if (a.superset && a.superset === b.superset) {
-        next[index + 1] = { ...b, superset: undefined }
+        // Unlink between a and b: everything after this point in the group becomes its own group
+        const oldId = a.superset
+        const newId = genId()
+        for (let k = index + 1; k < next.length && next[k].superset === oldId; k++) next[k] = { ...next[k], superset: newId }
       } else {
-        const id = a.superset || genId()
-        next[index] = { ...a, superset: id }
-        next[index + 1] = { ...b, superset: id }
+        // Link: join a's group and b's group into one
+        const id = a.superset || b.superset || genId()
+        const absorb = new Set([a.superset, b.superset].filter(Boolean))
+        next = next.map(e => absorb.has(e.superset) ? { ...e, superset: id } : e)
+        next[index] = { ...next[index], superset: id }
+        next[index + 1] = { ...next[index + 1], superset: id }
       }
       return cleanSupersets(next)
     })
@@ -354,8 +361,8 @@ export default function LogSession({ splitDay, onDone, onBack }) {
     <div className="min-h-screen bg-gray-900 pb-32">
       {/* Header */}
       <div className="sticky top-0 z-30 bg-gray-900/95 backdrop-blur flex items-center gap-3 px-4 pt-12 pb-4 border-b border-gray-800">
-        <button onClick={discard} aria-label="Discard workout" className="text-gray-400 active:text-white">
-          <X size={22} />
+        <button onClick={onBack} aria-label="Back (workout is kept)" className="text-gray-400 active:text-white">
+          <ChevronLeft size={24} />
         </button>
         <div className="flex-1">
           <h1 className="text-lg font-bold text-white">{splitDay.name}</h1>
@@ -462,6 +469,11 @@ export default function LogSession({ splitDay, onDone, onBack }) {
           rows={2}
           className="w-full bg-gray-800 rounded-2xl px-4 py-3 text-sm text-gray-300 placeholder-gray-600 outline-none resize-none mb-4"
         />
+
+        <p className="text-[11px] text-gray-600 text-center mb-2">Going back keeps this workout. Finish it later from Home.</p>
+        <button onClick={discard} className="w-full flex items-center justify-center gap-2 py-3 text-sm text-red-500 active:text-red-400 mb-4">
+          <Trash2 size={15} /> Discard workout
+        </button>
       </div>
 
       {/* Save button */}

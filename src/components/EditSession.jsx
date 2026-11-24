@@ -67,7 +67,14 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
     })
 
   const setVariant = (exIdx, variant) =>
-    setDraft(d => ({ ...d, exercises: d.exercises.map((e, i) => i !== exIdx ? e : { ...e, variant: variant.trim() ? variant : null }) }))
+    setDraft(d => ({
+      ...d,
+      exercises: d.exercises.map((e, i) => {
+        if (i !== exIdx) return e
+        const { variant: _old, ...rest } = e // eslint-disable-line no-unused-vars
+        return variant.trim() ? { ...rest, variant } : rest
+      }),
+    }))
 
   const removeExercise = exIdx =>
     setDraft(d => ({ ...d, exercises: d.exercises.filter((_, ei) => ei !== exIdx) }))
@@ -102,7 +109,12 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
                 if (onDelete && confirm('No sets left. Delete this session instead?')) onDelete(session.id)
                 return
               }
-              onSave({ ...draft, date: draft.date || session.date, notes: (draft.notes || '').trim() })
+              onSave({
+                ...draft,
+                date: draft.date || session.date,
+                notes: (draft.notes || '').trim(),
+                exercises: draft.exercises.map(e => e.variant ? { ...e, variant: e.variant.trim() } : e),
+              })
             }}
             className="bg-brand text-black text-sm font-bold px-4 py-2 rounded-xl active:scale-95 transition-transform flex-shrink-0"
           >

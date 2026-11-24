@@ -226,16 +226,34 @@ function reducer(state, action) {
     }
     // Replace everything (import of a full multi-user backup)
     case 'REPLACE_ALL_DATA': {
-      const fullData = migrate(action.data) || { ...EMPTY_DATA }
+      const imported = migrate(action.data) || { ...EMPTY_DATA }
+      // Tombstone sessions the backup doesn't have, so other phones can't merge them back
+      const fullData = {
+        ...imported,
+        users: (imported.users || []).map(u => {
+          const old = state.fullData.users?.find(o => o.id === u.id)
+          if (!old) return u
+          const keep = new Set((u.sessions || []).map(s => s.id))
+          const dropped = (old.sessions || []).map(s => s.id).filter(id => !keep.has(id))
+          return { ...u, deletedSessionIds: [...new Set([...(u.deletedSessionIds || []), ...dropped])] }
+        }),
+      }
       const user = fullData.users?.find(u => u.id === state.activeUserId) || fullData.users?.[0]
       const data = user ? buildUserView(fullData, user) : null
-      return changed(state, { fullData, data, activeUserId: user?.id || null })
+      // forceReplace: the next write overwrites GitHub instead of merging with it
+      return changed(state, { fullData, data, activeUserId: user?.id || null, forceReplace: true })
     }
+    case 'CLEAR_FORCE_REPLACE':
+      return { ...state, forceReplace: false }
     // Replace only the active user's data (import of a single-user / v1 file)
     case 'REPLACE_USER_DATA': {
       const d = action.data
+      const current = state.fullData.users?.find(u => u.id === state.activeUserId)
+      const keep = new Set((d.sessions || []).map(s => s.id))
+      const dropped = (current?.sessions || []).map(s => s.id).filter(id => !keep.has(id))
       const patch = {
         sessions: sortSessions(d.sessions || []),
+        deletedSessionIds: [...new Set([...(current?.deletedSessionIds || []), ...dropped])],
         ...(d.splits?.length ? { splits: d.splits } : {}),
         ...(d.muscleGroupNotes ? { muscleGroupNotes: d.muscleGroupNotes } : {}),
         ...(d.bodyWeightLog ? { bodyWeightLog: d.bodyWeightLog } : {}),
@@ -338,11 +356,21 @@ export function StoreProvider({ children }) {
         } catch (err) {
           if (!isConflict(err)) throw err
           // Someone else (another device / user) wrote first: merge and retry.
-          const remote = await readFile(token, repo, DATA_PATH)
-          const merged = mergeData(fullData, remote?.content, stateRef.current.activeUserId)
-          sha = await writeFile(token, repo, DATA_PATH, merged, remote?.sha, message)
-          dispatch({ type: 'MERGE_REMOTE', data: remote?.content })
+          // Retry a few times in case both phones are syncing at the same moment.
+          const force = stateRef.current.forceReplace
+          for (let attempt = 1; ; attempt++) {
+            const remote = await readFile(token, repo, DATA_PATH)
+            const toWrite = force ? fullData : mergeData(fullData, remote?.content, stateRef.current.activeUserId)
+            try {
+              sha = await writeFile(token, repo, DATA_PATH, toWrite, remote?.sha, message)
+              if (!force) dispatch({ type: 'MERGE_REMOTE', data: remote?.content })
+              break
+            } catch (e) {
+              if (!isConflict(e) || attempt >= 3) throw e
+            }
+          }
         }
+        if (stateRef.current.forceReplace) dispatch({ type: 'CLEAR_FORCE_REPLACE' })
         shaRef.current = sha
         setLS(LS_SHA, sha)
         syncedRevRef.current = rev
