@@ -826,7 +826,8 @@
                   "note": ""
                 }
               ],
-              "note": "Rod"
+              "note": "",
+              "variant": "Rod"
             },
             {
               "exerciseId": "lateral_raise_db",
@@ -1451,7 +1452,8 @@
                   "note": ""
                 }
               ],
-              "note": "Smith machine "
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "cross_body_hammer_curl",
@@ -1661,7 +1663,8 @@
                   "note": ""
                 }
               ],
-              "note": "Rod"
+              "note": "",
+              "variant": "Rod"
             },
             {
               "exerciseId": "lateral_raise_db",
@@ -3671,7 +3674,8 @@
                   "note": ""
                 }
               ],
-              "note": "Done using free cables with foot support "
+              "note": "Done using free cables with foot support ",
+              "variant": "Free cables"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -4077,7 +4081,8 @@
                   "note": ""
                 }
               ],
-              "note": "Single arm vertical "
+              "note": "",
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -4345,7 +4350,8 @@
                   "note": ""
                 }
               ],
-              "note": "Wide handle bar "
+              "note": "",
+              "variant": "Wide bar"
             },
             {
               "exerciseId": "pec_fly_machine",
@@ -4610,7 +4616,8 @@
                   "note": ""
                 }
               ],
-              "note": "Vertical single arm "
+              "note": "",
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -5785,7 +5792,8 @@
                   "note": ""
                 }
               ],
-              "note": "Machine with built in weight "
+              "note": "Machine with built in weight ",
+              "variant": "Stack machine"
             },
             {
               "exerciseId": "inclined_db_press",
@@ -6006,7 +6014,8 @@
                   "note": ""
                 }
               ],
-              "note": "Smith machine "
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "custom_abdominal_1780137674095",
@@ -6299,7 +6308,8 @@
                   "note": ""
                 }
               ],
-              "note": "Horizontal single arm "
+              "note": "",
+              "variant": "Single arm horizontal"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -6385,7 +6395,8 @@
                   "note": ""
                 }
               ],
-              "note": "Smith machine "
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "barbell_squat",
@@ -6659,7 +6670,8 @@
                   "note": ""
                 }
               ],
-              "note": "Wide handle bar "
+              "note": "",
+              "variant": "Wide bar"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -6742,7 +6754,8 @@
                   "note": ""
                 }
               ],
-              "note": "Vertical and single arm "
+              "note": "Vertical and single arm ",
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -6934,7 +6947,8 @@
                   "note": ""
                 }
               ],
-              "note": "Converging shoulder press machine, tough reps"
+              "note": "Converging shoulder press machine, tough reps",
+              "variant": "Converging"
             }
           ],
           "notes": ""
@@ -7009,7 +7023,8 @@
                   "note": ""
                 }
               ],
-              "note": "Smooth machine"
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "custom_rdl_barbell_1777542610999",
@@ -7491,7 +7506,8 @@
                   "note": ""
                 }
               ],
-              "note": "Wide handle bar "
+              "note": "",
+              "variant": "Wide bar"
             },
             {
               "exerciseId": "custom_t_bar_row_1786528893508",
@@ -7608,7 +7624,8 @@
                   "note": ""
                 }
               ],
-              "note": "Straight curl "
+              "note": "",
+              "variant": "Straight curl"
             }
           ],
           "notes": ""
@@ -7817,7 +7834,8 @@
                   "note": ""
                 }
               ],
-              "note": "Vertical "
+              "note": "",
+              "variant": "Vertical grip"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -8220,7 +8238,8 @@
                   "note": ""
                 }
               ],
-              "note": "Wide handle bar "
+              "note": "",
+              "variant": "Wide bar"
             },
             {
               "exerciseId": "custom_t_bar_row_1786528893508",
@@ -8241,7 +8260,8 @@
                   "note": ""
                 }
               ],
-              "note": "Horizontal"
+              "note": "",
+              "variant": "Horizontal grip"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -8323,7 +8343,8 @@
                   "note": ""
                 }
               ],
-              "note": "Straight curl "
+              "note": "",
+              "variant": "Straight curl"
             }
           ],
           "notes": ""
@@ -8644,7 +8665,8 @@
                   "note": ""
                 }
               ],
-              "note": "Horizontal handle bar "
+              "note": "",
+              "variant": "Horizontal bar"
             },
             {
               "exerciseId": "custom_t_bar_row_1786528893508",
@@ -8665,7 +8687,8 @@
                   "note": ""
                 }
               ],
-              "note": "Vertical grip "
+              "note": "",
+              "variant": "Vertical grip"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -8898,7 +8921,8 @@
                   "note": ""
                 }
               ],
-              "note": "V bar"
+              "note": "",
+              "variant": "V bar"
             },
             {
               "exerciseId": "bench_press",
@@ -9014,7 +9038,8 @@
                   "note": ""
                 }
               ],
-              "note": "Straight "
+              "note": "",
+              "variant": "Straight curl"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -9204,7 +9229,8 @@
                   "note": ""
                 }
               ],
-              "note": "Wide handle bar "
+              "note": "",
+              "variant": "Wide bar"
             },
             {
               "exerciseId": "facepulls",
@@ -10289,7 +10315,8 @@
                   "note": ""
                 }
               ],
-              "note": "Wide handle bar "
+              "note": "",
+              "variant": "Wide bar"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -10957,7 +10984,8 @@
                   "note": ""
                 }
               ],
-              "note": "Diverging Lat pulldown "
+              "note": "",
+              "variant": "Diverging"
             },
             {
               "exerciseId": "chest_press_machine",
@@ -11410,7 +11438,8 @@
                   "note": ""
                 }
               ],
-              "note": "V bar "
+              "note": "",
+              "variant": "V bar"
             },
             {
               "exerciseId": "tricep_overhead_rope",
@@ -11532,7 +11561,8 @@
                   "note": ""
                 }
               ],
-              "note": "Standing "
+              "note": "",
+              "variant": "Standing"
             },
             {
               "exerciseId": "custom_abdominal_1780137674095",
@@ -11794,7 +11824,8 @@
                   "note": ""
                 }
               ],
-              "note": "V bar "
+              "note": "",
+              "variant": "V bar"
             }
           ],
           "notes": ""
@@ -11827,7 +11858,8 @@
                   "note": ""
                 }
               ],
-              "note": "Smith machine "
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "custom_abdominal_1780137674095",
@@ -11889,7 +11921,8 @@
                   "note": ""
                 }
               ],
-              "note": "Machine not free weight"
+              "note": "",
+              "variant": "Stack machine"
             },
             {
               "exerciseId": "leg_press_sitting",
@@ -12611,7 +12644,8 @@
                   "note": ""
                 }
               ],
-              "note": "V bar"
+              "note": "",
+              "variant": "V bar"
             },
             {
               "exerciseId": "tricep_overhead_rope",
@@ -12728,7 +12762,8 @@
                   "note": ""
                 }
               ],
-              "note": "Standing"
+              "note": "",
+              "variant": "Standing"
             },
             {
               "exerciseId": "custom_abdominal_1780137674095",
@@ -12989,7 +13024,8 @@
                   "note": ""
                 }
               ],
-              "note": "V bar "
+              "note": "",
+              "variant": "V bar"
             }
           ],
           "notes": ""
@@ -13022,7 +13058,8 @@
                   "note": ""
                 }
               ],
-              "note": "Smith machine "
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -13398,7 +13435,8 @@
                   "note": ""
                 }
               ],
-              "note": "V bar"
+              "note": "",
+              "variant": "V bar"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -13452,7 +13490,8 @@
                   "note": ""
                 }
               ],
-              "note": "Smith machine "
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -13787,7 +13826,8 @@
                   "note": ""
                 }
               ],
-              "note": "Smith machine "
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -13932,7 +13972,8 @@
                   "note": ""
                 }
               ],
-              "note": "Free weight machine , starting resistance 22.7 kgs "
+              "note": "Free weight machine , starting resistance 22.7 kgs ",
+              "variant": "Plate-loaded"
             }
           ],
           "notes": ""
@@ -14199,7 +14240,8 @@
                   "note": ""
                 }
               ],
-              "note": "V bar"
+              "note": "",
+              "variant": "V bar"
             },
             {
               "exerciseId": "facepulls",
@@ -14274,7 +14316,8 @@
                   "note": ""
                 }
               ],
-              "note": "Standing "
+              "note": "",
+              "variant": "Standing"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -15071,7 +15114,8 @@
                   "note": ""
                 }
               ],
-              "note": "V bar "
+              "note": "",
+              "variant": "V bar"
             }
           ],
           "notes": ""
@@ -16244,7 +16288,8 @@
                   "note": ""
                 }
               ],
-              "note": "Smith machine "
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -16738,7 +16783,8 @@
                   "note": ""
                 }
               ],
-              "note": "Standing"
+              "note": "",
+              "variant": "Standing"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -18478,7 +18524,8 @@
                   "note": ""
                 }
               ],
-              "note": "Standing machine "
+              "note": "Standing machine ",
+              "variant": "Standing"
             },
             {
               "exerciseId": "hip_abductor",
