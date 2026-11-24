@@ -286,7 +286,7 @@
       "name": "Barbell Squat",
       "muscleGroup": "legs",
       "movementGroupId": "squat",
-      "notes": ""
+      "notes": "Total weight including bar (20 kg)"
     },
     {
       "id": "hip_thrust_single_leg",
@@ -4507,17 +4507,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 30,
+                  "weight": 80,
                   "reps": 4,
                   "note": ""
                 },
                 {
-                  "weight": 25,
+                  "weight": 70,
                   "reps": 6,
                   "note": ""
                 },
                 {
-                  "weight": 25,
+                  "weight": 70,
                   "reps": 5,
                   "note": ""
                 }
@@ -5199,17 +5199,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 },
                 {
-                  "weight": 30,
+                  "weight": 80,
                   "reps": 4,
                   "note": ""
                 },
                 {
-                  "weight": 25,
+                  "weight": 70,
                   "reps": 6,
                   "note": ""
                 }
@@ -6402,17 +6402,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 11,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 10,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 }
@@ -7259,17 +7259,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 10,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 10,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 }
@@ -8537,17 +8537,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 12,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 12,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 12,
                   "note": ""
                 }
@@ -11128,17 +11128,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 9,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 }
@@ -11885,17 +11885,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 }
@@ -13106,17 +13106,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 12,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 12,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 11,
                   "note": ""
                 }
@@ -13915,17 +13915,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 10,
                   "note": ""
                 },
                 {
-                  "weight": 25,
+                  "weight": 70,
                   "reps": 9,
                   "note": ""
                 },
                 {
-                  "weight": 25,
+                  "weight": 70,
                   "reps": 9,
                   "note": ""
                 }
@@ -14720,17 +14720,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 9,
                   "note": ""
                 },
                 {
-                  "weight": 25,
+                  "weight": 70,
                   "reps": 5,
                   "note": ""
                 },
                 {
-                  "weight": 25,
+                  "weight": 70,
                   "reps": 5,
                   "note": ""
                 }
@@ -15566,17 +15566,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 9,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 9,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 }
@@ -16356,17 +16356,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 },
                 {
-                  "weight": 20,
+                  "weight": 60,
                   "reps": 8,
                   "note": ""
                 }
@@ -17110,17 +17110,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 11,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 10,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 10,
                   "note": ""
                 }
@@ -17771,22 +17771,22 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 10,
                   "note": "let’s keep doing this for now"
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 9,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 9,
                   "note": ""
                 }
               ],
-              "note": "Weight each side"
+              "note": ""
             },
             {
               "exerciseId": "hip_thrust_single_leg",
@@ -18428,17 +18428,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 10,
+                  "weight": 40,
                   "reps": 12,
                   "note": "let’s keep doing this for now"
                 },
                 {
-                  "weight": 10,
+                  "weight": 40,
                   "reps": 12,
                   "note": ""
                 },
                 {
-                  "weight": 10,
+                  "weight": 40,
                   "reps": 12,
                   "note": ""
                 }
@@ -19115,17 +19115,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 10,
+                  "weight": 40,
                   "reps": 14,
                   "note": "let’s keep doing this for now"
                 },
                 {
-                  "weight": 10,
+                  "weight": 40,
                   "reps": 14,
                   "note": ""
                 },
                 {
-                  "weight": 10,
+                  "weight": 40,
                   "reps": 14,
                   "note": ""
                 }
@@ -19772,17 +19772,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 12,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 8,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 10,
                   "note": ""
                 }
@@ -20434,17 +20434,17 @@
               "exerciseId": "barbell_squat",
               "sets": [
                 {
-                  "weight": 10,
+                  "weight": 40,
                   "reps": 12,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 12,
                   "note": ""
                 },
                 {
-                  "weight": 15,
+                  "weight": 50,
                   "reps": 10,
                   "note": ""
                 }
