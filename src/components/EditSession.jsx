@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChevronLeft, Trash2, X, Plus } from 'lucide-react'
+import { ChevronLeft, Trash2, X, Plus, ArrowUp, ArrowDown } from 'lucide-react'
 import { useStore } from '../lib/store'
 import { MUSCLE_COLORS } from '../data/defaultData'
 import AddExerciseSheet from './AddExerciseSheet'
@@ -57,6 +57,18 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
       }),
     }))
 
+  const moveExercise = (exIdx, dir) =>
+    setDraft(d => {
+      const j = exIdx + dir
+      if (j < 0 || j >= d.exercises.length) return d
+      const exs = [...d.exercises]
+      ;[exs[exIdx], exs[j]] = [exs[j], exs[exIdx]]
+      return { ...d, exercises: exs }
+    })
+
+  const setVariant = (exIdx, variant) =>
+    setDraft(d => ({ ...d, exercises: d.exercises.map((e, i) => i !== exIdx ? e : { ...e, variant: variant.trim() ? variant : null }) }))
+
   const removeExercise = exIdx =>
     setDraft(d => ({ ...d, exercises: d.exercises.filter((_, ei) => ei !== exIdx) }))
 
@@ -110,14 +122,25 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
                   <span className="w-2.5 h-2.5 rounded-full flex-shrink-0"
                     style={{ backgroundColor: MUSCLE_COLORS[info.muscleGroup] }} />
                 )}
+                <span className="text-[10px] text-gray-500 font-mono">{exIdx + 1}</span>
                 <p className="text-sm font-semibold text-white flex-1 truncate">
                   {info?.name ?? ex.exerciseId}
                 </p>
+                <button onClick={() => moveExercise(exIdx, -1)} disabled={exIdx === 0} aria-label="Move up" className="text-gray-500 p-1 disabled:opacity-20"><ArrowUp size={15} /></button>
+                <button onClick={() => moveExercise(exIdx, 1)} disabled={exIdx === draft.exercises.length - 1} aria-label="Move down" className="text-gray-500 p-1 disabled:opacity-20"><ArrowDown size={15} /></button>
                 <button onClick={() => removeExercise(exIdx)}
                   className="text-gray-600 active:text-red-400 p-1">
                   <Trash2 size={15} />
                 </button>
               </div>
+
+              <input
+                type="text"
+                value={ex.variant || ''}
+                onChange={e => setVariant(exIdx, e.target.value)}
+                placeholder="Variant (optional, e.g. Smith, wide grip)"
+                className="w-full bg-gray-900 rounded-lg px-3 py-1.5 text-xs text-gray-300 placeholder-gray-600 outline-none mb-3"
+              />
 
               {/* Column labels */}
               <div className="flex items-center gap-2 mb-1.5 pl-5">

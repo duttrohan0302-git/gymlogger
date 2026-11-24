@@ -1,10 +1,20 @@
 import { useState, useCallback, useEffect, useMemo, useRef } from 'react'
-import { ChevronDown, ChevronUp, Plus, Trash2, X, Check, Loader } from 'lucide-react'
+import { Plus, Trash2, X, Check, Loader, ArrowUp, ArrowDown, Link2, Trophy } from 'lucide-react'
 import { useStore, getLastSession, genId, localDate, loadDraft, saveDraft, clearDraft } from '../lib/store'
 import { matchDay, sessionGroups, exerciseMap } from '../lib/sessions'
 import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
 import AddExerciseSheet from './AddExerciseSheet'
 import NumberInput from './NumberInput'
+import { progressionHint, personalBests, isPR } from '../lib/progression'
+
+/** Drop superset ids that no longer link two neighbouring exercises */
+function cleanSupersets(list) {
+  return list.map((e, i) => {
+    if (!e.superset) return e
+    const linked = list[i - 1]?.superset === e.superset || list[i + 1]?.superset === e.superset
+    return linked ? e : { ...e, superset: undefined }
+  })
+}
 
 function formatDate(d) {
   if (!d) return ''
@@ -12,10 +22,12 @@ function formatDate(d) {
   return new Date(y, m - 1, day).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
 }
 
-function SetRow({ set, index, onChange, onDelete }) {
+function SetRow({ set, index, pr, onChange, onDelete }) {
   return (
     <div className="flex items-center gap-2 py-1.5">
-      <span className="text-xs text-gray-600 w-5 text-right">{index + 1}</span>
+      <span className={`text-xs w-5 text-right ${pr ? 'text-yellow-400' : 'text-gray-600'}`} title={pr ? `${pr} PR` : undefined}>
+        {pr ? <Trophy size={13} className="inline" /> : index + 1}
+      </span>
       {/* Weight */}
       <div className="flex items-center bg-gray-900 rounded-lg overflow-hidden flex-1">
         <button
@@ -59,43 +71,59 @@ function SetRow({ set, index, onChange, onDelete }) {
   )
 }
 
-function ExerciseCard({ exerciseId, sets, sessionNote, exercises, sessions, onChange, onNoteChange, onRemove }) {
+/** Variants used before for this exercise (e.g. "Smith", "Standing"), most recent first */
+function knownVariants(sessions, exerciseId) {
+  const seen = []
+  for (const s of sessions) {
+    const v = s.exercises?.find(e => e.exerciseId === exerciseId)?.variant
+    if (v && !seen.includes(v)) seen.push(v)
+  }
+  return seen
+}
+
+function ExerciseCard({ item, index, total, exercises, sessions, linkedPrev, linkedNext, onChange, onRemove, onMove, onToggleLink }) {
   const [expanded, setExpanded] = useState(true)
+  const [addingVariant, setAddingVariant] = useState(false)
+  const [variantText, setVariantText] = useState('')
+  const { exerciseId, sets, variant } = item
   const exercise = exercises.find(e => e.id === exerciseId)
-  const last = getLastSession(sessions, exerciseId)
+  const variants = useMemo(() => knownVariants(sessions, exerciseId), [sessions, exerciseId])
+  // History for this variant if one is picked and has history, else all
+  const scoped = variant && variants.includes(variant) ? variant : null
+  const scopedSessions = useMemo(
+    () => scoped ? sessions.filter(s => s.exercises?.some(e => e.exerciseId === exerciseId && e.variant === scoped)) : sessions,
+    [sessions, exerciseId, scoped]
+  )
+  const last = getLastSession(scopedSessions, exerciseId)
+  const hint = useMemo(() => progressionHint(sessions, exerciseId, scoped), [sessions, exerciseId, scoped])
+  const bests = useMemo(() => personalBests(sessions, exerciseId, scoped), [sessions, exerciseId, scoped])
 
   if (!exercise) return null
 
-  const updateSet = (i, newSet) => {
-    const next = sets.map((s, idx) => idx === i ? newSet : s)
-    onChange(next)
-  }
-
+  const setSets = next => onChange({ sets: next })
+  const updateSet = (i, newSet) => setSets(sets.map((s, idx) => idx === i ? newSet : s))
   const addSet = () => {
     const prev = sets[sets.length - 1] || { weight: null, reps: null, note: '' }
-    onChange([...sets, { ...prev, note: '' }])
+    setSets([...sets, { ...prev, note: '' }])
   }
+  const deleteSet = i => setSets(sets.filter((_, idx) => idx !== i))
 
-  const deleteSet = (i) => {
-    onChange(sets.filter((_, idx) => idx !== i))
-  }
+  const paceText = hint?.sessionsPerStep
+    ? `You usually move up every ~${hint.sessionsPerStep} session${hint.sessionsPerStep > 1 ? 's' : ''} (+${hint.step} kg)`
+    : null
 
   return (
-    <div className="bg-gray-800 rounded-2xl overflow-hidden mb-3">
-      <div
-        className="flex items-center justify-between px-4 py-3.5 active:bg-gray-750"
-        onClick={() => setExpanded(e => !e)}
-      >
+    <div className={`bg-gray-800 overflow-hidden ${linkedPrev ? 'rounded-b-2xl' : 'rounded-2xl'} ${linkedNext ? 'rounded-b-none' : 'mb-3'} ${linkedPrev || linkedNext ? 'border-l-4 border-purple-500' : ''}`}>
+      <div className="flex items-center justify-between px-4 py-3.5" onClick={() => setExpanded(e => !e)}>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <span
-              className="w-2 h-2 rounded-full flex-shrink-0"
-              style={{ backgroundColor: MUSCLE_COLORS[exercise.muscleGroup] }}
-            />
+            <span className="text-[10px] text-gray-500 font-mono w-4">{index + 1}</span>
+            <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: MUSCLE_COLORS[exercise.muscleGroup] }} />
             <span className="text-sm font-semibold text-white truncate">{exercise.name}</span>
+            {variant && <span className="text-[10px] text-gray-400 bg-gray-700 rounded px-1.5 py-0.5 flex-shrink-0">{variant}</span>}
           </div>
           {last && (
-            <div className="mt-1.5 pl-4 flex items-center flex-wrap gap-1.5">
+            <div className="mt-1.5 pl-6 flex items-center flex-wrap gap-1.5">
               <span className="text-[10px] text-gray-600">{formatDate(last.date)}</span>
               {last.sets.filter(s => s.weight != null || s.reps != null).map((s, i) => (
                 <span key={i} className="text-[11px] bg-gray-700 text-gray-300 rounded-md px-2 py-0.5 font-mono">
@@ -104,47 +132,69 @@ function ExerciseCard({ exerciseId, sets, sessionNote, exercises, sessions, onCh
               ))}
             </div>
           )}
+          {hint && (
+            <p className={`mt-1 pl-6 text-[11px] ${hint.kind === 'up' ? 'text-brand' : 'text-gray-400'}`}>
+              {hint.kind === 'up' ? '↑ ' : '→ '}{hint.text}
+              {hint.stuck && <span className="text-yellow-500"> · stuck {hint.currentRun} sessions, try a drop set or a new rep range</span>}
+            </p>
+          )}
         </div>
-        <div className="flex items-center gap-2 ml-2">
-          <span className="text-xs text-gray-600">{sets.length} sets</span>
-          {expanded ? <ChevronUp size={16} className="text-gray-500" /> : <ChevronDown size={16} className="text-gray-500" />}
-          <button
-            onClick={e => { e.stopPropagation(); onRemove() }}
-            className="p-1 text-gray-700 active:text-red-400"
-          >
-            <X size={14} />
-          </button>
+        <div className="flex items-center gap-1 ml-2" onClick={e => e.stopPropagation()}>
+          <button onClick={() => onMove(-1)} disabled={index === 0} aria-label="Move up" className="p-1 text-gray-500 disabled:opacity-20"><ArrowUp size={15} /></button>
+          <button onClick={() => onMove(1)} disabled={index === total - 1} aria-label="Move down" className="p-1 text-gray-500 disabled:opacity-20"><ArrowDown size={15} /></button>
+          <button onClick={onRemove} aria-label="Remove exercise" className="p-1 text-gray-700 active:text-red-400"><X size={14} /></button>
         </div>
       </div>
 
       {expanded && (
         <div className="px-4 pb-3">
-          {exercise.notes ? (
-            <p className="text-[11px] text-yellow-600 mb-2 italic">{exercise.notes}</p>
-          ) : null}
+          {exercise.notes ? <p className="text-[11px] text-yellow-600 mb-2 italic">{exercise.notes}</p> : null}
+          {paceText && <p className="text-[10px] text-gray-600 mb-2">{paceText}{hint.pace === 'slow' ? ' · slow mover, small jumps' : ''}</p>}
+
+          {/* Variant chips */}
+          <div className="flex flex-wrap items-center gap-1.5 mb-2">
+            {variants.map(v => (
+              <button key={v} onClick={() => onChange({ variant: variant === v ? null : v })}
+                className={`text-[11px] px-2.5 py-1 rounded-full border ${variant === v ? 'border-brand text-brand bg-brand/10' : 'border-gray-700 text-gray-500'}`}>
+                {v}
+              </button>
+            ))}
+            {variant && !variants.includes(variant) && (
+              <button onClick={() => onChange({ variant: null })} className="text-[11px] px-2.5 py-1 rounded-full border border-brand text-brand bg-brand/10">{variant} ×</button>
+            )}
+            {addingVariant ? (
+              <input autoFocus value={variantText} onChange={e => setVariantText(e.target.value)}
+                onBlur={() => { if (variantText.trim()) onChange({ variant: variantText.trim() }); setAddingVariant(false); setVariantText('') }}
+                onKeyDown={e => { if (e.key === 'Enter') e.currentTarget.blur() }}
+                placeholder="e.g. Smith, wide grip"
+                className="text-[11px] bg-gray-900 rounded-full px-2.5 py-1 text-white outline-none w-32" />
+            ) : (
+              <button onClick={() => setAddingVariant(true)} className="text-[11px] px-2.5 py-1 rounded-full border border-dashed border-gray-700 text-gray-500">
+                + variant
+              </button>
+            )}
+          </div>
+
           <div className="divide-y divide-gray-700/50">
             {sets.map((set, i) => (
-              <SetRow
-                key={i}
-                set={set}
-                index={i}
-                onChange={s => updateSet(i, s)}
-                onDelete={() => deleteSet(i)}
-              />
+              <SetRow key={i} set={set} index={i} pr={isPR(set, bests)}
+                onChange={s => updateSet(i, s)} onDelete={() => deleteSet(i)} />
             ))}
           </div>
           <div className="flex items-center justify-between mt-2">
-            <button
-              onClick={addSet}
-              className="flex items-center gap-1.5 text-brand text-sm py-1"
-            >
+            <button onClick={addSet} className="flex items-center gap-1.5 text-brand text-sm py-1">
               <Plus size={15} /> Add Set
             </button>
+            {index < total - 1 && (
+              <button onClick={onToggleLink} className={`flex items-center gap-1 text-xs py-1 ${linkedNext ? 'text-purple-400' : 'text-gray-500'}`}>
+                <Link2 size={13} /> {linkedNext ? 'Unlink superset' : 'Superset with next'}
+              </button>
+            )}
           </div>
           <input
             type="text"
-            value={sessionNote}
-            onChange={e => onNoteChange(e.target.value)}
+            value={item.note || ''}
+            onChange={e => onChange({ note: e.target.value })}
             placeholder="Note for this exercise…"
             className="mt-2 w-full bg-gray-900 rounded-lg px-3 py-2 text-xs text-gray-300 placeholder-gray-600 outline-none"
           />
@@ -178,6 +228,8 @@ export default function LogSession({ splitDay, onDone, onBack }) {
       return lastMatchingSession.exercises.map(ex => ({
         exerciseId: ex.exerciseId,
         sets: ex.sets.map(s => ({ ...s, note: s.note || '' })),
+        ...(ex.variant ? { variant: ex.variant } : {}),
+        ...(ex.superset ? { superset: ex.superset } : {}),
       }))
     }
     if (splitDay.defaultExerciseIds?.length) {
@@ -211,22 +263,48 @@ export default function LogSession({ splitDay, onDone, onBack }) {
     onBack()
   }
 
-  const updateExercise = useCallback((exerciseId, sets) => {
-    setDraft(d => d.map(e => e.exerciseId === exerciseId ? { ...e, sets } : e))
-  }, [])
-
-  const updateExerciseNote = useCallback((exerciseId, note) => {
-    setDraft(d => d.map(e => e.exerciseId === exerciseId ? { ...e, note } : e))
+  const patchExercise = useCallback((exerciseId, patch) => {
+    setDraft(d => d.map(e => e.exerciseId === exerciseId ? { ...e, ...patch } : e))
   }, [])
 
   const removeExercise = useCallback((exerciseId) => {
-    setDraft(d => d.filter(e => e.exerciseId !== exerciseId))
+    setDraft(d => cleanSupersets(d.filter(e => e.exerciseId !== exerciseId)))
+  }, [])
+
+  const moveExercise = useCallback((index, dir) => {
+    setDraft(d => {
+      const j = index + dir
+      if (j < 0 || j >= d.length) return d
+      const next = [...d]
+      ;[next[index], next[j]] = [next[j], next[index]]
+      // A moved exercise leaves its superset
+      next[j] = { ...next[j], superset: undefined }
+      return cleanSupersets(next)
+    })
+  }, [])
+
+  const toggleLink = useCallback((index) => {
+    setDraft(d => {
+      const a = d[index], b = d[index + 1]
+      if (!b) return d
+      const next = [...d]
+      if (a.superset && a.superset === b.superset) {
+        next[index + 1] = { ...b, superset: undefined }
+      } else {
+        const id = a.superset || genId()
+        next[index] = { ...a, superset: id }
+        next[index + 1] = { ...b, superset: id }
+      }
+      return cleanSupersets(next)
+    })
   }, [])
 
   const addExercise = useCallback((exerciseId) => {
     const last = getLastSession(sessions, exerciseId)
     const sets = last?.sets.map(s => ({ ...s })) || [{ weight: null, reps: null, note: '' }]
-    setDraft(d => [...d, { exerciseId, sets, note: '' }])
+    const lastVariant = sessions.find(s => s.exercises?.some(e => e.exerciseId === exerciseId))
+      ?.exercises.find(e => e.exerciseId === exerciseId)?.variant
+    setDraft(d => [...d, { exerciseId, sets, note: '', ...(lastVariant ? { variant: lastVariant } : {}) }])
   }, [sessions])
 
   const save = () => {
@@ -253,19 +331,6 @@ export default function LogSession({ splitDay, onDone, onBack }) {
     dispatch({ type: 'ADD_SESSION', session })
     clearDraft(userId, splitDay.id)
     onDone()
-  }
-
-  // Group exercises by muscle group for display
-  const byGroup = {}
-  for (const g of muscleGroups) byGroup[g] = []
-  const unGrouped = []
-  for (const e of draft) {
-    const ex = exercises.find(x => x.id === e.exerciseId)
-    if (ex && muscleGroups.includes(ex.muscleGroup)) {
-      byGroup[ex.muscleGroup].push(e)
-    } else {
-      unGrouped.push(e)
-    }
   }
 
   return (
@@ -318,57 +383,41 @@ export default function LogSession({ splitDay, onDone, onBack }) {
             </button>
           </div>
         )}
-        {/* Exercises by muscle group */}
-        {muscleGroups.map(group => {
-          const groupExercises = byGroup[group] || []
-          const note = data.muscleGroupNotes?.[group]
-          return (
-            <div key={group} className="mb-6">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: MUSCLE_COLORS[group] }} />
-                <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{MUSCLE_LABELS[group]}</h2>
-              </div>
-              {note && (
-                <div className="bg-yellow-900/20 border border-yellow-800/40 rounded-xl px-3 py-2 mb-3">
-                  <p className="text-[11px] text-yellow-500/80">{note}</p>
-                </div>
-              )}
-              {groupExercises.map(e => (
+        {/* Muscle group reminders */}
+        {muscleGroups.map(g => data.muscleGroupNotes?.[g] ? (
+          <div key={g} className="flex gap-2 bg-yellow-900/20 border border-yellow-800/40 rounded-xl px-3 py-2 mb-2">
+            <span className="w-2 h-2 rounded-full mt-1 flex-shrink-0" style={{ backgroundColor: MUSCLE_COLORS[g] }} />
+            <p className="text-[11px] text-yellow-500/80"><span className="font-semibold">{MUSCLE_LABELS[g]}:</span> {data.muscleGroupNotes[g]}</p>
+          </div>
+        ) : null)}
+
+        {/* Exercises in the order you do them — use ↑↓ to reorder */}
+        <div className="mt-3">
+          {draft.map((e, i) => {
+            const linkedPrev = i > 0 && e.superset && draft[i - 1].superset === e.superset
+            const linkedNext = i < draft.length - 1 && e.superset && draft[i + 1].superset === e.superset
+            return (
+              <div key={e.exerciseId}>
+                {e.superset && !linkedPrev && (
+                  <p className="text-[10px] font-semibold text-purple-400 uppercase tracking-wider mb-1 pl-1">Superset</p>
+                )}
                 <ExerciseCard
-                  key={e.exerciseId}
-                  exerciseId={e.exerciseId}
-                  sets={e.sets}
-                  sessionNote={e.note || ''}
+                  item={e}
+                  index={i}
+                  total={draft.length}
                   exercises={exercises}
                   sessions={sessions}
-                  onChange={edit(sets => updateExercise(e.exerciseId, sets))}
-                  onNoteChange={edit(note => updateExerciseNote(e.exerciseId, note))}
+                  linkedPrev={linkedPrev}
+                  linkedNext={linkedNext}
+                  onChange={edit(patch => patchExercise(e.exerciseId, patch))}
                   onRemove={edit(() => removeExercise(e.exerciseId))}
+                  onMove={edit(dir => moveExercise(i, dir))}
+                  onToggleLink={edit(() => toggleLink(i))}
                 />
-              ))}
-            </div>
-          )
-        })}
-
-        {/* Ungroup (exercises from other muscle groups) */}
-        {unGrouped.length > 0 && (
-          <div className="mb-6">
-            <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Other</h2>
-            {unGrouped.map(e => (
-              <ExerciseCard
-                key={e.exerciseId}
-                exerciseId={e.exerciseId}
-                sets={e.sets}
-                sessionNote={e.note || ''}
-                exercises={exercises}
-                sessions={sessions}
-                onChange={edit(sets => updateExercise(e.exerciseId, sets))}
-                onNoteChange={edit(note => updateExerciseNote(e.exerciseId, note))}
-                onRemove={edit(() => removeExercise(e.exerciseId))}
-              />
-            ))}
-          </div>
-        )}
+              </div>
+            )
+          })}
+        </div>
 
         <button
           onClick={() => setShowAddSheet(true)}

@@ -5,6 +5,7 @@ import { validateToken } from '../lib/github'
 import { MUSCLE_COLORS } from '../data/defaultData'
 import { localDate } from '../lib/store'
 import SplitEditor from './SplitEditor'
+import SplitDaysEditor from './SplitDaysEditor'
 
 export default function Settings({ onBack, onSwitchUser }) {
   const { state, setConfig, dispatch } = useStore()
@@ -15,6 +16,7 @@ export default function Settings({ onBack, onSwitchUser }) {
   const [importing, setImporting] = useState(false)
   const [copied, setCopied] = useState(false)
   const [showSplitEditor, setShowSplitEditor] = useState(false)
+  const [showDaysEditor, setShowDaysEditor] = useState(false)
 
   const copySetupLink = () => {
     const base = window.location.origin + import.meta.env.BASE_URL
@@ -167,9 +169,16 @@ export default function Settings({ onBack, onSwitchUser }) {
             <div className="bg-gray-800 rounded-2xl p-4 mb-4">
               <div className="flex items-center justify-between mb-3">
                 <h2 className="text-sm font-semibold text-white">Workout Split</h2>
-                <button onClick={() => setShowSplitEditor(true)} className="text-xs text-brand font-medium">
-                  Change
-                </button>
+                <div className="flex gap-4">
+                  {activeSplit && (
+                    <button onClick={() => setShowDaysEditor(true)} className="text-xs text-brand font-medium">
+                      Edit days
+                    </button>
+                  )}
+                  <button onClick={() => setShowSplitEditor(true)} className="text-xs text-gray-400 font-medium">
+                    New from template
+                  </button>
+                </div>
               </div>
               {activeSplit ? (
                 <div className="space-y-2">
@@ -241,6 +250,7 @@ export default function Settings({ onBack, onSwitchUser }) {
     </div>
 
     {showSplitEditor && <SplitEditor onClose={() => setShowSplitEditor(false)} />}
+    {showDaysEditor && <SplitDaysEditor onClose={() => setShowDaysEditor(false)} />}
     </>
   )
 }
