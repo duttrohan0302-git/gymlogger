@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react'
-import { Search, X, Trophy, ChevronRight } from 'lucide-react'
+import { useState, useMemo, useEffect, useCallback } from 'react'
+import { Search, X, Trophy, ChevronRight, ChevronLeft } from 'lucide-react'
 import {
   ResponsiveContainer, LineChart, Line, XAxis, YAxis,
   CartesianGrid, Tooltip, BarChart, Bar,
@@ -537,10 +537,35 @@ export default function Progress({ onEditSession }) {
 
   const hasSelection = viewMode === 'exercise' ? !!selectedEx : !!selectedMuscle
 
+  // Back to the overview: header arrow, or the phone's back gesture
+  const clearSelection = useCallback(() => {
+    setSelectedExId(null)
+    setSelectedMuscle(null)
+    setGroupView(false)
+  }, [])
+  const markSelected = () => {
+    try { if (!window.history.state?.gymProgressSel) window.history.pushState({ gymProgressSel: true }, '') } catch { /* ignore */ }
+  }
+  const goBack = () => {
+    if (window.history.state?.gymProgressSel) window.history.back() // popstate clears
+    else clearSelection()
+  }
+  useEffect(() => {
+    window.addEventListener('popstate', clearSelection)
+    return () => window.removeEventListener('popstate', clearSelection)
+  }, [clearSelection])
+
   return (
     <div className="min-h-screen bg-gray-900 pb-24">
       <div className="px-4 pt-12 pb-4">
-        <h1 className="text-2xl font-bold text-white mb-4">Progress</h1>
+        <div className="flex items-center gap-2 mb-4">
+          {hasSelection && (
+            <button onClick={goBack} aria-label="Back to overview" className="text-gray-400 active:text-white -ml-1 p-1">
+              <ChevronLeft size={24} />
+            </button>
+          )}
+          <h1 className="text-2xl font-bold text-white">Progress</h1>
+        </div>
 
         {/* View mode: Exercise / Muscle Group */}
         <div className="flex bg-gray-800 rounded-xl p-1 mb-4">
@@ -556,7 +581,7 @@ export default function Progress({ onEditSession }) {
         {viewMode === 'muscle' && (
           <div className="flex flex-wrap gap-2 mb-4">
             {MUSCLE_ORDER.map(g => (
-              <button key={g} onClick={() => setSelectedMuscle(g)}
+              <button key={g} onClick={() => { markSelected(); setSelectedMuscle(g) }}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-full border text-xs font-medium transition-colors ${
                   selectedMuscle === g ? 'border-transparent text-black' : 'border-gray-700 text-gray-400'
                 }`}
@@ -587,7 +612,7 @@ export default function Progress({ onEditSession }) {
 
         {showPicker && (
           <ExercisePickerSheet exercises={exercises} sessions={sessions}
-            onSelect={id => { setSelectedExId(id); setGroupView(false) }}
+            onSelect={id => { markSelected(); setSelectedExId(id); setGroupView(false) }}
             onClose={() => setShowPicker(false)} />
         )}
 
@@ -766,7 +791,7 @@ export default function Progress({ onEditSession }) {
           <Overview
             sessions={sessions}
             exercises={exercises}
-            onPickExercise={id => { setViewMode('exercise'); setSelectedExId(id); setGroupView(false) }}
+            onPickExercise={id => { markSelected(); setViewMode('exercise'); setSelectedExId(id); setGroupView(false) }}
           />
         )}
       </div>
