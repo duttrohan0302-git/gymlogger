@@ -335,6 +335,19 @@ function ExercisePickerSheet({ exercises, sessions, onSelect, onClose }) {
 
 // ── Overview (shown before anything is selected) ──────────────────────────────
 
+// Leg exercises split into the muscles they mainly train (by name, so custom exercises work too).
+// Main muscle = 1 set, secondary = 0.5. Anything unmatched only counts toward the Legs total.
+const LEG_PARTS = [['quads', 'Quads'], ['hamstrings', 'Hamstrings'], ['glutes', 'Glutes'], ['calves', 'Calves']]
+function legParts(name = '') {
+  const n = name.toLowerCase()
+  if (/calf|calves/.test(n)) return { calves: 1 }
+  if (/hip thrust|glute|kickback|abductor/.test(n)) return { glutes: 1 }
+  if (/leg curl|rdl|romanian|deadlift/.test(n)) return /rdl|romanian|deadlift/.test(n) ? { hamstrings: 1, glutes: 0.5 } : { hamstrings: 1 }
+  if (/leg extension|hack squat|leg press/.test(n)) return { quads: 1 }
+  if (/squat|lunge/.test(n)) return { quads: 1, glutes: 0.5 }
+  return {}
+}
+
 function weekStart(dateStr) {
   const [y, m, d] = dateStr.split('-').map(Number)
   const dt = new Date(y, m - 1, d)
@@ -405,13 +418,19 @@ function Overview({ sessions, exercises, onPickExercise }) {
         const n = e.sets.filter(st => st.reps != null).length
         bucket[info.muscleGroup] = (bucket[info.muscleGroup] || 0) + n
         for (const g of info.extraMuscleGroups || []) bucket[g] = (bucket[g] || 0) + n * 0.5
+        if (info.muscleGroup === 'legs') {
+          for (const [part, w] of Object.entries(legParts(info.name))) bucket[`legs:${part}`] = (bucket[`legs:${part}`] || 0) + n * w
+        }
       }
     }
-    const muscleSets = MUSCLE_ORDER.map(g => ({
-      group: g,
-      thisWeek: Math.round((setsThis[g] || 0) * 2) / 2,
-      avg: Math.round(((setsPrev[g] || 0) / 4) * 2) / 2,
-    }))
+    const row = (key, label, sub = false, color) => ({
+      key, label, sub, color,
+      thisWeek: Math.round((setsThis[key] || 0) * 2) / 2,
+      avg: Math.round(((setsPrev[key] || 0) / 4) * 2) / 2,
+    })
+    const muscleSets = MUSCLE_ORDER.flatMap(g => g === 'legs'
+      ? [row(g, MUSCLE_LABELS[g], false, MUSCLE_COLORS[g]), ...LEG_PARTS.map(([p, l]) => row(`legs:${p}`, l, true, MUSCLE_COLORS[g]))]
+      : [row(g, MUSCLE_LABELS[g], false, MUSCLE_COLORS[g])])
 
     return {
       muscleSets,
@@ -464,14 +483,14 @@ function Overview({ sessions, exercises, onPickExercise }) {
           const max = 24
           const pct = v => `${Math.min(100, (v / max) * 100)}%`
           return (
-            <div key={m.group} className="flex items-center gap-2 mb-2">
-              <span className="text-[11px] text-gray-400 w-16">{MUSCLE_LABELS[m.group]}</span>
-              <div className="relative flex-1 h-3 bg-gray-900 rounded-full overflow-hidden">
+            <div key={m.key} className={`flex items-center gap-2 ${m.sub ? 'mb-1.5' : 'mb-2'}`}>
+              <span className={`text-[11px] w-20 ${m.sub ? 'text-gray-500 pl-3' : 'text-gray-400'}`}>{m.label}</span>
+              <div className={`relative flex-1 bg-gray-900 rounded-full overflow-hidden ${m.sub ? 'h-2' : 'h-3'}`}>
                 <div className="absolute inset-y-0 bg-gray-700/50" style={{ left: pct(10), width: `${(10 / max) * 100}%` }} />
-                <div className="absolute inset-y-0 left-0 rounded-full" style={{ width: pct(m.thisWeek), backgroundColor: MUSCLE_COLORS[m.group] }} />
+                <div className="absolute inset-y-0 left-0 rounded-full" style={{ width: pct(m.thisWeek), backgroundColor: m.color, opacity: m.sub ? 0.7 : 1 }} />
                 {m.avg > 0 && <div className="absolute inset-y-0 w-0.5 bg-white/70" style={{ left: pct(m.avg) }} />}
               </div>
-              <span className="text-[11px] font-mono text-white w-8 text-right">{m.thisWeek}</span>
+              <span className={`text-[11px] font-mono w-8 text-right ${m.sub ? 'text-gray-400' : 'text-white'}`}>{m.thisWeek}</span>
             </div>
           )
         })}

@@ -204,7 +204,7 @@ function ExerciseCard({ item, index, total, exercises, sessions, personalNote, o
             </button>
             {index < total - 1 && (
               <button onClick={onToggleLink} className={`flex items-center gap-1 text-xs py-1 ${linkedNext ? 'text-purple-400' : 'text-gray-500'}`}>
-                <Link2 size={13} /> {linkedNext ? 'Unlink superset' : 'Superset with next'}
+                <Link2 size={13} /> {linkedNext ? 'Unpair' : 'Pair with next ↓'}
               </button>
             )}
           </div>
@@ -432,7 +432,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
             return (
               <div key={e.exerciseId}>
                 {e.superset && !linkedPrev && (
-                  <p className="text-[10px] font-semibold text-purple-400 uppercase tracking-wider mb-1 pl-1">Superset</p>
+                  <p className="text-[10px] font-semibold text-purple-400 uppercase tracking-wider mb-1 pl-1">Superset · alternate sets between these</p>
                 )}
                 <ExerciseCard
                   item={e}
