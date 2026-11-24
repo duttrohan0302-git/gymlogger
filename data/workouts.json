@@ -697,7 +697,7 @@
       "muscleGroupNotes": {
         "back": "Pull-ups on back day — try extending arms fully",
         "biceps": "Left bicep is weaker than right",
-        "shoulders": "5 min warmup. Do dumbbell overhead press.",
+        "shoulders": "",
         "abs": "Try decline crunches — very low movement",
         "chest": "Do incline dumbbell first. Use pec fly machine not cables for flys.",
         "triceps": "",
@@ -27092,8 +27092,7 @@
         "legs": "1. Use free barbell squat. 2. Hip thrust: one leg straight, no weight, 8 reps each. 3. Bulgarian: box 24cm, don't go too low."
       },
       "sessions": [],
-      "bodyWeightLog": [],
-      "deletedSessionIds": []
+      "bodyWeightLog": []
     },
     {
       "id": "user_1778513815630_2kxb",
@@ -27280,8 +27279,7 @@
           "notes": ""
         }
       ],
-      "bodyWeightLog": [],
-      "deletedSessionIds": []
+      "bodyWeightLog": []
     }
   ]
 }
