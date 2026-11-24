@@ -444,10 +444,10 @@
     },
     {
       "id": "custom_skullcrushers_1793351880053",
-      "name": "Skullcrushers",
+      "name": "Skullcrushers (EZ bar)",
       "muscleGroup": "triceps",
       "movementGroupId": null,
-      "notes": ""
+      "notes": "Total weight including EZ bar"
     },
     {
       "id": "custom_triceps_single_arm_kickback_1794215950332",
