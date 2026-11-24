@@ -1,10 +1,10 @@
 import { useState, useMemo } from 'react'
-import { Search, X } from 'lucide-react'
+import { Search, X, Trophy, ChevronRight } from 'lucide-react'
 import {
   ResponsiveContainer, LineChart, Line, XAxis, YAxis,
-  CartesianGrid, Tooltip,
+  CartesianGrid, Tooltip, BarChart, Bar,
 } from 'recharts'
-import { useStore } from '../lib/store'
+import { useStore, localDate } from '../lib/store'
 import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
 
 const LINE_COLORS = ['#10b981', '#3b82f6', '#f97316', '#8b5cf6', '#ec4899', '#eab308', '#06b6d4']
@@ -28,11 +28,13 @@ function getHistory(sessions, exerciseId) {
     .filter(s => s.exercises?.some(e => e.exerciseId === exerciseId))
     .map(s => {
       const ex = s.exercises.find(e => e.exerciseId === exerciseId)
-      const valid = ex.sets.filter(st => st.weight != null && st.reps != null)
+      // Bodyweight exercises have reps but no weight: count them as 0 kg
+      const valid = ex.sets.filter(st => st.reps != null).map(st => ({ ...st, weight: st.weight ?? 0 }))
       if (!valid.length) return null
-      const bestSet = valid.reduce((b, st) => st.weight > (b?.weight ?? -1) ? st : b, null)
+      const bestSet = valid.reduce((b, st) =>
+        (!b || st.weight > b.weight || (st.weight === b.weight && st.reps > b.reps)) ? st : b, null)
       const totalVolume = Math.round(valid.reduce((sum, st) => sum + st.weight * st.reps, 0))
-      return { date: s.date, weight: bestSet.weight, reps: bestSet.reps, volume: totalVolume }
+      return { date: s.date, sessionId: s.id, weight: bestSet.weight, reps: bestSet.reps, volume: totalVolume }
     })
     .filter(Boolean)
     .sort((a, b) => a.date.localeCompare(b.date))
@@ -140,9 +142,9 @@ function HistoryTable({ history, onRowClick }) {
             const repPR = entry.reps   === prRepsVal
             const volPR = entry.volume === prVolVal
             return (
-              <tr key={entry.date}
+              <tr key={entry.sessionId}
                 className={`border-b border-gray-800/60 ${onRowClick ? 'active:bg-gray-700/40 cursor-pointer' : ''}`}
-                onClick={() => onRowClick?.(entry.date)}>
+                onClick={() => onRowClick?.(entry.sessionId)}>
                 <td className="py-2.5 text-gray-400 pr-2">{formatDate(entry.date)}</td>
                 <td className={`py-2.5 text-right font-mono ${wtPR ? 'text-brand font-bold' : 'text-white'}`}>
                   {entry.weight}
@@ -173,7 +175,7 @@ function HistoryTable({ history, onRowClick }) {
 function MiniExerciseCard({ exercise, sessions, metric, color, viewType, onEditSession }) {
   const history = useMemo(() => getHistory(sessions, exercise.id), [sessions, exercise.id])
 
-  const findSession = date => sessions.find(s => s.date === date)
+  const findSession = date => sessions.find(s => s.date === date && s.exercises?.some(e => e.exerciseId === exercise.id))
 
   const chartData = useMemo(() => history.map(h => ({
     date: h.date,
@@ -257,7 +259,7 @@ function MiniExerciseCard({ exercise, sessions, metric, color, viewType, onEditS
       ) : (
         <HistoryTable
           history={history}
-          onRowClick={onEditSession ? date => { const s = findSession(date); if (s) onEditSession(s.id) } : null}
+          onRowClick={onEditSession ? sessionId => onEditSession(sessionId) : null}
         />
       )}
     </div>
@@ -312,6 +314,148 @@ function ExercisePickerSheet({ exercises, sessions, onSelect, onClose }) {
           </div>
         ))}
       </div>
+    </div>
+  )
+}
+
+// ── Overview (shown before anything is selected) ──────────────────────────────
+
+function weekStart(dateStr) {
+  const [y, m, d] = dateStr.split('-').map(Number)
+  const dt = new Date(y, m - 1, d)
+  dt.setDate(dt.getDate() - ((dt.getDay() + 6) % 7)) // Monday
+  return localDate(dt)
+}
+
+function Overview({ sessions, exercises, onPickExercise }) {
+  const exById = useMemo(() => new Map(exercises.map(e => [e.id, e])), [exercises])
+
+  const stats = useMemo(() => {
+    const today = localDate()
+    const thisWeek = weekStart(today)
+    const thisMonth = today.slice(0, 7)
+
+    // Workouts per week, last 8 weeks
+    const weeks = []
+    const [y, m, d] = thisWeek.split('-').map(Number)
+    for (let i = 7; i >= 0; i--) {
+      const dt = new Date(y, m - 1, d - i * 7)
+      weeks.push({ week: localDate(dt), count: 0 })
+    }
+    const byWeek = new Map(weeks.map(w => [w.week, w]))
+    for (const s of sessions) byWeek.get(weekStart(s.date)) && byWeek.get(weekStart(s.date)).count++
+
+    // PRs (heaviest best set ever) set in the last 30 days
+    const cutoffDt = new Date(); cutoffDt.setDate(cutoffDt.getDate() - 30)
+    const cutoff = localDate(cutoffDt)
+    const best = new Map()
+    const prs = []
+    const chrono = [...sessions].sort((a, b) => a.date.localeCompare(b.date))
+    for (const s of chrono) {
+      for (const ex of s.exercises || []) {
+        const valid = ex.sets.filter(st => st.reps != null).map(st => ({ ...st, weight: st.weight ?? 0 }))
+        if (!valid.length) continue
+        const top = valid.reduce((b, st) => (st.weight > b.weight || (st.weight === b.weight && st.reps > b.reps)) ? st : b)
+        const prev = best.get(ex.exerciseId)
+        const isPR = prev && (top.weight > prev.weight || (top.weight === prev.weight && top.reps > prev.reps))
+        if (!prev || isPR) best.set(ex.exerciseId, top)
+        if (isPR && s.date >= cutoff) prs.push({ exerciseId: ex.exerciseId, date: s.date, weight: top.weight, reps: top.reps, prevWeight: prev.weight, prevReps: prev.reps })
+      }
+    }
+    // Keep only each exercise's latest PR
+    const latestPR = new Map()
+    for (const p of prs) latestPR.set(p.exerciseId, p)
+
+    // Most logged exercises in the last 60 days
+    const cut60 = new Date(); cut60.setDate(cut60.getDate() - 60)
+    const c60 = localDate(cut60)
+    const freq = new Map()
+    for (const s of sessions) {
+      if (s.date < c60) continue
+      for (const ex of s.exercises || []) freq.set(ex.exerciseId, (freq.get(ex.exerciseId) || 0) + 1)
+    }
+    const top = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10)
+
+    return {
+      week: sessions.filter(s => s.date >= thisWeek).length,
+      month: sessions.filter(s => s.date.startsWith(thisMonth)).length,
+      avg: (weeks.reduce((n, w) => n + w.count, 0) / weeks.length).toFixed(1),
+      weeks,
+      prs: [...latestPR.values()].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8),
+      top,
+    }
+  }, [sessions])
+
+  if (!sessions.length) {
+    return <p className="text-gray-600 text-sm text-center py-16">Log your first workout to see progress here</p>
+  }
+
+  return (
+    <div className="space-y-3">
+      <div className="grid grid-cols-3 gap-2">
+        {[['This week', stats.week], ['This month', stats.month], ['Avg / week', stats.avg]].map(([label, val]) => (
+          <div key={label} className="bg-gray-800 rounded-2xl p-3 text-center">
+            <p className="text-xl font-bold text-white">{val}</p>
+            <p className="text-[10px] text-gray-500 uppercase tracking-wider mt-0.5">{label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-gray-800 rounded-2xl p-4">
+        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Workouts per week</p>
+        <ResponsiveContainer width="100%" height={120}>
+          <BarChart data={stats.weeks} margin={{ top: 4, right: 4, left: -24, bottom: 0 }}>
+            <XAxis dataKey="week" tickFormatter={formatDate} stroke="#6b7280" tick={{ fontSize: 9, fill: '#6b7280' }} interval={1} />
+            <YAxis allowDecimals={false} stroke="#6b7280" tick={{ fontSize: 9, fill: '#6b7280' }} />
+            <Tooltip cursor={{ fill: '#37415155' }} content={({ active, payload }) => active && payload?.length ? (
+              <div className="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white">
+                Week of {formatDate(payload[0].payload.week)}: {payload[0].value}
+              </div>
+            ) : null} />
+            <Bar dataKey="count" fill="#10b981" radius={[4, 4, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
+      {stats.prs.length > 0 && (
+        <div className="bg-gray-800 rounded-2xl p-4">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <Trophy size={13} className="text-yellow-500" /> PRs in the last 30 days
+          </p>
+          {stats.prs.map(pr => {
+            const ex = exById.get(pr.exerciseId)
+            return (
+              <button key={pr.exerciseId} onClick={() => onPickExercise(pr.exerciseId)}
+                className="w-full flex items-center gap-2 py-2.5 border-b border-gray-700/50 last:border-0 text-left active:opacity-70">
+                <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: MUSCLE_COLORS[ex?.muscleGroup] }} />
+                <span className="text-sm text-white flex-1 truncate">{ex?.name || pr.exerciseId}</span>
+                <span className="text-xs font-mono text-brand">{pr.weight}×{pr.reps}</span>
+                <span className="text-[10px] text-gray-600 font-mono">was {pr.prevWeight}×{pr.prevReps}</span>
+                <ChevronRight size={14} className="text-gray-600" />
+              </button>
+            )
+          })}
+        </div>
+      )}
+
+      {stats.top.length > 0 && (
+        <div className="bg-gray-800 rounded-2xl p-4">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Your regular exercises</p>
+          <div className="flex flex-wrap gap-2">
+            {stats.top.map(([id, n]) => {
+              const ex = exById.get(id)
+              return (
+                <button key={id} onClick={() => onPickExercise(id)}
+                  className="flex items-center gap-1.5 bg-gray-700/60 rounded-full px-3 py-1.5 text-xs text-gray-200 active:bg-gray-600">
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: MUSCLE_COLORS[ex?.muscleGroup] }} />
+                  {ex?.name || id}
+                  <span className="text-gray-500">{n}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -502,7 +646,7 @@ export default function Progress({ onEditSession }) {
                 {singleHistory.length > 0 ? (
                   <HistoryTable
                     history={singleHistory}
-                    onRowClick={onEditSession ? date => { const s = sessions.find(s => s.date === date); if (s) onEditSession(s.id) } : null}
+                    onRowClick={onEditSession ? sessionId => onEditSession(sessionId) : null}
                   />
                 ) : (
                   <p className="text-gray-600 text-sm text-center py-4">No data yet</p>
@@ -550,7 +694,8 @@ export default function Progress({ onEditSession }) {
                         margin={{ top: 5, right: metric.id === 'both' ? 36 : 10, left: 0, bottom: 5 }}
                         onClick={d => {
                           if (!onEditSession || !d?.activeLabel) return
-                          const s = sessions.find(s => s.date === d.activeLabel)
+                          const ids = new Set(chartLines.map(e => e.id))
+                          const s = sessions.find(s => s.date === d.activeLabel && s.exercises?.some(e => ids.has(e.exerciseId)))
                           if (s) onEditSession(s.id)
                         }}
                         style={{ cursor: onEditSession ? 'pointer' : 'default' }}
@@ -618,11 +763,11 @@ export default function Progress({ onEditSession }) {
         )}
 
         {!hasSelection && (
-          <div className="py-16 text-center">
-            <p className="text-gray-600 text-sm">
-              {viewMode === 'muscle' ? 'Tap a muscle group above' : 'Select an exercise to see your progress'}
-            </p>
-          </div>
+          <Overview
+            sessions={sessions}
+            exercises={exercises}
+            onPickExercise={id => { setViewMode('exercise'); setSelectedExId(id); setGroupView(false) }}
+          />
         )}
       </div>
     </div>

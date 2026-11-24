@@ -22,11 +22,20 @@ function headers(token) {
 }
 
 export async function readFile(token, repo, path) {
-  const res = await fetch(`${BASE}/repos/${repo}/contents/${path}`, { headers: headers(token) })
+  // no-store: GitHub sends max-age=60, and a cached (stale) sha causes write conflicts
+  const url = `${BASE}/repos/${repo}/contents/${path}`
+  const res = await fetch(url, { headers: headers(token), cache: 'no-store' })
   if (res.status === 404) return null
-  if (!res.ok) throw new Error(`GitHub read failed: ${res.status}`)
+  if (!res.ok) throw Object.assign(new Error(`GitHub read failed: ${res.status}`), { status: res.status })
   const data = await res.json()
-  return { content: JSON.parse(b64Decode(data.content)), sha: data.sha }
+  if (data.content) return { content: JSON.parse(b64Decode(data.content)), sha: data.sha }
+  // Files over 1 MB come back with empty `content`; fetch the raw body instead
+  const raw = await fetch(url, {
+    headers: { ...headers(token), Accept: 'application/vnd.github.raw+json' },
+    cache: 'no-store',
+  })
+  if (!raw.ok) throw Object.assign(new Error(`GitHub read failed: ${raw.status}`), { status: raw.status })
+  return { content: await raw.json(), sha: data.sha }
 }
 
 export async function writeFile(token, repo, path, content, sha, message) {
@@ -38,11 +47,12 @@ export async function writeFile(token, repo, path, content, sha, message) {
   const res = await fetch(`${BASE}/repos/${repo}/contents/${path}`, {
     method: 'PUT',
     headers: headers(token),
+    cache: 'no-store',
     body: JSON.stringify(body),
   })
   if (!res.ok) {
     const err = await res.json().catch(() => ({}))
-    throw new Error(`GitHub write failed: ${err.message || res.status}`)
+    throw Object.assign(new Error(`GitHub write failed: ${err.message || res.status}`), { status: res.status })
   }
   const data = await res.json()
   return data.content.sha

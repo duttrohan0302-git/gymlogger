@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Plus, Check, ChevronRight, ChevronLeft, X } from 'lucide-react'
+import { Plus, Check, ChevronRight, ChevronLeft } from 'lucide-react'
 import { useStore } from '../lib/store'
 import { MUSCLE_LABELS, MUSCLE_COLORS, SPLIT_TEMPLATES, makeUser } from '../data/defaultData'
 import { CreateExerciseForm } from './AddExerciseSheet'

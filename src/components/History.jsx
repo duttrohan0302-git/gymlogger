@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { ChevronDown, ChevronUp, Trash2, Pencil } from 'lucide-react'
 import { useStore } from '../lib/store'
-import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
+import { sessionLabel, sessionGroups, exerciseMap } from '../lib/sessions'
+import { MUSCLE_COLORS } from '../data/defaultData'
 
 function formatDate(d) {
   if (!d) return ''
@@ -9,19 +10,16 @@ function formatDate(d) {
   return new Date(y, m - 1, day).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' })
 }
 
-function SessionCard({ session, exercises, onDelete, onEdit }) {
+function SessionCard({ session, exercises, label, groups, onDelete, onEdit }) {
   const [expanded, setExpanded] = useState(false)
 
-  const groups = session.muscleGroups || []
   const exCount = session.exercises?.length || 0
 
   return (
     <div className="bg-gray-800 rounded-2xl overflow-hidden mb-3">
       <div className="px-4 py-3.5 flex items-center gap-3" onClick={() => setExpanded(e => !e)}>
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold text-white">
-            {groups.map(g => MUSCLE_LABELS[g]).join(' + ')}
-          </p>
+          <p className="text-sm font-semibold text-white">{label}</p>
           <p className="text-xs text-gray-500 mt-0.5">{formatDate(session.date)} · {exCount} exercises</p>
         </div>
         <div className="flex items-center gap-2">
@@ -92,6 +90,8 @@ export default function History({ onEditSession }) {
   const { data } = state
   const sessions = data.sessions || []
   const exercises = data.exercises || []
+  const exById = useMemo(() => exerciseMap(exercises), [exercises])
+  const days = (data.splits?.find(s => s.isActive) || data.splits?.[0])?.days || []
 
   const deleteSession = (id) => {
     if (confirm('Delete this session?')) {
@@ -116,6 +116,8 @@ export default function History({ onEditSession }) {
             key={s.id}
             session={s}
             exercises={exercises}
+            label={sessionLabel(s, days, exById)}
+            groups={sessionGroups(s, exById)}
             onDelete={deleteSession}
             onEdit={onEditSession}
           />

@@ -3,8 +3,9 @@ import { ChevronLeft, Trash2, X, Plus } from 'lucide-react'
 import { useStore } from '../lib/store'
 import { MUSCLE_COLORS } from '../data/defaultData'
 import AddExerciseSheet from './AddExerciseSheet'
+import NumberInput from './NumberInput'
 
-export default function EditSession({ session, exercises, onSave, onBack }) {
+export default function EditSession({ session, exercises, onSave, onBack, onDelete }) {
   const { dispatch } = useStore()
   const [draft, setDraft] = useState(() => ({
     ...session,
@@ -14,6 +15,11 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
     })),
   }))
   const [showAddSheet, setShowAddSheet] = useState(false)
+  const dirty = JSON.stringify(draft) !== JSON.stringify(session)
+  const back = () => {
+    if (dirty && !confirm('Discard your changes to this session?')) return
+    onBack()
+  }
 
   const exInfo = id => exercises.find(e => e.id === id)
 
@@ -24,7 +30,7 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
         ...e,
         sets: e.sets.map((s, si) => si !== setIdx ? s : {
           ...s,
-          [field]: val === '' ? null : parseFloat(val),
+          [field]: val,
         }),
       }),
     }))
@@ -65,7 +71,7 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
       {/* Sticky header */}
       <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm z-10 px-4 pt-12 pb-4 border-b border-gray-800">
         <div className="flex items-center gap-3">
-          <button onClick={onBack} className="text-gray-400 -ml-1 p-1">
+          <button onClick={back} aria-label="Back" className="text-gray-400 -ml-1 p-1">
             <ChevronLeft size={22} />
           </button>
           <div className="flex-1 min-w-0">
@@ -78,7 +84,14 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
             />
           </div>
           <button
-            onClick={() => onSave(draft)}
+            onClick={() => {
+              const hasSets = draft.exercises.some(e => e.sets.some(s => s.weight != null || s.reps != null))
+              if (!hasSets) {
+                if (onDelete && confirm('No sets left. Delete this session instead?')) onDelete(session.id)
+                return
+              }
+              onSave({ ...draft, date: draft.date || session.date })
+            }}
             className="bg-brand text-black text-sm font-bold px-4 py-2 rounded-xl active:scale-95 transition-transform flex-shrink-0"
           >
             Save
@@ -118,18 +131,17 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
               {ex.sets.map((set, setIdx) => (
                 <div key={setIdx} className="flex items-center gap-2 mb-2">
                   <span className="text-xs text-gray-600 w-5 text-center">{setIdx + 1}</span>
-                  <input
-                    type="number" inputMode="decimal"
-                    value={set.weight ?? ''}
-                    onChange={e => updateSet(exIdx, setIdx, 'weight', e.target.value)}
+                  <NumberInput
+                    value={set.weight}
+                    onChange={v => updateSet(exIdx, setIdx, 'weight', v)}
                     placeholder="—"
                     className="flex-1 bg-gray-700 rounded-xl px-3 py-2.5 text-sm text-white text-center font-mono outline-none focus:ring-1 focus:ring-brand"
                   />
                   <span className="text-gray-600 text-sm">×</span>
-                  <input
-                    type="number" inputMode="numeric"
-                    value={set.reps ?? ''}
-                    onChange={e => updateSet(exIdx, setIdx, 'reps', e.target.value)}
+                  <NumberInput
+                    integer
+                    value={set.reps}
+                    onChange={v => updateSet(exIdx, setIdx, 'reps', v)}
                     placeholder="—"
                     className="flex-1 bg-gray-700 rounded-xl px-3 py-2.5 text-sm text-white text-center font-mono outline-none focus:ring-1 focus:ring-brand"
                   />
@@ -161,6 +173,15 @@ export default function EditSession({ session, exercises, onSave, onBack }) {
         >
           <Plus size={18} /> Add Exercise
         </button>
+
+        {onDelete && (
+          <button
+            onClick={() => { if (confirm('Delete this whole session? This cannot be undone.')) onDelete(session.id) }}
+            className="w-full flex items-center justify-center gap-2 py-3 text-sm text-red-500 active:text-red-400"
+          >
+            <Trash2 size={15} /> Delete session
+          </button>
+        )}
       </div>
 
       {showAddSheet && (

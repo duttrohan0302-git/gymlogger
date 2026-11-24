@@ -1,6 +1,8 @@
-import { Settings, CloudOff, Cloud, Loader } from 'lucide-react'
-import { useStore } from '../lib/store'
-import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
+import { useMemo } from 'react'
+import { Settings, CloudOff, Cloud, Loader, AlertCircle, ChevronRight } from 'lucide-react'
+import { useStore, loadDraft } from '../lib/store'
+import { matchDay, sessionLabel, sessionGroups, exerciseMap } from '../lib/sessions'
+import { MUSCLE_COLORS } from '../data/defaultData'
 
 function formatDate(dateStr) {
   if (!dateStr) return ''
@@ -18,22 +20,36 @@ function daysSince(dateStr) {
   return `${days}d ago`
 }
 
-export default function Home({ onStartSession, onNavigate }) {
-  const { state } = useStore()
+export default function Home({ onStartSession, onNavigate, onEditSession }) {
+  const { state, dispatch, sync } = useStore()
   const { data, syncing, error, token, repo } = state
+  const pending = state.rev > state.syncedRev
 
   const activeSplit = data.splits?.find(s => s.isActive) || data.splits?.[0]
+  const days = activeSplit?.days || []
+  const exById = useMemo(() => exerciseMap(data.exercises), [data.exercises])
   const recentSessions = (data.sessions || []).slice(0, 3)
 
-  // Last session per split day
-  const lastByDay = {}
-  for (const s of data.sessions || []) {
-    for (const day of activeSplit?.days || []) {
-      if (!lastByDay[day.id] && day.muscleGroups.every(g => s.muscleGroups?.includes(g))) {
-        lastByDay[day.id] = s.date
-      }
+  // Last session per split day, matched on what was actually trained
+  const lastByDay = useMemo(() => {
+    const out = {}
+    for (const s of data.sessions || []) {
+      const day = matchDay(s, days, exById)
+      if (day && !out[day.id]) out[day.id] = s.date
     }
-  }
+    return out
+  }, [data.sessions, days, exById])
+
+  // "Due": the day you haven't done for the longest (works for any rotation)
+  const dueDayId = useMemo(() => {
+    if (!data.sessions?.length || days.length < 2) return null
+    let due = null
+    for (const d of days) {
+      const last = lastByDay[d.id] || ''
+      if (due === null || last < (lastByDay[due.id] || '')) due = d
+    }
+    return due?.id
+  }, [days, lastByDay, data.sessions])
 
   const isConfigured = !!(token && repo)
 
@@ -46,6 +62,11 @@ export default function Home({ onStartSession, onNavigate }) {
           <div className="flex items-center gap-1.5 mt-0.5">
             {syncing ? (
               <><Loader size={12} className="text-brand animate-spin" /><span className="text-xs text-gray-400">Saving…</span></>
+            ) : isConfigured && (pending || error) ? (
+              <button onClick={sync} className="flex items-center gap-1.5">
+                <AlertCircle size={12} className="text-yellow-500" />
+                <span className="text-xs text-yellow-500">Not synced · tap to retry</span>
+              </button>
             ) : isConfigured ? (
               <><Cloud size={12} className="text-brand" /><span className="text-xs text-gray-400">Synced</span></>
             ) : (
@@ -64,6 +85,10 @@ export default function Home({ onStartSession, onNavigate }) {
       {error && (
         <div className="mx-4 mb-4 p-3 rounded-lg bg-red-900/40 border border-red-800">
           <p className="text-sm text-red-400">{error}</p>
+          <div className="flex gap-4 mt-2">
+            {isConfigured && <button onClick={sync} className="text-xs text-red-300 font-semibold">Retry</button>}
+            <button onClick={() => dispatch({ type: 'CLEAR_ERROR' })} className="text-xs text-red-400/70">Dismiss</button>
+          </div>
         </div>
       )}
 
@@ -84,12 +109,20 @@ export default function Home({ onStartSession, onNavigate }) {
       <div className="px-4 mb-6">
         <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Start Workout</h2>
         <div className="grid grid-cols-2 gap-3">
-          {(activeSplit?.days || []).map(day => (
+          {days.map(day => {
+            const inProgress = !!loadDraft(state.activeUserId, day.id)
+            const due = day.id === dueDayId
+            return (
             <button
               key={day.id}
               onClick={() => onStartSession(day)}
-              className="relative bg-gray-800 rounded-2xl p-4 text-left active:scale-95 transition-transform border border-gray-700"
+              className={`relative bg-gray-800 rounded-2xl p-4 text-left active:scale-95 transition-transform border ${due || inProgress ? 'border-brand/60' : 'border-gray-700'}`}
             >
+              {(inProgress || due) && (
+                <span className="absolute top-3 right-3 text-[10px] font-semibold text-brand uppercase tracking-wide">
+                  {inProgress ? 'In progress' : 'Due'}
+                </span>
+              )}
               <div className="flex gap-1 mb-2">
                 {day.muscleGroups.map(g => (
                   <span
@@ -100,11 +133,12 @@ export default function Home({ onStartSession, onNavigate }) {
                 ))}
               </div>
               <p className="text-sm font-semibold text-white leading-tight">{day.name}</p>
-              {lastByDay[day.id] && (
-                <p className="text-[11px] text-gray-500 mt-1">{daysSince(lastByDay[day.id])}</p>
-              )}
+              <p className="text-[11px] text-gray-500 mt-1">
+                {lastByDay[day.id] ? daysSince(lastByDay[day.id]) : 'Not done yet'}
+              </p>
             </button>
-          ))}
+            )
+          })}
         </div>
       </div>
 
@@ -114,24 +148,31 @@ export default function Home({ onStartSession, onNavigate }) {
           <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Recent</h2>
           <div className="space-y-2">
             {recentSessions.map(session => {
-              const groups = session.muscleGroups || []
+              const groups = sessionGroups(session, exById)
               const exCount = session.exercises?.length || 0
               return (
-                <div key={session.id} className="bg-gray-800 rounded-xl px-4 py-3 flex items-center justify-between">
+                <button
+                  key={session.id}
+                  onClick={() => onEditSession?.(session.id)}
+                  className="w-full text-left bg-gray-800 rounded-xl px-4 py-3 flex items-center justify-between active:bg-gray-700"
+                >
                   <div>
                     <p className="text-sm font-medium text-white">
-                      {groups.map(g => MUSCLE_LABELS[g]).join(' + ')}
+                      {sessionLabel(session, days, exById)}
                     </p>
                     <p className="text-xs text-gray-500 mt-0.5">
                       {formatDate(session.date)} · {exCount} exercises
                     </p>
                   </div>
-                  <div className="flex gap-1">
-                    {groups.map(g => (
-                      <span key={g} className="w-2 h-2 rounded-full" style={{ backgroundColor: MUSCLE_COLORS[g] }} />
-                    ))}
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1">
+                      {groups.map(g => (
+                        <span key={g} className="w-2 h-2 rounded-full" style={{ backgroundColor: MUSCLE_COLORS[g] }} />
+                      ))}
+                    </div>
+                    <ChevronRight size={14} className="text-gray-600" />
                   </div>
-                </div>
+                </button>
               )
             })}
           </div>

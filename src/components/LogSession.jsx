@@ -1,12 +1,10 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useMemo, useRef } from 'react'
 import { ChevronDown, ChevronUp, Plus, Trash2, X, Check, Loader } from 'lucide-react'
-import { useStore, getLastSession, genId } from '../lib/store'
+import { useStore, getLastSession, genId, localDate, loadDraft, saveDraft, clearDraft } from '../lib/store'
+import { matchDay, sessionGroups, exerciseMap } from '../lib/sessions'
 import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
 import AddExerciseSheet from './AddExerciseSheet'
-
-function today() {
-  return new Date().toISOString().slice(0, 10)
-}
+import NumberInput from './NumberInput'
 
 function formatDate(d) {
   if (!d) return ''
@@ -22,18 +20,17 @@ function SetRow({ set, index, onChange, onDelete }) {
       <div className="flex items-center bg-gray-900 rounded-lg overflow-hidden flex-1">
         <button
           className="px-2.5 py-2 text-gray-400 text-lg leading-none active:text-white"
-          onClick={() => onChange({ ...set, weight: Math.max(0, (set.weight || 0) - 2.5) })}
+          onClick={() => onChange({ ...set, weight: Math.max(0, Math.round(((set.weight || 0) - 2.5) * 100) / 100) })}
         >−</button>
-        <input
-          type="number"
-          value={set.weight ?? ''}
+        <NumberInput
+          value={set.weight}
           placeholder="kg"
-          onChange={e => onChange({ ...set, weight: e.target.value === '' ? null : parseFloat(e.target.value) })}
+          onChange={weight => onChange({ ...set, weight })}
           className="flex-1 bg-transparent text-center text-white text-base font-semibold py-2 w-0 min-w-0 outline-none"
         />
         <button
           className="px-2.5 py-2 text-gray-400 text-lg leading-none active:text-white"
-          onClick={() => onChange({ ...set, weight: (set.weight || 0) + 2.5 })}
+          onClick={() => onChange({ ...set, weight: Math.round(((set.weight || 0) + 2.5) * 100) / 100 })}
         >+</button>
       </div>
       <span className="text-xs text-gray-600">×</span>
@@ -43,11 +40,11 @@ function SetRow({ set, index, onChange, onDelete }) {
           className="px-2.5 py-2 text-gray-400 text-lg leading-none active:text-white"
           onClick={() => onChange({ ...set, reps: Math.max(0, (set.reps || 0) - 1) })}
         >−</button>
-        <input
-          type="number"
-          value={set.reps ?? ''}
+        <NumberInput
+          integer
+          value={set.reps}
           placeholder="reps"
-          onChange={e => onChange({ ...set, reps: e.target.value === '' ? null : parseInt(e.target.value) })}
+          onChange={reps => onChange({ ...set, reps })}
           className="flex-1 bg-transparent text-center text-white text-base font-semibold py-2 w-0 min-w-0 outline-none"
         />
         <button
@@ -164,13 +161,19 @@ export default function LogSession({ splitDay, onDone, onBack }) {
   const sessions = data.sessions || []
   const exercises = data.exercises || []
   const muscleGroups = splitDay.muscleGroups
+  const userId = state.activeUserId
+  const exById = useMemo(() => exerciseMap(exercises), [exercises])
+  const splitDays = (data.splits?.find(s => s.isActive) || data.splits?.[0])?.days || [splitDay]
+
+  // Restore an in-progress workout if the app was closed / reloaded mid-session
+  const [restored] = useState(() => loadDraft(userId, splitDay.id))
 
   // Draft: array of { exerciseId, sets[] }
   const [draft, setDraft] = useState(() => {
-    // Find exercises from these muscle groups that were done in the last session for this day
-    const lastMatchingSession = sessions.find(s =>
-      muscleGroups.every(g => s.muscleGroups?.includes(g))
-    )
+    if (restored?.draft) return restored.draft
+    // Prefill from the last session that was actually this kind of day
+    // (matched on exercises trained, not on the button that was tapped)
+    const lastMatchingSession = sessions.find(s => matchDay(s, splitDays, exById)?.id === splitDay.id)
     if (lastMatchingSession) {
       return lastMatchingSession.exercises.map(ex => ({
         exerciseId: ex.exerciseId,
@@ -189,9 +192,24 @@ export default function LogSession({ splitDay, onDone, onBack }) {
 
   const [showAddSheet, setShowAddSheet] = useState(false)
   const [saving, setSaving] = useState(false)
-  const [bodyWeight, setBodyWeight] = useState('')
-  const [sessionNotes, setSessionNotes] = useState('')
-  const [sessionDate, setSessionDate] = useState(today)
+  const [bodyWeight, setBodyWeight] = useState(restored?.bodyWeight ?? null)
+  const [sessionNotes, setSessionNotes] = useState(restored?.sessionNotes ?? '')
+  const [sessionDate, setSessionDate] = useState(restored?.sessionDate ?? localDate())
+  const touched = useRef(!!restored)
+
+  useEffect(() => {
+    if (!touched.current) return
+    saveDraft(userId, splitDay.id, { draft, bodyWeight, sessionNotes, sessionDate })
+  }, [draft, bodyWeight, sessionNotes, sessionDate, userId, splitDay.id])
+
+  // Mark as touched on any user edit so the draft gets persisted
+  const edit = fn => (...args) => { touched.current = true; return fn(...args) }
+
+  const discard = () => {
+    if (touched.current && !confirm('Discard this workout? Nothing will be saved.')) return
+    clearDraft(userId, splitDay.id)
+    onBack()
+  }
 
   const updateExercise = useCallback((exerciseId, sets) => {
     setDraft(d => d.map(e => e.exerciseId === exerciseId ? { ...e, sets } : e))
@@ -212,19 +230,28 @@ export default function LogSession({ splitDay, onDone, onBack }) {
   }, [sessions])
 
   const save = () => {
-    const filledExercises = draft.filter(e => e.sets.some(s => s.weight != null || s.reps != null))
-    if (filledExercises.length === 0) return
+    const filledExercises = draft
+      .map(e => ({ ...e, sets: e.sets.filter(s => s.weight != null || s.reps != null) }))
+      .filter(e => e.sets.length > 0)
+    if (filledExercises.length === 0) {
+      alert('Log at least one set before finishing.')
+      return
+    }
 
     setSaving(true)
     const session = {
       id: genId(),
-      date: sessionDate,
-      muscleGroups,
-      bodyWeight: bodyWeight ? parseFloat(bodyWeight) : null,
+      date: sessionDate || localDate(),
+      dayId: splitDay.id,
+      dayName: splitDay.name,
+      bodyWeight: bodyWeight || null,
       exercises: filledExercises,
       notes: sessionNotes.trim(),
     }
+    // Record what was actually trained, not just the day button that was tapped
+    session.muscleGroups = sessionGroups(session, exById)
     dispatch({ type: 'ADD_SESSION', session })
+    clearDraft(userId, splitDay.id)
     onDone()
   }
 
@@ -245,7 +272,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
     <div className="min-h-screen bg-gray-900 pb-32">
       {/* Header */}
       <div className="sticky top-0 z-30 bg-gray-900/95 backdrop-blur flex items-center gap-3 px-4 pt-12 pb-4 border-b border-gray-800">
-        <button onClick={onBack} className="text-gray-400 active:text-white">
+        <button onClick={discard} aria-label="Discard workout" className="text-gray-400 active:text-white">
           <X size={22} />
         </button>
         <div className="flex-1">
@@ -253,15 +280,14 @@ export default function LogSession({ splitDay, onDone, onBack }) {
           <input
             type="date"
             value={sessionDate}
-            onChange={e => setSessionDate(e.target.value)}
+            onChange={edit(e => setSessionDate(e.target.value))}
             className="bg-transparent text-xs text-gray-400 outline-none mt-0.5 cursor-pointer"
           />
         </div>
         <div className="flex items-center bg-gray-800 rounded-xl overflow-hidden">
-          <input
-            type="number"
+          <NumberInput
             value={bodyWeight}
-            onChange={e => setBodyWeight(e.target.value)}
+            onChange={edit(setBodyWeight)}
             placeholder="BW kg"
             className="bg-transparent text-white text-sm py-2 px-3 w-20 outline-none"
           />
@@ -269,6 +295,9 @@ export default function LogSession({ splitDay, onDone, onBack }) {
       </div>
 
       <div className="px-4 pt-4">
+        {restored && (
+          <p className="text-xs text-brand bg-brand/10 rounded-xl px-3 py-2 mb-4">Resumed your unfinished workout</p>
+        )}
         {/* Exercises by muscle group */}
         {muscleGroups.map(group => {
           const groupExercises = byGroup[group] || []
@@ -292,9 +321,9 @@ export default function LogSession({ splitDay, onDone, onBack }) {
                   sessionNote={e.note || ''}
                   exercises={exercises}
                   sessions={sessions}
-                  onChange={sets => updateExercise(e.exerciseId, sets)}
-                  onNoteChange={note => updateExerciseNote(e.exerciseId, note)}
-                  onRemove={() => removeExercise(e.exerciseId)}
+                  onChange={edit(sets => updateExercise(e.exerciseId, sets))}
+                  onNoteChange={edit(note => updateExerciseNote(e.exerciseId, note))}
+                  onRemove={edit(() => removeExercise(e.exerciseId))}
                 />
               ))}
             </div>
@@ -313,9 +342,9 @@ export default function LogSession({ splitDay, onDone, onBack }) {
                 sessionNote={e.note || ''}
                 exercises={exercises}
                 sessions={sessions}
-                onChange={sets => updateExercise(e.exerciseId, sets)}
-                onNoteChange={note => updateExerciseNote(e.exerciseId, note)}
-                onRemove={() => removeExercise(e.exerciseId)}
+                onChange={edit(sets => updateExercise(e.exerciseId, sets))}
+                onNoteChange={edit(note => updateExerciseNote(e.exerciseId, note))}
+                onRemove={edit(() => removeExercise(e.exerciseId))}
               />
             ))}
           </div>
@@ -330,7 +359,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
 
         <textarea
           value={sessionNotes}
-          onChange={e => setSessionNotes(e.target.value)}
+          onChange={edit(e => setSessionNotes(e.target.value))}
           placeholder="Session notes (how you felt, anything unusual…)"
           rows={2}
           className="w-full bg-gray-800 rounded-2xl px-4 py-3 text-sm text-gray-300 placeholder-gray-600 outline-none resize-none mb-4"
@@ -353,7 +382,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
         <AddExerciseSheet
           exercises={exercises}
           existing={draft.map(e => e.exerciseId)}
-          onAdd={addExercise}
+          onAdd={edit(addExercise)}
           onClose={() => setShowAddSheet(false)}
           dispatch={dispatch}
         />

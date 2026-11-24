@@ -8,6 +8,7 @@ import History from './components/History'
 import Settings from './components/Settings'
 import EditSession from './components/EditSession'
 import UserSelect from './components/UserSelect'
+import KeyboardDone from './components/KeyboardDone'
 import { MUSCLE_COLORS } from './data/defaultData'
 
 function DayPicker({ onSelect }) {
@@ -42,7 +43,8 @@ function DayPicker({ onSelect }) {
 
 function AppInner() {
   const { state, dispatch } = useStore()
-  const [screen, setScreen] = useState('home')
+  const [screenState, setScreen] = useState('home')
+  let screen = screenState
   const [activeSplitDay, setActiveSplitDay] = useState(null)
   const [editSessionId, setEditSessionId] = useState(null)
   const [editReturnScreen, setEditReturnScreen] = useState('progress')
@@ -83,17 +85,27 @@ function AppInner() {
     setScreen('editSession')
   }
 
+  const editingSession = screen === 'editSession' && editSessionId
+    ? state.data.sessions?.find(s => s.id === editSessionId)
+    : null
+  // If the session being edited vanished (e.g. deleted on another phone), fall back
+  if (screen === 'editSession' && !editingSession) screen = editReturnScreen
   const hideNav = (screen === 'log' && activeSplitDay) || screen === 'editSession'
 
-  if (screen === 'editSession' && editSessionId) {
-    const session = state.data.sessions?.find(s => s.id === editSessionId)
-    if (session) {
+  if (editingSession) {
+    const session = editingSession
+    {
       return (
         <div className="max-w-md mx-auto relative">
           <EditSession
             session={session}
             exercises={state.data.exercises || []}
             onBack={() => { setEditSessionId(null); setScreen(editReturnScreen) }}
+            onDelete={id => {
+              dispatch({ type: 'DELETE_SESSION', id })
+              setEditSessionId(null)
+              setScreen(editReturnScreen)
+            }}
             onSave={updated => {
               dispatch({ type: 'UPDATE_SESSION', session: updated })
               setEditSessionId(null)
@@ -107,7 +119,9 @@ function AppInner() {
 
   return (
     <div className="max-w-md mx-auto relative">
-      {screen === 'home' && <Home onStartSession={startSession} onNavigate={navigate} />}
+      {screen === 'home' && (
+        <Home onStartSession={startSession} onNavigate={navigate} onEditSession={id => openEditSession(id, 'home')} />
+      )}
 
       {screen === 'log' && !activeSplitDay && <DayPicker onSelect={startSession} />}
       {screen === 'log' && activeSplitDay && (
@@ -136,6 +150,7 @@ export default function App() {
   return (
     <StoreProvider>
       <AppInner />
+      <KeyboardDone />
     </StoreProvider>
   )
 }

@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { ChevronLeft, Check, Loader, Eye, EyeOff } from 'lucide-react'
 import { useStore } from '../lib/store'
 import { validateToken } from '../lib/github'
-import { EMPTY_DATA, MUSCLE_COLORS } from '../data/defaultData'
+import { MUSCLE_COLORS } from '../data/defaultData'
+import { localDate } from '../lib/store'
 import SplitEditor from './SplitEditor'
 
 export default function Settings({ onBack, onSwitchUser }) {
@@ -39,30 +40,48 @@ export default function Settings({ onBack, onSwitchUser }) {
     }
   }
 
+  const activeUser = state.fullData.users?.find(u => u.id === state.activeUserId)
+
   const handleImportJSON = (e) => {
-    const file = e.target.files?.[0]
+    const input = e.target
+    const file = input.files?.[0]
     if (!file) return
     setImporting(true)
     const reader = new FileReader()
     reader.onload = (ev) => {
       try {
         const imported = JSON.parse(ev.target.result)
-        dispatch({ type: 'UPDATE_DATA', data: { ...EMPTY_DATA, ...imported } })
-        alert(`Imported ${imported.sessions?.length || 0} sessions`)
+        if (Array.isArray(imported.users)) {
+          // Full backup (all users)
+          const n = imported.users.reduce((sum, u) => sum + (u.sessions?.length || 0), 0)
+          if (confirm(`Replace ALL data with this backup?\n${imported.users.length} users, ${n} sessions. This overwrites everyone's data.`)) {
+            dispatch({ type: 'REPLACE_ALL_DATA', data: imported })
+            alert('Backup restored')
+          }
+        } else if (Array.isArray(imported.sessions)) {
+          // Single-user / old-format file → only touches the current user
+          if (confirm(`Replace ${activeUser?.name || 'your'}'s sessions with the ${imported.sessions.length} in this file? Other users are not affected.`)) {
+            dispatch({ type: 'REPLACE_USER_DATA', data: imported })
+            alert(`Imported ${imported.sessions.length} sessions`)
+          }
+        } else {
+          alert('This file doesn\'t look like a GymLogger export')
+        }
       } catch {
         alert('Invalid JSON file')
       }
       setImporting(false)
+      input.value = '' // allow re-importing the same file
     }
     reader.readAsText(file)
   }
 
   const handleExportJSON = () => {
-    const blob = new Blob([JSON.stringify(state.data, null, 2)], { type: 'application/json' })
+    const blob = new Blob([JSON.stringify(state.fullData, null, 2)], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `gymlogger-${new Date().toISOString().slice(0, 10)}.json`
+    a.download = `gymlogger-backup-${localDate()}.json`
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -180,11 +199,11 @@ export default function Settings({ onBack, onSwitchUser }) {
               onClick={handleExportJSON}
               className="w-full text-left bg-gray-900 rounded-xl px-4 py-3 text-sm text-white active:bg-gray-700"
             >
-              Export workouts.json
+              Export backup (all users)
             </button>
             <label className="block">
               <div className="w-full text-left bg-gray-900 rounded-xl px-4 py-3 text-sm text-white active:bg-gray-700 cursor-pointer">
-                {importing ? 'Importing…' : 'Import workouts.json'}
+                {importing ? 'Importing…' : 'Restore from backup…'}
               </div>
               <input type="file" accept=".json" className="hidden" onChange={handleImportJSON} />
             </label>
