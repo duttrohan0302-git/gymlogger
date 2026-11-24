@@ -355,29 +355,51 @@ function weekStart(dateStr) {
   return localDate(dt)
 }
 
+const addDays = (dateStr, n) => {
+  const [y, m, d] = dateStr.split('-').map(Number)
+  return localDate(new Date(y, m - 1, d + n))
+}
+
+function Chips({ options, value, onChange }) {
+  return (
+    <div className="flex bg-gray-900 rounded-lg p-0.5">
+      {options.map(([id, label]) => (
+        <button key={id} onClick={() => onChange(id)}
+          className={`px-2 py-1 rounded-md text-[10px] font-semibold ${value === id ? 'bg-gray-700 text-white' : 'text-gray-500'}`}>
+          {label}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 function Overview({ sessions, exercises, onPickExercise }) {
   const exById = useMemo(() => new Map(exercises.map(e => [e.id, e])), [exercises])
+  const [weekRange, setWeekRange] = useSessionState('ovWeeks', '8w')   // '8w' | '6m' | 'all'
+  const [muscleOffset, setMuscleOffset] = useState(0)                   // 0 = this week, 1 = last week…
+  const [prMode, setPrMode] = useSessionState('ovPRs', 'recent')        // 'recent' | 'all'
 
-  const stats = useMemo(() => {
-    const today = localDate()
-    const thisWeek = weekStart(today)
-    const thisMonth = today.slice(0, 7)
+  const today = localDate()
+  const thisWeek = weekStart(today)
+  const firstWeek = sessions.length ? weekStart(sessions.reduce((m, s) => s.date < m ? s.date : m, sessions[0].date)) : thisWeek
+  const maxOffset = Math.max(0, Math.round((new Date(thisWeek) - new Date(firstWeek)) / (7 * 864e5)))
 
-    // Workouts per week, last 8 weeks
-    const weeks = []
-    const [y, m, d] = thisWeek.split('-').map(Number)
-    for (let i = 7; i >= 0; i--) {
-      const dt = new Date(y, m - 1, d - i * 7)
-      weeks.push({ week: localDate(dt), count: 0 })
-    }
-    const byWeek = new Map(weeks.map(w => [w.week, w]))
-    for (const s of sessions) byWeek.get(weekStart(s.date)) && byWeek.get(weekStart(s.date)).count++
+  // ── Workouts per week (chosen range) ──
+  const weeks = useMemo(() => {
+    const n = weekRange === '8w' ? 8 : weekRange === '6m' ? 26 : maxOffset + 1
+    const out = []
+    for (let i = n - 1; i >= 0; i--) out.push({ week: addDays(thisWeek, -7 * i), count: 0 })
+    const byWeek = new Map(out.map(w => [w.week, w]))
+    for (const s of sessions) { const w = byWeek.get(weekStart(s.date)); if (w) w.count++ }
+    return out
+  }, [sessions, weekRange, thisWeek, maxOffset])
 
-    // PRs (heaviest best set ever) set in the last 30 days
+  // ── PRs: progression of heaviest best set per exercise ──
+  const prData = useMemo(() => {
     const cutoffDt = new Date(); cutoffDt.setDate(cutoffDt.getDate() - 30)
     const cutoff = localDate(cutoffDt)
     const best = new Map()
-    const prs = []
+    const latestPR = new Map()
     const chrono = [...sessions].sort((a, b) => a.date.localeCompare(b.date))
     for (const s of chrono) {
       for (const ex of s.exercises || []) {
@@ -386,32 +408,31 @@ function Overview({ sessions, exercises, onPickExercise }) {
         const top = valid.reduce((b, st) => (st.weight > b.weight || (st.weight === b.weight && st.reps > b.reps)) ? st : b)
         const prev = best.get(ex.exerciseId)
         const isPR = prev && (top.weight > prev.weight || (top.weight === prev.weight && top.reps > prev.reps))
-        if (!prev || isPR) best.set(ex.exerciseId, top)
-        if (isPR && s.date >= cutoff) prs.push({ exerciseId: ex.exerciseId, date: s.date, weight: top.weight, reps: top.reps, prevWeight: prev.weight, prevReps: prev.reps })
+        if (!prev || isPR) best.set(ex.exerciseId, { weight: top.weight, reps: top.reps, date: s.date })
+        if (isPR && s.date >= cutoff) latestPR.set(ex.exerciseId, { exerciseId: ex.exerciseId, date: s.date, weight: top.weight, reps: top.reps, prevWeight: prev.weight, prevReps: prev.reps })
       }
     }
-    // Keep only each exercise's latest PR
-    const latestPR = new Map()
-    for (const p of prs) latestPR.set(p.exerciseId, p)
+    const recent = [...latestPR.values()].sort((a, b) => b.date.localeCompare(a.date))
+    // All-time: every exercise's best, grouped by muscle
+    const all = MUSCLE_ORDER.map(g => ({
+      group: g,
+      items: [...best.entries()]
+        .filter(([id]) => exById.get(id)?.muscleGroup === g)
+        .map(([id, b]) => ({ exerciseId: id, ...b }))
+        .sort((a, b) => (exById.get(a.exerciseId)?.name || '').localeCompare(exById.get(b.exerciseId)?.name || '')),
+    })).filter(g => g.items.length)
+    return { recent, all }
+  }, [sessions, exById])
 
-    // Most logged exercises in the last 60 days
-    const cut60 = new Date(); cut60.setDate(cut60.getDate() - 60)
-    const c60 = localDate(cut60)
-    const freq = new Map()
-    for (const s of sessions) {
-      if (s.date < c60) continue
-      for (const ex of s.exercises || []) freq.set(ex.exerciseId, (freq.get(ex.exerciseId) || 0) + 1)
-    }
-    const top = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10)
-
-    // Hard sets per muscle group: primary muscle counts 1, secondary (e.g. rear delts → back) 0.5
-    const fourWeeksAgo = weeks[weeks.length - 5]?.week
+  // ── Sets per muscle for the chosen week vs the 4 weeks before it ──
+  const muscle = useMemo(() => {
+    const wStart = addDays(thisWeek, -7 * muscleOffset)
+    const wEnd = addDays(wStart, 7)
+    const pStart = addDays(wStart, -28)
     const setsThis = {}, setsPrev = {}
     for (const s of sessions) {
-      const inThis = s.date >= thisWeek
-      const inPrev = !inThis && fourWeeksAgo && s.date >= fourWeeksAgo
-      if (!inThis && !inPrev) continue
-      const bucket = inThis ? setsThis : setsPrev
+      const bucket = s.date >= wStart && s.date < wEnd ? setsThis : s.date >= pStart && s.date < wStart ? setsPrev : null
+      if (!bucket) continue
       for (const e of s.exercises || []) {
         const info = exById.get(e.exerciseId)
         if (!info) continue
@@ -423,34 +444,56 @@ function Overview({ sessions, exercises, onPickExercise }) {
         }
       }
     }
-    const row = (key, label, sub = false, color) => ({
+    const row = (key, label, sub, color) => ({
       key, label, sub, color,
       thisWeek: Math.round((setsThis[key] || 0) * 2) / 2,
       avg: Math.round(((setsPrev[key] || 0) / 4) * 2) / 2,
     })
-    const muscleSets = MUSCLE_ORDER.flatMap(g => g === 'legs'
+    const rows = MUSCLE_ORDER.flatMap(g => g === 'legs'
       ? [row(g, MUSCLE_LABELS[g], false, MUSCLE_COLORS[g]), ...LEG_PARTS.map(([p, l]) => row(`legs:${p}`, l, true, MUSCLE_COLORS[g]))]
       : [row(g, MUSCLE_LABELS[g], false, MUSCLE_COLORS[g])])
+    const workouts = sessions.filter(s => s.date >= wStart && s.date < wEnd).length
+    return { rows, wStart, workouts }
+  }, [sessions, exById, thisWeek, muscleOffset])
 
-    return {
-      muscleSets,
-      week: sessions.filter(s => s.date >= thisWeek).length,
-      month: sessions.filter(s => s.date.startsWith(thisMonth)).length,
-      avg: (weeks.reduce((n, w) => n + w.count, 0) / weeks.length).toFixed(1),
-      weeks,
-      prs: [...latestPR.values()].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8),
-      top,
+  // ── Regular exercises (last 60 days) ──
+  const top = useMemo(() => {
+    const c60 = addDays(today, -60)
+    const freq = new Map()
+    for (const s of sessions) {
+      if (s.date < c60) continue
+      for (const ex of s.exercises || []) freq.set(ex.exerciseId, (freq.get(ex.exerciseId) || 0) + 1)
     }
-  }, [sessions, exById])
+    return [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10)
+  }, [sessions, today])
 
   if (!sessions.length) {
     return <p className="text-gray-600 text-sm text-center py-16">Log your first workout to see progress here</p>
   }
 
+  const avgPerWeek = (weeks.reduce((n, w) => n + w.count, 0) / weeks.length).toFixed(1)
+  const muscleWeekLabel = muscleOffset === 0 ? 'This week' : muscleOffset === 1 ? 'Last week' : `Week of ${formatDate(muscle.wStart)}`
+
+  const PRRow = ({ pr, showPrev }) => {
+    const ex = exById.get(pr.exerciseId)
+    return (
+      <button onClick={() => onPickExercise(pr.exerciseId)}
+        className="w-full flex items-center gap-2 py-2.5 border-b border-gray-700/50 last:border-0 text-left active:opacity-70">
+        <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: MUSCLE_COLORS[ex?.muscleGroup] }} />
+        <span className="text-sm text-white flex-1 truncate">{ex?.name || pr.exerciseId}</span>
+        <span className="text-xs font-mono text-brand">{pr.weight || 'BW'}×{pr.reps}</span>
+        {showPrev
+          ? <span className="text-[10px] text-gray-600 font-mono">was {pr.prevWeight || 'BW'}×{pr.prevReps}</span>
+          : <span className="text-[10px] text-gray-600">{formatDate(pr.date)}</span>}
+        <ChevronRight size={14} className="text-gray-600" />
+      </button>
+    )
+  }
+
   return (
     <div className="space-y-3">
       <div className="grid grid-cols-3 gap-2">
-        {[['This week', stats.week], ['This month', stats.month], ['Avg / week', stats.avg]].map(([label, val]) => (
+        {[['This week', sessions.filter(s => s.date >= thisWeek).length], ['This month', sessions.filter(s => s.date.startsWith(today.slice(0, 7))).length], ['Total', sessions.length]].map(([label, val]) => (
           <div key={label} className="bg-gray-800 rounded-2xl p-3 text-center">
             <p className="text-xl font-bold text-white">{val}</p>
             <p className="text-[10px] text-gray-500 uppercase tracking-wider mt-0.5">{label}</p>
@@ -459,27 +502,41 @@ function Overview({ sessions, exercises, onPickExercise }) {
       </div>
 
       <div className="bg-gray-800 rounded-2xl p-4">
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Workouts per week</p>
-        <ResponsiveContainer width="100%" height={120}>
-          <BarChart data={stats.weeks} margin={{ top: 4, right: 4, left: -24, bottom: 0 }}>
-            <XAxis dataKey="week" tickFormatter={formatDate} stroke="#6b7280" tick={{ fontSize: 9, fill: '#6b7280' }} interval={1} />
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Workouts per week</p>
+            <p className="text-[10px] text-gray-600 mt-0.5">avg {avgPerWeek} / week</p>
+          </div>
+          <Chips options={[['8w', '8 wk'], ['6m', '6 mo'], ['all', 'All']]} value={weekRange} onChange={setWeekRange} />
+        </div>
+        <ResponsiveContainer width="100%" height={130}>
+          <BarChart data={weeks} margin={{ top: 4, right: 4, left: -24, bottom: 0 }}>
+            <XAxis dataKey="week" tickFormatter={formatDate} stroke="#6b7280" tick={{ fontSize: 9, fill: '#6b7280' }}
+              interval={weekRange === '8w' ? 1 : 'preserveStartEnd'} minTickGap={24} />
             <YAxis allowDecimals={false} stroke="#6b7280" tick={{ fontSize: 9, fill: '#6b7280' }} />
             <Tooltip cursor={{ fill: '#37415155' }} content={({ active, payload }) => active && payload?.length ? (
               <div className="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white">
                 Week of {formatDate(payload[0].payload.week)}: {payload[0].value}
               </div>
             ) : null} />
-            <Bar dataKey="count" fill="#10b981" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="count" fill="#10b981" radius={[3, 3, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
 
       <div className="bg-gray-800 rounded-2xl p-4">
-        <div className="flex items-baseline justify-between mb-3">
-          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Sets per muscle · this week</p>
-          <p className="text-[10px] text-gray-600">| = 4-wk avg · shaded = 10–20</p>
+        <div className="flex items-center justify-between mb-1">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Sets per muscle</p>
+          <div className="flex items-center gap-1">
+            <button onClick={() => setMuscleOffset(o => Math.min(maxOffset, o + 1))} disabled={muscleOffset >= maxOffset}
+              aria-label="Previous week" className="p-1 text-gray-400 disabled:opacity-20"><ChevronLeft size={18} /></button>
+            <span className="text-[11px] text-white w-28 text-center">{muscleWeekLabel}</span>
+            <button onClick={() => setMuscleOffset(o => Math.max(0, o - 1))} disabled={muscleOffset === 0}
+              aria-label="Next week" className="p-1 text-gray-400 disabled:opacity-20"><ChevronRight size={18} /></button>
+          </div>
         </div>
-        {stats.muscleSets.map(m => {
+        <p className="text-[10px] text-gray-600 mb-3">{muscle.workouts} workout{muscle.workouts === 1 ? '' : 's'} · | = avg of 4 weeks before · shaded = 10–20</p>
+        {muscle.rows.map(m => {
           const max = 24
           const pct = v => `${Math.min(100, (v / max) * 100)}%`
           return (
@@ -496,32 +553,32 @@ function Overview({ sessions, exercises, onPickExercise }) {
         })}
       </div>
 
-      {stats.prs.length > 0 && (
-        <div className="bg-gray-800 rounded-2xl p-4">
-          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-            <Trophy size={13} className="text-yellow-500" /> PRs in the last 30 days
+      <div className="bg-gray-800 rounded-2xl p-4">
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+            <Trophy size={13} className="text-yellow-500" /> {prMode === 'recent' ? 'PRs · last 30 days' : 'All-time bests'}
           </p>
-          {stats.prs.map(pr => {
-            const ex = exById.get(pr.exerciseId)
-            return (
-              <button key={pr.exerciseId} onClick={() => onPickExercise(pr.exerciseId)}
-                className="w-full flex items-center gap-2 py-2.5 border-b border-gray-700/50 last:border-0 text-left active:opacity-70">
-                <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: MUSCLE_COLORS[ex?.muscleGroup] }} />
-                <span className="text-sm text-white flex-1 truncate">{ex?.name || pr.exerciseId}</span>
-                <span className="text-xs font-mono text-brand">{pr.weight || 'BW'}×{pr.reps}</span>
-                <span className="text-[10px] text-gray-600 font-mono">was {pr.prevWeight || 'BW'}×{pr.prevReps}</span>
-                <ChevronRight size={14} className="text-gray-600" />
-              </button>
-            )
-          })}
+          <Chips options={[['recent', '30 days'], ['all', 'All-time']]} value={prMode} onChange={setPrMode} />
         </div>
-      )}
+        {prMode === 'recent' ? (
+          prData.recent.length
+            ? prData.recent.map(pr => <PRRow key={pr.exerciseId} pr={pr} showPrev />)
+            : <p className="text-xs text-gray-600 py-2">No new PRs in the last 30 days.</p>
+        ) : (
+          prData.all.map(g => (
+            <div key={g.group} className="mb-2">
+              <p className="text-[10px] font-semibold uppercase tracking-wider mt-2 mb-0.5" style={{ color: MUSCLE_COLORS[g.group] }}>{MUSCLE_LABELS[g.group]}</p>
+              {g.items.map(pr => <PRRow key={pr.exerciseId} pr={pr} />)}
+            </div>
+          ))
+        )}
+      </div>
 
-      {stats.top.length > 0 && (
+      {top.length > 0 && (
         <div className="bg-gray-800 rounded-2xl p-4">
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Your regular exercises</p>
           <div className="flex flex-wrap gap-2">
-            {stats.top.map(([id, n]) => {
+            {top.map(([id, n]) => {
               const ex = exById.get(id)
               return (
                 <button key={id} onClick={() => onPickExercise(id)}
