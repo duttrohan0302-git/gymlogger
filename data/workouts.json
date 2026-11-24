@@ -27047,6 +27047,17 @@
       "bodyWeightLog": [],
       "deletedSessionIds": [
         "1795532803238-tc078"
+      ],
+      "keyLifts": [
+        "custom_military_press_1777469843395",
+        "bench_press",
+        "barbell_squat",
+        "custom_rdl_barbell_1777542610999",
+        "inclined_db_press",
+        "shoulder_press_db",
+        "lateral_raise_db",
+        "inclined_curl_db",
+        "preacher_curl"
       ]
     },
     {
