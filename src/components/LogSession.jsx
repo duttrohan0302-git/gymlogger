@@ -1,11 +1,13 @@
 import { useState, useCallback, useEffect, useMemo, useRef } from 'react'
-import { Plus, Trash2, X, Check, Loader, ArrowUp, ArrowDown, Link2, Trophy } from 'lucide-react'
+import { Plus, Trash2, X, Check, Loader, ArrowUp, ArrowDown, Link2, Trophy, History } from 'lucide-react'
 import { useStore, getLastSession, genId, localDate, loadDraft, saveDraft, clearDraft } from '../lib/store'
 import { matchDay, sessionGroups, exerciseMap } from '../lib/sessions'
 import { MUSCLE_LABELS, MUSCLE_COLORS } from '../data/defaultData'
 import AddExerciseSheet from './AddExerciseSheet'
 import NumberInput from './NumberInput'
 import { progressionHint, personalBests, isPR } from '../lib/progression'
+import ExerciseInsights from './ExerciseInsights'
+import EditableNote from './EditableNote'
 
 /** Drop superset ids that no longer link two neighbouring exercises */
 function cleanSupersets(list) {
@@ -81,8 +83,9 @@ function knownVariants(sessions, exerciseId) {
   return seen
 }
 
-function ExerciseCard({ item, index, total, exercises, sessions, linkedPrev, linkedNext, onChange, onRemove, onMove, onToggleLink }) {
+function ExerciseCard({ item, index, total, exercises, sessions, personalNote, onSaveNote, linkedPrev, linkedNext, onChange, onRemove, onMove, onToggleLink }) {
   const [expanded, setExpanded] = useState(true)
+  const [showHistory, setShowHistory] = useState(false)
   const [addingVariant, setAddingVariant] = useState(false)
   const [variantText, setVariantText] = useState('')
   const { exerciseId, sets, variant } = item
@@ -148,7 +151,21 @@ function ExerciseCard({ item, index, total, exercises, sessions, linkedPrev, lin
 
       {expanded && (
         <div className="px-4 pb-3">
-          {exercise.notes ? <p className="text-[11px] text-yellow-600 mb-2 italic">{exercise.notes}</p> : null}
+          <EditableNote
+            key={exerciseId}
+            value={personalNote !== undefined ? personalNote : (exercise.notes || '')}
+            onSave={onSaveNote}
+            placeholder="e.g. Trying better form: slower negatives"
+            addLabel="Add exercise note"
+            className="text-[11px] text-yellow-500"
+          />
+          <button onClick={() => setShowHistory(v => !v)}
+            className={`flex items-center gap-1 text-[11px] mb-2 ${showHistory ? 'text-brand' : 'text-gray-500'}`}>
+            <History size={12} /> {showHistory ? 'Hide history & insights' : 'History & insights'}
+          </button>
+          {showHistory && (
+            <ExerciseInsights exerciseId={exerciseId} variant={scoped} positionToday={index + 1} sessions={sessions} />
+          )}
           {paceText && <p className="text-[10px] text-gray-600 mb-2">{paceText}{hint.pace === 'slow' ? ' · slow mover, small jumps' : ''}</p>}
 
           {/* Variant chips */}
@@ -384,12 +401,21 @@ export default function LogSession({ splitDay, onDone, onBack }) {
           </div>
         )}
         {/* Muscle group reminders */}
-        {muscleGroups.map(g => data.muscleGroupNotes?.[g] ? (
-          <div key={g} className="flex gap-2 bg-yellow-900/20 border border-yellow-800/40 rounded-xl px-3 py-2 mb-2">
+        {muscleGroups.map(g => (
+          <div key={g} className="flex gap-2 items-start bg-yellow-900/20 border border-yellow-800/40 rounded-xl px-3 pt-2 mb-2">
             <span className="w-2 h-2 rounded-full mt-1 flex-shrink-0" style={{ backgroundColor: MUSCLE_COLORS[g] }} />
-            <p className="text-[11px] text-yellow-500/80"><span className="font-semibold">{MUSCLE_LABELS[g]}:</span> {data.muscleGroupNotes[g]}</p>
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] font-semibold text-yellow-500/90 uppercase tracking-wider">{MUSCLE_LABELS[g]}</p>
+              <EditableNote
+                value={data.muscleGroupNotes?.[g] || ''}
+                onSave={notes => dispatch({ type: 'UPDATE_MUSCLE_NOTE', group: g, notes })}
+                placeholder={`Note for all ${MUSCLE_LABELS[g]} days`}
+                addLabel={`Add ${MUSCLE_LABELS[g].toLowerCase()} note`}
+                className="text-[11px] text-yellow-500/80"
+              />
+            </div>
           </div>
-        ) : null)}
+        ))}
 
         {/* Exercises in the order you do them — use ↑↓ to reorder */}
         <div className="mt-3">
@@ -407,6 +433,8 @@ export default function LogSession({ splitDay, onDone, onBack }) {
                   total={draft.length}
                   exercises={exercises}
                   sessions={sessions}
+                  personalNote={data.exerciseNotes?.[e.exerciseId]}
+                  onSaveNote={note => dispatch({ type: 'UPDATE_EXERCISE_NOTE', exerciseId: e.exerciseId, note })}
                   linkedPrev={linkedPrev}
                   linkedNext={linkedNext}
                   onChange={edit(patch => patchExercise(e.exerciseId, patch))}

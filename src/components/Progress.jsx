@@ -14,6 +14,7 @@ const METRICS = [
   { id: 'weight', label: 'Weight', unit: 'kg' },
   { id: 'reps', label: 'Reps', unit: 'reps' },
   { id: 'volume', label: 'Volume', unit: 'kg·r' },
+  { id: 'e1rm', label: '1RM', unit: 'kg' },
   { id: 'both', label: 'W+R', unit: '' },
 ]
 
@@ -23,18 +24,27 @@ function formatDate(d) {
   return new Date(y, m - 1, day).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
 }
 
-function getHistory(sessions, exerciseId) {
+// Value of a history point for a metric
+const metricVal = (h, id) => id === 'weight' ? h.weight : id === 'reps' ? h.reps : id === 'e1rm' ? h.e1rm : h.volume
+
+// variant: null = all, '__none' = sessions without a variant, otherwise that variant
+const variantMatch = (e, variant) => !variant || (variant === '__none' ? !e.variant : e.variant === variant)
+
+function getHistory(sessions, exerciseId, variant = null) {
   return sessions
-    .filter(s => s.exercises?.some(e => e.exerciseId === exerciseId))
+    .filter(s => s.exercises?.some(e => e.exerciseId === exerciseId && variantMatch(e, variant)))
     .map(s => {
-      const ex = s.exercises.find(e => e.exerciseId === exerciseId)
+      const pos = s.exercises.findIndex(e => e.exerciseId === exerciseId && variantMatch(e, variant))
+      const ex = s.exercises[pos]
       // Bodyweight exercises have reps but no weight: count them as 0 kg
       const valid = ex.sets.filter(st => st.reps != null).map(st => ({ ...st, weight: st.weight ?? 0 }))
       if (!valid.length) return null
       const bestSet = valid.reduce((b, st) =>
         (!b || st.weight > b.weight || (st.weight === b.weight && st.reps > b.reps)) ? st : b, null)
       const totalVolume = Math.round(valid.reduce((sum, st) => sum + st.weight * st.reps, 0))
-      return { date: s.date, sessionId: s.id, weight: bestSet.weight, reps: bestSet.reps, volume: totalVolume }
+      // Epley estimated 1-rep max, best set of the session
+      const e1rm = Math.round(Math.max(...valid.map(st => st.weight * (1 + st.reps / 30))) * 2) / 2
+      return { date: s.date, sessionId: s.id, weight: bestSet.weight, reps: bestSet.reps, volume: totalVolume, e1rm, pos: pos + 1, variant: ex.variant || null }
     })
     .filter(Boolean)
     .sort((a, b) => a.date.localeCompare(b.date))
@@ -48,7 +58,7 @@ function ChartTooltip({ active, payload, label }) {
   if (!pt) return null
   return (
     <div className="bg-gray-800 border border-gray-700 rounded-xl p-3 text-xs shadow-xl min-w-32">
-      <p className="text-gray-400 mb-2 font-medium">{formatDate(label)}</p>
+      <p className="text-gray-400 mb-2 font-medium">{formatDate(label)}{pt.pos ? ` · exercise #${pt.pos}` : ''}</p>
       {pt.weight != null && (
         <div className="flex justify-between gap-4">
           <span className="text-gray-400">Weight</span>
@@ -129,6 +139,7 @@ function HistoryTable({ history, onRowClick }) {
         <thead>
           <tr className="border-b border-gray-700">
             <th className="text-left pb-2.5 text-gray-500 font-semibold">Date</th>
+            <th className="text-center pb-2.5 text-gray-500 font-semibold" title="Position in the workout">#</th>
             <th className="text-right pb-2.5 text-gray-500 font-semibold">Wt</th>
             <th className="text-right pb-2.5 text-gray-500 font-semibold">Reps</th>
             <th className="text-right pb-2.5 text-gray-500 font-semibold">W×R</th>
@@ -145,7 +156,11 @@ function HistoryTable({ history, onRowClick }) {
               <tr key={entry.sessionId}
                 className={`border-b border-gray-800/60 ${onRowClick ? 'active:bg-gray-700/40 cursor-pointer' : ''}`}
                 onClick={() => onRowClick?.(entry.sessionId)}>
-                <td className="py-2.5 text-gray-400 pr-2">{formatDate(entry.date)}</td>
+                <td className="py-2.5 text-gray-400 pr-2">
+                  {formatDate(entry.date)}
+                  {entry.variant && <span className="block text-[9px] text-gray-600">{entry.variant}</span>}
+                </td>
+                <td className={`py-2.5 text-center font-mono ${entry.pos > 2 ? 'text-yellow-600' : 'text-gray-600'}`}>{entry.pos}</td>
                 <td className={`py-2.5 text-right font-mono ${wtPR ? 'text-brand font-bold' : 'text-white'}`}>
                   {entry.weight || 'BW'}
                 </td>
@@ -179,7 +194,7 @@ function MiniExerciseCard({ exercise, sessions, metric, color, viewType, onEditS
 
   const chartData = useMemo(() => history.map(h => ({
     date: h.date,
-    v: metric.id === 'weight' ? h.weight : metric.id === 'reps' ? h.reps : h.volume,
+    v: metricVal(h, metric.id),
     w: h.weight,
     r: h.reps,
     weight: h.weight,
@@ -376,7 +391,30 @@ function Overview({ sessions, exercises, onPickExercise }) {
     }
     const top = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10)
 
+    // Hard sets per muscle group: primary muscle counts 1, secondary (e.g. rear delts → back) 0.5
+    const fourWeeksAgo = weeks[weeks.length - 5]?.week
+    const setsThis = {}, setsPrev = {}
+    for (const s of sessions) {
+      const inThis = s.date >= thisWeek
+      const inPrev = !inThis && fourWeeksAgo && s.date >= fourWeeksAgo
+      if (!inThis && !inPrev) continue
+      const bucket = inThis ? setsThis : setsPrev
+      for (const e of s.exercises || []) {
+        const info = exById.get(e.exerciseId)
+        if (!info) continue
+        const n = e.sets.filter(st => st.reps != null).length
+        bucket[info.muscleGroup] = (bucket[info.muscleGroup] || 0) + n
+        for (const g of info.extraMuscleGroups || []) bucket[g] = (bucket[g] || 0) + n * 0.5
+      }
+    }
+    const muscleSets = MUSCLE_ORDER.map(g => ({
+      group: g,
+      thisWeek: Math.round((setsThis[g] || 0) * 2) / 2,
+      avg: Math.round(((setsPrev[g] || 0) / 4) * 2) / 2,
+    }))
+
     return {
+      muscleSets,
       week: sessions.filter(s => s.date >= thisWeek).length,
       month: sessions.filter(s => s.date.startsWith(thisMonth)).length,
       avg: (weeks.reduce((n, w) => n + w.count, 0) / weeks.length).toFixed(1),
@@ -384,7 +422,7 @@ function Overview({ sessions, exercises, onPickExercise }) {
       prs: [...latestPR.values()].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8),
       top,
     }
-  }, [sessions])
+  }, [sessions, exById])
 
   if (!sessions.length) {
     return <p className="text-gray-600 text-sm text-center py-16">Log your first workout to see progress here</p>
@@ -415,6 +453,28 @@ function Overview({ sessions, exercises, onPickExercise }) {
             <Bar dataKey="count" fill="#10b981" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
+      </div>
+
+      <div className="bg-gray-800 rounded-2xl p-4">
+        <div className="flex items-baseline justify-between mb-3">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Sets per muscle · this week</p>
+          <p className="text-[10px] text-gray-600">| = 4-wk avg · shaded = 10–20</p>
+        </div>
+        {stats.muscleSets.map(m => {
+          const max = 24
+          const pct = v => `${Math.min(100, (v / max) * 100)}%`
+          return (
+            <div key={m.group} className="flex items-center gap-2 mb-2">
+              <span className="text-[11px] text-gray-400 w-16">{MUSCLE_LABELS[m.group]}</span>
+              <div className="relative flex-1 h-3 bg-gray-900 rounded-full overflow-hidden">
+                <div className="absolute inset-y-0 bg-gray-700/50" style={{ left: pct(10), width: `${(10 / max) * 100}%` }} />
+                <div className="absolute inset-y-0 left-0 rounded-full" style={{ width: pct(m.thisWeek), backgroundColor: MUSCLE_COLORS[m.group] }} />
+                {m.avg > 0 && <div className="absolute inset-y-0 w-0.5 bg-white/70" style={{ left: pct(m.avg) }} />}
+              </div>
+              <span className="text-[11px] font-mono text-white w-8 text-right">{m.thisWeek}</span>
+            </div>
+          )
+        })}
       </div>
 
       {stats.prs.length > 0 && (
@@ -476,6 +536,8 @@ export default function Progress({ onEditSession }) {
   const [groupView, setGroupView] = useState(false)
   const [metric, setMetric] = useState(METRICS[0])
   const [showPicker, setShowPicker] = useState(false)
+  // Variants: 'all' = combined line, 'split' = one line per variant, or a single variant
+  const [variantView, setVariantView] = useState('all')
 
   const selectedEx = exercises.find(e => e.id === selectedExId)
   const movGroup = selectedEx ? movementGroups.find(g => g.exerciseIds.includes(selectedEx.id)) : null
@@ -487,8 +549,27 @@ export default function Progress({ onEditSession }) {
       .filter(e => sessions.some(s => s.exercises?.some(ex => ex.exerciseId === e.id)))
   }, [selectedMuscle, exercises, sessions])
 
+  const variants = useMemo(() => {
+    if (!selectedEx) return []
+    const vs = new Set()
+    let untagged = false
+    for (const s of sessions) for (const e of s.exercises || []) {
+      if (e.exerciseId !== selectedEx.id) continue
+      if (e.variant) vs.add(e.variant); else untagged = true
+    }
+    return vs.size ? [...vs, ...(untagged ? ['__none'] : [])] : []
+  }, [selectedEx, sessions])
+  const variantLabel = v => v === '__none' ? 'Untagged' : v
+  const activeVariant = variants.includes(variantView) ? variantView : null
+
   const chartLines = useMemo(() => {
     if (!selectedEx) return []
+    if (!groupView && variants.length && variantView === 'split') {
+      return variants.map(v => ({ id: `${selectedEx.id}__${v}`, name: `${selectedEx.name} · ${variantLabel(v)}`, baseId: selectedEx.id, variant: v }))
+    }
+    if (!groupView && activeVariant) {
+      return [{ id: `${selectedEx.id}__${activeVariant}`, name: selectedEx.name, baseId: selectedEx.id, variant: activeVariant }]
+    }
     if (groupView && movGroup) {
       return movGroup.exerciseIds
         .map(id => exercises.find(e => e.id === id))
@@ -496,11 +577,11 @@ export default function Progress({ onEditSession }) {
         .filter(e => sessions.some(s => s.exercises?.some(ex => ex.exerciseId === e.id)))
     }
     return [selectedEx]
-  }, [selectedEx, groupView, movGroup, exercises, sessions])
+  }, [selectedEx, groupView, movGroup, exercises, sessions, variants, variantView, activeVariant])
 
   const allHistory = useMemo(() => {
     const h = {}
-    for (const ex of chartLines) h[ex.id] = getHistory(sessions, ex.id)
+    for (const ex of chartLines) h[ex.id] = getHistory(sessions, ex.baseId || ex.id, ex.variant || null)
     return h
   }, [chartLines, sessions])
 
@@ -515,9 +596,7 @@ export default function Progress({ onEditSession }) {
           point[`${ex.id}_w`] = entry?.weight ?? null
           point[`${ex.id}_r`] = entry?.reps ?? null
         } else {
-          point[ex.id] = entry
-            ? metric.id === 'weight' ? entry.weight : metric.id === 'reps' ? entry.reps : entry.volume
-            : null
+          point[ex.id] = entry ? metricVal(entry, metric.id) : null
         }
         point[`${ex.id}_weight`] = entry?.weight ?? null
         point[`${ex.id}_reps`]   = entry?.reps   ?? null
@@ -526,14 +605,15 @@ export default function Progress({ onEditSession }) {
         const entry = allHistory[chartLines[0].id]?.find(p => p.date === date)
         point.weight = entry?.weight ?? null
         point.reps   = entry?.reps   ?? null
+        point.pos    = entry?.pos    ?? null
       }
       return point
     })
   }, [chartLines, allHistory, metric])
 
   const singleHistory = useMemo(() =>
-    selectedEx ? getHistory(sessions, selectedEx.id) : []
-  , [selectedEx, sessions])
+    selectedEx ? getHistory(sessions, selectedEx.id, activeVariant) : []
+  , [selectedEx, sessions, activeVariant])
 
   const hasSelection = viewMode === 'exercise' ? !!selectedEx : !!selectedMuscle
 
@@ -610,9 +690,20 @@ export default function Progress({ onEditSession }) {
           </button>
         )}
 
+        {viewMode === 'exercise' && selectedEx && variants.length > 0 && (
+          <div className="flex gap-2 overflow-x-auto no-scrollbar mb-4">
+            {[['all', 'Combined'], ...variants.map(v => [v, variantLabel(v)]), ['split', 'Separate lines']].map(([id, label]) => (
+              <button key={id} onClick={() => setVariantView(id)}
+                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium border ${variantView === id ? 'border-brand text-brand bg-brand/10' : 'border-gray-700 text-gray-400'}`}>
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
+
         {showPicker && (
           <ExercisePickerSheet exercises={exercises} sessions={sessions}
-            onSelect={id => { markSelected(); setSelectedExId(id); setGroupView(false) }}
+            onSelect={id => { markSelected(); setSelectedExId(id); setGroupView(false); setVariantView('all') }}
             onClose={() => setShowPicker(false)} />
         )}
 
@@ -693,8 +784,8 @@ export default function Progress({ onEditSession }) {
                     </div>
                     {!groupView && singleHistory.length > 0 && (() => {
                       const pr = singleHistory.reduce((best, e) => {
-                        const val = metric.id === 'weight' ? e.weight : metric.id === 'reps' ? e.reps : e.volume
-                        const bval = best ? (metric.id === 'weight' ? best.weight : metric.id === 'reps' ? best.reps : best.volume) : -1
+                        const val = metricVal(e, metric.id)
+                        const bval = best ? metricVal(best, metric.id) : -1
                         return val > bval ? e : best
                       }, null)
                       if (!pr) return null
@@ -702,7 +793,7 @@ export default function Progress({ onEditSession }) {
                         <div className="text-right">
                           <p className="text-[10px] text-brand uppercase font-semibold tracking-wider">PR</p>
                           <p className="text-lg font-bold text-white">
-                            {metric.id === 'weight' ? (pr.weight ? `${pr.weight}kg` : 'BW') : metric.id === 'reps' ? `${pr.reps}r` : pr.volume}
+                            {metric.id === 'weight' ? (pr.weight ? `${pr.weight}kg` : 'BW') : metric.id === 'reps' ? `${pr.reps}r` : metric.id === 'e1rm' ? `${pr.e1rm}kg` : pr.volume}
                           </p>
                           <p className="text-[11px] text-gray-500">{formatDate(pr.date)}</p>
                         </div>
@@ -791,7 +882,7 @@ export default function Progress({ onEditSession }) {
           <Overview
             sessions={sessions}
             exercises={exercises}
-            onPickExercise={id => { markSelected(); setViewMode('exercise'); setSelectedExId(id); setGroupView(false) }}
+            onPickExercise={id => { markSelected(); setViewMode('exercise'); setSelectedExId(id); setGroupView(false); setVariantView('all') }}
           />
         )}
       </div>

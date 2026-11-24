@@ -65,6 +65,7 @@ function buildUserView(fullData, user) {
   return {
     splits: user.splits || [],
     muscleGroupNotes: user.muscleGroupNotes || {},
+    exerciseNotes: user.exerciseNotes || {},
     sessions: user.sessions || [],
     bodyWeightLog: user.bodyWeightLog || [],
     exercises: fullData.exercises?.length ? fullData.exercises : EXERCISES,
@@ -205,6 +206,13 @@ function reducer(state, action) {
       const muscleGroupNotes = { ...state.data.muscleGroupNotes, [action.group]: action.notes }
       const fullData = patchUser(state.fullData, state.activeUserId, { muscleGroupNotes })
       return changed(state, { data: { ...state.data, muscleGroupNotes }, fullData })
+    }
+    // Personal, sticky note per exercise (e.g. "trying slower negatives")
+    case 'UPDATE_EXERCISE_NOTE': {
+      // An empty string is kept on purpose: it hides the exercise's old built-in note
+      const exerciseNotes = { ...state.data.exerciseNotes, [action.exerciseId]: (action.note || '').trim() }
+      const fullData = patchUser(state.fullData, state.activeUserId, { exerciseNotes })
+      return changed(state, { data: { ...state.data, exerciseNotes }, fullData })
     }
     case 'ADD_EXERCISE': {
       const exercises = [...(state.fullData.exercises || []), action.exercise]
