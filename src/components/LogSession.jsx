@@ -202,11 +202,6 @@ function ExerciseCard({ item, index, total, exercises, sessions, personalNote, o
             <button onClick={addSet} className="flex items-center gap-1.5 text-brand text-sm py-1">
               <Plus size={15} /> Add Set
             </button>
-            {index < total - 1 && (
-              <button onClick={onToggleLink} className={`flex items-center gap-1 text-xs py-1 ${linkedNext ? 'text-purple-400' : 'text-gray-500'}`}>
-                <Link2 size={13} /> {linkedNext ? 'Unpair' : 'Pair with next ↓'}
-              </button>
-            )}
           </div>
           <input
             type="text"
