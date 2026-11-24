@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useCallback } from 'react'
-import { Search, X, Trophy, ChevronRight, ChevronLeft } from 'lucide-react'
+import { Search, X, Trophy, ChevronRight, ChevronLeft, Share2 } from 'lucide-react'
+import ShareStats from './ShareStats'
 import {
   ResponsiveContainer, LineChart, Line, XAxis, YAxis,
   CartesianGrid, Tooltip, BarChart, Bar,
@@ -625,6 +626,8 @@ export default function Progress({ onEditSession }) {
   const metric = METRICS.find(m => m.id === metricId) || METRICS[0]
   const setMetric = m => setMetricId(m.id)
   const [showPicker, setShowPicker] = useState(false)
+  const [showShare, setShowShare] = useState(false)
+  const userName = state.fullData.users?.find(u => u.id === state.activeUserId)?.name || ''
   // Variants: 'all' = combined line, 'split' = one line per variant, or a single variant
   const [variantView, setVariantView] = useSessionState('variantView', 'all')
 
@@ -745,8 +748,14 @@ export default function Progress({ onEditSession }) {
               <ChevronLeft size={24} />
             </button>
           )}
-          <h1 className="text-2xl font-bold text-white">Progress</h1>
+          <h1 className="text-2xl font-bold text-white flex-1">Progress</h1>
+          {!hasSelection && sessions.length > 0 && (
+            <button onClick={() => setShowShare(true)} className="flex items-center gap-1.5 text-xs text-brand font-semibold bg-brand/10 rounded-full px-3 py-1.5">
+              <Share2 size={14} /> Share
+            </button>
+          )}
         </div>
+        {showShare && <ShareStats sessions={sessions} exercises={exercises} userName={userName} onClose={() => setShowShare(false)} />}
 
         {/* View mode: Exercise / Muscle Group */}
         <div className="flex bg-gray-800 rounded-xl p-1 mb-4">
