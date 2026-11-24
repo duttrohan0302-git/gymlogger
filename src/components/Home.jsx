@@ -40,17 +40,6 @@ export default function Home({ onStartSession, onNavigate, onEditSession }) {
     return out
   }, [data.sessions, days, exById])
 
-  // "Due": the day you haven't done for the longest (works for any rotation)
-  const dueDayId = useMemo(() => {
-    if (!data.sessions?.length || days.length < 2) return null
-    let due = null
-    for (const d of days) {
-      const last = lastByDay[d.id] || ''
-      if (due === null || last < (lastByDay[due.id] || '')) due = d
-    }
-    return due?.id
-  }, [days, lastByDay, data.sessions])
-
   const isConfigured = !!(token && repo)
 
   // Unfinished workouts (autosaved drafts) — shown until finished or discarded
@@ -150,16 +139,15 @@ export default function Home({ onStartSession, onNavigate, onEditSession }) {
         <div className="grid grid-cols-2 gap-3">
           {days.map(day => {
             const inProgress = !!loadDraft(state.activeUserId, day.id)
-            const due = day.id === dueDayId
             return (
             <button
               key={day.id}
               onClick={() => onStartSession(day)}
-              className={`relative bg-gray-800 rounded-2xl p-4 text-left active:scale-95 transition-transform border ${due || inProgress ? 'border-brand/60' : 'border-gray-700'}`}
+              className={`relative bg-gray-800 rounded-2xl p-4 text-left active:scale-95 transition-transform border ${inProgress ? 'border-brand/60' : 'border-gray-700'}`}
             >
-              {(inProgress || due) && (
+              {inProgress && (
                 <span className="absolute top-3 right-3 text-[10px] font-semibold text-brand uppercase tracking-wide">
-                  {inProgress ? 'In progress' : 'Due'}
+                  In progress
                 </span>
               )}
               <div className="flex gap-1 mb-2">
