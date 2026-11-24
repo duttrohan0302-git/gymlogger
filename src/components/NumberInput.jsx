@@ -37,6 +37,7 @@ export default function NumberInput({ value, onChange, integer = false, classNam
       inputMode={integer ? 'numeric' : 'decimal'}
       enterKeyHint="done"
       autoComplete="off"
+      size={1}
       value={text}
       onChange={handle}
       onFocus={e => e.target.select()}

@@ -377,10 +377,11 @@ export default function LogSession({ splitDay, onDone, onBack }) {
           <Plus size={18} /> Add Exercise
         </button>
 
+        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Workout note</p>
         <textarea
           value={sessionNotes}
           onChange={edit(e => setSessionNotes(e.target.value))}
-          placeholder="Session notes (how you felt, anything unusual…)"
+          placeholder="How it went, energy, anything unusual…"
           rows={2}
           className="w-full bg-gray-800 rounded-2xl px-4 py-3 text-sm text-gray-300 placeholder-gray-600 outline-none resize-none mb-4"
         />

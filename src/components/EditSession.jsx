@@ -67,7 +67,7 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
     }))
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-gray-900 overflow-x-hidden">
       {/* Sticky header */}
       <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm z-10 px-4 pt-12 pb-4 border-b border-gray-800">
         <div className="flex items-center gap-3">
@@ -90,7 +90,7 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
                 if (onDelete && confirm('No sets left. Delete this session instead?')) onDelete(session.id)
                 return
               }
-              onSave({ ...draft, date: draft.date || session.date })
+              onSave({ ...draft, date: draft.date || session.date, notes: (draft.notes || '').trim() })
             }}
             className="bg-brand text-black text-sm font-bold px-4 py-2 rounded-xl active:scale-95 transition-transform flex-shrink-0"
           >
@@ -135,7 +135,7 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
                     value={set.weight}
                     onChange={v => updateSet(exIdx, setIdx, 'weight', v)}
                     placeholder="—"
-                    className="flex-1 bg-gray-700 rounded-xl px-3 py-2.5 text-sm text-white text-center font-mono outline-none focus:ring-1 focus:ring-brand"
+                    className="flex-1 w-0 min-w-0 bg-gray-700 rounded-xl px-3 py-2.5 text-sm text-white text-center font-mono outline-none focus:ring-1 focus:ring-brand"
                   />
                   <span className="text-gray-600 text-sm">×</span>
                   <NumberInput
@@ -143,7 +143,7 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
                     value={set.reps}
                     onChange={v => updateSet(exIdx, setIdx, 'reps', v)}
                     placeholder="—"
-                    className="flex-1 bg-gray-700 rounded-xl px-3 py-2.5 text-sm text-white text-center font-mono outline-none focus:ring-1 focus:ring-brand"
+                    className="flex-1 w-0 min-w-0 bg-gray-700 rounded-xl px-3 py-2.5 text-sm text-white text-center font-mono outline-none focus:ring-1 focus:ring-brand"
                   />
                   <button onClick={() => removeSet(exIdx, setIdx)}
                     className="text-gray-700 active:text-red-400 w-7 flex justify-center">
@@ -157,6 +157,17 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
                 <Plus size={13} />
                 Add set
               </button>
+
+              <input
+                type="text"
+                value={ex.note || ''}
+                onChange={e => setDraft(d => ({
+                  ...d,
+                  exercises: d.exercises.map((x, i) => i !== exIdx ? x : { ...x, note: e.target.value }),
+                }))}
+                placeholder="Note for this exercise…"
+                className="mt-2 w-full bg-gray-900 rounded-lg px-3 py-2 text-xs text-gray-300 placeholder-gray-600 outline-none"
+              />
             </div>
           )
         })}
@@ -166,6 +177,17 @@ export default function EditSession({ session, exercises, onSave, onBack, onDele
             <p className="text-gray-600 text-sm">No exercises in this session</p>
           </div>
         )}
+
+        <div className="bg-gray-800 rounded-2xl p-4">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Workout note</p>
+          <textarea
+            value={draft.notes || ''}
+            onChange={e => setDraft(d => ({ ...d, notes: e.target.value }))}
+            placeholder="How it went, energy, anything unusual…"
+            rows={3}
+            className="w-full bg-gray-900 rounded-xl px-3 py-2.5 text-sm text-gray-300 placeholder-gray-600 outline-none resize-none"
+          />
+        </div>
 
         <button
           onClick={() => setShowAddSheet(true)}
