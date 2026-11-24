@@ -51,7 +51,7 @@ function SessionCard({ session, exercises, label, groups, onDelete, onEdit }) {
                   <div className="flex flex-wrap gap-2">
                     {ex.sets.map((s, j) => (
                       <span key={j} className="text-xs bg-gray-700 rounded-lg px-2 py-1 text-gray-300">
-                        {s.weight != null ? `${s.weight}kg` : '—'} × {s.reps ?? '—'}
+                        {s.weight ? `${s.weight}kg` : 'BW'} × {s.reps ?? '—'}
                       </span>
                     ))}
                   </div>

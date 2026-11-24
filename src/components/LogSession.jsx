@@ -24,7 +24,7 @@ function SetRow({ set, index, onChange, onDelete }) {
         >−</button>
         <NumberInput
           value={set.weight}
-          placeholder="kg"
+          placeholder="kg / BW"
           onChange={weight => onChange({ ...set, weight })}
           className="flex-1 bg-transparent text-center text-white text-base font-semibold py-2 w-0 min-w-0 outline-none"
         />
@@ -97,9 +97,9 @@ function ExerciseCard({ exerciseId, sets, sessionNote, exercises, sessions, onCh
           {last && (
             <div className="mt-1.5 pl-4 flex items-center flex-wrap gap-1.5">
               <span className="text-[10px] text-gray-600">{formatDate(last.date)}</span>
-              {last.sets.filter(s => s.weight != null).map((s, i) => (
+              {last.sets.filter(s => s.weight != null || s.reps != null).map((s, i) => (
                 <span key={i} className="text-[11px] bg-gray-700 text-gray-300 rounded-md px-2 py-0.5 font-mono">
-                  {s.weight}<span className="text-gray-500">×</span>{s.reps}
+                  {s.weight || 'BW'}<span className="text-gray-500">×</span>{s.reps ?? '—'}
                 </span>
               ))}
             </div>
@@ -166,11 +166,11 @@ export default function LogSession({ splitDay, onDone, onBack }) {
   const splitDays = (data.splits?.find(s => s.isActive) || data.splits?.[0])?.days || [splitDay]
 
   // Restore an in-progress workout if the app was closed / reloaded mid-session
-  const [restored] = useState(() => loadDraft(userId, splitDay.id))
+  const [restored, setRestored] = useState(() => loadDraft(userId, splitDay.id))
 
   // Draft: array of { exerciseId, sets[] }
-  const [draft, setDraft] = useState(() => {
-    if (restored?.draft) return restored.draft
+  const [draft, setDraft] = useState(() => restored?.draft || freshDraft())
+  function freshDraft() {
     // Prefill from the last session that was actually this kind of day
     // (matched on exercises trained, not on the button that was tapped)
     const lastMatchingSession = sessions.find(s => matchDay(s, splitDays, exById)?.id === splitDay.id)
@@ -188,7 +188,7 @@ export default function LogSession({ splitDay, onDone, onBack }) {
       }))
     }
     return []
-  })
+  }
 
   const [showAddSheet, setShowAddSheet] = useState(false)
   const [saving, setSaving] = useState(false)
@@ -296,7 +296,27 @@ export default function LogSession({ splitDay, onDone, onBack }) {
 
       <div className="px-4 pt-4">
         {restored && (
-          <p className="text-xs text-brand bg-brand/10 rounded-xl px-3 py-2 mb-4">Resumed your unfinished workout</p>
+          <div className="flex items-center gap-2 text-xs text-brand bg-brand/10 rounded-xl px-3 py-2 mb-4">
+            <span className="flex-1">
+              Resumed unfinished workout
+              {restored.sessionDate && restored.sessionDate !== localDate() ? ` from ${formatDate(restored.sessionDate)}` : ''}
+            </span>
+            <button
+              onClick={() => {
+                if (!confirm('Throw away the unfinished workout and start fresh?')) return
+                clearDraft(userId, splitDay.id)
+                touched.current = false
+                setRestored(null)
+                setDraft(freshDraft())
+                setBodyWeight(null)
+                setSessionNotes('')
+                setSessionDate(localDate())
+              }}
+              className="font-semibold underline flex-shrink-0"
+            >
+              Start fresh
+            </button>
+          </div>
         )}
         {/* Exercises by muscle group */}
         {muscleGroups.map(group => {

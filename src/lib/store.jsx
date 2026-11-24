@@ -456,7 +456,7 @@ export function genId() {
 
 // ── In-progress workout drafts (survive app reloads / phone locking) ─────────
 const draftKey = (userId, dayId) => `gymlogger_draft_${userId}_${dayId}`
-const DRAFT_MAX_AGE = 16 * 60 * 60 * 1000 // an unfinished workout older than this is abandoned
+const DRAFT_MAX_AGE = 48 * 60 * 60 * 1000 // an unfinished workout older than this is abandoned
 export function loadDraft(userId, dayId) {
   try {
     const d = JSON.parse(getLS(draftKey(userId, dayId)))

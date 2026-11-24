@@ -52,7 +52,7 @@ function ChartTooltip({ active, payload, label }) {
       {pt.weight != null && (
         <div className="flex justify-between gap-4">
           <span className="text-gray-400">Weight</span>
-          <span className="text-white font-semibold">{pt.weight}kg</span>
+          <span className="text-white font-semibold">{pt.weight ? `${pt.weight}kg` : 'BW'}</span>
         </div>
       )}
       {pt.reps != null && (
@@ -102,7 +102,7 @@ function StatsBar({ history }) {
   return (
     <div className="grid grid-cols-2 gap-2 mb-4">
       {[
-        { label: 'PR Weight', value: `${prWeight.weight}kg`, sub: formatDate(prWeight.date) },
+        { label: 'PR Weight', value: prWeight.weight ? `${prWeight.weight}kg` : 'BW', sub: formatDate(prWeight.date) },
         { label: 'PR Reps',   value: prReps.reps,           sub: formatDate(prReps.date)   },
         { label: 'Sessions',  value: history.length,        sub: `since ${formatDate(history[0].date)}` },
         { label: 'Avg Vol',   value: avgVol,                sub: `best ${prVol.volume}` },
@@ -147,13 +147,13 @@ function HistoryTable({ history, onRowClick }) {
                 onClick={() => onRowClick?.(entry.sessionId)}>
                 <td className="py-2.5 text-gray-400 pr-2">{formatDate(entry.date)}</td>
                 <td className={`py-2.5 text-right font-mono ${wtPR ? 'text-brand font-bold' : 'text-white'}`}>
-                  {entry.weight}
+                  {entry.weight || 'BW'}
                 </td>
                 <td className={`py-2.5 text-right font-mono ${repPR ? 'text-brand font-bold' : 'text-white'}`}>
                   {entry.reps}
                 </td>
                 <td className="py-2.5 text-right font-mono text-gray-300">
-                  {entry.weight}×{entry.reps}
+                  {entry.weight || 'BW'}×{entry.reps}
                 </td>
                 <td className={`py-2.5 text-right font-mono ${volPR ? 'text-brand font-bold' : 'text-gray-500'}`}>
                   {entry.volume}
@@ -198,7 +198,7 @@ function MiniExerciseCard({ exercise, sessions, metric, color, viewType, onEditS
           <p className="text-sm font-semibold text-white truncate">{exercise.name}</p>
           {latest && (
             <p className="text-xs text-gray-500 mt-0.5">
-              Last: <span className="text-gray-300">{latest.weight}kg × {latest.reps}r</span>
+              Last: <span className="text-gray-300">{latest.weight ? `${latest.weight}kg` : 'BW'} × {latest.reps}r</span>
               <span className="ml-1 text-gray-600">{formatDate(latest.date)}</span>
             </p>
           )}
@@ -429,8 +429,8 @@ function Overview({ sessions, exercises, onPickExercise }) {
                 className="w-full flex items-center gap-2 py-2.5 border-b border-gray-700/50 last:border-0 text-left active:opacity-70">
                 <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: MUSCLE_COLORS[ex?.muscleGroup] }} />
                 <span className="text-sm text-white flex-1 truncate">{ex?.name || pr.exerciseId}</span>
-                <span className="text-xs font-mono text-brand">{pr.weight}×{pr.reps}</span>
-                <span className="text-[10px] text-gray-600 font-mono">was {pr.prevWeight}×{pr.prevReps}</span>
+                <span className="text-xs font-mono text-brand">{pr.weight || 'BW'}×{pr.reps}</span>
+                <span className="text-[10px] text-gray-600 font-mono">was {pr.prevWeight || 'BW'}×{pr.prevReps}</span>
                 <ChevronRight size={14} className="text-gray-600" />
               </button>
             )
@@ -677,7 +677,7 @@ export default function Progress({ onEditSession }) {
                         <div className="text-right">
                           <p className="text-[10px] text-brand uppercase font-semibold tracking-wider">PR</p>
                           <p className="text-lg font-bold text-white">
-                            {metric.id === 'weight' ? `${pr.weight}kg` : metric.id === 'reps' ? `${pr.reps}r` : pr.volume}
+                            {metric.id === 'weight' ? (pr.weight ? `${pr.weight}kg` : 'BW') : metric.id === 'reps' ? `${pr.reps}r` : pr.volume}
                           </p>
                           <p className="text-[11px] text-gray-500">{formatDate(pr.date)}</p>
                         </div>
