@@ -55,14 +55,14 @@
       "name": "Cable Unilateral Curl",
       "muscleGroup": "biceps",
       "movementGroupId": "bicep_curl",
-      "notes": "Weaker left arm"
+      "notes": ""
     },
     {
       "id": "inclined_curl_db",
       "name": "Inclined Sitting Curl",
       "muscleGroup": "biceps",
       "movementGroupId": "bicep_curl",
-      "notes": "Bench position 3"
+      "notes": ""
     },
     {
       "id": "preacher_curl",
@@ -104,7 +104,7 @@
       "name": "Cable Lateral Raise",
       "muscleGroup": "shoulders",
       "movementGroupId": "lateral_raise",
-      "notes": "High reps, low weight"
+      "notes": ""
     },
     {
       "id": "archer_pull",
@@ -125,7 +125,7 @@
       "name": "Rear Delt Machine",
       "muscleGroup": "shoulders",
       "movementGroupId": "rear_delt",
-      "notes": "Hard to maintain form"
+      "notes": ""
     },
     {
       "id": "machine_shoulder_press",
@@ -153,7 +153,7 @@
       "name": "Abs Crunch Rope",
       "muscleGroup": "abs",
       "movementGroupId": "core",
-      "notes": "Stop at full extension"
+      "notes": ""
     },
     {
       "id": "rotary_torso",
@@ -174,7 +174,7 @@
       "name": "Inclined Dumbbell Press",
       "muscleGroup": "chest",
       "movementGroupId": "press",
-      "notes": "Do this first"
+      "notes": ""
     },
     {
       "id": "chest_press_machine",
@@ -251,14 +251,14 @@
       "name": "Tricep Single Arm Extension",
       "muscleGroup": "triceps",
       "movementGroupId": "tricep_pushdown",
-      "notes": "Handle normally, not sideways"
+      "notes": ""
     },
     {
       "id": "weighted_dips",
       "name": "Weighted Dips",
       "muscleGroup": "triceps",
       "movementGroupId": null,
-      "notes": "Do first"
+      "notes": ""
     },
     {
       "id": "tricep_triangle_overhead",
@@ -272,7 +272,7 @@
       "name": "Bulgarian Split Squat",
       "muscleGroup": "legs",
       "movementGroupId": "squat",
-      "notes": "Box at 24cm height, don't go too low"
+      "notes": ""
     },
     {
       "id": "stand_knee_raise",
@@ -293,7 +293,7 @@
       "name": "Hip Thrust Single Leg",
       "muscleGroup": "legs",
       "movementGroupId": "hip_hinge",
-      "notes": "One leg straight, 8 reps each leg"
+      "notes": ""
     },
     {
       "id": "hack_squat",
@@ -440,7 +440,7 @@
       "name": "Abdominal crunch machine",
       "muscleGroup": "abs",
       "movementGroupId": null,
-      "notes": "Supports triceps and then crunch"
+      "notes": ""
     },
     {
       "id": "custom_skullcrushers_1793351880053",
@@ -695,13 +695,13 @@
         }
       ],
       "muscleGroupNotes": {
-        "back": "Pull-ups on back day — try extending arms fully",
-        "biceps": "Left bicep is weaker than right",
+        "back": "",
+        "biceps": "",
         "shoulders": "",
-        "abs": "Try decline crunches — very low movement",
+        "abs": "",
         "chest": "",
         "triceps": "",
-        "legs": "1. Use free barbell squat. 2. Hip thrust: one leg straight, no weight, 8 reps each. 3. Bulgarian: box 24cm, don't go too low."
+        "legs": ""
       },
       "sessions": [
         {
