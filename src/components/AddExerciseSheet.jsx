@@ -83,7 +83,7 @@ export default function AddExerciseSheet({ exercises, existing, onAdd, onClose, 
 
   if (creating) {
     return (
-      <div className="fixed inset-0 bg-black/60 z-50 flex items-end" onClick={onClose}>
+      <div className="fixed inset-0 bg-black/60 z-[60] flex items-end" onClick={onClose}>
         <div className="bg-gray-900 w-full rounded-t-3xl" onClick={e => e.stopPropagation()}>
           <CreateExerciseForm
             initialName={query}
@@ -97,7 +97,7 @@ export default function AddExerciseSheet({ exercises, existing, onAdd, onClose, 
   }
 
   return (
-    <div className="fixed inset-0 bg-black/60 z-50 flex items-end" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/60 z-[60] flex items-end" onClick={onClose}>
       <div className="bg-gray-900 w-full rounded-t-3xl max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
         <div className="p-4 border-b border-gray-800">
           <div className="flex items-center justify-between mb-3">
@@ -143,7 +143,7 @@ export default function AddExerciseSheet({ exercises, existing, onAdd, onClose, 
             ))}
           </div>
         </div>
-        <div className="overflow-y-auto flex-1">
+        <div className="overflow-y-auto overscroll-contain flex-1 min-h-0">
           {filtered.map(ex => (
             <button
               key={ex.id}

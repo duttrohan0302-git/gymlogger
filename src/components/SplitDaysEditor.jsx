@@ -43,7 +43,7 @@ export default function SplitDaysEditor({ onClose }) {
   }
 
   return (
-    <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col max-w-md mx-auto">
+    <div className="fixed inset-0 bg-gray-900 z-[60] flex flex-col max-w-md mx-auto">
       <div className="flex items-center gap-3 px-4 pt-12 pb-4 border-b border-gray-800">
         <button onClick={onClose} aria-label="Close" className="text-gray-400"><X size={22} /></button>
         <h2 className="text-lg font-bold text-white flex-1">Edit split days</h2>
@@ -53,7 +53,7 @@ export default function SplitDaysEditor({ onClose }) {
         </button>
       </div>
 
-      <div className="overflow-y-auto flex-1 px-4 py-4 space-y-3 pb-24">
+      <div className="overflow-y-auto overscroll-contain flex-1 min-h-0 px-4 py-4 space-y-3 pb-24">
         {days.map((day, i) => (
           <div key={day.id} className="bg-gray-800 rounded-2xl p-4">
             <div className="flex items-center gap-2 mb-3">

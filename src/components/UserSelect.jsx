@@ -230,7 +230,7 @@ export default function UserSelect() {
         </div>
 
         {/* Exercise list */}
-        <div className="overflow-y-auto flex-1 pb-32">
+        <div className="overflow-y-auto overscroll-contain flex-1 min-h-0 pb-32">
           {visibleExercises.map(ex => {
             const on = selected.has(ex.id)
             return (

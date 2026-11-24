@@ -28,7 +28,8 @@ function periodStart(id) {
 
 const fmt = d => { const [y, m, day] = d.split('-').map(Number); return new Date(y, m - 1, day).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) }
 
-function computeStats(sessions, exercises, period) {
+function computeStats(sessions, exercises, period, keyLifts = []) {
+  const keySet = new Set(keyLifts)
   const exById = new Map(exercises.map(e => [e.id, e]))
   const start = periodStart(period)
   const inPeriod = sessions.filter(s => s.date >= start)
@@ -54,7 +55,7 @@ function computeStats(sessions, exercises, period) {
       const prev = best.get(e.exerciseId)
       const isPR = prev && (top.w > prev.w || (top.w === prev.w && top.r > prev.r))
       if (!prev || isPR) best.set(e.exerciseId, top)
-      if (isPR && s.date >= start) prs.set(e.exerciseId, { name: exById.get(e.exerciseId)?.name || e.exerciseId, ...top, date: s.date })
+      if (isPR && s.date >= start) prs.set(e.exerciseId, { name: exById.get(e.exerciseId)?.name || e.exerciseId, ...top, date: s.date, key: keySet.has(e.exerciseId) })
     }
   }
   const days = inPeriod.length ? Math.max(1, Math.round((new Date(localDate()) - new Date(period === 'all' ? inPeriod.at(-1).date : start)) / 864e5) + 1) : 1
@@ -64,7 +65,7 @@ function computeStats(sessions, exercises, period) {
     volume: Math.round(volume),
     perWeek: (inPeriod.length / Math.max(1, days / 7)).toFixed(1),
     muscle: MUSCLE_ORDER.map(g => ({ g, n: muscle[g] || 0 })),
-    prs: [...prs.values()].sort((a, b) => b.date.localeCompare(a.date)),
+    prs: [...prs.values()].sort((a, b) => (b.key - a.key) || b.date.localeCompare(a.date)),
     first: inPeriod.at(-1)?.date,
     start: period === 'all' ? null : start,
   }
@@ -140,7 +141,7 @@ function roundRect(c, x, y, w, h, r) {
   c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath()
 }
 
-export default function ShareStats({ sessions, exercises, userName, onClose }) {
+export default function ShareStats({ sessions, exercises, userName, keyLifts = [], onClose }) {
   const canvasRef = useRef(null)
   const [period, setPeriod] = useState('month')
   const [muscles, setMuscles] = useState(true)
@@ -148,7 +149,14 @@ export default function ShareStats({ sessions, exercises, userName, onClose }) {
   const [showName, setShowName] = useState(false)
   const [busy, setBusy] = useState(false)
 
-  const stats = useMemo(() => computeStats(sessions, exercises, period), [sessions, exercises, period])
+  const stats = useMemo(() => computeStats(sessions, exercises, period, keyLifts), [sessions, exercises, period, keyLifts])
+
+  // Lock the page behind this screen so swipes scroll the preview, not Progress
+  useEffect(() => {
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = prev }
+  }, [])
 
   useEffect(() => {
     if (canvasRef.current) draw(canvasRef.current, stats, { period, muscles, prs, name: showName ? userName : '' })
@@ -178,12 +186,12 @@ export default function ShareStats({ sessions, exercises, userName, onClose }) {
   )
 
   return (
-    <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col max-w-md mx-auto">
+    <div className="fixed inset-0 bg-gray-900 z-[60] flex flex-col max-w-md mx-auto">
       <div className="flex items-center gap-3 px-4 pt-12 pb-3 border-b border-gray-800">
         <button onClick={onClose} aria-label="Close" className="text-gray-400"><X size={22} /></button>
         <h2 className="text-lg font-bold text-white flex-1">Share stats</h2>
       </div>
-      <div className="overflow-y-auto flex-1 px-4 py-4">
+      <div className="overflow-y-auto overscroll-contain flex-1 min-h-0 px-4 py-4">
         <div className="flex gap-2 overflow-x-auto no-scrollbar mb-3">
           {PERIODS.map(([id, label]) => (
             <button key={id} onClick={() => setPeriod(id)}

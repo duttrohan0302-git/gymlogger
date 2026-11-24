@@ -45,13 +45,13 @@ export default function SplitEditor({ onClose }) {
   // ── Template picker ────────────────────────────────────────────────────────
   if (step === 'template') {
     return (
-      <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col max-w-md mx-auto">
+      <div className="fixed inset-0 bg-gray-900 z-[60] flex flex-col max-w-md mx-auto">
         <div className="flex items-center gap-3 px-4 pt-12 pb-4 border-b border-gray-800">
           <button onClick={onClose} className="text-gray-400"><X size={22} /></button>
           <h2 className="text-lg font-bold text-white flex-1">Change Split</h2>
         </div>
 
-        <div className="overflow-y-auto flex-1 px-4 py-4 space-y-3">
+        <div className="overflow-y-auto overscroll-contain flex-1 min-h-0 px-4 py-4 space-y-3">
           {SPLIT_TEMPLATES.map(t => (
             <button
               key={t.id}
@@ -85,7 +85,7 @@ export default function SplitEditor({ onClose }) {
   // ── Create exercise overlay ────────────────────────────────────────────────
   if (creating && currentDay) {
     return (
-      <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col max-w-md mx-auto">
+      <div className="fixed inset-0 bg-gray-900 z-[60] flex flex-col max-w-md mx-auto">
         <CreateExerciseForm
           initialName=""
           dispatch={dispatch}
@@ -113,7 +113,7 @@ export default function SplitEditor({ onClose }) {
     const visibleExercises = exercises.filter(e => inDay(e) && inFilter(e))
 
     return (
-      <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col max-w-md mx-auto">
+      <div className="fixed inset-0 bg-gray-900 z-[60] flex flex-col max-w-md mx-auto">
         <div className="px-4 pt-12 pb-4 border-b border-gray-800">
           <div className="flex items-center justify-between mb-1">
             <button
@@ -155,7 +155,7 @@ export default function SplitEditor({ onClose }) {
           </div>
         </div>
 
-        <div className="overflow-y-auto flex-1 pb-32">
+        <div className="overflow-y-auto overscroll-contain flex-1 min-h-0 pb-32">
           {visibleExercises.map(ex => {
             const on = selected.has(ex.id)
             return (
@@ -184,7 +184,7 @@ export default function SplitEditor({ onClose }) {
           </button>
         </div>
 
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-gray-900 border-t border-gray-800 max-w-md mx-auto">
+        <div className="fixed bottom-0 left-0 right-0 p-4 bg-gray-900 border-t border-gray-800 max-w-md mx-auto z-[61]">
           <button
             onClick={isLast ? save : () => setDayIdx(i => i + 1)}
             className="w-full bg-brand text-black font-bold py-4 rounded-2xl text-base active:scale-95 transition-transform flex items-center justify-center gap-2"

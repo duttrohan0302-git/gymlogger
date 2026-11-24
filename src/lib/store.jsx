@@ -66,6 +66,7 @@ function buildUserView(fullData, user) {
     splits: user.splits || [],
     muscleGroupNotes: user.muscleGroupNotes || {},
     exerciseNotes: user.exerciseNotes || {},
+    keyLifts: user.keyLifts || [],
     sessions: user.sessions || [],
     bodyWeightLog: user.bodyWeightLog || [],
     exercises: fullData.exercises?.length ? fullData.exercises : EXERCISES,
@@ -213,6 +214,13 @@ function reducer(state, action) {
       const exerciseNotes = { ...state.data.exerciseNotes, [action.exerciseId]: (action.note || '').trim() }
       const fullData = patchUser(state.fullData, state.activeUserId, { exerciseNotes })
       return changed(state, { data: { ...state.data, exerciseNotes }, fullData })
+    }
+    // Starred "key lifts" — pinned to the top of PRs
+    case 'TOGGLE_KEY_LIFT': {
+      const cur = state.data.keyLifts || []
+      const keyLifts = cur.includes(action.exerciseId) ? cur.filter(id => id !== action.exerciseId) : [...cur, action.exerciseId]
+      const fullData = patchUser(state.fullData, state.activeUserId, { keyLifts })
+      return changed(state, { data: { ...state.data, keyLifts }, fullData })
     }
     case 'ADD_EXERCISE': {
       const exercises = [...(state.fullData.exercises || []), action.exercise]

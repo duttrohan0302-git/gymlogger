@@ -293,7 +293,7 @@ function ExercisePickerSheet({ exercises, sessions, onSelect, onClose }) {
   const hasData = id => sessions.some(s => s.exercises?.some(e => e.exerciseId === id))
 
   return (
-    <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col">
+    <div className="fixed inset-0 bg-gray-900 z-[60] flex flex-col">
       <div className="p-4 border-b border-gray-800">
         <div className="flex items-center gap-3 mb-3">
           <h2 className="text-base font-semibold text-white flex-1">Select Exercise</h2>
@@ -306,7 +306,7 @@ function ExercisePickerSheet({ exercises, sessions, onSelect, onClose }) {
           {query && <button onClick={() => setQuery('')} className="text-gray-500"><X size={14} /></button>}
         </div>
       </div>
-      <div className="overflow-y-auto flex-1">
+      <div className="overflow-y-auto overscroll-contain flex-1 min-h-0">
         {grouped.map(({ group, items }) => (
           <div key={group || 'search'}>
             {group && (
@@ -374,8 +374,9 @@ function Chips({ options, value, onChange }) {
   )
 }
 
-function Overview({ sessions, exercises, onPickExercise }) {
+function Overview({ sessions, exercises, keyLifts = [], onToggleKeyLift, onPickExercise }) {
   const exById = useMemo(() => new Map(exercises.map(e => [e.id, e])), [exercises])
+  const keySet = useMemo(() => new Set(keyLifts), [keyLifts])
   const [weekRange, setWeekRange] = useSessionState('ovWeeks', '8w')   // '8w' | '6m' | 'all'
   const [muscleOffset, setMuscleOffset] = useState(0)                   // 0 = this week, 1 = last week…
   const [prMode, setPrMode] = useSessionState('ovPRs', 'recent')        // 'recent' | 'all'
@@ -413,17 +414,20 @@ function Overview({ sessions, exercises, onPickExercise }) {
         if (isPR && s.date >= cutoff) latestPR.set(ex.exerciseId, { exerciseId: ex.exerciseId, date: s.date, weight: top.weight, reps: top.reps, prevWeight: prev.weight, prevReps: prev.reps })
       }
     }
-    const recent = [...latestPR.values()].sort((a, b) => b.date.localeCompare(a.date))
+    // Key lifts first, then newest
+    const recent = [...latestPR.values()].sort((a, b) =>
+      (keySet.has(b.exerciseId) - keySet.has(a.exerciseId)) || b.date.localeCompare(a.date))
+    const key = keyLifts.filter(id => best.has(id)).map(id => ({ exerciseId: id, ...best.get(id) }))
     // All-time: every exercise's best, grouped by muscle
     const all = MUSCLE_ORDER.map(g => ({
       group: g,
       items: [...best.entries()]
-        .filter(([id]) => exById.get(id)?.muscleGroup === g)
+        .filter(([id]) => exById.get(id)?.muscleGroup === g && !keySet.has(id))
         .map(([id, b]) => ({ exerciseId: id, ...b }))
         .sort((a, b) => (exById.get(a.exerciseId)?.name || '').localeCompare(exById.get(b.exerciseId)?.name || '')),
     })).filter(g => g.items.length)
-    return { recent, all }
-  }, [sessions, exById])
+    return { recent, all, key }
+  }, [sessions, exById, keySet, keyLifts])
 
   // ── Sets per muscle for the chosen week vs the 4 weeks before it ──
   const muscle = useMemo(() => {
@@ -475,11 +479,16 @@ function Overview({ sessions, exercises, onPickExercise }) {
   const avgPerWeek = (weeks.reduce((n, w) => n + w.count, 0) / weeks.length).toFixed(1)
   const muscleWeekLabel = muscleOffset === 0 ? 'This week' : muscleOffset === 1 ? 'Last week' : `Week of ${formatDate(muscle.wStart)}`
 
-  const PRRow = ({ pr, showPrev }) => {
+  const PRRow = ({ pr, showPrev, starrable }) => {
     const ex = exById.get(pr.exerciseId)
+    const starred = keySet.has(pr.exerciseId)
     return (
-      <button onClick={() => onPickExercise(pr.exerciseId)}
-        className="w-full flex items-center gap-2 py-2.5 border-b border-gray-700/50 last:border-0 text-left active:opacity-70">
+      <div className="w-full flex items-center gap-2 py-2.5 border-b border-gray-700/50 last:border-0">
+        {starrable ? (
+          <button onClick={() => onToggleKeyLift?.(pr.exerciseId)} aria-label={starred ? 'Unstar' : 'Star as key lift'}
+            className={`text-sm leading-none flex-shrink-0 ${starred ? 'text-yellow-400' : 'text-gray-700'}`}>{starred ? '★' : '☆'}</button>
+        ) : starred ? <span className="text-sm leading-none text-yellow-400 flex-shrink-0">★</span> : null}
+      <button onClick={() => onPickExercise(pr.exerciseId)} className="flex-1 min-w-0 flex items-center gap-2 text-left active:opacity-70">
         <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: MUSCLE_COLORS[ex?.muscleGroup] }} />
         <span className="text-sm text-white flex-1 truncate">{ex?.name || pr.exerciseId}</span>
         <span className="text-xs font-mono text-brand">{pr.weight || 'BW'}×{pr.reps}</span>
@@ -488,6 +497,7 @@ function Overview({ sessions, exercises, onPickExercise }) {
           : <span className="text-[10px] text-gray-600">{formatDate(pr.date)}</span>}
         <ChevronRight size={14} className="text-gray-600" />
       </button>
+      </div>
     )
   }
 
@@ -566,12 +576,21 @@ function Overview({ sessions, exercises, onPickExercise }) {
             ? prData.recent.map(pr => <PRRow key={pr.exerciseId} pr={pr} showPrev />)
             : <p className="text-xs text-gray-600 py-2">No new PRs in the last 30 days.</p>
         ) : (
-          prData.all.map(g => (
-            <div key={g.group} className="mb-2">
-              <p className="text-[10px] font-semibold uppercase tracking-wider mt-2 mb-0.5" style={{ color: MUSCLE_COLORS[g.group] }}>{MUSCLE_LABELS[g.group]}</p>
-              {g.items.map(pr => <PRRow key={pr.exerciseId} pr={pr} />)}
-            </div>
-          ))
+          <>
+            {prData.key.length > 0 && (
+              <div className="mb-3 bg-gray-900/60 rounded-xl px-3 py-1">
+                <p className="text-[10px] font-semibold uppercase tracking-wider mt-2 mb-0.5 text-yellow-400">★ Key lifts</p>
+                {prData.key.map(pr => <PRRow key={pr.exerciseId} pr={pr} starrable />)}
+              </div>
+            )}
+            {prData.all.map(g => (
+              <div key={g.group} className="mb-2">
+                <p className="text-[10px] font-semibold uppercase tracking-wider mt-2 mb-0.5" style={{ color: MUSCLE_COLORS[g.group] }}>{MUSCLE_LABELS[g.group]}</p>
+                {g.items.map(pr => <PRRow key={pr.exerciseId} pr={pr} starrable />)}
+              </div>
+            ))}
+            <p className="text-[10px] text-gray-600 mt-2">Tap ☆ to pin an exercise to Key lifts.</p>
+          </>
         )}
       </div>
 
@@ -611,7 +630,7 @@ function useSessionState(key, initial) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function Progress({ onEditSession }) {
-  const { state } = useStore()
+  const { state, dispatch } = useStore()
   const { data } = state
   const sessions = data.sessions || []
   const exercises = data.exercises || []
@@ -755,7 +774,7 @@ export default function Progress({ onEditSession }) {
             </button>
           )}
         </div>
-        {showShare && <ShareStats sessions={sessions} exercises={exercises} userName={userName} onClose={() => setShowShare(false)} />}
+        {showShare && <ShareStats sessions={sessions} exercises={exercises} userName={userName} keyLifts={data.keyLifts || []} onClose={() => setShowShare(false)} />}
 
         {/* View mode: Exercise / Muscle Group */}
         <div className="flex bg-gray-800 rounded-xl p-1 mb-4">
@@ -992,6 +1011,8 @@ export default function Progress({ onEditSession }) {
           <Overview
             sessions={sessions}
             exercises={exercises}
+            keyLifts={data.keyLifts || []}
+            onToggleKeyLift={id => dispatch({ type: 'TOGGLE_KEY_LIFT', exerciseId: id })}
             onPickExercise={id => { markSelected(); setViewMode('exercise'); setSelectedExId(id); setGroupView(false); setVariantView('all') }}
           />
         )}
