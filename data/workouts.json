@@ -705,6 +705,145 @@
       },
       "sessions": [
         {
+          "id": "1795695311895-8wb9r",
+          "date": "2026-11-26",
+          "dayId": "user_default_push",
+          "dayName": "Push",
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "bench_press",
+              "sets": [
+                {
+                  "weight": 72,
+                  "reps": 3,
+                  "note": "each side smith machine"
+                },
+                {
+                  "weight": 72,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 62,
+                  "reps": 5,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "inclined_db_press",
+              "sets": [
+                {
+                  "weight": 25,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 25,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 6,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "tricep_single_arm_ext",
+              "sets": [
+                {
+                  "weight": 25,
+                  "reps": 4,
+                  "note": ""
+                },
+                {
+                  "weight": 20,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "variant": "Rod"
+            },
+            {
+              "exerciseId": "lateral_raise_db",
+              "sets": [
+                {
+                  "weight": 7.5,
+                  "reps": 17,
+                  "note": ""
+                },
+                {
+                  "weight": 7.5,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 7.5,
+                  "reps": 12,
+                  "note": "and then drop set until failure"
+                }
+              ]
+            }
+          ],
+          "notes": "",
+          "muscleGroups": [
+            "chest",
+            "triceps",
+            "shoulders"
+          ]
+        },
+        {
           "id": "1795611043097-73iaw",
           "date": "2026-11-25",
           "dayId": "user_default_pull",
