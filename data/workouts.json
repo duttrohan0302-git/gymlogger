@@ -27457,7 +27457,10 @@
         "lateral_raise_db",
         "inclined_curl_db",
         "preacher_curl"
-      ]
+      ],
+      "exerciseNotes": {
+        "bench_press": ""
+      }
     },
     {
       "id": "user_1778257954568_bzsk",
