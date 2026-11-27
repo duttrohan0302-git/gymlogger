@@ -67,6 +67,7 @@ function buildUserView(fullData, user) {
     muscleGroupNotes: user.muscleGroupNotes || {},
     exerciseNotes: user.exerciseNotes || {},
     keyLifts: user.keyLifts || [],
+    generalNotes: user.generalNotes || '',
     sessions: user.sessions || [],
     bodyWeightLog: user.bodyWeightLog || [],
     exercises: fullData.exercises?.length ? fullData.exercises : EXERCISES,
@@ -214,6 +215,12 @@ function reducer(state, action) {
       const exerciseNotes = { ...state.data.exerciseNotes, [action.exerciseId]: (action.note || '').trim() }
       const fullData = patchUser(state.fullData, state.activeUserId, { exerciseNotes })
       return changed(state, { data: { ...state.data, exerciseNotes }, fullData })
+    }
+    // One free-form note per user for general reminders (shown collapsed on Home)
+    case 'UPDATE_GENERAL_NOTES': {
+      const generalNotes = (action.notes || '').trim()
+      const fullData = patchUser(state.fullData, state.activeUserId, { generalNotes })
+      return changed(state, { data: { ...state.data, generalNotes }, fullData })
     }
     // Starred "key lifts" — pinned to the top of PRs
     case 'TOGGLE_KEY_LIFT': {

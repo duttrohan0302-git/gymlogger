@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Settings, CloudOff, Cloud, Loader, AlertCircle, ChevronRight } from 'lucide-react'
+import { Settings, CloudOff, Cloud, Loader, AlertCircle, ChevronRight, ChevronDown, StickyNote, Pencil, Check } from 'lucide-react'
 import { useStore, loadDraft, listDrafts, clearDraft } from '../lib/store'
 import { matchDay, sessionLabel, sessionGroups, exerciseMap } from '../lib/sessions'
 import { MUSCLE_COLORS } from '../data/defaultData'
@@ -169,6 +169,8 @@ export default function Home({ onStartSession, onNavigate, onEditSession }) {
         </div>
       </div>
 
+      <GeneralNotes value={data.generalNotes} onSave={notes => dispatch({ type: 'UPDATE_GENERAL_NOTES', notes })} />
+
       {/* Recent sessions */}
       {recentSessions.length > 0 && (
         <div className="px-4">
@@ -209,6 +211,49 @@ export default function Home({ onStartSession, onNavigate, onEditSession }) {
       {data.sessions?.length === 0 && (
         <div className="px-4 py-12 text-center">
           <p className="text-gray-600 text-sm">No sessions yet. Start your first workout above.</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/** Personal notes: one collapsed line on Home, tap to read or edit. */
+function GeneralNotes({ value, onSave }) {
+  const [open, setOpen] = useState(false)
+  const [editing, setEditing] = useState(false)
+  const [text, setText] = useState('')
+  const firstLine = (value || '').split('\n').find(l => l.trim()) || ''
+
+  const startEdit = () => { setText(value || ''); setEditing(true); setOpen(true) }
+  const save = () => { onSave(text); setEditing(false) }
+
+  return (
+    <div className="mx-4 mb-6 rounded-xl bg-gray-800/60 border border-gray-800">
+      <button onClick={() => value ? setOpen(o => !o) : startEdit()} className="w-full flex items-center gap-2 px-3 py-2.5 text-left">
+        <StickyNote size={14} className="text-gray-500 flex-shrink-0" />
+        <span className={`flex-1 min-w-0 text-xs truncate ${value ? 'text-gray-400' : 'text-gray-600'}`}>
+          {open ? 'My notes' : (firstLine || 'Add notes: general reminders, rules you follow…')}
+        </span>
+        {value && <ChevronDown size={14} className={`text-gray-600 transition-transform ${open ? 'rotate-180' : ''}`} />}
+      </button>
+      {open && (
+        <div className="px-3 pb-3">
+          {editing ? (
+            <>
+              <textarea autoFocus value={text} onChange={e => setText(e.target.value)} rows={6}
+                placeholder="e.g. 2 heavy sets, 1 light set"
+                className="w-full bg-gray-900 rounded-lg px-3 py-2 text-sm text-gray-200 placeholder-gray-600 outline-none resize-y border border-gray-700 focus:border-brand" />
+              <div className="flex justify-end gap-3 mt-2">
+                <button onClick={() => { setEditing(false); if (!value) setOpen(false) }} className="text-xs text-gray-500 px-2 py-1.5">Cancel</button>
+                <button onMouseDown={e => e.preventDefault()} onClick={save} className="flex items-center gap-1 text-xs font-semibold text-black bg-brand rounded-lg px-3 py-1.5"><Check size={13} /> Save</button>
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="text-sm text-gray-300 whitespace-pre-wrap">{value}</p>
+              <button onClick={startEdit} className="flex items-center gap-1 text-[11px] text-gray-500 mt-2"><Pencil size={11} /> Edit</button>
+            </>
+          )}
         </div>
       )}
     </div>
