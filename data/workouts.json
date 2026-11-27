@@ -705,6 +705,125 @@
       },
       "sessions": [
         {
+          "id": "1795782027248-w6ydu",
+          "date": "2026-11-27",
+          "dayId": "user_default_lower",
+          "dayName": "Lower",
+          "bodyWeight": null,
+          "exercises": [
+            {
+              "exerciseId": "rdl_dumbbell",
+              "sets": [
+                {
+                  "weight": 25,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 30,
+                  "reps": 5,
+                  "note": "reps"
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "bulgarian_split_squat",
+              "sets": [
+                {
+                  "weight": 12.5,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 12.5,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 12.5,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "leg_press_lying",
+              "sets": [
+                {
+                  "weight": 120,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 120,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 120,
+                  "reps": 9,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "calves",
+              "sets": [
+                {
+                  "weight": 70,
+                  "reps": 15,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 15,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 15,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "exerciseId": "abs_crunch_rope",
+              "sets": [
+                {
+                  "weight": 70,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 14,
+                  "note": ""
+                },
+                {
+                  "weight": 70,
+                  "reps": 14,
+                  "note": ""
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "notes": "",
+          "muscleGroups": [
+            "abs",
+            "legs"
+          ]
+        },
+        {
           "id": "1795695311895-8wb9r",
           "date": "2026-11-26",
           "dayId": "user_default_push",
