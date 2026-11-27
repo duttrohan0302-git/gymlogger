@@ -3,6 +3,7 @@ import { ChevronDown, ChevronUp, Trash2, Pencil } from 'lucide-react'
 import { useStore } from '../lib/store'
 import { sessionLabel, sessionGroups, exerciseMap } from '../lib/sessions'
 import { MUSCLE_COLORS } from '../data/defaultData'
+import MuscleGrid from './MuscleGrid'
 
 function formatDate(d) {
   if (!d) return ''
@@ -93,6 +94,9 @@ export default function History({ onEditSession }) {
   const exById = useMemo(() => exerciseMap(exercises), [exercises])
   const days = (data.splits?.find(s => s.isActive) || data.splits?.[0])?.days || []
 
+  const [view, setView] = useTabState('historyView', 'sessions')
+  const [group, setGroup] = useTabState('historyGroup', 'back')
+
   const deleteSession = (id) => {
     if (confirm('Delete this session?')) {
       dispatch({ type: 'DELETE_SESSION', id })
@@ -103,15 +107,26 @@ export default function History({ onEditSession }) {
     <div className="min-h-screen bg-gray-900 pb-24">
       <div className="px-4 pt-12 pb-4">
         <h1 className="text-2xl font-bold text-white mb-1">History</h1>
-        <p className="text-sm text-gray-500 mb-6">{sessions.length} sessions logged</p>
+        <p className="text-sm text-gray-500 mb-4">{sessions.length} sessions logged</p>
 
-        {sessions.length === 0 && (
+        <div className="flex bg-gray-800 rounded-xl p-1 mb-5">
+          {[['sessions', 'Sessions'], ['grid', 'By muscle']].map(([id, label]) => (
+            <button key={id} onClick={() => setView(id)}
+              className={`flex-1 py-2 rounded-lg text-sm font-semibold ${view === id ? 'bg-gray-700 text-white' : 'text-gray-500'}`}>
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {view === 'grid' && <MuscleGrid sessions={sessions} exercises={exercises} group={group} setGroup={setGroup} />}
+
+        {view === 'sessions' && sessions.length === 0 && (
           <div className="py-16 text-center">
             <p className="text-gray-600 text-sm">No sessions yet</p>
           </div>
         )}
 
-        {sessions.map(s => (
+        {view === 'sessions' && sessions.map(s => (
           <SessionCard
             key={s.id}
             session={s}
@@ -125,4 +140,13 @@ export default function History({ onEditSession }) {
       </div>
     </div>
   )
+}
+
+// Remember the chosen view while the app is open (e.g. after editing a session)
+function useTabState(key, initial) {
+  const [v, setV] = useState(() => {
+    try { return sessionStorage.getItem(key) || initial } catch { return initial }
+  })
+  const set = next => { setV(next); try { sessionStorage.setItem(key, next) } catch { /* ignore */ } }
+  return [v, set]
 }
