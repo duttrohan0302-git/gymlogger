@@ -2899,7 +2899,7 @@
                 }
               ],
               "note": "Single arm 25 each ",
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -3257,7 +3257,7 @@
                   "note": ""
                 }
               ],
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -3665,7 +3665,7 @@
                   "note": ""
                 }
               ],
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -3861,7 +3861,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Plate-loaded"
             },
             {
               "exerciseId": "custom_abdominal_1780137674095",
@@ -3935,7 +3936,7 @@
                   "note": ""
                 }
               ],
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -4622,7 +4623,7 @@
                 }
               ],
               "note": "",
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -4831,7 +4832,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Plate-loaded"
             },
             {
               "exerciseId": "cable_lateral_raise",
@@ -4940,7 +4942,7 @@
                   "note": ""
                 }
               ],
-              "variant": "Single arm horizontal"
+              "variant": "Horizontal"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -5163,7 +5165,7 @@
                 }
               ],
               "note": "",
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -5403,7 +5405,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Plate-loaded"
             }
           ],
           "notes": ""
@@ -5671,7 +5674,7 @@
                 }
               ],
               "note": "",
-              "variant": "Single arm horizontal"
+              "variant": "Horizontal"
             }
           ],
           "notes": ""
@@ -5884,7 +5887,7 @@
                   "note": ""
                 }
               ],
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -6158,7 +6161,7 @@
                   "note": ""
                 }
               ],
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -6459,7 +6462,7 @@
                   "note": ""
                 }
               ],
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -6820,7 +6823,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Plate-loaded"
             }
           ],
           "notes": ""
@@ -6885,7 +6889,7 @@
                 }
               ],
               "note": "",
-              "variant": "Single arm horizontal"
+              "variant": "Horizontal"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -7364,7 +7368,7 @@
                 }
               ],
               "note": "Vertical and single arm ",
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -8955,7 +8959,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Plate-loaded"
             },
             {
               "exerciseId": "custom_abdominal_1780137674095",
@@ -10733,7 +10738,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Plate-loaded"
             },
             {
               "exerciseId": "tricep_overhead_rope",
@@ -11073,7 +11079,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Plate-loaded"
             }
           ],
           "notes": ""
@@ -11557,7 +11564,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Plate-loaded"
             },
             {
               "exerciseId": "facepulls",
@@ -11843,7 +11851,8 @@
                   "reps": 4,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Plate-loaded"
             }
           ],
           "notes": ""
@@ -12078,7 +12087,7 @@
                 }
               ],
               "note": "",
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -13400,7 +13409,7 @@
                 }
               ],
               "note": "",
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             }
           ],
           "notes": ""
@@ -17379,7 +17388,7 @@
                 }
               ],
               "note": "",
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -26719,7 +26728,7 @@
                   "note": ""
                 }
               ],
-              "variant": "Single arm vertical"
+              "variant": "Vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -27836,7 +27845,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Plate-loaded"
             },
             {
               "exerciseId": "lateral_raise_db",
