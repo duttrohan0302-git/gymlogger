@@ -13,6 +13,8 @@ const LS_ACTIVE_USER = 'gymlogger_active_user'
 // Set while local changes exist that haven't reached GitHub yet. Survives reloads,
 // so an unsynced workout is never overwritten by the remote copy on next open.
 const LS_PENDING = 'gymlogger_pending'
+// The remote copy this phone last loaded or wrote: the common ancestor for merges
+const LS_BASE = 'gymlogger_base'
 
 function getLS(key) {
   try { return localStorage.getItem(key) } catch { return null }
@@ -95,38 +97,90 @@ function cleanSession(session) {
   return { ...session, exercises }
 }
 
+// Key-order-insensitive deep equality (JSON values only)
+function same(a, b) {
+  if (a === b) return true
+  if (a == null || b == null || typeof a !== 'object' || typeof b !== 'object') return a == b && a == null
+  if (Array.isArray(a) !== Array.isArray(b)) return false
+  if (Array.isArray(a)) return a.length === b.length && a.every((x, i) => same(x, b[i]))
+  const ka = Object.keys(a).filter(k => a[k] !== undefined), kb = Object.keys(b).filter(k => b[k] !== undefined)
+  return ka.length === kb.length && ka.every(k => same(a[k], b[k]))
+}
+
 /**
- * Merge a remote copy into local data. Local wins for anything both sides have;
- * remote contributes sessions/users/exercises local doesn't know about. Deleted
- * session ids (tombstones) from either side stay deleted.
+ * Three-way pick. `base` is the remote copy this phone last saw. A side that
+ * didn't change since then gives way to the side that did; if both changed,
+ * `preferLocal` decides. Without a base we fall back to preferLocal.
  */
-export function mergeData(local, remote, activeUserId) {
+function pick3(baseV, localV, remoteV, hasBase, preferLocal) {
+  if (same(localV, remoteV)) return localV
+  if (hasBase) {
+    if (same(localV, baseV)) return remoteV
+    if (same(remoteV, baseV)) return localV
+  }
+  return preferLocal ? localV : remoteV
+}
+
+/** Merge two lists of records by id, item by item, three-way. */
+function mergeById(baseList, localList, remoteList, hasBase, preferLocal, mergeItem) {
+  const byId = list => new Map((list || []).map(x => [x.id, x]))
+  const B = byId(baseList), L = byId(localList), R = byId(remoteList)
+  const out = []
+  for (const [id, l] of L) {
+    const r = R.get(id), b = B.get(id)
+    if (r === undefined) {
+      // Missing remotely: removed there (keep removed unless we changed it) or new here
+      if (hasBase && b !== undefined && same(l, b)) continue
+      out.push(l)
+    } else {
+      out.push(mergeItem ? mergeItem(b, l, r) : pick3(b, l, r, hasBase && b !== undefined, preferLocal))
+    }
+  }
+  for (const [id, r] of R) {
+    if (L.has(id)) continue
+    // Missing locally: deleted here (drop unless remote changed it) or new remotely
+    const b = B.get(id)
+    if (hasBase && b !== undefined && same(r, b)) continue
+    out.push(r)
+  }
+  return out
+}
+
+/**
+ * Merge a remote copy into local data.
+ * With `base` (the remote copy this phone last loaded or wrote) it's a real
+ * three-way merge: only what this phone actually changed overrides the remote,
+ * so edits made elsewhere (another phone, or directly in the repo) survive a
+ * stale app that was left open. Without a base: this phone wins for the active
+ * user, the remote wins for everyone else. Tombstoned sessions stay deleted.
+ */
+export function mergeData(local, remote, activeUserId, base = null) {
   if (!remote) return local
   remote = migrate(remote)
-  const localExIds = new Set((local.exercises || []).map(e => e.id))
-  const exercises = [...(local.exercises || []), ...(remote.exercises || []).filter(e => !localExIds.has(e.id))]
+  base = base ? migrate(base) : null
+  const hasBase = !!base
 
-  const remoteUsers = remote.users || []
-  const users = (local.users || []).map(lu => {
-    const ru = remoteUsers.find(u => u.id === lu.id)
-    if (!ru) return lu
-    // The user on this phone wins for their own data; for everyone else
-    // (e.g. a partner logging on their own phone) the remote copy is newer.
+  const exercises = mergeById(base?.exercises, local.exercises, remote.exercises, hasBase, true)
+
+  const users = mergeById(base?.users, local.users, remote.users, hasBase, true, (bu, lu, ru) => {
+    // The user on this phone wins conflicts for their own data; for everyone else
+    // (e.g. a partner logging on their own phone) the remote copy wins.
     const mine = lu.id === activeUserId
-    const [win, lose] = mine ? [lu, ru] : [ru, lu]
+    const hb = hasBase && !!bu
+    bu = bu || {}
     const deleted = new Set([...(lu.deletedSessionIds || []), ...(ru.deletedSessionIds || [])])
-    const winIds = new Set((win.sessions || []).map(s => s.id))
-    const sessions = sortSessions([
-      ...(win.sessions || []),
-      ...(lose.sessions || []).filter(s => !winIds.has(s.id)),
-    ].filter(s => !deleted.has(s.id)))
+    const sessions = sortSessions(
+      mergeById(bu.sessions, lu.sessions, ru.sessions, hb, mine).filter(s => !deleted.has(s.id))
+    )
     const bwKey = e => `${e.date}|${e.weight}`
     const localBw = new Set((lu.bodyWeightLog || []).map(bwKey))
     const bodyWeightLog = [...(lu.bodyWeightLog || []), ...(ru.bodyWeightLog || []).filter(e => !localBw.has(bwKey(e)))]
-    return { ...lose, ...win, sessions, bodyWeightLog, deletedSessionIds: [...deleted] }
+    const out = {}
+    for (const k of new Set([...Object.keys(lu), ...Object.keys(ru)])) {
+      out[k] = pick3(bu[k], lu[k], ru[k], hb, mine)
+    }
+    return { ...out, sessions, bodyWeightLog, deletedSessionIds: [...deleted] }
   })
-  const localUserIds = new Set(users.map(u => u.id))
-  for (const ru of remoteUsers) if (!localUserIds.has(ru.id)) users.push(ru)
 
   return { ...local, exercises, users }
 }
@@ -153,7 +207,7 @@ function reducer(state, action) {
       return { ...state, fullData, data, activeUserId: user?.id || null, loading: false, error: null }
     }
     case 'MERGE_REMOTE': {
-      const fullData = mergeData(state.fullData, action.data, state.activeUserId)
+      const fullData = mergeData(state.fullData, action.data, state.activeUserId, action.base)
       return { ...state, ...withUserView(state, fullData) }
     }
     case 'SET_LOADING':
@@ -301,6 +355,7 @@ const SEED_URL = `${import.meta.env.BASE_URL}data/workouts.json`
       removeLS(LS_DATA)
       removeLS(LS_SHA)
       removeLS(LS_PENDING)
+      removeLS(LS_BASE)
       removeLS(LS_ACTIVE_USER)
     }
     window.history.replaceState({}, '', window.location.pathname)
@@ -336,6 +391,11 @@ export function StoreProvider({ children }) {
   const stateRef = useRef(state)
   stateRef.current = state
   const shaRef = useRef(getLS(LS_SHA))
+  const baseRef = useRef((() => { try { return JSON.parse(getLS(LS_BASE)) } catch { return null } })())
+  const setBase = content => {
+    baseRef.current = content
+    if (content) setLS(LS_BASE, JSON.stringify(content)); else removeLS(LS_BASE)
+  }
   const syncingRef = useRef(false)
   const syncedRevRef = useRef(0)
   // Writes wait for the startup read, so a slow read can't clobber a newer write
@@ -368,6 +428,7 @@ export function StoreProvider({ children }) {
         let sha
         try {
           sha = await writeFile(token, repo, DATA_PATH, fullData, shaRef.current, message)
+          setBase(fullData)
         } catch (err) {
           if (!isConflict(err)) throw err
           // Someone else (another device / user) wrote first: merge and retry.
@@ -375,10 +436,12 @@ export function StoreProvider({ children }) {
           const force = stateRef.current.forceReplace
           for (let attempt = 1; ; attempt++) {
             const remote = await readFile(token, repo, DATA_PATH)
-            const toWrite = force ? fullData : mergeData(fullData, remote?.content, stateRef.current.activeUserId)
+            const base = baseRef.current
+            const toWrite = force ? fullData : mergeData(fullData, remote?.content, stateRef.current.activeUserId, base)
             try {
               sha = await writeFile(token, repo, DATA_PATH, toWrite, remote?.sha, message)
-              if (!force) dispatch({ type: 'MERGE_REMOTE', data: remote?.content })
+              if (!force) dispatch({ type: 'MERGE_REMOTE', data: remote?.content, base })
+              setBase(toWrite)
               break
             } catch (e) {
               if (!isConflict(e) || attempt >= 3) throw e
@@ -414,10 +477,12 @@ export function StoreProvider({ children }) {
           setLS(LS_SHA, result.sha)
           // Never clobber local changes that haven't been pushed — merge instead.
           if (hasPending()) {
-            dispatch({ type: 'MERGE_REMOTE', data: result.content })
+            dispatch({ type: 'MERGE_REMOTE', data: result.content, base: baseRef.current })
+            setBase(result.content)
             sync()
           } else {
             dispatch({ type: 'LOADED', data: result.content, activeUserId })
+            setBase(result.content)
           }
         })
         .catch(err => {
@@ -444,10 +509,37 @@ export function StoreProvider({ children }) {
     if (state.rev > state.syncedRev) sync()
   }, [state.rev, state.syncedRev, sync])
 
+  // When the app comes back to the foreground (a home-screen app can sit in memory
+  // for days), pull what changed on GitHub meanwhile so we never work on a stale copy.
+  const refreshingRef = useRef(false)
+  const refresh = useCallback(async () => {
+    const { token, repo } = stateRef.current
+    if (!token || !repo || !readyRef.current || syncingRef.current || refreshingRef.current) return
+    refreshingRef.current = true
+    try {
+      const result = await readFile(token, repo, DATA_PATH)
+      if (!result || result.sha === shaRef.current || syncingRef.current) return
+      shaRef.current = result.sha
+      setLS(LS_SHA, result.sha)
+      if (stateRef.current.rev > syncedRevRef.current) {
+        dispatch({ type: 'MERGE_REMOTE', data: result.content, base: baseRef.current })
+        setBase(result.content)
+        sync()
+      } else {
+        dispatch({ type: 'LOADED', data: result.content, activeUserId: stateRef.current.activeUserId })
+        setBase(result.content)
+      }
+    } catch { /* offline: keep working locally */ } finally {
+      refreshingRef.current = false
+    }
+  }, [sync])
+
   // Retry unsynced changes when the connection comes back or the app is reopened.
   useEffect(() => {
     const retry = () => {
-      if (document.visibilityState === 'visible' && stateRef.current.rev > syncedRevRef.current) sync()
+      if (document.visibilityState !== 'visible') return
+      if (stateRef.current.rev > syncedRevRef.current) sync()
+      else refresh()
     }
     window.addEventListener('online', retry)
     document.addEventListener('visibilitychange', retry)
@@ -455,7 +547,7 @@ export function StoreProvider({ children }) {
       window.removeEventListener('online', retry)
       document.removeEventListener('visibilitychange', retry)
     }
-  }, [sync])
+  }, [sync, refresh])
 
   const setConfig = useCallback((token, repo) => {
     const sameRepo = getLS(LS_REPO) === repo
@@ -466,6 +558,8 @@ export function StoreProvider({ children }) {
       removeLS(LS_DATA)
       removeLS(LS_SHA)
       removeLS(LS_PENDING)
+      removeLS(LS_BASE)
+      baseRef.current = null
     }
   }, [])
 
