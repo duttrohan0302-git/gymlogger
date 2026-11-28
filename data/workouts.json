@@ -13,7 +13,7 @@
       "name": "Lat Pull Down",
       "muscleGroup": "back",
       "movementGroupId": "lat_pull",
-      "notes": ""
+      "notes": "Lats, not traps/mid-back: pull elbows down (not back), don't lean back, drive the bar down not to the chest. No wide handle. Pulley seems 1:1"
     },
     {
       "id": "back_extension",
@@ -34,7 +34,7 @@
       "name": "Diverging Seated Row",
       "muscleGroup": "back",
       "movementGroupId": "row",
-      "notes": ""
+      "notes": "Pulley seems to halve the load (45 on stack ≈ 22.5 kg)"
     },
     {
       "id": "low_rows_v_bar",
@@ -125,7 +125,7 @@
       "name": "Rear Delt Machine",
       "muscleGroup": "shoulders",
       "movementGroupId": "rear_delt",
-      "notes": ""
+      "notes": "Lean forward. Hard to keep form, still do it"
     },
     {
       "id": "machine_shoulder_press",
@@ -195,7 +195,7 @@
       "name": "Bench Press",
       "muscleGroup": "chest",
       "movementGroupId": "press",
-      "notes": ""
+      "notes": "Narrow grip may be limiting range near the chest; try wider"
     },
     {
       "id": "dumbbell_press",
@@ -251,7 +251,7 @@
       "name": "Tricep Single Arm Extension",
       "muscleGroup": "triceps",
       "movementGroupId": "tricep_pushdown",
-      "notes": ""
+      "notes": "Do without straps"
     },
     {
       "id": "weighted_dips",
@@ -328,7 +328,7 @@
       "name": "Leg Curl",
       "muscleGroup": "legs",
       "movementGroupId": null,
-      "notes": ""
+      "notes": "Pins: 3rd in small loop, 2nd in big loop"
     },
     {
       "id": "leg_extension",
@@ -363,7 +363,7 @@
       "name": "RDL Barbell",
       "muscleGroup": "legs",
       "movementGroupId": null,
-      "notes": "Total weight including bar"
+      "notes": "Total weight including bar. Brace abs, don't arch back, squeeze glutes coming up. Mind right wrist"
     },
     {
       "id": "custom_chair_feet_elevated_glute_bridge_1778514048250",
@@ -405,7 +405,7 @@
       "name": "Leg curl (lying)",
       "muscleGroup": "legs",
       "movementGroupId": null,
-      "notes": "Hits hamstring very well"
+      "notes": "Hits hamstrings very well. Pins: 1 big, 3 small"
     },
     {
       "id": "custom_abdominal_1780137674095",
@@ -419,7 +419,7 @@
       "name": "Hip thrust machine",
       "muscleGroup": "legs",
       "movementGroupId": null,
-      "notes": ""
+      "notes": "Starting resistance 22.7 kg (free weight)"
     },
     {
       "id": "custom_t_bar_row_1786528893508",
@@ -454,7 +454,7 @@
       "name": "Triceps single arm kickback",
       "muscleGroup": "triceps",
       "movementGroupId": null,
-      "notes": ""
+      "notes": "Hits well"
     }
   ],
   "movementGroups": [
@@ -594,8 +594,6 @@
   ],
   "users": [
     {
-      "id": "user_default",
-      "name": "Rohan",
       "splits": [
         {
           "id": "user_default_split_1778505437812",
@@ -694,15 +692,8 @@
           ]
         }
       ],
-      "muscleGroupNotes": {
-        "back": "",
-        "biceps": "",
-        "shoulders": "",
-        "abs": "",
-        "chest": "",
-        "triceps": "",
-        "legs": ""
-      },
+      "name": "Rohan",
+      "generalNotes": "2 heavy sets, 1 light set",
       "sessions": [
         {
           "id": "1795782027248-w6ydu",
@@ -793,7 +784,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -1402,7 +1394,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "MAG"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -1422,7 +1415,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "rear_delt_dual_cable",
@@ -1516,7 +1510,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -1651,7 +1646,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "lateral_raise_db",
@@ -1830,7 +1826,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "MAG"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -1873,7 +1870,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight curl"
             },
             {
               "exerciseId": "rear_delt_dual_cable",
@@ -1926,7 +1924,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -2198,7 +2197,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "custom_rdl_barbell_1777542610999",
@@ -2399,7 +2399,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "MAG"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -2415,7 +2416,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -2489,7 +2491,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "lateral_raise_db",
@@ -2604,7 +2607,8 @@
                   "reps": 15,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "hack_squat",
@@ -2868,11 +2872,12 @@
                 },
                 {
                   "weight": 55,
-                  "reps": 18,
+                  "reps": 8,
                   "note": ""
                 }
               ],
-              "note": "Coolest handle "
+              "note": "Coolest handle ",
+              "variant": "MAG"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -2908,7 +2913,8 @@
                   "reps": 16,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -2982,7 +2988,8 @@
                   "reps": 5,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "inclined_db_press",
@@ -3024,7 +3031,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -3203,7 +3211,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight bar"
             }
           ],
           "notes": ""
@@ -3230,7 +3239,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -3245,7 +3255,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -3260,7 +3271,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -3301,7 +3313,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight curl"
             },
             {
               "exerciseId": "rear_delt_dual_cable",
@@ -3354,7 +3367,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "hack_squat",
@@ -3510,7 +3524,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -3597,6 +3612,121 @@
             }
           ],
           "notes": ""
+        },
+        {
+          "id": "1792935000000-eu2dp",
+          "date": "2026-10-25",
+          "muscleGroups": [
+            "back",
+            "biceps",
+            "shoulders"
+          ],
+          "bodyWeight": null,
+          "notes": "",
+          "exercises": [
+            {
+              "exerciseId": "lat_pulldown",
+              "sets": [
+                {
+                  "weight": 73,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 73,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 66,
+                  "reps": 8,
+                  "note": ""
+                }
+              ],
+              "variant": "Semi-wide"
+            },
+            {
+              "exerciseId": "diverging_seated_row",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                }
+              ],
+              "variant": "Single arm vertical"
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "cable_unilateral_curl",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 6,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "preacher_curl",
+              "sets": [
+                {
+                  "weight": 14,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 12,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 10,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "1792600710383-4vfyg",
@@ -3687,7 +3817,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -3781,7 +3912,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -3801,7 +3933,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -3821,7 +3954,8 @@
                   "reps": 16,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -3883,7 +4017,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight curl"
             }
           ],
           "notes": ""
@@ -4052,7 +4187,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -4094,7 +4230,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -4188,7 +4325,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             },
             {
               "exerciseId": "leg_press_sitting",
@@ -4365,7 +4503,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "cable_lateral_raise",
@@ -4459,7 +4598,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -4528,7 +4668,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -4570,7 +4711,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight curl"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -4671,7 +4813,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             },
             {
               "exerciseId": "machine_shoulder_press",
@@ -4795,7 +4938,8 @@
                   "reps": 11,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Single arm horizontal"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -4859,7 +5003,8 @@
                   "reps": 15,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "custom_leg_curl_lying__1779273848725",
@@ -4994,7 +5139,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -5105,7 +5251,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight curl"
             }
           ],
           "notes": ""
@@ -5216,7 +5363,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_overhead_rope",
@@ -5232,7 +5380,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             },
             {
               "exerciseId": "machine_shoulder_press",
@@ -5285,7 +5434,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "bulgarian_split_squat",
@@ -5439,7 +5589,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "pec_fly_machine",
@@ -5518,7 +5669,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Single arm horizontal"
             }
           ],
           "notes": ""
@@ -5550,7 +5702,8 @@
                   "reps": 16,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -5708,7 +5861,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -5728,7 +5882,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -5790,7 +5945,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight curl"
             },
             {
               "exerciseId": "facepulls",
@@ -5844,7 +6000,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "weighted_dips",
@@ -5978,7 +6135,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -5998,7 +6156,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "back_extension",
@@ -6130,7 +6289,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "weighted_dips",
@@ -6230,6 +6390,21 @@
                 }
               ],
               "note": "No handle, just with the ball"
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 59,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -6261,7 +6436,8 @@
                   "reps": 11,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -6281,7 +6457,8 @@
                   "reps": 17,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -6301,7 +6478,8 @@
                   "reps": 18,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -6343,7 +6521,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight curl"
             },
             {
               "exerciseId": "back_extension",
@@ -6546,11 +6725,6 @@
                   "weight": 9,
                   "reps": 9,
                   "note": ""
-                },
-                {
-                  "weight": 6.8,
-                  "reps": 12,
-                  "note": ""
                 }
               ]
             },
@@ -6567,7 +6741,8 @@
                   "reps": 13,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "weighted_dips",
@@ -6671,7 +6846,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -6729,7 +6905,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "cable_unilateral_curl",
@@ -6762,6 +6939,16 @@
                 }
               ],
               "note": ""
+            },
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 6.8,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -6901,6 +7088,26 @@
                 }
               ],
               "note": ""
+            },
+            {
+              "exerciseId": "custom_abdominal_1780137674095",
+              "sets": [
+                {
+                  "weight": 41,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 41,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 41,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -6953,7 +7160,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "weighted_dips",
@@ -7132,7 +7340,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight curl"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -7211,6 +7420,21 @@
                   "note": ""
                 }
               ]
+            },
+            {
+              "exerciseId": "rotary_torso",
+              "sets": [
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 15,
+                  "reps": 12,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -7263,7 +7487,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "bench_press",
@@ -7471,6 +7696,140 @@
           "notes": ""
         },
         {
+          "id": "1788701400000-quejp",
+          "date": "2026-09-06",
+          "muscleGroups": [
+            "chest",
+            "shoulders",
+            "triceps"
+          ],
+          "bodyWeight": null,
+          "notes": "",
+          "exercises": [
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "custom_military_press_1777469843395",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 5,
+                  "note": ""
+                },
+                {
+                  "weight": 45,
+                  "reps": 3,
+                  "note": ""
+                },
+                {
+                  "weight": 40,
+                  "reps": 5,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "dumbbell_press",
+              "sets": [
+                {
+                  "weight": 24,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 6,
+                  "note": ""
+                },
+                {
+                  "weight": 24,
+                  "reps": 3,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "cable_fly",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "tricep_overhead_rope",
+              "sets": [
+                {
+                  "weight": 15.8,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 15.8,
+                  "reps": 7,
+                  "note": ""
+                }
+              ],
+              "variant": "Rope"
+            },
+            {
+              "exerciseId": "tricep_single_arm_ext",
+              "sets": [
+                {
+                  "weight": 9,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 10,
+                  "note": ""
+                },
+                {
+                  "weight": 9,
+                  "reps": 10,
+                  "note": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
           "id": "1788609490071-fw410",
           "date": "2026-09-05",
           "muscleGroups": [
@@ -7497,7 +7856,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -7537,7 +7897,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "cable_unilateral_curl",
@@ -7768,7 +8129,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -7872,7 +8234,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight bar"
             }
           ],
           "notes": ""
@@ -7926,7 +8289,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Vertical grip"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -7966,7 +8330,8 @@
                   "reps": 16,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "back_extension",
@@ -8077,7 +8442,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -8212,7 +8578,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "custom_t_bar_row_1786528893508",
@@ -8274,7 +8641,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "cable_unilateral_curl",
@@ -8364,7 +8732,8 @@
                   "reps": 16,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             },
             {
               "exerciseId": "leg_press_sitting",
@@ -8501,7 +8870,8 @@
                   "reps": 5,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "inclined_db_press",
@@ -8700,7 +9070,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -8816,7 +9187,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -8857,7 +9229,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "inclined_db_press",
@@ -8910,7 +9283,8 @@
                   "reps": 16,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -9031,7 +9405,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Stack machine"
             }
           ],
           "notes": ""
@@ -9185,7 +9560,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             }
           ],
           "notes": ""
@@ -9258,7 +9634,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -9374,7 +9751,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "custom_t_bar_row_1786528893508",
@@ -9395,7 +9773,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Horizontal grip"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -9532,7 +9911,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -9803,7 +10183,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_overhead_rope",
@@ -9824,7 +10205,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             },
             {
               "exerciseId": "shoulder_press_db",
@@ -9898,7 +10280,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -9940,7 +10323,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "chest_supported_row",
@@ -10003,7 +10387,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             }
           ],
           "notes": ""
@@ -10173,7 +10558,8 @@
                   "reps": 10,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "facepulls",
@@ -10367,7 +10753,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -10388,7 +10775,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "cable_fly",
@@ -10462,7 +10850,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -10525,7 +10914,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -10546,7 +10936,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             }
           ],
           "notes": ""
@@ -11003,7 +11394,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "chest_supported_row",
@@ -11045,7 +11437,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -11087,7 +11480,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -11246,7 +11640,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_overhead_rope",
@@ -11267,7 +11662,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             }
           ],
           "notes": ""
@@ -11427,6 +11823,26 @@
                 }
               ],
               "note": ""
+            },
+            {
+              "exerciseId": "diverging_lat_pulldown",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "exerciseId": "machine_shoulder_press",
+              "sets": [
+                {
+                  "weight": 40,
+                  "reps": 4,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -11458,7 +11874,8 @@
                   "reps": 16,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -11637,7 +12054,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -11679,7 +12097,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "back_extension",
@@ -11763,7 +12182,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -11859,7 +12279,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             },
             {
               "exerciseId": "inclined_db_press",
@@ -12100,7 +12521,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "low_rows_v_bar",
@@ -12435,7 +12857,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -12477,7 +12900,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "chest_supported_row",
@@ -12595,7 +13019,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "weighted_dips",
@@ -12693,7 +13118,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "low_rows_v_bar",
@@ -12794,7 +13220,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             },
             {
               "exerciseId": "dumbbell_press",
@@ -12847,7 +13274,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "cross_body_hammer_curl",
@@ -12868,7 +13296,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "back_extension",
@@ -13065,7 +13494,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             },
             {
               "exerciseId": "pec_fly_machine",
@@ -13129,6 +13559,21 @@
                 }
               ],
               "note": ""
+            },
+            {
+              "exerciseId": "dumbbell_press",
+              "sets": [
+                {
+                  "weight": 22,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 22,
+                  "reps": 7,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -13302,7 +13747,8 @@
                   "reps": 10,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "low_rows_v_bar",
@@ -13636,7 +14082,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "cross_body_hammer_curl",
@@ -13657,7 +14104,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -13793,7 +14241,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "pec_fly_machine",
@@ -14051,7 +14500,8 @@
                   "note": ""
                 }
               ],
-              "note": "Slowed, retracted chest"
+              "note": "Slowed, retracted chest",
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "low_rows_v_bar",
@@ -14152,7 +14602,8 @@
                   "reps": 10,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "bench_press",
@@ -14404,7 +14855,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "chest_supported_row",
@@ -14488,7 +14940,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "back_extension",
@@ -14525,7 +14978,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             }
           ],
           "notes": ""
@@ -14598,7 +15052,8 @@
                   "reps": 5,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "pec_fly_machine",
@@ -14898,7 +15353,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "low_rows_v_bar",
@@ -14998,7 +15454,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "bench_press",
@@ -15071,7 +15528,8 @@
                   "reps": 18,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "hanging_leg_raises",
@@ -15218,7 +15676,8 @@
                   "note": ""
                 }
               ],
-              "note": "Trying a new exercise "
+              "note": "Trying a new exercise ",
+              "variant": "Stack machine"
             }
           ],
           "notes": ""
@@ -15250,7 +15709,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -15292,7 +15752,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "chest_supported_row",
@@ -15355,7 +15816,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -15377,6 +15839,21 @@
                 }
               ],
               "note": "Slow controlled reps"
+            },
+            {
+              "exerciseId": "cable_lateral_raise",
+              "sets": [
+                {
+                  "weight": 5.6,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 5.6,
+                  "reps": 8,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -15429,7 +15906,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "dumbbell_press",
@@ -15546,7 +16024,8 @@
                   "reps": 16,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -15726,7 +16205,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "low_rows_v_bar",
@@ -15826,7 +16306,8 @@
                   "reps": 10,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "bench_press",
@@ -15878,7 +16359,8 @@
                   "reps": 17,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -16054,7 +16536,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "chest_supported_row",
@@ -16159,7 +16642,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -16213,7 +16697,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "custom_military_press_1777469843395",
@@ -16329,7 +16814,8 @@
                   "reps": 16,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -16510,7 +16996,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "low_rows_v_bar",
@@ -16612,7 +17099,8 @@
                   "note": ""
                 }
               ],
-              "note": "Set rope low at no. 7 "
+              "note": "Set rope low at no. 7 ",
+              "variant": "Rope"
             },
             {
               "exerciseId": "bench_press",
@@ -16865,7 +17353,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "diverging_seated_row",
@@ -16928,7 +17417,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -17012,7 +17502,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Dumbbell"
             }
           ],
           "notes": ""
@@ -17086,7 +17577,8 @@
                   "note": ""
                 }
               ],
-              "note": "Last exercise of the day "
+              "note": "Last exercise of the day ",
+              "variant": "Rope"
             },
             {
               "exerciseId": "pec_fly_machine",
@@ -17149,7 +17641,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Straight bar"
             }
           ],
           "notes": ""
@@ -17365,7 +17858,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "low_rows_v_bar",
@@ -17491,7 +17985,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Rope"
             }
           ],
           "notes": ""
@@ -17625,7 +18120,8 @@
                   "reps": 18,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "abs_crunch_rope",
@@ -17697,7 +18193,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -17757,7 +18254,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Cross body"
             },
             {
               "exerciseId": "lat_pulldown",
@@ -17777,7 +18275,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "chest_supported_row",
@@ -17935,6 +18434,26 @@
                 }
               ],
               "note": "Always with wrist cuffs from now on"
+            },
+            {
+              "exerciseId": "rear_delt_machine",
+              "sets": [
+                {
+                  "weight": 39,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 11,
+                  "note": ""
+                },
+                {
+                  "weight": 39,
+                  "reps": 11,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -17988,7 +18507,8 @@
                   "note": ""
                 }
               ],
-              "note": "Second after dips "
+              "note": "Second after dips ",
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -18008,7 +18528,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "weighted_dips",
@@ -18266,7 +18787,8 @@
                   "note": ""
                 }
               ],
-              "note": "Slow, Last 6 reps of last set were crazy burning"
+              "note": "Slow, Last 6 reps of last set were crazy burning",
+              "variant": "Smith"
             },
             {
               "exerciseId": "hip_abductor",
@@ -18307,6 +18829,26 @@
                   "note": ""
                 }
               ]
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 52,
+                  "reps": 7,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 8,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -18334,7 +18876,8 @@
                   "note": ""
                 }
               ],
-              "note": "Only 2 sets, calluses hurting "
+              "note": "Only 2 sets, calluses hurting ",
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -18397,7 +18940,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Cross body"
             },
             {
               "exerciseId": "lat_pulldown",
@@ -18418,7 +18962,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "chest_supported_row",
@@ -18667,7 +19212,8 @@
                   "reps": 10,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -18687,7 +19233,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "weighted_dips",
@@ -18967,6 +19514,26 @@
                 }
               ],
               "note": ""
+            },
+            {
+              "exerciseId": "leg_curl",
+              "sets": [
+                {
+                  "weight": 45,
+                  "reps": 12,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                },
+                {
+                  "weight": 52,
+                  "reps": 9,
+                  "note": ""
+                }
+              ]
             }
           ],
           "notes": ""
@@ -19158,7 +19725,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "back_extension",
@@ -19208,7 +19776,8 @@
                   "reps": null,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -19273,7 +19842,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -19305,7 +19875,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             }
           ],
           "notes": ""
@@ -19343,21 +19914,25 @@
               "exerciseId": "pec_fly_machine",
               "sets": [
                 {
-                  "weight": 27,
+                  "weight": 45.5,
                   "reps": 10,
-                  "note": "slow - other pec fly machine"
+                  "note": "slow - other pec fly machine",
+                  "origWeight": 27
                 },
                 {
-                  "weight": 27,
+                  "weight": 45.5,
                   "reps": 12,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 27
                 },
                 {
-                  "weight": 32,
+                  "weight": 54.0,
                   "reps": 11,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 32
                 }
-              ]
+              ],
+              "note": "[normalised ×1.69: other pec fly machine]"
             },
             {
               "exerciseId": "dumbbell_press",
@@ -19417,7 +19992,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -19437,7 +20013,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "weighted_dips",
@@ -19628,7 +20205,8 @@
                   "reps": 18,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             }
           ],
           "notes": ""
@@ -19827,7 +20405,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "back_extension",
@@ -19947,7 +20526,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -20059,7 +20639,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -20079,7 +20660,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -20285,7 +20867,8 @@
                   "reps": 15,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             },
             {
               "exerciseId": "hip_abductor",
@@ -20357,7 +20940,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "back_extension",
@@ -20417,7 +21001,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -20477,7 +21062,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -20736,7 +21322,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -20756,7 +21343,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -20927,7 +21515,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "hip_abductor",
@@ -21171,7 +21760,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -21191,7 +21781,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -21283,7 +21874,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "back_extension",
@@ -21323,7 +21915,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -21383,7 +21976,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -21509,7 +22103,8 @@
                   "reps": 17,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             }
           ],
           "notes": ""
@@ -21753,7 +22348,8 @@
                   "reps": 4,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -21773,7 +22369,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "weighted_dips",
@@ -21845,7 +22442,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "back_extension",
@@ -21905,7 +22503,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -21965,7 +22564,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -22229,7 +22829,8 @@
                   "reps": 5,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -22249,7 +22850,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "weighted_dips",
@@ -22400,7 +23002,8 @@
                   "reps": 17,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             },
             {
               "exerciseId": "hip_abductor",
@@ -22472,7 +23075,8 @@
                   "reps": 5,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Pull-ups (BW)"
             },
             {
               "exerciseId": "back_extension",
@@ -22532,7 +23136,8 @@
                   "reps": null,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -22831,7 +23436,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -22851,7 +23457,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "weighted_dips",
@@ -23002,7 +23609,8 @@
                   "reps": 15,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             },
             {
               "exerciseId": "hip_abductor",
@@ -23074,7 +23682,8 @@
                   "reps": 4,
                   "note": "arm wide & fully extended"
                 }
-              ]
+              ],
+              "variant": "Pull-ups (BW)"
             },
             {
               "exerciseId": "back_extension",
@@ -23134,7 +23743,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -23468,7 +24078,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -23634,7 +24245,8 @@
                   "reps": 14,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "hip_abductor",
@@ -23706,7 +24318,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "back_extension",
@@ -23766,7 +24379,8 @@
                   "reps": 10,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -23926,7 +24540,7 @@
               ]
             },
             {
-              "exerciseId": "abs_crunch_rope",
+              "exerciseId": "custom_abdominal_1780137674095",
               "sets": [
                 {
                   "weight": 41,
@@ -24100,7 +24714,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -24251,7 +24866,8 @@
                   "reps": 18,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "hip_abductor",
@@ -24318,7 +24934,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "back_extension",
@@ -24378,7 +24995,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -24647,7 +25265,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -24667,7 +25286,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -24823,7 +25443,8 @@
                   "reps": 10,
                   "note": "standing"
                 }
-              ]
+              ],
+              "variant": "Standing"
             }
           ],
           "notes": ""
@@ -24875,7 +25496,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -25204,7 +25826,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -25355,7 +25978,8 @@
                   "reps": 10,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             },
             {
               "exerciseId": "hip_abductor",
@@ -25407,7 +26031,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "facepulls",
@@ -25487,7 +26112,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -25547,7 +26173,8 @@
                   "reps": 8,
                   "note": "barely"
                 }
-              ]
+              ],
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -25821,7 +26448,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -25841,7 +26469,8 @@
                   "reps": 6,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -25992,7 +26621,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Smith"
             },
             {
               "exerciseId": "hip_abductor",
@@ -26104,7 +26734,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Dumbbell"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -26164,7 +26795,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -26307,7 +26939,8 @@
                   "reps": 7,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -26327,7 +26960,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -26453,7 +27087,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Standing"
             }
           ],
           "notes": ""
@@ -26505,7 +27140,8 @@
                   "reps": 8,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "facepulls",
@@ -26585,7 +27221,8 @@
                   "reps": 5,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Cross body"
             }
           ],
           "notes": ""
@@ -26835,7 +27472,8 @@
                   "reps": 10,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "rear_delt_machine",
@@ -26956,7 +27594,8 @@
                   "reps": 9,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -27093,7 +27732,8 @@
                   "reps": 6,
                   "note": "difficult"
                 }
-              ]
+              ],
+              "variant": "Rope"
             },
             {
               "exerciseId": "tricep_straight_bar",
@@ -27113,7 +27753,8 @@
                   "reps": 11,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Straight bar"
             },
             {
               "exerciseId": "tricep_single_arm_ext",
@@ -27236,41 +27877,49 @@
               "exerciseId": "abs_crunch_rope",
               "sets": [
                 {
-                  "weight": 45,
+                  "weight": 23.5,
                   "reps": 16,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 45
                 },
                 {
-                  "weight": 50,
+                  "weight": 26.0,
                   "reps": 16,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 50
                 },
                 {
-                  "weight": 50,
+                  "weight": 26.0,
                   "reps": 16,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 50
                 }
-              ]
+              ],
+              "note": "[normalised ×0.52: old gym]"
             },
             {
               "exerciseId": "rotary_torso",
               "sets": [
                 {
-                  "weight": 18,
+                  "weight": 7.5,
                   "reps": 12,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 18
                 },
                 {
-                  "weight": 23,
+                  "weight": 9.5,
                   "reps": 12,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 23
                 },
                 {
-                  "weight": null,
-                  "reps": 27,
-                  "note": ""
+                  "weight": 11.5,
+                  "reps": 12,
+                  "note": "",
+                  "origWeight": 27
                 }
-              ]
+              ],
+              "note": "[normalised ×0.42: old gym]"
             },
             {
               "exerciseId": "hanging_leg_raises",
@@ -27337,7 +27986,8 @@
                   "reps": 5,
                   "note": "difficult"
                 }
-              ]
+              ],
+              "variant": "Semi-wide"
             },
             {
               "exerciseId": "facepulls",
@@ -27383,21 +28033,25 @@
               "exerciseId": "cable_unilateral_curl",
               "sets": [
                 {
-                  "weight": 14,
+                  "weight": 8.0,
                   "reps": 11,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 14
                 },
                 {
-                  "weight": 2.3,
+                  "weight": 9.5,
                   "reps": 7,
-                  "note": "14+"
+                  "note": "14+",
+                  "origWeight": 16.3
                 },
                 {
-                  "weight": 2.3,
+                  "weight": 9.5,
                   "reps": 5,
-                  "note": "14+"
+                  "note": "14+",
+                  "origWeight": 16.3
                 }
-              ]
+              ],
+              "note": "[normalised ×0.57: different cable]"
             },
             {
               "exerciseId": "preacher_curl",
@@ -27423,29 +28077,29 @@
               "exerciseId": "rope_hammer_curl",
               "sets": [
                 {
-                  "weight": 23,
+                  "weight": 11.5,
                   "reps": 10,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 23
                 },
                 {
-                  "weight": 23,
+                  "weight": 11.5,
                   "reps": 7,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 23
                 },
                 {
-                  "weight": 23,
+                  "weight": 11.5,
                   "reps": 6,
-                  "note": ""
+                  "note": "",
+                  "origWeight": 23
                 }
-              ]
+              ],
+              "note": "[normalised ×0.49: old gym]"
             }
           ],
           "notes": ""
         }
-      ],
-      "bodyWeightLog": [],
-      "deletedSessionIds": [
-        "1795532803238-tc078"
       ],
       "keyLifts": [
         "custom_military_press_1777469843395",
@@ -27458,13 +28112,23 @@
         "inclined_curl_db",
         "preacher_curl"
       ],
-      "exerciseNotes": {
-        "bench_press": ""
+      "exerciseNotes": {},
+      "bodyWeightLog": [],
+      "deletedSessionIds": [
+        "1795532803238-tc078"
+      ],
+      "id": "user_default",
+      "muscleGroupNotes": {
+        "back": "Dead hangs: legs straight, toes pointing down, hands a little outside shoulders, start with 1 min. Also do single-arm diverging rows and sideways back extensions.",
+        "biceps": "",
+        "shoulders": "",
+        "abs": "Try decline crunches: very small movement (saved Insta video).",
+        "chest": "",
+        "triceps": "Dips every tricep day (good for chest too, watch shoulders). Prefer EZ bar skullcrushers or seated DB overhead extension over cable.",
+        "legs": "Barbell squat instead of hack squat. Single-leg hip thrust (other leg straight), no weight, 8 each leg, instead of leg curl. Bulgarian split squat on the 24 cm box: move body down, not forward. Stand, one knee slightly up, then go a little down."
       }
     },
     {
-      "id": "user_1778257954568_bzsk",
-      "name": "Test user",
       "splits": [
         {
           "id": "user_1778257954568_bzsk_split",
@@ -27504,13 +28168,13 @@
         "triceps": "Order: dips → both arm pushdown → overhead extension → single arm pushdown",
         "legs": "1. Use free barbell squat. 2. Hip thrust: one leg straight, no weight, 8 reps each. 3. Bulgarian: box 24cm, don't go too low."
       },
+      "name": "Test user",
       "sessions": [],
       "bodyWeightLog": [],
+      "id": "user_1778257954568_bzsk",
       "deletedSessionIds": []
     },
     {
-      "id": "user_1778513815630_2kxb",
-      "name": "Avantika",
       "splits": [
         {
           "id": "user_1778513815630_2kxb_split_1778514439213",
@@ -27579,6 +28243,7 @@
         "triceps": "Order: dips → both arm pushdown → overhead extension → single arm pushdown",
         "legs": "1. Use free barbell squat. 2. Hip thrust: one leg straight, no weight, 8 reps each. 3. Bulgarian: box 24cm, don't go too low."
       },
+      "name": "Avantika",
       "sessions": [
         {
           "id": "1778519864000-kfzn4",
@@ -27694,6 +28359,7 @@
         }
       ],
       "bodyWeightLog": [],
+      "id": "user_1778513815630_2kxb",
       "deletedSessionIds": []
     }
   ]
