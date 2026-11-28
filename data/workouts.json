@@ -2898,7 +2898,8 @@
                   "note": ""
                 }
               ],
-              "note": "Single arm 25 each "
+              "note": "Single arm 25 each ",
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -12076,7 +12077,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
@@ -13397,7 +13399,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Single arm vertical"
             }
           ],
           "notes": ""
@@ -17375,7 +17378,8 @@
                   "note": ""
                 }
               ],
-              "note": ""
+              "note": "",
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "inclined_curl_db",
@@ -26714,7 +26718,8 @@
                   "reps": 12,
                   "note": ""
                 }
-              ]
+              ],
+              "variant": "Single arm vertical"
             },
             {
               "exerciseId": "dumbbell_shrugs",
